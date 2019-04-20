@@ -138,7 +138,7 @@ var AppRoutingModule = /** @class */ (function () {
     }
     AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forRoot(routes, { onSameUrlNavigation: 'reload', useHash: false })],
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forRoot(routes, { onSameUrlNavigation: 'reload', useHash: true })],
             exports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"]]
         })
     ], AppRoutingModule);
@@ -262,6 +262,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_user_reuse_send_message_modal_send_message_modal_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./components/user/reuse/send-message-modal/send-message-modal.component */ "./src/app/components/user/reuse/send-message-modal/send-message-modal.component.ts");
 /* harmony import */ var _components_user_reuse_offer_to_host_offer_to_host_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./components/user/reuse/offer-to-host/offer-to-host.component */ "./src/app/components/user/reuse/offer-to-host/offer-to-host.component.ts");
 /* harmony import */ var _components_user_reuse_carousel_modal_carousel_modal_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./components/user/reuse/carousel-modal/carousel-modal.component */ "./src/app/components/user/reuse/carousel-modal/carousel-modal.component.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+
 
 
 
@@ -373,6 +375,7 @@ var AppModule = /** @class */ (function () {
                 }),
             ],
             providers: [_services_userauth_service__WEBPACK_IMPORTED_MODULE_17__["UserauthService"],
+                Location, { provide: _angular_common__WEBPACK_IMPORTED_MODULE_48__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_48__["HashLocationStrategy"] },
                 {
                     provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"],
                     useClass: _auth_auth_interceptor__WEBPACK_IMPORTED_MODULE_19__["AuthInterceptor"],
