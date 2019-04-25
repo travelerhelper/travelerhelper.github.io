@@ -278,6 +278,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_user_profile_friends_friends_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./components/user/profile/friends/friends.component */ "./src/app/components/user/profile/friends/friends.component.ts");
 /* harmony import */ var _components_user_reuse_send_report_modal_send_report_modal_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./components/user/reuse/send-report-modal/send-report-modal.component */ "./src/app/components/user/reuse/send-report-modal/send-report-modal.component.ts");
 /* harmony import */ var _components_user_activity_activity_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./components/user/activity/activity.component */ "./src/app/components/user/activity/activity.component.ts");
+/* harmony import */ var _components_user_reuse_item_activity_item_activity_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./components/user/reuse/item-activity/item-activity.component */ "./src/app/components/user/reuse/item-activity/item-activity.component.ts");
+
 
 
 
@@ -379,6 +381,7 @@ var AppModule = /** @class */ (function () {
                 _components_user_profile_friends_friends_component__WEBPACK_IMPORTED_MODULE_51__["FriendsComponent"],
                 _components_user_reuse_send_report_modal_send_report_modal_component__WEBPACK_IMPORTED_MODULE_52__["SendReportModalComponent"],
                 _components_user_activity_activity_component__WEBPACK_IMPORTED_MODULE_53__["ActivityComponent"],
+                _components_user_reuse_item_activity_item_activity_component__WEBPACK_IMPORTED_MODULE_54__["ItemActivityComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -611,7 +614,7 @@ var NotfoundComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".menu-bar{\r\n    margin: auto;\r\n    display: flex;\r\n    align-items: center;\r\n    min-height: 70px;\r\n    margin-right: -10px;\r\n    margin-left: -10px;\r\n}\r\n.menu-bar ul{\r\n    -webkit-padding-start: 7px;\r\n            padding-inline-start: 7px;\r\n    list-style: none;\r\n    margin-top: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n.menu-bar ul li{\r\n    display: inline-block;\r\n    text-align: center; \r\n    margin: 0px 13px;\r\n}\r\n.menu-bar ul li a{\r\n    text-decoration: none;\r\n    font-size: 17px;\r\n    color: #287FB8;\r\n}\r\n.menu-bar ul li a:hover{\r\n    color: #ED6504;\r\n}\r\n.menu-bar ul li .is-selected{\r\n    color: #ED6504;\r\n    font-weight: 600;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL2FjdGl2aXR5L2FjdGl2aXR5LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxZQUFZO0lBQ1osYUFBYTtJQUNiLG1CQUFtQjtJQUNuQixnQkFBZ0I7SUFDaEIsbUJBQW1CO0lBQ25CLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0ksMEJBQXlCO1lBQXpCLHlCQUF5QjtJQUN6QixnQkFBZ0I7SUFDaEIsZUFBZTtJQUNmLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0kscUJBQXFCO0lBQ3JCLGtCQUFrQjtJQUNsQixnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLHFCQUFxQjtJQUNyQixlQUFlO0lBQ2YsY0FBYztBQUNsQjtBQUNBO0lBQ0ksY0FBYztBQUNsQjtBQUNBO0lBQ0ksY0FBYztJQUNkLGdCQUFnQjtBQUNwQiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvdXNlci9hY3Rpdml0eS9hY3Rpdml0eS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1lbnUtYmFye1xyXG4gICAgbWFyZ2luOiBhdXRvO1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgICBtaW4taGVpZ2h0OiA3MHB4O1xyXG4gICAgbWFyZ2luLXJpZ2h0OiAtMTBweDtcclxuICAgIG1hcmdpbi1sZWZ0OiAtMTBweDtcclxufVxyXG4ubWVudS1iYXIgdWx7XHJcbiAgICBwYWRkaW5nLWlubGluZS1zdGFydDogN3B4O1xyXG4gICAgbGlzdC1zdHlsZTogbm9uZTtcclxuICAgIG1hcmdpbi10b3A6IDBweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDBweDtcclxufVxyXG4ubWVudS1iYXIgdWwgbGl7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7IFxyXG4gICAgbWFyZ2luOiAwcHggMTNweDtcclxufVxyXG4ubWVudS1iYXIgdWwgbGkgYXtcclxuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICAgIGZvbnQtc2l6ZTogMTdweDtcclxuICAgIGNvbG9yOiAjMjg3RkI4O1xyXG59XHJcbi5tZW51LWJhciB1bCBsaSBhOmhvdmVye1xyXG4gICAgY29sb3I6ICNFRDY1MDQ7XHJcbn1cclxuLm1lbnUtYmFyIHVsIGxpIC5pcy1zZWxlY3RlZHtcclxuICAgIGNvbG9yOiAjRUQ2NTA0O1xyXG4gICAgZm9udC13ZWlnaHQ6IDYwMDtcclxufSJdfQ== */"
+module.exports = ".content{\r\n    padding: 20px;\r\n}\r\n.box-activity{\r\n    margin-left: -10px;\r\n    margin-right: -10px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL2FjdGl2aXR5L2FjdGl2aXR5LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsbUJBQW1CO0FBQ3ZCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy91c2VyL2FjdGl2aXR5L2FjdGl2aXR5LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGVudHtcclxuICAgIHBhZGRpbmc6IDIwcHg7XHJcbn1cclxuLmJveC1hY3Rpdml0eXtcclxuICAgIG1hcmdpbi1sZWZ0OiAtMTBweDtcclxuICAgIG1hcmdpbi1yaWdodDogLTEwcHg7XHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -622,7 +625,7 @@ module.exports = ".menu-bar{\r\n    margin: auto;\r\n    display: flex;\r\n    a
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-template #loading>\n  <app-loading></app-loading>\n</ng-template>\n<ng-template #nothing>\n  <div class=\"nothing\">\n    <span>Nothing to show</span>\n  </div>\n</ng-template>\n<div class=\"box\">\n  <div class=\" tab-bar\">\n    <ul class=\"nav nav-tabs\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='travelrequest'}\" [routerLink]=\"\" skipLocationChange=\"true\"\n          [queryParams]=\"{type:'travelrequest'}\">\n          Travel Request</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='hostoffer'}\" [routerLink]=\"\" skipLocationChange=\"true\"\n          [queryParams]=\"{type:'hostoffer'}\">Host Offer</a>\n      </li>\n    </ul>\n  </div>\n  <div class=\"content\">\n    <ng-container *ngIf=\"isLoading==false;else loading\">\n      {{items}}\n    </ng-container>\n\n  </div>\n</div>"
+module.exports = "<ng-template #loading>\n  <app-loading></app-loading>\n</ng-template>\n<ng-template #nothing>\n  <div class=\"nothing\">\n    <span>Nothing to show</span>\n  </div>\n</ng-template>\n<div class=\"box box-activity\">\n  <div class=\" tab-bar\">\n    <ul class=\"nav nav-tabs\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='travelrequest'}\" [routerLink]=\"\" skipLocationChange=\"true\"\n          [queryParams]=\"{type:'travelrequest'}\">\n          Travel Request</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='hostoffer'}\" [routerLink]=\"\" skipLocationChange=\"true\"\n          [queryParams]=\"{type:'hostoffer'}\">Host Offer</a>\n      </li>\n    </ul>\n  </div>\n  <div class=\"content\">\n    <ng-container *ngIf=\"isLoading==false;else loading\">\n      <ng-container *ngIf=\"items.length;else nothing\">\n        <ng-container *ngFor=\"let item of items\">\n           <app-item-activity (myClick)=\"onClick($event)\" [item]=\"item\"> </app-item-activity>\n        </ng-container>\n          \n      </ng-container>\n      \n    </ng-container>\n\n  </div>\n</div>"
 
 /***/ }),
 
@@ -659,7 +662,6 @@ var ActivityComponent = /** @class */ (function () {
                 _this.type = res.type;
             }
             _this.getItem(_this.type);
-            console.log(_this.items);
         });
     };
     ActivityComponent.prototype.getItem = function (type) {
@@ -670,12 +672,26 @@ var ActivityComponent = /** @class */ (function () {
             this.service.getTraveRequest().subscribe(function (res) {
                 _this.items = res;
                 _this.isLoading = false;
+                console.log(_this.items);
             });
         }
         if (type == 'hostoffer') {
             this.service.getHostOffer().subscribe(function (res) {
                 _this.items = res;
                 _this.isLoading = false;
+                console.log(_this.items);
+            });
+        }
+    };
+    ActivityComponent.prototype.onClick = function (event) {
+        if (event.type == 'accept') {
+            this.service.acceptRequest(event.id).subscribe(function (res) {
+                console.log(res);
+            });
+        }
+        else if (event.type == 'ignore') {
+            this.service.ignoreRequest(event.id).subscribe(function (res) {
+                console.log(res);
             });
         }
     };
@@ -2732,6 +2748,96 @@ var DropdownComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/user/reuse/item-activity/item-activity.component.css":
+/*!*********************************************************************************!*\
+  !*** ./src/app/components/user/reuse/item-activity/item-activity.component.css ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".item{\r\n    border: solid 1px rgba(0,0,0,0.15);\r\n    border-radius: 25px;\r\n    margin-bottom: 20px;\r\n}\r\n.activity-info,.message,.action{\r\n    padding: 0;\r\n}\r\n.activity-info{\r\n    min-width: 280px;\r\n    /* background-color: #f0f0f0; */\r\n    margin-bottom: 20px;\r\n}\r\n.activity{\r\n    margin: 0;\r\n    padding: 20px;\r\n}\r\n.card-info{\r\n    display: flex;\r\n}\r\n.card-info p{\r\n    margin-bottom:  0px;\r\n}\r\n.card-info .name{\r\n    font-size: 1.3em;\r\n    font-weight: 500;\r\n}\r\n.avatar{\r\n    padding-right: 20px;\r\n}\r\n.avatar img{\r\n    height: 70px;\r\n    width: 70px;\r\n    border-radius: 50%;\r\n}\r\n.trip-info{\r\n    clear: both;\r\n    padding-bottom: 15px;\r\n}\r\n.content-message{\r\n    padding: 10px;\r\n    background-color: #f0f0f0;\r\n    position: relative;\r\n    border-radius: 5px;\r\n}\r\n.trip-decription::after{\r\n    border-bottom: 25px solid transparent;\r\n    border-left: 25px solid transparent;\r\n    border-top: 25px solid #f0f0f0;\r\n    content: '';\r\n    left: -15px;\r\n    position: absolute;\r\n    top: 0px;\r\n}\r\n.trip-info span{\r\n    padding-right: 10px;\r\n    \r\n}\r\n.trip-decription{\r\n   clear: both;\r\n   word-wrap: break-word;\r\n   white-space: pre-wrap;\r\n   max-height: 4.5em;\r\n   overflow: hidden; \r\n  transition: max-height 0.5s; \r\n\r\n}\r\n.trip-decription p{\r\n    margin-bottom: 0px; \r\n}\r\n.button-decription{\r\n    padding-top: 5px;\r\n    display: flex; \r\n    \r\n}\r\n.button-decription a{\r\ncolor: #287FB8;;\r\nfont-weight: 600;\r\n}\r\n.button-decription a:hover{\r\n    cursor: pointer;\r\n    color: #ED6504;\r\n}\r\n.action{\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.time{\r\n    padding-left: 10px;\r\n    margin-top: auto;\r\n    padding-top: 20px;\r\n    margin-left: auto;\r\n}\r\n.button-bar{\r\n    padding-top: 20px;\r\n    margin-left: auto;\r\n}\r\n.button-bar button{\r\n    margin-left: 10px;\r\n}\r\n.time p{\r\n    font-size: 0.8em;\r\n    font-style: italic;\r\n    margin-bottom: 0px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL3JldXNlL2l0ZW0tYWN0aXZpdHkvaXRlbS1hY3Rpdml0eS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksa0NBQWtDO0lBQ2xDLG1CQUFtQjtJQUNuQixtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLFVBQVU7QUFDZDtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLCtCQUErQjtJQUMvQixtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLFNBQVM7SUFDVCxhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksWUFBWTtJQUNaLFdBQVc7SUFDWCxrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLFdBQVc7SUFDWCxvQkFBb0I7QUFDeEI7QUFDQTtJQUNJLGFBQWE7SUFDYix5QkFBeUI7SUFDekIsa0JBQWtCO0lBQ2xCLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0kscUNBQXFDO0lBQ3JDLG1DQUFtQztJQUNuQyw4QkFBOEI7SUFDOUIsV0FBVztJQUNYLFdBQVc7SUFDWCxrQkFBa0I7SUFDbEIsUUFBUTtBQUNaO0FBQ0E7SUFDSSxtQkFBbUI7O0FBRXZCO0FBRUE7R0FDRyxXQUFXO0dBQ1gscUJBQXFCO0dBQ3JCLHFCQUFxQjtHQUNyQixpQkFBaUI7R0FDakIsZ0JBQWdCO0VBQ2pCLDJCQUEyQjs7QUFFN0I7QUFDQTtJQUNJLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGFBQWE7O0FBRWpCO0FBQ0E7QUFDQSxjQUFjO0FBQ2QsZ0JBQWdCO0FBQ2hCO0FBQ0E7SUFDSSxlQUFlO0lBQ2YsY0FBYztBQUNsQjtBQUNBO0lBQ0ksYUFBYTtJQUNiLHNCQUFzQjtBQUMxQjtBQUNBO0lBQ0ksa0JBQWtCO0lBQ2xCLGdCQUFnQjtJQUNoQixpQkFBaUI7SUFDakIsaUJBQWlCO0FBQ3JCO0FBQ0E7SUFDSSxpQkFBaUI7SUFDakIsaUJBQWlCO0FBQ3JCO0FBQ0E7SUFDSSxpQkFBaUI7QUFDckI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixrQkFBa0I7SUFDbEIsa0JBQWtCO0FBQ3RCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy91c2VyL3JldXNlL2l0ZW0tYWN0aXZpdHkvaXRlbS1hY3Rpdml0eS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLml0ZW17XHJcbiAgICBib3JkZXI6IHNvbGlkIDFweCByZ2JhKDAsMCwwLDAuMTUpO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMjVweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XHJcbn1cclxuLmFjdGl2aXR5LWluZm8sLm1lc3NhZ2UsLmFjdGlvbntcclxuICAgIHBhZGRpbmc6IDA7XHJcbn1cclxuLmFjdGl2aXR5LWluZm97XHJcbiAgICBtaW4td2lkdGg6IDI4MHB4O1xyXG4gICAgLyogYmFja2dyb3VuZC1jb2xvcjogI2YwZjBmMDsgKi9cclxuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XHJcbn1cclxuLmFjdGl2aXR5e1xyXG4gICAgbWFyZ2luOiAwO1xyXG4gICAgcGFkZGluZzogMjBweDtcclxufVxyXG4uY2FyZC1pbmZve1xyXG4gICAgZGlzcGxheTogZmxleDtcclxufVxyXG4uY2FyZC1pbmZvIHB7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAgMHB4O1xyXG59XHJcbi5jYXJkLWluZm8gLm5hbWV7XHJcbiAgICBmb250LXNpemU6IDEuM2VtO1xyXG4gICAgZm9udC13ZWlnaHQ6IDUwMDtcclxufVxyXG4uYXZhdGFye1xyXG4gICAgcGFkZGluZy1yaWdodDogMjBweDtcclxufVxyXG4uYXZhdGFyIGltZ3tcclxuICAgIGhlaWdodDogNzBweDtcclxuICAgIHdpZHRoOiA3MHB4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG59XHJcbi50cmlwLWluZm97XHJcbiAgICBjbGVhcjogYm90aDtcclxuICAgIHBhZGRpbmctYm90dG9tOiAxNXB4O1xyXG59XHJcbi5jb250ZW50LW1lc3NhZ2V7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2YwZjBmMDtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcclxufVxyXG4udHJpcC1kZWNyaXB0aW9uOjphZnRlcntcclxuICAgIGJvcmRlci1ib3R0b206IDI1cHggc29saWQgdHJhbnNwYXJlbnQ7XHJcbiAgICBib3JkZXItbGVmdDogMjVweCBzb2xpZCB0cmFuc3BhcmVudDtcclxuICAgIGJvcmRlci10b3A6IDI1cHggc29saWQgI2YwZjBmMDtcclxuICAgIGNvbnRlbnQ6ICcnO1xyXG4gICAgbGVmdDogLTE1cHg7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6IDBweDtcclxufVxyXG4udHJpcC1pbmZvIHNwYW57XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG4gICAgXHJcbn1cclxuXHJcbi50cmlwLWRlY3JpcHRpb257XHJcbiAgIGNsZWFyOiBib3RoO1xyXG4gICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XHJcbiAgIHdoaXRlLXNwYWNlOiBwcmUtd3JhcDtcclxuICAgbWF4LWhlaWdodDogNC41ZW07XHJcbiAgIG92ZXJmbG93OiBoaWRkZW47IFxyXG4gIHRyYW5zaXRpb246IG1heC1oZWlnaHQgMC41czsgXHJcblxyXG59XHJcbi50cmlwLWRlY3JpcHRpb24gcHtcclxuICAgIG1hcmdpbi1ib3R0b206IDBweDsgXHJcbn1cclxuLmJ1dHRvbi1kZWNyaXB0aW9ue1xyXG4gICAgcGFkZGluZy10b3A6IDVweDtcclxuICAgIGRpc3BsYXk6IGZsZXg7IFxyXG4gICAgXHJcbn1cclxuLmJ1dHRvbi1kZWNyaXB0aW9uIGF7XHJcbmNvbG9yOiAjMjg3RkI4OztcclxuZm9udC13ZWlnaHQ6IDYwMDtcclxufVxyXG4uYnV0dG9uLWRlY3JpcHRpb24gYTpob3ZlcntcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIGNvbG9yOiAjRUQ2NTA0O1xyXG59XHJcbi5hY3Rpb257XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxufVxyXG4udGltZXtcclxuICAgIHBhZGRpbmctbGVmdDogMTBweDtcclxuICAgIG1hcmdpbi10b3A6IGF1dG87XHJcbiAgICBwYWRkaW5nLXRvcDogMjBweDtcclxuICAgIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG59XHJcbi5idXR0b24tYmFye1xyXG4gICAgcGFkZGluZy10b3A6IDIwcHg7XHJcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcclxufVxyXG4uYnV0dG9uLWJhciBidXR0b257XHJcbiAgICBtYXJnaW4tbGVmdDogMTBweDtcclxufVxyXG4udGltZSBwe1xyXG4gICAgZm9udC1zaXplOiAwLjhlbTtcclxuICAgIGZvbnQtc3R5bGU6IGl0YWxpYztcclxuICAgIG1hcmdpbi1ib3R0b206IDBweDtcclxufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/components/user/reuse/item-activity/item-activity.component.html":
+/*!**********************************************************************************!*\
+  !*** ./src/app/components/user/reuse/item-activity/item-activity.component.html ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"item\">\n    <div class=\"activity row\">\n        <div class=\"activity-info col-sm-12 col-md-4\">\n            <div class=\"card-info\">\n                <div class=\"avatar\">\n                    <a href=\"\"><img [src]=\"item.traveler.avatarLocation\"></a>\n                </div>\n                <div class=\"info\">\n                    <a>\n                        <p class=\"name\">{{item.traveler.fullName}}</p>\n                    </a>\n                    <p>{{item.traveler.address}}</p>\n                </div>\n\n            </div>\n\n        </div>\n        <div class=\"message col-md col-sm-12\">\n            <div class=\"trip-info\">\n                <span><i class=\"far fa-calendar-alt\"></i></span>\n                <span>{{item.arrivalDate|date:\"dd/MM/yyyy\" }} <i class=\"fas fa-arrow-right\"></i>\n                    {{item.departureDate|date:\"dd/MM/yyyy\"}}</span>\n                <span><i class=\"fas fa-user-friends\"></i></span><span>{{item.travelerNumber}} Traveler</span>\n            </div>\n            <div class=\"content-message\">\n                <div class=\"trip-decription\" (window:resize)=\"onResize($event)\"\n                    [ngStyle]=\"x && {'max-height.em':height}\">\n                    <p #des>{{item.message}} </p>\n                </div>\n                <div class=\"button-decription\" *ngIf=\"show\">\n                    <a style=\"margin-left:auto\" (click)=\"x=!x\">{{x?'[-]Read Less':'[+]Read More'}}</a>\n                </div>\n            </div>\n        </div>\n        <div class=\"action col-md-2 col-sm-12\">\n            <div class=\"button-bar\">\n                <button (click)=\"onAccept()\"  class=\"btn btn-primary\">Accept</button>\n                <button (click)=\"onIgnore()\" class=\"btn btn-danger\">Ignore</button>\n            </div>  \n            <div class=\"time\">\n                <p>{{item.createDate|date:'dd MMMM, yyyy, HH:mm':'+0700'}}</p>\n            </div>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/user/reuse/item-activity/item-activity.component.ts":
+/*!********************************************************************************!*\
+  !*** ./src/app/components/user/reuse/item-activity/item-activity.component.ts ***!
+  \********************************************************************************/
+/*! exports provided: ItemActivityComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ItemActivityComponent", function() { return ItemActivityComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var ItemActivityComponent = /** @class */ (function () {
+    function ItemActivityComponent() {
+        this.myClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.show = false;
+    }
+    ItemActivityComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        setTimeout(function () {
+            _this.onResize(event);
+        }, 0);
+    };
+    ItemActivityComponent.prototype.onResize = function (event) {
+        this.height = this.des.nativeElement.offsetHeight / 16;
+        this.show = (this.height > 6);
+    };
+    ItemActivityComponent.prototype.onAccept = function () {
+        var body = {
+            type: 'accept', id: this.item.travelRequestId
+        };
+        this.myClick.emit(body);
+    };
+    ItemActivityComponent.prototype.onIgnore = function () {
+        var body = {
+            type: 'ignore', id: this.item.travelRequestId
+        };
+        this.myClick.emit(body);
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], ItemActivityComponent.prototype, "item", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], ItemActivityComponent.prototype, "myClick", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('des'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+    ], ItemActivityComponent.prototype, "des", void 0);
+    ItemActivityComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-item-activity',
+            template: __webpack_require__(/*! ./item-activity.component.html */ "./src/app/components/user/reuse/item-activity/item-activity.component.html"),
+            styles: [__webpack_require__(/*! ./item-activity.component.css */ "./src/app/components/user/reuse/item-activity/item-activity.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], ItemActivityComponent);
+    return ItemActivityComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/user/reuse/loading/loading.component.css":
 /*!*********************************************************************!*\
   !*** ./src/app/components/user/reuse/loading/loading.component.css ***!
@@ -4352,6 +4458,12 @@ var UserService = /** @class */ (function () {
     };
     UserService.prototype.sendRequest = function (body, id) {
         return this.http.post(this.BaseURI + '/TravelRequests/' + id, body, { reportProgress: true, observe: "response" });
+    };
+    UserService.prototype.acceptRequest = function (id) {
+        return this.http.put(this.BaseURI + '/TravelRequests/' + id, { reportProgress: true, observe: "response" });
+    };
+    UserService.prototype.ignoreRequest = function (id) {
+        return this.http.delete(this.BaseURI + '/TravelRequests/' + id, { reportProgress: true, observe: "response" });
     };
     UserService.prototype.sendHostOffer = function (body, id) {
         return this.http.post(this.BaseURI + '/HostOffers/' + id, body, { reportProgress: true, observe: "response" });
