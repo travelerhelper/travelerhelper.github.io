@@ -625,7 +625,7 @@ module.exports = ".content{\r\n    padding: 20px;\r\n}\r\n.box-activity{\r\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-template #loading>\n  <app-loading></app-loading>\n</ng-template>\n<ng-template #nothing>\n  <div class=\"nothing\">\n    <span>Nothing to show</span>\n  </div>\n</ng-template>\n<div class=\"box box-activity\">\n  <div class=\" tab-bar\">\n    <ul class=\"nav nav-tabs\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='travelrequest'}\" [routerLink]=\"\" skipLocationChange=\"true\"\n          [queryParams]=\"{type:'travelrequest'}\">\n          Travel Request</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='hostoffer'}\" [routerLink]=\"\" skipLocationChange=\"true\"\n          [queryParams]=\"{type:'hostoffer'}\">Host Offer</a>\n      </li>\n    </ul>\n  </div>\n  <div class=\"content\">\n    <ng-container *ngIf=\"isLoading==false;else loading\">\n      <ng-container *ngIf=\"items.length;else nothing\">\n        <ng-container *ngFor=\"let item of items\">\n           <app-item-activity (myClick)=\"onClick($event)\" [item]=\"item\"> </app-item-activity>\n        </ng-container>\n          \n      </ng-container>\n      \n    </ng-container>\n\n  </div>\n</div>"
+module.exports = "<ng-template #loading>\r\n  <app-loading></app-loading>\r\n</ng-template>\r\n<ng-template #nothing>\r\n  <div class=\"nothing\">\r\n    <span>Nothing to show</span>\r\n  </div>\r\n</ng-template>\r\n<div class=\"box box-activity\">\r\n  <div class=\" tab-bar\">\r\n    <ul class=\"nav nav-tabs\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='travelrequest'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'travelrequest'}\">\r\n          Travel Request</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='hostoffer'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'hostoffer'}\">Host Offer</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n  <div class=\"content\">\r\n    <ng-container *ngIf=\"isLoading==false;else loading\">\r\n      <ng-container *ngIf=\"items.length;else nothing\">\r\n        <ng-container *ngFor=\"let item of items\">\r\n          <app-item-activity (myClick)=\"onAction($event)\" [item]=\"item\" [from]=\"type\"> </app-item-activity>\r\n        </ng-container>\r\n\r\n      </ng-container>\r\n\r\n    </ng-container>\r\n\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -643,14 +643,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var src_app_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+
 
 
 
 
 var ActivityComponent = /** @class */ (function () {
-    function ActivityComponent(activatedRoute, service) {
+    function ActivityComponent(router, activatedRoute, service, toast) {
+        this.router = router;
         this.activatedRoute = activatedRoute;
         this.service = service;
+        this.toast = toast;
         this.type = 'travelrequest';
     }
     ActivityComponent.prototype.ngOnInit = function () {
@@ -658,6 +662,7 @@ var ActivityComponent = /** @class */ (function () {
         this.type = 'travelrequest';
         // console.log(this.type)
         this.activatedRoute.queryParams.subscribe(function (res) {
+            //  console.log(res)
             if (res.type) {
                 _this.type = res.type;
             }
@@ -683,16 +688,31 @@ var ActivityComponent = /** @class */ (function () {
             });
         }
     };
-    ActivityComponent.prototype.onClick = function (event) {
-        if (event.type == 'accept') {
-            this.service.acceptRequest(event.id).subscribe(function (res) {
-                console.log(res);
-            });
-        }
-        else if (event.type == 'ignore') {
-            this.service.ignoreRequest(event.id).subscribe(function (res) {
-                console.log(res);
-            });
+    ActivityComponent.prototype.onAction = function (event) {
+        var _this = this;
+        if (event.type == 'ignore') {
+            if (this.type == 'travelrequest') {
+                this.service.ignoreRequest(event.id).subscribe(function (res) {
+                    if (res.status == 204) {
+                        _this.toast.success('Deleted');
+                        _this.items = _this.items.filter(function (item) { return item.travelRequestId !== event.id; });
+                    }
+                    else {
+                        _this.toast.success('Fail');
+                    }
+                });
+            }
+            else if (this.type == 'hostoffer') {
+                this.service.ignoreHostOffer(event.id).subscribe(function (res) {
+                    if (res.status == 204) {
+                        _this.toast.success('Deleted');
+                        _this.items = _this.items.filter(function (item) { return item.hostOfferId !== event.id; });
+                    }
+                    else {
+                        _this.toast.success('Fail');
+                    }
+                });
+            }
         }
     };
     ActivityComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -701,7 +721,7 @@ var ActivityComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./activity.component.html */ "./src/app/components/user/activity/activity.component.html"),
             styles: [__webpack_require__(/*! ./activity.component.css */ "./src/app/components/user/activity/activity.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"]])
     ], ActivityComponent);
     return ActivityComponent;
 }());
@@ -2755,7 +2775,7 @@ var DropdownComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".item{\r\n    border: solid 1px rgba(0,0,0,0.15);\r\n    border-radius: 25px;\r\n    margin-bottom: 20px;\r\n}\r\n.activity-info,.message,.action{\r\n    padding: 0;\r\n}\r\n.activity-info{\r\n    min-width: 280px;\r\n    /* background-color: #f0f0f0; */\r\n    margin-bottom: 20px;\r\n}\r\n.activity{\r\n    margin: 0;\r\n    padding: 20px;\r\n}\r\n.card-info{\r\n    display: flex;\r\n}\r\n.card-info p{\r\n    margin-bottom:  0px;\r\n}\r\n.card-info .name{\r\n    font-size: 1.3em;\r\n    font-weight: 500;\r\n}\r\n.avatar{\r\n    padding-right: 20px;\r\n}\r\n.avatar img{\r\n    height: 70px;\r\n    width: 70px;\r\n    border-radius: 50%;\r\n}\r\n.trip-info{\r\n    clear: both;\r\n    padding-bottom: 15px;\r\n}\r\n.content-message{\r\n    padding: 10px;\r\n    background-color: #f0f0f0;\r\n    position: relative;\r\n    border-radius: 5px;\r\n}\r\n.trip-decription::after{\r\n    border-bottom: 25px solid transparent;\r\n    border-left: 25px solid transparent;\r\n    border-top: 25px solid #f0f0f0;\r\n    content: '';\r\n    left: -15px;\r\n    position: absolute;\r\n    top: 0px;\r\n}\r\n.trip-info span{\r\n    padding-right: 10px;\r\n    \r\n}\r\n.trip-decription{\r\n   clear: both;\r\n   word-wrap: break-word;\r\n   white-space: pre-wrap;\r\n   max-height: 4.5em;\r\n   overflow: hidden; \r\n  transition: max-height 0.5s; \r\n\r\n}\r\n.trip-decription p{\r\n    margin-bottom: 0px; \r\n}\r\n.button-decription{\r\n    padding-top: 5px;\r\n    display: flex; \r\n    \r\n}\r\n.button-decription a{\r\ncolor: #287FB8;;\r\nfont-weight: 600;\r\n}\r\n.button-decription a:hover{\r\n    cursor: pointer;\r\n    color: #ED6504;\r\n}\r\n.action{\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.time{\r\n    padding-left: 10px;\r\n    margin-top: auto;\r\n    padding-top: 20px;\r\n    margin-left: auto;\r\n}\r\n.button-bar{\r\n    padding-top: 20px;\r\n    margin-left: auto;\r\n}\r\n.button-bar button{\r\n    margin-left: 10px;\r\n}\r\n.time p{\r\n    font-size: 0.8em;\r\n    font-style: italic;\r\n    margin-bottom: 0px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL3JldXNlL2l0ZW0tYWN0aXZpdHkvaXRlbS1hY3Rpdml0eS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksa0NBQWtDO0lBQ2xDLG1CQUFtQjtJQUNuQixtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLFVBQVU7QUFDZDtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLCtCQUErQjtJQUMvQixtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLFNBQVM7SUFDVCxhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksWUFBWTtJQUNaLFdBQVc7SUFDWCxrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLFdBQVc7SUFDWCxvQkFBb0I7QUFDeEI7QUFDQTtJQUNJLGFBQWE7SUFDYix5QkFBeUI7SUFDekIsa0JBQWtCO0lBQ2xCLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0kscUNBQXFDO0lBQ3JDLG1DQUFtQztJQUNuQyw4QkFBOEI7SUFDOUIsV0FBVztJQUNYLFdBQVc7SUFDWCxrQkFBa0I7SUFDbEIsUUFBUTtBQUNaO0FBQ0E7SUFDSSxtQkFBbUI7O0FBRXZCO0FBRUE7R0FDRyxXQUFXO0dBQ1gscUJBQXFCO0dBQ3JCLHFCQUFxQjtHQUNyQixpQkFBaUI7R0FDakIsZ0JBQWdCO0VBQ2pCLDJCQUEyQjs7QUFFN0I7QUFDQTtJQUNJLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGFBQWE7O0FBRWpCO0FBQ0E7QUFDQSxjQUFjO0FBQ2QsZ0JBQWdCO0FBQ2hCO0FBQ0E7SUFDSSxlQUFlO0lBQ2YsY0FBYztBQUNsQjtBQUNBO0lBQ0ksYUFBYTtJQUNiLHNCQUFzQjtBQUMxQjtBQUNBO0lBQ0ksa0JBQWtCO0lBQ2xCLGdCQUFnQjtJQUNoQixpQkFBaUI7SUFDakIsaUJBQWlCO0FBQ3JCO0FBQ0E7SUFDSSxpQkFBaUI7SUFDakIsaUJBQWlCO0FBQ3JCO0FBQ0E7SUFDSSxpQkFBaUI7QUFDckI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixrQkFBa0I7SUFDbEIsa0JBQWtCO0FBQ3RCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy91c2VyL3JldXNlL2l0ZW0tYWN0aXZpdHkvaXRlbS1hY3Rpdml0eS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLml0ZW17XHJcbiAgICBib3JkZXI6IHNvbGlkIDFweCByZ2JhKDAsMCwwLDAuMTUpO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMjVweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XHJcbn1cclxuLmFjdGl2aXR5LWluZm8sLm1lc3NhZ2UsLmFjdGlvbntcclxuICAgIHBhZGRpbmc6IDA7XHJcbn1cclxuLmFjdGl2aXR5LWluZm97XHJcbiAgICBtaW4td2lkdGg6IDI4MHB4O1xyXG4gICAgLyogYmFja2dyb3VuZC1jb2xvcjogI2YwZjBmMDsgKi9cclxuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XHJcbn1cclxuLmFjdGl2aXR5e1xyXG4gICAgbWFyZ2luOiAwO1xyXG4gICAgcGFkZGluZzogMjBweDtcclxufVxyXG4uY2FyZC1pbmZve1xyXG4gICAgZGlzcGxheTogZmxleDtcclxufVxyXG4uY2FyZC1pbmZvIHB7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAgMHB4O1xyXG59XHJcbi5jYXJkLWluZm8gLm5hbWV7XHJcbiAgICBmb250LXNpemU6IDEuM2VtO1xyXG4gICAgZm9udC13ZWlnaHQ6IDUwMDtcclxufVxyXG4uYXZhdGFye1xyXG4gICAgcGFkZGluZy1yaWdodDogMjBweDtcclxufVxyXG4uYXZhdGFyIGltZ3tcclxuICAgIGhlaWdodDogNzBweDtcclxuICAgIHdpZHRoOiA3MHB4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG59XHJcbi50cmlwLWluZm97XHJcbiAgICBjbGVhcjogYm90aDtcclxuICAgIHBhZGRpbmctYm90dG9tOiAxNXB4O1xyXG59XHJcbi5jb250ZW50LW1lc3NhZ2V7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2YwZjBmMDtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcclxufVxyXG4udHJpcC1kZWNyaXB0aW9uOjphZnRlcntcclxuICAgIGJvcmRlci1ib3R0b206IDI1cHggc29saWQgdHJhbnNwYXJlbnQ7XHJcbiAgICBib3JkZXItbGVmdDogMjVweCBzb2xpZCB0cmFuc3BhcmVudDtcclxuICAgIGJvcmRlci10b3A6IDI1cHggc29saWQgI2YwZjBmMDtcclxuICAgIGNvbnRlbnQ6ICcnO1xyXG4gICAgbGVmdDogLTE1cHg7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6IDBweDtcclxufVxyXG4udHJpcC1pbmZvIHNwYW57XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG4gICAgXHJcbn1cclxuXHJcbi50cmlwLWRlY3JpcHRpb257XHJcbiAgIGNsZWFyOiBib3RoO1xyXG4gICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XHJcbiAgIHdoaXRlLXNwYWNlOiBwcmUtd3JhcDtcclxuICAgbWF4LWhlaWdodDogNC41ZW07XHJcbiAgIG92ZXJmbG93OiBoaWRkZW47IFxyXG4gIHRyYW5zaXRpb246IG1heC1oZWlnaHQgMC41czsgXHJcblxyXG59XHJcbi50cmlwLWRlY3JpcHRpb24gcHtcclxuICAgIG1hcmdpbi1ib3R0b206IDBweDsgXHJcbn1cclxuLmJ1dHRvbi1kZWNyaXB0aW9ue1xyXG4gICAgcGFkZGluZy10b3A6IDVweDtcclxuICAgIGRpc3BsYXk6IGZsZXg7IFxyXG4gICAgXHJcbn1cclxuLmJ1dHRvbi1kZWNyaXB0aW9uIGF7XHJcbmNvbG9yOiAjMjg3RkI4OztcclxuZm9udC13ZWlnaHQ6IDYwMDtcclxufVxyXG4uYnV0dG9uLWRlY3JpcHRpb24gYTpob3ZlcntcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIGNvbG9yOiAjRUQ2NTA0O1xyXG59XHJcbi5hY3Rpb257XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxufVxyXG4udGltZXtcclxuICAgIHBhZGRpbmctbGVmdDogMTBweDtcclxuICAgIG1hcmdpbi10b3A6IGF1dG87XHJcbiAgICBwYWRkaW5nLXRvcDogMjBweDtcclxuICAgIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG59XHJcbi5idXR0b24tYmFye1xyXG4gICAgcGFkZGluZy10b3A6IDIwcHg7XHJcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcclxufVxyXG4uYnV0dG9uLWJhciBidXR0b257XHJcbiAgICBtYXJnaW4tbGVmdDogMTBweDtcclxufVxyXG4udGltZSBwe1xyXG4gICAgZm9udC1zaXplOiAwLjhlbTtcclxuICAgIGZvbnQtc3R5bGU6IGl0YWxpYztcclxuICAgIG1hcmdpbi1ib3R0b206IDBweDtcclxufSJdfQ== */"
+module.exports = ".item{\r\n    border: solid 1px rgba(0,0,0,0.15);\r\n    border-radius: 25px;\r\n    margin-bottom: 20px;\r\n}\r\n.activity-info,.message,.action{\r\n    padding: 0;\r\n}\r\n.activity-info{\r\n    min-width: 280px;\r\n   \r\n    /* background-color: #f0f0f0; */\r\n    margin-bottom: 20px;\r\n}\r\n.activity{\r\n    margin: 0;\r\n    padding: 20px;\r\n}\r\n.card-info{\r\n    display: flex;\r\n}\r\n.card-info p{\r\n    margin-bottom:  0px;\r\n}\r\n.card-info .name{\r\n    font-size: 1.3em;\r\n    font-weight: 500;\r\n}\r\n.info{\r\n    padding-right: 20px;\r\n    word-break: break-all;\r\n}\r\n.avatar{\r\n    padding-right: 20px;\r\n}\r\n.avatar img{\r\n    height: 70px;\r\n    width: 70px;\r\n    border-radius: 50%;\r\n}\r\n.trip-info{\r\n    clear: both;\r\n    padding-bottom: 15px;\r\n}\r\n.content-message{\r\n    padding: 10px;\r\n    background-color: #f0f0f0;\r\n    position: relative;\r\n    border-radius: 5px;\r\n}\r\n.trip-decription::after{\r\n    border-bottom: 25px solid transparent;\r\n    border-left: 25px solid transparent;\r\n    border-top: 25px solid #f0f0f0;\r\n    content: '';\r\n    left: -15px;\r\n    position: absolute;\r\n    top: 0px;\r\n}\r\n.trip-info span{\r\n    padding-right: 10px;\r\n    \r\n}\r\n.trip-decription{\r\n   clear: both;\r\n   word-wrap: break-word;\r\n   white-space: pre-wrap;\r\n   max-height: 4.5em;\r\n   overflow: hidden; \r\n  transition: max-height 0.5s; \r\n\r\n}\r\n.trip-decription p{\r\n    margin-bottom: 0px; \r\n}\r\n.button-decription{\r\n    padding-top: 5px;\r\n    display: flex; \r\n    \r\n}\r\n.button-decription a{\r\ncolor: #287FB8;;\r\nfont-weight: 600;\r\n}\r\n.button-decription a:hover{\r\n    cursor: pointer;\r\n    color: #ED6504;\r\n}\r\n.action{\r\n    min-width: 200px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.time{\r\n    padding-left: 10px;\r\n    margin-top: auto;\r\n    padding-top: 20px;\r\n    margin-left: auto;\r\n}\r\n.button-bar{\r\n    padding-top: 20px;\r\n    margin-left: auto;\r\n   \r\n}\r\n.button-bar button{\r\n    \r\n    margin-left: 10px;\r\n}\r\n.time p{\r\n    font-size: 0.8em;\r\n    font-style: italic;\r\n    margin-bottom: 0px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL3JldXNlL2l0ZW0tYWN0aXZpdHkvaXRlbS1hY3Rpdml0eS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksa0NBQWtDO0lBQ2xDLG1CQUFtQjtJQUNuQixtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLFVBQVU7QUFDZDtBQUNBO0lBQ0ksZ0JBQWdCOztJQUVoQiwrQkFBK0I7SUFDL0IsbUJBQW1CO0FBQ3ZCO0FBQ0E7SUFDSSxTQUFTO0lBQ1QsYUFBYTtBQUNqQjtBQUNBO0lBQ0ksYUFBYTtBQUNqQjtBQUNBO0lBQ0ksbUJBQW1CO0FBQ3ZCO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxtQkFBbUI7SUFDbkIscUJBQXFCO0FBQ3pCO0FBQ0E7SUFDSSxtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLFlBQVk7SUFDWixXQUFXO0lBQ1gsa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsb0JBQW9CO0FBQ3hCO0FBQ0E7SUFDSSxhQUFhO0lBQ2IseUJBQXlCO0lBQ3pCLGtCQUFrQjtJQUNsQixrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLHFDQUFxQztJQUNyQyxtQ0FBbUM7SUFDbkMsOEJBQThCO0lBQzlCLFdBQVc7SUFDWCxXQUFXO0lBQ1gsa0JBQWtCO0lBQ2xCLFFBQVE7QUFDWjtBQUNBO0lBQ0ksbUJBQW1COztBQUV2QjtBQUVBO0dBQ0csV0FBVztHQUNYLHFCQUFxQjtHQUNyQixxQkFBcUI7R0FDckIsaUJBQWlCO0dBQ2pCLGdCQUFnQjtFQUNqQiwyQkFBMkI7O0FBRTdCO0FBQ0E7SUFDSSxrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixhQUFhOztBQUVqQjtBQUNBO0FBQ0EsY0FBYztBQUNkLGdCQUFnQjtBQUNoQjtBQUNBO0lBQ0ksZUFBZTtJQUNmLGNBQWM7QUFDbEI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixhQUFhO0lBQ2Isc0JBQXNCO0FBQzFCO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLGlCQUFpQjtJQUNqQixpQkFBaUI7QUFDckI7QUFDQTtJQUNJLGlCQUFpQjtJQUNqQixpQkFBaUI7O0FBRXJCO0FBQ0E7O0lBRUksaUJBQWlCO0FBQ3JCO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsa0JBQWtCO0lBQ2xCLGtCQUFrQjtBQUN0QiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvdXNlci9yZXVzZS9pdGVtLWFjdGl2aXR5L2l0ZW0tYWN0aXZpdHkuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pdGVte1xyXG4gICAgYm9yZGVyOiBzb2xpZCAxcHggcmdiYSgwLDAsMCwwLjE1KTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDI1cHg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xyXG59XHJcbi5hY3Rpdml0eS1pbmZvLC5tZXNzYWdlLC5hY3Rpb257XHJcbiAgICBwYWRkaW5nOiAwO1xyXG59XHJcbi5hY3Rpdml0eS1pbmZve1xyXG4gICAgbWluLXdpZHRoOiAyODBweDtcclxuICAgXHJcbiAgICAvKiBiYWNrZ3JvdW5kLWNvbG9yOiAjZjBmMGYwOyAqL1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcclxufVxyXG4uYWN0aXZpdHl7XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBwYWRkaW5nOiAyMHB4O1xyXG59XHJcbi5jYXJkLWluZm97XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5jYXJkLWluZm8gcHtcclxuICAgIG1hcmdpbi1ib3R0b206ICAwcHg7XHJcbn1cclxuLmNhcmQtaW5mbyAubmFtZXtcclxuICAgIGZvbnQtc2l6ZTogMS4zZW07XHJcbiAgICBmb250LXdlaWdodDogNTAwO1xyXG59XHJcbi5pbmZve1xyXG4gICAgcGFkZGluZy1yaWdodDogMjBweDtcclxuICAgIHdvcmQtYnJlYWs6IGJyZWFrLWFsbDtcclxufVxyXG4uYXZhdGFye1xyXG4gICAgcGFkZGluZy1yaWdodDogMjBweDtcclxufVxyXG4uYXZhdGFyIGltZ3tcclxuICAgIGhlaWdodDogNzBweDtcclxuICAgIHdpZHRoOiA3MHB4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG59XHJcbi50cmlwLWluZm97XHJcbiAgICBjbGVhcjogYm90aDtcclxuICAgIHBhZGRpbmctYm90dG9tOiAxNXB4O1xyXG59XHJcbi5jb250ZW50LW1lc3NhZ2V7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2YwZjBmMDtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcclxufVxyXG4udHJpcC1kZWNyaXB0aW9uOjphZnRlcntcclxuICAgIGJvcmRlci1ib3R0b206IDI1cHggc29saWQgdHJhbnNwYXJlbnQ7XHJcbiAgICBib3JkZXItbGVmdDogMjVweCBzb2xpZCB0cmFuc3BhcmVudDtcclxuICAgIGJvcmRlci10b3A6IDI1cHggc29saWQgI2YwZjBmMDtcclxuICAgIGNvbnRlbnQ6ICcnO1xyXG4gICAgbGVmdDogLTE1cHg7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6IDBweDtcclxufVxyXG4udHJpcC1pbmZvIHNwYW57XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG4gICAgXHJcbn1cclxuXHJcbi50cmlwLWRlY3JpcHRpb257XHJcbiAgIGNsZWFyOiBib3RoO1xyXG4gICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XHJcbiAgIHdoaXRlLXNwYWNlOiBwcmUtd3JhcDtcclxuICAgbWF4LWhlaWdodDogNC41ZW07XHJcbiAgIG92ZXJmbG93OiBoaWRkZW47IFxyXG4gIHRyYW5zaXRpb246IG1heC1oZWlnaHQgMC41czsgXHJcblxyXG59XHJcbi50cmlwLWRlY3JpcHRpb24gcHtcclxuICAgIG1hcmdpbi1ib3R0b206IDBweDsgXHJcbn1cclxuLmJ1dHRvbi1kZWNyaXB0aW9ue1xyXG4gICAgcGFkZGluZy10b3A6IDVweDtcclxuICAgIGRpc3BsYXk6IGZsZXg7IFxyXG4gICAgXHJcbn1cclxuLmJ1dHRvbi1kZWNyaXB0aW9uIGF7XHJcbmNvbG9yOiAjMjg3RkI4OztcclxuZm9udC13ZWlnaHQ6IDYwMDtcclxufVxyXG4uYnV0dG9uLWRlY3JpcHRpb24gYTpob3ZlcntcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIGNvbG9yOiAjRUQ2NTA0O1xyXG59XHJcbi5hY3Rpb257XHJcbiAgICBtaW4td2lkdGg6IDIwMHB4O1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbn1cclxuLnRpbWV7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7XHJcbiAgICBtYXJnaW4tdG9wOiBhdXRvO1xyXG4gICAgcGFkZGluZy10b3A6IDIwcHg7XHJcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcclxufVxyXG4uYnV0dG9uLWJhcntcclxuICAgIHBhZGRpbmctdG9wOiAyMHB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IGF1dG87XHJcbiAgIFxyXG59XHJcbi5idXR0b24tYmFyIGJ1dHRvbntcclxuICAgIFxyXG4gICAgbWFyZ2luLWxlZnQ6IDEwcHg7XHJcbn1cclxuLnRpbWUgcHtcclxuICAgIGZvbnQtc2l6ZTogMC44ZW07XHJcbiAgICBmb250LXN0eWxlOiBpdGFsaWM7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAwcHg7XHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -2766,7 +2786,7 @@ module.exports = ".item{\r\n    border: solid 1px rgba(0,0,0,0.15);\r\n    borde
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"item\">\n    <div class=\"activity row\">\n        <div class=\"activity-info col-sm-12 col-md-4\">\n            <div class=\"card-info\">\n                <div class=\"avatar\">\n                    <a href=\"\"><img [src]=\"item.traveler.avatarLocation\"></a>\n                </div>\n                <div class=\"info\">\n                    <a>\n                        <p class=\"name\">{{item.traveler.fullName}}</p>\n                    </a>\n                    <p>{{item.traveler.address}}</p>\n                </div>\n\n            </div>\n\n        </div>\n        <div class=\"message col-md col-sm-12\">\n            <div class=\"trip-info\">\n                <span><i class=\"far fa-calendar-alt\"></i></span>\n                <span>{{item.arrivalDate|date:\"dd/MM/yyyy\" }} <i class=\"fas fa-arrow-right\"></i>\n                    {{item.departureDate|date:\"dd/MM/yyyy\"}}</span>\n                <span><i class=\"fas fa-user-friends\"></i></span><span>{{item.travelerNumber}} Traveler</span>\n            </div>\n            <div class=\"content-message\">\n                <div class=\"trip-decription\" (window:resize)=\"onResize($event)\"\n                    [ngStyle]=\"x && {'max-height.em':height}\">\n                    <p #des>{{item.message}} </p>\n                </div>\n                <div class=\"button-decription\" *ngIf=\"show\">\n                    <a style=\"margin-left:auto\" (click)=\"x=!x\">{{x?'[-]Read Less':'[+]Read More'}}</a>\n                </div>\n            </div>\n        </div>\n        <div class=\"action col-md-2 col-sm-12\">\n            <div class=\"button-bar\">\n                <button (click)=\"onAccept()\"  class=\"btn btn-primary\">Accept</button>\n                <button (click)=\"onIgnore()\" class=\"btn btn-danger\">Ignore</button>\n            </div>  \n            <div class=\"time\">\n                <p>{{item.createDate|date:'dd MMMM, yyyy, HH:mm':'+0700'}}</p>\n            </div>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"item\">\r\n    <div class=\"activity row\">\r\n        <div class=\"activity-info col-sm-12 col-md-3\">\r\n            <div class=\"card-info\">\r\n                <div class=\"avatar\">\r\n                    <a href=\"\"><img [src]=\"item.sender.avatarLocation\"></a>\r\n                </div>\r\n                <div class=\"info\">\r\n                    <a>\r\n                        <p class=\"name\">{{item.sender.fullName}}</p>\r\n                    </a>\r\n                    <p>{{item.sender.address}}</p>\r\n                </div>\r\n\r\n            </div>\r\n\r\n        </div>\r\n        <div class=\"message col-md col-sm-12\">\r\n            <div class=\"trip-info\">\r\n                <span><i class=\"far fa-calendar-alt\"></i></span>\r\n                <span>{{item.arrivalDate|date:\"dd/MM/yyyy\" }} <i class=\"fas fa-arrow-right\"></i>\r\n                    {{item.departureDate|date:\"dd/MM/yyyy\"}}</span>\r\n                <span><i class=\"fas fa-user-friends\"></i></span><span>{{item.travelerNumber}} Traveler</span>\r\n            </div>\r\n            <div class=\"content-message\">\r\n                <div class=\"trip-decription\" (window:resize)=\"onResize($event)\"\r\n                    [ngStyle]=\"x && {'max-height.em':height}\">\r\n                    <p #des>{{item.message}} </p>\r\n                </div>\r\n                <div class=\"button-decription\" *ngIf=\"show\">\r\n                    <a style=\"margin-left:auto\" (click)=\"x=!x\">{{x?'[-]Read Less':'[+]Read More'}}</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"action col-lg-2 col-md-12\">\r\n            <div class=\"button-bar\">\r\n                <button [disabled]=\"item.isAccepted || isdiabled\" (click)=\"onAccept()\"\r\n                    class=\"btn btn-primary\">{{item.isAccepted?'Accepted':'Accept'}}</button>\r\n                <button [disabled]=\"isdiabled\" (click)=\"onIgnore()\" class=\"btn btn-danger\">Ignore</button>\r\n            </div>\r\n            <div class=\"time\">\r\n                <p>{{item.createDate|date:'dd MMMM, yyyy, HH:mm':'+0700'}}</p>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -2782,10 +2802,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ItemActivityComponent", function() { return ItemActivityComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+
+
 
 
 var ItemActivityComponent = /** @class */ (function () {
-    function ItemActivityComponent() {
+    function ItemActivityComponent(service, toast) {
+        this.service = service;
+        this.toast = toast;
         this.myClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.show = false;
     }
@@ -2800,14 +2826,36 @@ var ItemActivityComponent = /** @class */ (function () {
         this.show = (this.height > 6);
     };
     ItemActivityComponent.prototype.onAccept = function () {
-        var body = {
-            type: 'accept', id: this.item.travelRequestId
-        };
-        this.myClick.emit(body);
+        var _this = this;
+        this.isdiabled = true;
+        if (this.from == 'travelrequest') {
+            this.service.acceptRequest(this.item.travelRequestId).subscribe(function (res) {
+                _this.toast.success('Accepted');
+                _this.item.isAccepted = res.isAccepted;
+                _this.isdiabled = false;
+                console.log(res);
+            });
+        }
+        else if (this.from == 'hostoffer') {
+            this.service.acceptHostOffer(this.item.hostOfferId).subscribe(function (res) {
+                _this.toast.success('Accepted');
+                _this.item.isAccepted = res.isAccepted;
+                _this.isdiabled = false;
+                console.log(res);
+            });
+        }
     };
     ItemActivityComponent.prototype.onIgnore = function () {
+        this.isdiabled = true;
+        var id;
+        if (this.from == 'travelrequest') {
+            id = this.item.travelRequestId;
+        }
+        else if (this.from == 'hostoffer') {
+            id = this.item.hostOfferId;
+        }
         var body = {
-            type: 'ignore', id: this.item.travelRequestId
+            type: 'ignore', id: id
         };
         this.myClick.emit(body);
     };
@@ -2815,6 +2863,10 @@ var ItemActivityComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
     ], ItemActivityComponent.prototype, "item", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], ItemActivityComponent.prototype, "from", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -2829,7 +2881,7 @@ var ItemActivityComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./item-activity.component.html */ "./src/app/components/user/reuse/item-activity/item-activity.component.html"),
             styles: [__webpack_require__(/*! ./item-activity.component.css */ "./src/app/components/user/reuse/item-activity/item-activity.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
     ], ItemActivityComponent);
     return ItemActivityComponent;
 }());
@@ -2912,7 +2964,7 @@ module.exports = "label{\r\n    font-weight: 600;\r\n}\r\n.trip-info{\r\n    bor
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-template #content>\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Send a Offer to {{user.fullName}}</h4>\r\n    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"modalRef.close()\">\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n\r\n  <div class=\"modal-body\">\r\n    <form #offerForm=\"ngForm\">\r\n      <div class=\"trip-info\">\r\n        <h3>Trip Information</h3>\r\n\r\n        <div class=\"form-group\">\r\n          <label for=\"destination\">Visiting</label>\r\n          <input disabled ngModel [ngModel]=\"trip.destination\" type=\"text\" class=\"form-control\" id=\"destination\"\r\n            name=\"destination\">\r\n        </div>\r\n        <div class=\"form-row\">\r\n          <div class=\"form-group col\">\r\n            <label for=\"arrivaldate\">Arrival Date</label>\r\n            <input disabled ngModel [ngModel]=\"trip.arrivalDate|date:'dd/MM/yyyy'\" type=\"datetime\" class=\"form-control\"\r\n              id=\"arrivaldate\" name=\"arrivaldate\">\r\n          </div>\r\n          <div class=\"form-group col\">\r\n            <label for=\"departuredate\">Departure Date</label>\r\n            <input disabled ngModel [ngModel]=\"trip.departureDate|date:'dd/MM/yyyy'\" type=\"datetime\" class=\"form-control\"\r\n              id=\"departuredate\" name=\"departuredate\">\r\n          </div>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label for=\"travelerNumber\">Traveler Number</label>\r\n          <input disabled ngModel [ngModel]=\"trip.travelerNumber\" style=\"width:100px\" type=\"number\" min=\"0\" class=\"form-control\"\r\n            id=\"travelerNumber\" name=\"travelerNumber\">\r\n        </div>\r\n\r\n      </div>\r\n      <div class=\"message\">\r\n        <div class=\"form-group\">\r\n          <label for=\"message\">Your Message<span style=\"color: red\">*</span></label>\r\n          <textarea required ngModel class=\"form-control\" name=\"message\" id=\"message\" rows=\"5\"></textarea>\r\n        </div>\r\n\r\n      </div>\r\n    </form>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button [disabled]=\"isdiable\" type=\"button\" class=\"btn btn-secondary\" (click)=\"modalRef.close()\">Cancel</button>\r\n    <button [disabled]=\"offerForm.invalid ||isdiable\" type=\"button\" class=\"btn btn-success\"\r\n      (click)=\"send(offerForm);\">Send</button>\r\n  </div>\r\n</ng-template>"
+module.exports = "<ng-template #content>\r\n  <ng-template #loading>\r\n    <app-loading></app-loading>\r\n  </ng-template>\r\n  <ng-container *ngIf=\"user;else loading\">\r\n    <div class=\"modal-header\">\r\n      <h4 class=\"modal-title\" id=\"modal-basic-title\">Send a Offer to {{user.fullName}}</h4>\r\n      <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"modalRef.close()\">\r\n        <span aria-hidden=\"true\">&times;</span>\r\n      </button>\r\n    </div>\r\n\r\n    <div class=\"modal-body\">\r\n      <form #offerForm=\"ngForm\">\r\n        <div class=\"trip-info\">\r\n          <h3>Trip Information</h3>\r\n\r\n          <div class=\"form-group\">\r\n            <label for=\"destination\">Visiting</label>\r\n            <input disabled ngModel [ngModel]=\"trip.destination\" type=\"text\" class=\"form-control\" id=\"destination\"\r\n              name=\"destination\">\r\n          </div>\r\n          <div class=\"form-row\">\r\n            <div class=\"form-group col\">\r\n              <label for=\"arrivaldate\">Arrival Date</label>\r\n              <input disabled ngModel [ngModel]=\"trip.arrivalDate|date:'dd/MM/yyyy'\" type=\"datetime\"\r\n                class=\"form-control\" id=\"arrivaldate\" name=\"arrivaldate\">\r\n            </div>\r\n            <div class=\"form-group col\">\r\n              <label for=\"departuredate\">Departure Date</label>\r\n              <input disabled ngModel [ngModel]=\"trip.departureDate|date:'dd/MM/yyyy'\" type=\"datetime\"\r\n                class=\"form-control\" id=\"departuredate\" name=\"departuredate\">\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label for=\"travelerNumber\">Traveler Number</label>\r\n            <input disabled ngModel [ngModel]=\"trip.travelerNumber\" style=\"width:100px\" type=\"number\" min=\"0\"\r\n              class=\"form-control\" id=\"travelerNumber\" name=\"travelerNumber\">\r\n          </div>\r\n\r\n        </div>\r\n        <div class=\"message\">\r\n          <div class=\"form-group\">\r\n            <label for=\"message\">Your Message<span style=\"color: red\">*</span></label>\r\n            <textarea required ngModel class=\"form-control\" name=\"message\" id=\"message\" rows=\"5\"></textarea>\r\n          </div>\r\n\r\n        </div>\r\n      </form>\r\n    </div>\r\n    <div class=\"modal-footer\">\r\n      <button [disabled]=\"isdiable\" type=\"button\" class=\"btn btn-secondary\" (click)=\"modalRef.close()\">Cancel</button>\r\n      <button [disabled]=\"offerForm.invalid ||isdiable\" type=\"button\" class=\"btn btn-success\"\r\n        (click)=\"send(offerForm);\">Send</button>\r\n    </div>\r\n  </ng-container>\r\n</ng-template>"
 
 /***/ }),
 
@@ -2946,11 +2998,12 @@ var OfferToHostComponent = /** @class */ (function () {
     };
     OfferToHostComponent.prototype.open = function (trip) {
         var _this = this;
+        this.modalRef = this.modalService.open(this.content, { windowClass: 'modal-holder' });
         this.isdiable = false;
         this.trip = trip;
         this.service.getPeopleProfile(trip.applicationUserId).subscribe(function (res) {
             _this.user = res;
-            _this.modalRef = _this.modalService.open(_this.content, { windowClass: 'modal-holder' });
+            // this.modalRef = this.modalService.open(this.content, { windowClass: 'modal-holder' });
         });
     };
     OfferToHostComponent.prototype.send = function (offerForm) {
@@ -4450,9 +4503,6 @@ var UserService = /** @class */ (function () {
         return this.getPeopleImages(this.peopleid);
     };
     //  =============================
-    UserService.prototype.getHostOffer = function () {
-        return this.http.get(this.BaseURI + '/Users/HostOffers');
-    };
     UserService.prototype.getTraveRequest = function () {
         return this.http.get(this.BaseURI + '/Users/TravelRequests');
     };
@@ -4465,8 +4515,18 @@ var UserService = /** @class */ (function () {
     UserService.prototype.ignoreRequest = function (id) {
         return this.http.delete(this.BaseURI + '/TravelRequests/' + id, { reportProgress: true, observe: "response" });
     };
+    //=============================
+    UserService.prototype.getHostOffer = function () {
+        return this.http.get(this.BaseURI + '/Users/HostOffers');
+    };
     UserService.prototype.sendHostOffer = function (body, id) {
         return this.http.post(this.BaseURI + '/HostOffers/' + id, body, { reportProgress: true, observe: "response" });
+    };
+    UserService.prototype.acceptHostOffer = function (id) {
+        return this.http.put(this.BaseURI + '/HostOffers/' + id, { reportProgress: true, observe: "response" });
+    };
+    UserService.prototype.ignoreHostOffer = function (id) {
+        return this.http.delete(this.BaseURI + '/HostOffers/' + id, { reportProgress: true, observe: "response" });
     };
     //  =============================
     UserService.prototype.getUserProfile = function () {
