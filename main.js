@@ -245,41 +245,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _auth_auth_interceptor__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./auth/auth.interceptor */ "./src/app/auth/auth.interceptor.ts");
 /* harmony import */ var _components_user_profile_profile_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/user/profile/profile.component */ "./src/app/components/user/profile/profile.component.ts");
 /* harmony import */ var _components_user_message_message_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/user/message/message.component */ "./src/app/components/user/message/message.component.ts");
-/* harmony import */ var _components_user_request_request_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/user/request/request.component */ "./src/app/components/user/request/request.component.ts");
-/* harmony import */ var _components_notfound_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/notfound.component */ "./src/app/components/notfound.component.ts");
-/* harmony import */ var ng_click_outside__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ng-click-outside */ "./node_modules/ng-click-outside/lib/index.js");
-/* harmony import */ var ng_click_outside__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(ng_click_outside__WEBPACK_IMPORTED_MODULE_24__);
-/* harmony import */ var _components_user_profile_about_about_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/user/profile/about/about.component */ "./src/app/components/user/profile/about/about.component.ts");
-/* harmony import */ var _components_user_people_people_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/user/people/people.component */ "./src/app/components/user/people/people.component.ts");
-/* harmony import */ var _components_user_profile_edit_edit_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/user/profile/edit/edit.component */ "./src/app/components/user/profile/edit/edit.component.ts");
-/* harmony import */ var _components_user_search_host_search_host_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/user/search-host/search-host.component */ "./src/app/components/user/search-host/search-host.component.ts");
-/* harmony import */ var _pipes_format_data_pipe__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./pipes/format-data.pipe */ "./src/app/pipes/format-data.pipe.ts");
-/* harmony import */ var _components_user_public_trip_public_trip_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/user/public-trip/public-trip.component */ "./src/app/components/user/public-trip/public-trip.component.ts");
-/* harmony import */ var _components_user_pubic_trip_content_pubic_trip_content_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/user/pubic-trip-content/pubic-trip-content.component */ "./src/app/components/user/pubic-trip-content/pubic-trip-content.component.ts");
-/* harmony import */ var _components_user_reuse_trip_trip_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/user/reuse/trip/trip.component */ "./src/app/components/user/reuse/trip/trip.component.ts");
-/* harmony import */ var _components_user_reuse_publictrip_publictrip_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/user/reuse/publictrip/publictrip.component */ "./src/app/components/user/reuse/publictrip/publictrip.component.ts");
-/* harmony import */ var _components_user_reuse_dropdown_dropdown_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/user/reuse/dropdown/dropdown.component */ "./src/app/components/user/reuse/dropdown/dropdown.component.ts");
-/* harmony import */ var _components_user_reuse_upload_upload_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/user/reuse/upload/upload.component */ "./src/app/components/user/reuse/upload/upload.component.ts");
-/* harmony import */ var _components_user_profile_photos_photos_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/user/profile/photos/photos.component */ "./src/app/components/user/profile/photos/photos.component.ts");
-/* harmony import */ var _components_user_profile_home_home_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/user/profile/home/home.component */ "./src/app/components/user/profile/home/home.component.ts");
-/* harmony import */ var _services_user_resolve__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./services/user.resolve */ "./src/app/services/user.resolve.ts");
-/* harmony import */ var _ngx_progressbar_core__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! @ngx-progressbar/core */ "./node_modules/@ngx-progressbar/core/fesm5/ngx-progressbar-core.js");
-/* harmony import */ var _components_user_reuse_reference_reference_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/user/reuse/reference/reference.component */ "./src/app/components/user/reuse/reference/reference.component.ts");
-/* harmony import */ var _components_user_profile_references_references_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./components/user/profile/references/references.component */ "./src/app/components/user/profile/references/references.component.ts");
-/* harmony import */ var _components_user_reuse_loading_loading_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./components/user/reuse/loading/loading.component */ "./src/app/components/user/reuse/loading/loading.component.ts");
-/* harmony import */ var _components_user_reuse_write_reference_modal_write_reference_modal_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./components/user/reuse/write-reference-modal/write-reference-modal.component */ "./src/app/components/user/reuse/write-reference-modal/write-reference-modal.component.ts");
-/* harmony import */ var _components_user_reuse_send_request_modal_send_request_modal_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./components/user/reuse/send-request-modal/send-request-modal.component */ "./src/app/components/user/reuse/send-request-modal/send-request-modal.component.ts");
-/* harmony import */ var _components_user_reuse_send_message_modal_send_message_modal_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./components/user/reuse/send-message-modal/send-message-modal.component */ "./src/app/components/user/reuse/send-message-modal/send-message-modal.component.ts");
-/* harmony import */ var _components_user_reuse_offer_to_host_offer_to_host_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./components/user/reuse/offer-to-host/offer-to-host.component */ "./src/app/components/user/reuse/offer-to-host/offer-to-host.component.ts");
-/* harmony import */ var _components_user_reuse_carousel_modal_carousel_modal_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./components/user/reuse/carousel-modal/carousel-modal.component */ "./src/app/components/user/reuse/carousel-modal/carousel-modal.component.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _components_user_change_pass_change_pass_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./components/user/change-pass/change-pass.component */ "./src/app/components/user/change-pass/change-pass.component.ts");
-/* harmony import */ var _components_user_reuse_delete_modal_delete_modal_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./components/user/reuse/delete-modal/delete-modal.component */ "./src/app/components/user/reuse/delete-modal/delete-modal.component.ts");
-/* harmony import */ var _components_user_profile_friends_friends_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./components/user/profile/friends/friends.component */ "./src/app/components/user/profile/friends/friends.component.ts");
-/* harmony import */ var _components_user_reuse_send_report_modal_send_report_modal_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./components/user/reuse/send-report-modal/send-report-modal.component */ "./src/app/components/user/reuse/send-report-modal/send-report-modal.component.ts");
-/* harmony import */ var _components_user_activity_activity_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./components/user/activity/activity.component */ "./src/app/components/user/activity/activity.component.ts");
-/* harmony import */ var _components_user_reuse_item_activity_item_activity_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./components/user/reuse/item-activity/item-activity.component */ "./src/app/components/user/reuse/item-activity/item-activity.component.ts");
-
+/* harmony import */ var _components_notfound_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/notfound.component */ "./src/app/components/notfound.component.ts");
+/* harmony import */ var ng_click_outside__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ng-click-outside */ "./node_modules/ng-click-outside/lib/index.js");
+/* harmony import */ var ng_click_outside__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(ng_click_outside__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var _components_user_profile_about_about_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/user/profile/about/about.component */ "./src/app/components/user/profile/about/about.component.ts");
+/* harmony import */ var _components_user_people_people_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/user/people/people.component */ "./src/app/components/user/people/people.component.ts");
+/* harmony import */ var _components_user_profile_edit_edit_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/user/profile/edit/edit.component */ "./src/app/components/user/profile/edit/edit.component.ts");
+/* harmony import */ var _components_user_search_host_search_host_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/user/search-host/search-host.component */ "./src/app/components/user/search-host/search-host.component.ts");
+/* harmony import */ var _pipes_format_data_pipe__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./pipes/format-data.pipe */ "./src/app/pipes/format-data.pipe.ts");
+/* harmony import */ var _components_user_public_trip_public_trip_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/user/public-trip/public-trip.component */ "./src/app/components/user/public-trip/public-trip.component.ts");
+/* harmony import */ var _components_user_pubic_trip_content_pubic_trip_content_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/user/pubic-trip-content/pubic-trip-content.component */ "./src/app/components/user/pubic-trip-content/pubic-trip-content.component.ts");
+/* harmony import */ var _components_user_reuse_trip_trip_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/user/reuse/trip/trip.component */ "./src/app/components/user/reuse/trip/trip.component.ts");
+/* harmony import */ var _components_user_reuse_publictrip_publictrip_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/user/reuse/publictrip/publictrip.component */ "./src/app/components/user/reuse/publictrip/publictrip.component.ts");
+/* harmony import */ var _components_user_reuse_dropdown_dropdown_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/user/reuse/dropdown/dropdown.component */ "./src/app/components/user/reuse/dropdown/dropdown.component.ts");
+/* harmony import */ var _components_user_reuse_upload_upload_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/user/reuse/upload/upload.component */ "./src/app/components/user/reuse/upload/upload.component.ts");
+/* harmony import */ var _components_user_profile_photos_photos_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/user/profile/photos/photos.component */ "./src/app/components/user/profile/photos/photos.component.ts");
+/* harmony import */ var _components_user_profile_home_home_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/user/profile/home/home.component */ "./src/app/components/user/profile/home/home.component.ts");
+/* harmony import */ var _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./services/user.resolve */ "./src/app/services/user.resolve.ts");
+/* harmony import */ var _ngx_progressbar_core__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! @ngx-progressbar/core */ "./node_modules/@ngx-progressbar/core/fesm5/ngx-progressbar-core.js");
+/* harmony import */ var _components_user_reuse_reference_reference_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/user/reuse/reference/reference.component */ "./src/app/components/user/reuse/reference/reference.component.ts");
+/* harmony import */ var _components_user_profile_references_references_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/user/profile/references/references.component */ "./src/app/components/user/profile/references/references.component.ts");
+/* harmony import */ var _components_user_reuse_loading_loading_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./components/user/reuse/loading/loading.component */ "./src/app/components/user/reuse/loading/loading.component.ts");
+/* harmony import */ var _components_user_reuse_write_reference_modal_write_reference_modal_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./components/user/reuse/write-reference-modal/write-reference-modal.component */ "./src/app/components/user/reuse/write-reference-modal/write-reference-modal.component.ts");
+/* harmony import */ var _components_user_reuse_send_request_modal_send_request_modal_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./components/user/reuse/send-request-modal/send-request-modal.component */ "./src/app/components/user/reuse/send-request-modal/send-request-modal.component.ts");
+/* harmony import */ var _components_user_reuse_send_message_modal_send_message_modal_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./components/user/reuse/send-message-modal/send-message-modal.component */ "./src/app/components/user/reuse/send-message-modal/send-message-modal.component.ts");
+/* harmony import */ var _components_user_reuse_offer_to_host_offer_to_host_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./components/user/reuse/offer-to-host/offer-to-host.component */ "./src/app/components/user/reuse/offer-to-host/offer-to-host.component.ts");
+/* harmony import */ var _components_user_reuse_carousel_modal_carousel_modal_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./components/user/reuse/carousel-modal/carousel-modal.component */ "./src/app/components/user/reuse/carousel-modal/carousel-modal.component.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _components_user_change_pass_change_pass_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./components/user/change-pass/change-pass.component */ "./src/app/components/user/change-pass/change-pass.component.ts");
+/* harmony import */ var _components_user_reuse_delete_modal_delete_modal_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./components/user/reuse/delete-modal/delete-modal.component */ "./src/app/components/user/reuse/delete-modal/delete-modal.component.ts");
+/* harmony import */ var _components_user_profile_friends_friends_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./components/user/profile/friends/friends.component */ "./src/app/components/user/profile/friends/friends.component.ts");
+/* harmony import */ var _components_user_reuse_send_report_modal_send_report_modal_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./components/user/reuse/send-report-modal/send-report-modal.component */ "./src/app/components/user/reuse/send-report-modal/send-report-modal.component.ts");
+/* harmony import */ var _components_user_activity_activity_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./components/user/activity/activity.component */ "./src/app/components/user/activity/activity.component.ts");
+/* harmony import */ var _components_user_reuse_item_activity_item_activity_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./components/user/reuse/item-activity/item-activity.component */ "./src/app/components/user/reuse/item-activity/item-activity.component.ts");
 
 
 
@@ -351,37 +349,36 @@ var AppModule = /** @class */ (function () {
                 _components_user_header_header_component__WEBPACK_IMPORTED_MODULE_14__["HeaderComponent"],
                 _components_user_footer_footer_component__WEBPACK_IMPORTED_MODULE_15__["FooterComponent"],
                 _components_user_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__["DashboardComponent"],
-                _components_user_search_host_search_host_component__WEBPACK_IMPORTED_MODULE_28__["SearchHostComponent"],
-                _components_user_people_people_component__WEBPACK_IMPORTED_MODULE_26__["PeopleComponent"],
-                _pipes_format_data_pipe__WEBPACK_IMPORTED_MODULE_29__["FormatDataPipe"],
+                _components_user_search_host_search_host_component__WEBPACK_IMPORTED_MODULE_27__["SearchHostComponent"],
+                _components_user_people_people_component__WEBPACK_IMPORTED_MODULE_25__["PeopleComponent"],
+                _pipes_format_data_pipe__WEBPACK_IMPORTED_MODULE_28__["FormatDataPipe"],
                 _components_user_profile_profile_component__WEBPACK_IMPORTED_MODULE_20__["ProfileComponent"],
                 _components_user_message_message_component__WEBPACK_IMPORTED_MODULE_21__["MessageComponent"],
-                _components_user_request_request_component__WEBPACK_IMPORTED_MODULE_22__["RequestComponent"],
-                _components_notfound_component__WEBPACK_IMPORTED_MODULE_23__["NotfoundComponent"],
-                _components_user_profile_about_about_component__WEBPACK_IMPORTED_MODULE_25__["AboutComponent"],
-                _components_user_profile_edit_edit_component__WEBPACK_IMPORTED_MODULE_27__["EditComponent"],
-                _components_user_public_trip_public_trip_component__WEBPACK_IMPORTED_MODULE_30__["PublicTripComponent"],
-                _components_user_pubic_trip_content_pubic_trip_content_component__WEBPACK_IMPORTED_MODULE_31__["PubicTripContentComponent"],
-                _components_user_reuse_trip_trip_component__WEBPACK_IMPORTED_MODULE_32__["TripComponent"],
-                _components_user_reuse_publictrip_publictrip_component__WEBPACK_IMPORTED_MODULE_33__["PublictripComponent"],
-                _components_user_reuse_dropdown_dropdown_component__WEBPACK_IMPORTED_MODULE_34__["DropdownComponent"],
-                _components_user_reuse_upload_upload_component__WEBPACK_IMPORTED_MODULE_35__["UploadComponent"],
-                _components_user_profile_photos_photos_component__WEBPACK_IMPORTED_MODULE_36__["PhotosComponent"],
-                _components_user_profile_home_home_component__WEBPACK_IMPORTED_MODULE_37__["HomeComponent"],
-                _components_user_reuse_reference_reference_component__WEBPACK_IMPORTED_MODULE_40__["ReferenceComponent"],
-                _components_user_profile_references_references_component__WEBPACK_IMPORTED_MODULE_41__["ReferencesComponent"],
-                _components_user_reuse_loading_loading_component__WEBPACK_IMPORTED_MODULE_42__["LoadingComponent"],
-                _components_user_reuse_write_reference_modal_write_reference_modal_component__WEBPACK_IMPORTED_MODULE_43__["WriteReferenceModalComponent"],
-                _components_user_reuse_send_request_modal_send_request_modal_component__WEBPACK_IMPORTED_MODULE_44__["SendRequestModalComponent"],
-                _components_user_reuse_send_message_modal_send_message_modal_component__WEBPACK_IMPORTED_MODULE_45__["SendMessageModalComponent"],
-                _components_user_reuse_offer_to_host_offer_to_host_component__WEBPACK_IMPORTED_MODULE_46__["OfferToHostComponent"],
-                _components_user_reuse_carousel_modal_carousel_modal_component__WEBPACK_IMPORTED_MODULE_47__["CarouselModalComponent"],
-                _components_user_change_pass_change_pass_component__WEBPACK_IMPORTED_MODULE_49__["ChangePassComponent"],
-                _components_user_reuse_delete_modal_delete_modal_component__WEBPACK_IMPORTED_MODULE_50__["DeleteModalComponent"],
-                _components_user_profile_friends_friends_component__WEBPACK_IMPORTED_MODULE_51__["FriendsComponent"],
-                _components_user_reuse_send_report_modal_send_report_modal_component__WEBPACK_IMPORTED_MODULE_52__["SendReportModalComponent"],
-                _components_user_activity_activity_component__WEBPACK_IMPORTED_MODULE_53__["ActivityComponent"],
-                _components_user_reuse_item_activity_item_activity_component__WEBPACK_IMPORTED_MODULE_54__["ItemActivityComponent"],
+                _components_notfound_component__WEBPACK_IMPORTED_MODULE_22__["NotfoundComponent"],
+                _components_user_profile_about_about_component__WEBPACK_IMPORTED_MODULE_24__["AboutComponent"],
+                _components_user_profile_edit_edit_component__WEBPACK_IMPORTED_MODULE_26__["EditComponent"],
+                _components_user_public_trip_public_trip_component__WEBPACK_IMPORTED_MODULE_29__["PublicTripComponent"],
+                _components_user_pubic_trip_content_pubic_trip_content_component__WEBPACK_IMPORTED_MODULE_30__["PubicTripContentComponent"],
+                _components_user_reuse_trip_trip_component__WEBPACK_IMPORTED_MODULE_31__["TripComponent"],
+                _components_user_reuse_publictrip_publictrip_component__WEBPACK_IMPORTED_MODULE_32__["PublictripComponent"],
+                _components_user_reuse_dropdown_dropdown_component__WEBPACK_IMPORTED_MODULE_33__["DropdownComponent"],
+                _components_user_reuse_upload_upload_component__WEBPACK_IMPORTED_MODULE_34__["UploadComponent"],
+                _components_user_profile_photos_photos_component__WEBPACK_IMPORTED_MODULE_35__["PhotosComponent"],
+                _components_user_profile_home_home_component__WEBPACK_IMPORTED_MODULE_36__["HomeComponent"],
+                _components_user_reuse_reference_reference_component__WEBPACK_IMPORTED_MODULE_39__["ReferenceComponent"],
+                _components_user_profile_references_references_component__WEBPACK_IMPORTED_MODULE_40__["ReferencesComponent"],
+                _components_user_reuse_loading_loading_component__WEBPACK_IMPORTED_MODULE_41__["LoadingComponent"],
+                _components_user_reuse_write_reference_modal_write_reference_modal_component__WEBPACK_IMPORTED_MODULE_42__["WriteReferenceModalComponent"],
+                _components_user_reuse_send_request_modal_send_request_modal_component__WEBPACK_IMPORTED_MODULE_43__["SendRequestModalComponent"],
+                _components_user_reuse_send_message_modal_send_message_modal_component__WEBPACK_IMPORTED_MODULE_44__["SendMessageModalComponent"],
+                _components_user_reuse_offer_to_host_offer_to_host_component__WEBPACK_IMPORTED_MODULE_45__["OfferToHostComponent"],
+                _components_user_reuse_carousel_modal_carousel_modal_component__WEBPACK_IMPORTED_MODULE_46__["CarouselModalComponent"],
+                _components_user_change_pass_change_pass_component__WEBPACK_IMPORTED_MODULE_48__["ChangePassComponent"],
+                _components_user_reuse_delete_modal_delete_modal_component__WEBPACK_IMPORTED_MODULE_49__["DeleteModalComponent"],
+                _components_user_profile_friends_friends_component__WEBPACK_IMPORTED_MODULE_50__["FriendsComponent"],
+                _components_user_reuse_send_report_modal_send_report_modal_component__WEBPACK_IMPORTED_MODULE_51__["SendReportModalComponent"],
+                _components_user_activity_activity_component__WEBPACK_IMPORTED_MODULE_52__["ActivityComponent"],
+                _components_user_reuse_item_activity_item_activity_component__WEBPACK_IMPORTED_MODULE_53__["ItemActivityComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -395,15 +392,15 @@ var AppModule = /** @class */ (function () {
                 }),
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"],
-                ng_click_outside__WEBPACK_IMPORTED_MODULE_24__["ClickOutsideModule"],
+                ng_click_outside__WEBPACK_IMPORTED_MODULE_23__["ClickOutsideModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_18__["NgbModule"],
-                _ngx_progressbar_core__WEBPACK_IMPORTED_MODULE_39__["NgProgressModule"].withConfig({
+                _ngx_progressbar_core__WEBPACK_IMPORTED_MODULE_38__["NgProgressModule"].withConfig({
                     color: '#ED6504',
                     spinner: false,
                 }),
             ],
             providers: [_services_userauth_service__WEBPACK_IMPORTED_MODULE_17__["UserauthService"],
-                Location, { provide: _angular_common__WEBPACK_IMPORTED_MODULE_48__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_48__["HashLocationStrategy"] },
+                Location, { provide: _angular_common__WEBPACK_IMPORTED_MODULE_47__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_47__["HashLocationStrategy"] },
                 {
                     provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"],
                     useClass: _auth_auth_interceptor__WEBPACK_IMPORTED_MODULE_19__["AuthInterceptor"],
@@ -411,11 +408,11 @@ var AppModule = /** @class */ (function () {
                 },
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_18__["NgbModal"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_18__["NgbActiveModal"],
-                _services_user_resolve__WEBPACK_IMPORTED_MODULE_38__["UserResolve"],
-                _services_user_resolve__WEBPACK_IMPORTED_MODULE_38__["ProfileResolve"],
-                _services_user_resolve__WEBPACK_IMPORTED_MODULE_38__["TokenResolve"],
-                _services_user_resolve__WEBPACK_IMPORTED_MODULE_38__["HomeResolve"],
-                _services_user_resolve__WEBPACK_IMPORTED_MODULE_38__["PlacesDashboardResolve"]
+                _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["UserResolve"],
+                _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["ProfileResolve"],
+                _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["TokenResolve"],
+                _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["HomeResolve"],
+                _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["PlacesDashboardResolve"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
         })
@@ -614,7 +611,7 @@ var NotfoundComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".content{\r\n    padding: 20px;\r\n}\r\n.box-activity{\r\n    margin-left: -10px;\r\n    margin-right: -10px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL2FjdGl2aXR5L2FjdGl2aXR5LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsbUJBQW1CO0FBQ3ZCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy91c2VyL2FjdGl2aXR5L2FjdGl2aXR5LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGVudHtcclxuICAgIHBhZGRpbmc6IDIwcHg7XHJcbn1cclxuLmJveC1hY3Rpdml0eXtcclxuICAgIG1hcmdpbi1sZWZ0OiAtMTBweDtcclxuICAgIG1hcmdpbi1yaWdodDogLTEwcHg7XHJcbn0iXX0= */"
+module.exports = ".content{\r\n    padding: 20px;\r\n}\r\n.box-activity{\r\n    margin-left: -10px;\r\n    margin-right: -10px;\r\n}\r\n.tab-bar{\r\n    background-color: #ecedf0;\r\n}\r\n.tab-bar .nav-link{\r\n    min-height: 50px;\r\n    font-weight: 500;\r\n}\r\n.tab-bar .active{\r\n    color: #ED6504;\r\n    font-weight: 600;\r\n    border-bottom: solid 4px;\r\n}\r\n.nav-tabs{\r\n    padding-top: 4px;\r\n}\r\na{\r\n    color: #27374c;\r\n}\r\n.tab-bar a{\r\n    text-decoration: none;\r\n    font-size: 20px;\r\n}\r\n.tab-bar a:hover{\r\n    color: #ED6504;\r\n}\r\n.tab-menu .active{\r\n    color: #ED6504;\r\n    font-weight: 600;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL2FjdGl2aXR5L2FjdGl2aXR5LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsbUJBQW1CO0FBQ3ZCO0FBQ0E7SUFDSSx5QkFBeUI7QUFDN0I7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLGNBQWM7SUFDZCxnQkFBZ0I7SUFDaEIsd0JBQXdCO0FBQzVCO0FBQ0E7SUFDSSxnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLGNBQWM7QUFDbEI7QUFDQTtJQUNJLHFCQUFxQjtJQUNyQixlQUFlO0FBQ25CO0FBQ0E7SUFDSSxjQUFjO0FBQ2xCO0FBQ0E7SUFDSSxjQUFjO0lBQ2QsZ0JBQWdCO0FBQ3BCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy91c2VyL2FjdGl2aXR5L2FjdGl2aXR5LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGVudHtcclxuICAgIHBhZGRpbmc6IDIwcHg7XHJcbn1cclxuLmJveC1hY3Rpdml0eXtcclxuICAgIG1hcmdpbi1sZWZ0OiAtMTBweDtcclxuICAgIG1hcmdpbi1yaWdodDogLTEwcHg7XHJcbn1cclxuLnRhYi1iYXJ7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWNlZGYwO1xyXG59XHJcbi50YWItYmFyIC5uYXYtbGlua3tcclxuICAgIG1pbi1oZWlnaHQ6IDUwcHg7XHJcbiAgICBmb250LXdlaWdodDogNTAwO1xyXG59XHJcbi50YWItYmFyIC5hY3RpdmV7XHJcbiAgICBjb2xvcjogI0VENjUwNDtcclxuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XHJcbiAgICBib3JkZXItYm90dG9tOiBzb2xpZCA0cHg7XHJcbn1cclxuLm5hdi10YWJze1xyXG4gICAgcGFkZGluZy10b3A6IDRweDtcclxufVxyXG5he1xyXG4gICAgY29sb3I6ICMyNzM3NGM7XHJcbn1cclxuLnRhYi1iYXIgYXtcclxuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICAgIGZvbnQtc2l6ZTogMjBweDtcclxufVxyXG4udGFiLWJhciBhOmhvdmVye1xyXG4gICAgY29sb3I6ICNFRDY1MDQ7XHJcbn1cclxuLnRhYi1tZW51IC5hY3RpdmV7XHJcbiAgICBjb2xvcjogI0VENjUwNDtcclxuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -625,7 +622,7 @@ module.exports = ".content{\r\n    padding: 20px;\r\n}\r\n.box-activity{\r\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-template #loading>\r\n  <app-loading></app-loading>\r\n</ng-template>\r\n<ng-template #nothing>\r\n  <div class=\"nothing\">\r\n    <span>Nothing to show</span>\r\n  </div>\r\n</ng-template>\r\n<div class=\"box box-activity\">\r\n  <div class=\" tab-bar\">\r\n    <ul class=\"nav nav-tabs\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='travelrequest'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'travelrequest'}\">\r\n          Travel Request</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='hostoffer'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'hostoffer'}\">Host Offer</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n  <div class=\"content\">\r\n    <ng-container *ngIf=\"isLoading==false;else loading\">\r\n      <ng-container *ngIf=\"items.length;else nothing\">\r\n        <ng-container *ngFor=\"let item of items\">\r\n          <app-item-activity (myClick)=\"onAction($event)\" [item]=\"item\" [from]=\"type\"> </app-item-activity>\r\n        </ng-container>\r\n\r\n      </ng-container>\r\n\r\n    </ng-container>\r\n\r\n  </div>\r\n</div>"
+module.exports = "<ng-template #loading>\r\n  <app-loading></app-loading>\r\n</ng-template>\r\n<ng-template #nothing>\r\n  <div class=\"nothing\">\r\n    <span>Nothing to show</span>\r\n  </div>\r\n</ng-template>\r\n<div class=\"box box-activity\">\r\n  <div class=\"tab-bar\">\r\n    <ul class=\"nav \">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='travelrequest'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'travelrequest',select:'received'}\">Travel Request</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='hostoffer'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'hostoffer',select:'received'}\">Host Offer</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='friendrequest'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'friendrequest',select:'received'}\">Friend Request</a>\r\n      </li>\r\n      <!-- <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='notification'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'notification'}\">Notification</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='request'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'request'}\">Your Request</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='offer'}\" [routerLink]=\"\" [queryParams]=\"{type:'offer'}\">Your\r\n          Offer</a>\r\n      </li> -->\r\n    </ul>\r\n  </div>\r\n  \r\n  <div class=\"tab-menu\">\r\n    <ul class=\"nav nav-tabs\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':select==='received'}\" [routerLink]=\"\" [queryParams]=\"{type:type,select:'received'}\">Received</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':select==='send'}\" [routerLink]=\"\" [queryParams]=\"{type:type,select:'send'}\">Send</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n  <div class=\"content\">\r\n    <ng-container *ngIf=\"isLoading==false;else loading\">\r\n      <ng-container *ngIf=\"items.length;else nothing\">\r\n        <ng-container *ngFor=\"let item of items\">\r\n          <app-item-activity (myClick)=\"onAction($event)\" [item]=\"item\" [from]=\"type\"> </app-item-activity>\r\n        </ng-container>\r\n      </ng-container>\r\n\r\n    </ng-container>\r\n\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -656,36 +653,53 @@ var ActivityComponent = /** @class */ (function () {
         this.service = service;
         this.toast = toast;
         this.type = 'travelrequest';
+        this.select = 'received';
     }
     ActivityComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.type = 'travelrequest';
+        // this.type = 'travelrequest';
         // console.log(this.type)
         this.activatedRoute.queryParams.subscribe(function (res) {
             //  console.log(res)
             if (res.type) {
                 _this.type = res.type;
+                _this.select = res.select;
             }
-            _this.getItem(_this.type);
+            _this.getItem(_this.type, _this.select);
         });
     };
-    ActivityComponent.prototype.getItem = function (type) {
+    ActivityComponent.prototype.getItem = function (type, select) {
         var _this = this;
         this.isLoading = true;
         this.items = [];
-        if (type == 'travelrequest') {
-            this.service.getTraveRequest().subscribe(function (res) {
-                _this.items = res;
-                _this.isLoading = false;
-                console.log(_this.items);
-            });
+        if (select == 'received') {
+            if (type == 'travelrequest') {
+                this.service.getTraveRequest().subscribe(function (res) {
+                    _this.items = res;
+                    _this.isLoading = false;
+                    console.log(_this.items);
+                });
+            }
+            else if (type == 'hostoffer') {
+                this.service.getHostOffer().subscribe(function (res) {
+                    _this.items = res;
+                    _this.isLoading = false;
+                    console.log(_this.items);
+                });
+            }
+            else if (type == 'friendrequest') {
+                this.service.getFriendRequest().subscribe(function (res) {
+                    _this.items = res;
+                    _this.isLoading = false;
+                    console.log(_this.items);
+                });
+            }
+            else {
+                this.isLoading = false;
+            }
         }
-        if (type == 'hostoffer') {
-            this.service.getHostOffer().subscribe(function (res) {
-                _this.items = res;
-                _this.isLoading = false;
-                console.log(_this.items);
-            });
+        else if (select = 'send') {
+            this.isLoading = false;
         }
     };
     ActivityComponent.prototype.onAction = function (event) {
@@ -707,6 +721,17 @@ var ActivityComponent = /** @class */ (function () {
                     if (res.status == 204) {
                         _this.toast.success('Deleted');
                         _this.items = _this.items.filter(function (item) { return item.hostOfferId !== event.id; });
+                    }
+                    else {
+                        _this.toast.success('Fail');
+                    }
+                });
+            }
+            else if (this.type == 'friendrequest') {
+                this.service.ignoreFriendRequest(event.id).subscribe(function (res) {
+                    if (res.status == 204) {
+                        _this.toast.success('Deleted');
+                        _this.items = _this.items.filter(function (item) { return item.friendRequestId !== event.id; });
                     }
                     else {
                         _this.toast.success('Fail');
@@ -882,7 +907,7 @@ module.exports = "\r\n\r\n.content-left{\r\n    /* min-width: 220px; */\r\n    m
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"content-left col-3 \">\r\n    <div class=\"box user-info\">\r\n      <a [routerLink]=\"['../Profile']\"><img class=\"photo img-responsive\"\r\n          [src]=\"user.avatarLocation?user.avatarLocation:'./../../../../assets/imgs/profile-picture-placeholder.png'\"></a>\r\n      <div class=\"info\">\r\n        <p style=\"font-size:30px;font-weight: 600\">{{user.fullName}}</p>\r\n        <p style=\"font-size: 20px;\">{{user.address}}</p>\r\n      </div>\r\n      <div class=\"status\">\r\n        <p style=\"font-size:18px;\">Your status</p>\r\n        <div style=\"display: flex;align-items: center; justify-content: center\">\r\n          <i *ngIf=\"user.status;else not\" class=\"color-icon\"\r\n            style=\" width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/ok.png)\"></i>\r\n          <ng-template #not>\r\n            <i class=\"color-icon\"\r\n              style=\" width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/cancel.png)\"></i>\r\n          </ng-template>\r\n          <span *ngIf=\"user.id\" class=\"status-value\" [style.color]=\"user.status?'green':'red'\">\r\n            {{user.status?'Acepting Guest':'Not Acepting Guest'}}\r\n          </span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"box profile\">\r\n      <div class=\"box-header\">\r\n        <span>MY PROFILE</span>\r\n      </div>\r\n      <div class=\"profile-content\">\r\n        <div class=\"progress-bar\">\r\n          <div class=\"percent\" [style.width.%]=\"percent\">\r\n            <span>{{percent}}% Complete</span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"box-action\">\r\n        <a routerLink=\"/Users/Profile/Edit\"><span>Complete My Profile</span><span><i\r\n              class=\"fas fa-arrow-circle-right\"></i></span> </a>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <!-- Content left -->\r\n  <div class=\"content-right col \">\r\n    <div class=\"box find-host\">\r\n      <div class=\"box-header\">\r\n        <i class=\"fas fa-couch\"></i> <span>FIND HOST AT WHERE YOU ARE GOING TO</span>\r\n      </div>\r\n      <div class=\"proposed-box row\">\r\n        <ng-container *ngFor=\"let place of places; let i=index\">\r\n          <div [@fadeInOut] class=\"item1 col\" [ngClass]=\"{'hide':i==2}\">\r\n            <a [routerLink]=\"'/Users/Search'\" [queryParams]=\"{type:'host',location:place.place}\"\r\n              [ngStyle]=\"{'background-image':'url('+place.imageLocation+')'}\">\r\n              <p>{{place.place}}</p>\r\n              <span>{{place.hostNumber}}+ hosts</span>\r\n            </a>\r\n          </div>\r\n        </ng-container>\r\n        <!-- <div class=\"item col\">\r\n          <a style=\"background-image: url('/assets/imgs/cali.jpg');\">\r\n            <p>Napa Valley, California</p>\r\n            <span>5,600+ hosts</span>\r\n          </a>\r\n        </div>\r\n        <div class=\"item col\">\r\n          <a style=\"background-image: url('/assets/imgs/bord.jpg');\">\r\n            <p>Bordeaux, France</p>\r\n            <span>6,600+ hosts</span>\r\n          </a>\r\n        </div>\r\n        <div class=\"item col hide\">\r\n          <a style=\"background-image: url('/assets/imgs/tus.jpg');\">\r\n            <p>Tuscany, Italy</p>\r\n            <span>7,600+ hosts</span>\r\n          </a>\r\n        </div> -->\r\n      </div>\r\n      <div style=\"text-align: center;border-top: solid 1px rgba(0,0,0,0.15);padding-top: 10px;\">\r\n        <span style=\"font-weight: 600\">Find hosts wherever I’m going</span>\r\n      </div>\r\n      <div class=\"search-box\">\r\n        <form (submit)=\"onSubmit(formSearch);\" #formSearch=\"ngForm\" autocomplete=\"off\" (clickOutside)=\"textInput = '';\">\r\n\r\n          <div class=\"search-form\">\r\n            <input ngModel [(ngModel)]=\"textInput\" (keyup)=\"onKeyup();\" name=\"input\" class=\"\" type=\"text\"\r\n              placeholder=\"Where are you going?\">\r\n\r\n            <app-dropdown [searchedSubject]=\"searchedSubject\"></app-dropdown>\r\n          </div>\r\n          <button type=\"submit\"><i style=\"color:#a0acbb;\" class=\"fas fa-search\"></i></button>\r\n        </form>\r\n      </div>\r\n    </div>\r\n\r\n    <!-- Find host-->\r\n    <div class=\"box plans\">\r\n      <div class=\"box-header\">\r\n        <i class=\"fas fa-plane\"></i><span>YOUR TRIP'S PLANS</span>\r\n      </div>\r\n      <ng-template #loading>\r\n        <app-loading></app-loading>\r\n      </ng-template>\r\n      <ng-template #nothing>\r\n        <div class=\"nothing\">\r\n          <span>Nothing to show</span>\r\n        </div>\r\n      </ng-template>\r\n      <ng-container *ngIf=\"trips;else loading\">\r\n        <ng-container *ngIf=\"trips.length;else nothing\">\r\n          <ng-container *ngFor=\"let trip of trips\">\r\n            \r\n              <app-trip [isUser]=\"isUser\" [trip]=\"trip\"></app-trip>\r\n            \r\n          </ng-container>\r\n        </ng-container>\r\n        <!-- <div *ngIf=\"(!trips.length)\" class=\"notrip\">\r\n          <span>You have no upcoming trips.</span>\r\n        </div> -->\r\n      </ng-container>\r\n\r\n      <div class=\"box-action\">\r\n        <a routerLink=\"/Users/PublicTrip\"><span>Your Trip's Plan</span><span><i\r\n              class=\"fas fa-arrow-circle-right\"></i></span> </a>\r\n      </div>\r\n    </div>\r\n\r\n    <!-- Plan -->\r\n    <div class=\"box public-trips\">\r\n      <div class=\"box-header\">\r\n        <i class=\"fas fa-users\"></i><span>TRAVELERS LOOKING FOR HOSTS</span>\r\n      </div>\r\n      <ng-template #loading>\r\n        <app-loading></app-loading>\r\n      </ng-template>\r\n      <ng-container *ngIf=\"publicTrips;else loading\">\r\n        <ng-container *ngIf=\"publicTrips.length;else nothing\">\r\n          <ng-container *ngFor=\"let publicTrip of publicTrips\">\r\n            \r\n              <app-publictrip (myClick)=\"openofferToHostModal($event)\" [publicTrip]=\"publicTrip\"></app-publictrip>\r\n            \r\n          </ng-container>\r\n        </ng-container>\r\n      </ng-container>\r\n      <div class=\"box-action\">\r\n        <a [routerLink]=\"'/Users/Search'\" [queryParams]=\"{type:'traveler',location:user.address}\"><span>See More Public\r\n            Trips</span><span><i class=\"fas fa-arrow-circle-right\"></i></span> </a>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <app-offer-to-host></app-offer-to-host>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"content-left col-3 \">\r\n    <div class=\"box user-info\">\r\n      <a [routerLink]=\"['../Profile']\"><img class=\"photo img-responsive\"\r\n          [src]=\"user.avatarLocation?user.avatarLocation:'./../../../../assets/imgs/profile-picture-placeholder.png'\"></a>\r\n      <div class=\"info\">\r\n        <p style=\"font-size:30px;font-weight: 600\">{{user.fullName}}</p>\r\n        <p style=\"font-size: 20px;\">{{user.address}}</p>\r\n      </div>\r\n      <div class=\"status\">\r\n        <p style=\"font-size:18px;\">Your status</p>\r\n        <div style=\"display: flex;align-items: center; justify-content: center\">\r\n          <i *ngIf=\"user.status;else not\" class=\"color-icon\"\r\n            style=\" width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/ok.png)\"></i>\r\n          <ng-template #not>\r\n            <i class=\"color-icon\"\r\n              style=\" width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/cancel.png)\"></i>\r\n          </ng-template>\r\n          <span *ngIf=\"user.id\" class=\"status-value\" [style.color]=\"user.status?'green':'red'\">\r\n            {{user.status?'Acepting Guest':'Not Acepting Guest'}}\r\n          </span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"box profile\">\r\n      <div class=\"box-header\">\r\n        <span>MY PROFILE</span>\r\n      </div>\r\n      <div class=\"profile-content\">\r\n        <div class=\"progress-bar\">\r\n          <div class=\"percent\" [style.width.%]=\"percent\">\r\n            <span>{{percent}}% Complete</span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"box-action\">\r\n        <a routerLink=\"/Users/Profile/Edit\"><span>Complete My Profile</span><span><i\r\n              class=\"fas fa-arrow-circle-right\"></i></span> </a>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <!-- Content left -->\r\n  <div class=\"content-right col \">\r\n    <div class=\"box find-host\">\r\n      <div class=\"box-header\">\r\n        <i class=\"fas fa-couch\"></i> <span>FIND HOST AT WHERE YOU ARE GOING TO</span>\r\n      </div>\r\n      <div class=\"proposed-box row\">\r\n        <ng-container *ngFor=\"let place of places; let i=index\">\r\n          <div [@fadeInOut] class=\"item1 col\" [ngClass]=\"{'hide':i==2}\">\r\n            <a [routerLink]=\"'/Users/Search'\" [queryParams]=\"{type:'host',location:place.place}\"\r\n              [ngStyle]=\"{'background-image':'url('+place.imageLocation+')'}\">\r\n              <p>{{place.place}}</p>\r\n              <span>{{place.hostNumber}}+ hosts</span>\r\n            </a>\r\n          </div>\r\n        </ng-container>\r\n\r\n        <!-- <ng-container *ngIf=\"x\">\r\n          <div [@fadeInOut] class=\"item1 col\">\r\n            <a [routerLink]=\"'/Users/Search'\" [queryParams]=\"{type:'host',location:places[0].place}\"\r\n              [ngStyle]=\"{'background-image':'url('+places[0].imageLocation+')'}\">\r\n              <p>{{places[0].place}}</p>\r\n              <span>{{places[0].hostNumber}}+ hosts</span>\r\n            </a>\r\n          </div>\r\n          <div [@fadeInOut] class=\"item1 col\">\r\n            <a [routerLink]=\"'/Users/Search'\" [queryParams]=\"{type:'host',location:places[1].place}\"\r\n              [ngStyle]=\"{'background-image':'url('+places[1].imageLocation+')'}\">\r\n              <p>{{places[1].place}}</p>\r\n              <span>{{places[1].hostNumber}}+ hosts</span>\r\n            </a>\r\n          </div>\r\n          <div [@fadeInOut] class=\"item1 col hide\">\r\n            <a [routerLink]=\"'/Users/Search'\" [queryParams]=\"{type:'host',location:places[2].place}\"\r\n              [ngStyle]=\"{'background-image':'url('+places[2].imageLocation+')'}\">\r\n              <p>{{places[2].place}}</p>\r\n              <span>{{places[2].hostNumber}}+ hosts</span>\r\n            </a>\r\n          </div>\r\n        </ng-container> -->\r\n      </div>\r\n\r\n\r\n\r\n\r\n      <div style=\"text-align: center;border-top: solid 1px rgba(0,0,0,0.15);padding-top: 10px;\">\r\n        <span style=\"font-weight: 600\">Find hosts wherever I’m going</span>\r\n      </div>\r\n      <div class=\"search-box\">\r\n        <form (submit)=\"onSubmit(formSearch);\" #formSearch=\"ngForm\" autocomplete=\"off\" (clickOutside)=\"textInput = '';\">\r\n\r\n          <div class=\"search-form\">\r\n            <input ngModel [(ngModel)]=\"textInput\" (keyup)=\"onKeyup();\" name=\"input\" class=\"\" type=\"text\"\r\n              placeholder=\"Where are you going?\">\r\n\r\n            <app-dropdown [searchedSubject]=\"searchedSubject\"></app-dropdown>\r\n          </div>\r\n          <button type=\"submit\"><i style=\"color:#a0acbb;\" class=\"fas fa-search\"></i></button>\r\n        </form>\r\n      </div>\r\n    </div>\r\n\r\n    <!-- Find host-->\r\n    <div class=\"box plans\">\r\n      <div class=\"box-header\">\r\n        <i class=\"fas fa-plane\"></i><span>YOUR TRIP'S PLANS</span>\r\n      </div>\r\n      <ng-template #loading>\r\n        <app-loading></app-loading>\r\n      </ng-template>\r\n      <ng-template #nothing>\r\n        <div class=\"nothing\">\r\n          <span>Nothing to show</span>\r\n        </div>\r\n      </ng-template>\r\n      <ng-container *ngIf=\"trips;else loading\">\r\n        <ng-container *ngIf=\"trips.length;else nothing\">\r\n          <ng-container *ngFor=\"let trip of trips\">\r\n\r\n            <app-trip [isUser]=\"isUser\" [trip]=\"trip\"></app-trip>\r\n\r\n          </ng-container>\r\n        </ng-container>\r\n        <!-- <div *ngIf=\"(!trips.length)\" class=\"notrip\">\r\n          <span>You have no upcoming trips.</span>\r\n        </div> -->\r\n      </ng-container>\r\n\r\n      <div class=\"box-action\">\r\n        <a routerLink=\"/Users/PublicTrip\"><span>Your Trip's Plan</span><span><i\r\n              class=\"fas fa-arrow-circle-right\"></i></span> </a>\r\n      </div>\r\n    </div>\r\n\r\n    <!-- Plan -->\r\n    <div class=\"box public-trips\">\r\n      <div class=\"box-header\">\r\n        <i class=\"fas fa-users\"></i><span>TRAVELERS LOOKING FOR HOSTS</span>\r\n      </div>\r\n      <ng-template #loading>\r\n        <app-loading></app-loading>\r\n      </ng-template>\r\n      <ng-container *ngIf=\"publicTrips;else loading\">\r\n        <ng-container *ngIf=\"publicTrips.length;else nothing\">\r\n          <ng-container *ngFor=\"let publicTrip of publicTrips\">\r\n\r\n            <app-publictrip (myClick)=\"openofferToHostModal($event)\" [publicTrip]=\"publicTrip\"></app-publictrip>\r\n\r\n          </ng-container>\r\n        </ng-container>\r\n      </ng-container>\r\n      <div class=\"box-action\">\r\n        <a [routerLink]=\"'/Users/Search'\" [queryParams]=\"{type:'traveler',location:user.address}\"><span>See More Public\r\n            Trips</span><span><i class=\"fas fa-arrow-circle-right\"></i></span> </a>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <app-offer-to-host></app-offer-to-host>"
 
 /***/ }),
 
@@ -930,7 +955,7 @@ var DashboardComponent = /** @class */ (function () {
         this.placesres = this.activatedRoute.snapshot.data.placesres;
         this.places = this.randomPlace(this.placesres);
         this.interval = setInterval(function () {
-            _this.places = [];
+            // this.places =[];
             _this.places = _this.randomPlace(_this.placesres);
         }, 4000);
         // this.trips=[];
@@ -1405,7 +1430,7 @@ var AboutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "a:hover{\r\n    cursor: pointer;\r\n}\r\nform{\r\n    margin-bottom: 0px;\r\n}\r\n.content-left{\r\n/* min-width: 300px;\r\nmax-width: 400px; */\r\npadding: 0px 5px 0px 5px !important;\r\nflex: 0 0 33.333333%;\r\nmax-width: 33.333333%;\r\n}\r\n.content-right{\r\nmax-width: 100%;\r\nflex: 0 0 66.666667%;\r\nmax-width: 66.666667%;\r\npadding: 0px 5px 0px 5px !important;\r\n}\r\n.user-info{\r\n    text-align: center;\r\n    padding-top: 50px;\r\n}\r\n.photo{\r\n    margin-bottom: 20px;\r\n   \r\n}\r\n.upload{\r\n    position: absolute;\r\n    opacity: 0.7;\r\n    border-radius: 50%;\r\n    width: 200px;\r\n    height: 200px;\r\n}\r\n.upload:hover{\r\n    opacity: 0.6;\r\n}\r\n.upload .top{\r\n    height: 50%;\r\n    border-radius:100px 100px 0 0  ;\r\n}\r\n.upload .bottom{\r\n    display: flex;\r\n    align-items: center;\r\n    height: 50%;\r\n    border-radius:0 0 100px 100px ;\r\n    background-color: #646363;\r\n}\r\n.upload i{\r\n    color: black;\r\n    margin:  auto;\r\n    font-size: 40px;\r\n}\r\n.box-header{\r\n    text-align: left;\r\n    border-top: 1px solid rgba(0,0,0,0.15);\r\n}\r\n.overview{\r\n text-align: left;\r\n padding-left: 20px;\r\n}\r\n.overview .item{\r\n    height: 50px;\r\n    display: flex;\r\n    align-items: center;\r\n\r\n}\r\n.item  span{\r\n    font-size: 1.1em;\r\n    padding: 5px 10px;\r\n}\r\n.item i{\r\n    font-size: 1.1em;\r\n    width: 20px;\r\n}\r\n.tab-bar{\r\n    height: 50px;\r\n    display:flex;\r\n    align-items: center;\r\n    border-bottom: 1px solid rgba(0,0,0,0.15);\r\n}\r\n.tab-bar ul{\r\nlist-style: none;\r\nmargin: 0;\r\npadding: 0;\r\n\r\n}\r\n.tab-bar ul li{\r\n    display: inline-block;\r\n    text-align: center; \r\n}\r\n.tab-bar ul li a{\r\n    line-height: 50px;\r\n    padding: 0px 15px;\r\n    display: block;\r\n    text-decoration: none;\r\n    font-weight: 500;\r\n}\r\n.tab-bar ul li a span{\r\n    font-weight: 500;\r\n    font-size: 1em; \r\n}\r\n.tab-bar ul li a:hover{\r\n    cursor: pointer;\r\n    color: #ED6504;\r\n}\r\n.content{\r\n    padding: 20px;\r\n    display: none;\r\n}\r\n.content-right .selected{\r\n    display: block!important;\r\n}\r\n.content-right .active{\r\n    color: #ED6504;\r\n    font-weight: bold;\r\n}\r\n.content-right select:hover{\r\n    cursor: pointer;\r\n}\r\n.content-right button{\r\n    margin: 0px 10px;\r\n    padding: 5px 30px;\r\n}\r\n.content-right label{\r\n    word-wrap: break-word;\r\n    size: 18px;\r\n    font-weight: 600;\r\n}\r\n.button-bar{\r\n    border-top: #ecf0f1 solid 2px;\r\n    padding-top: 20px\r\n}\r\n@media screen and (max-width: 768px){\r\n    .content-left{\r\n        flex: 0 0 100%;\r\n        max-width: 100%;\r\n       order: 2;\r\n    }\r\n    .content-right{\r\n        flex: 0 0 100%;\r\n        max-width: 100%;\r\n        order: 1;\r\n    }\r\n}\r\n.input-focus:focus{\r\n   \r\n    box-shadow: none;\r\n\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL3Byb2ZpbGUvZWRpdC9lZGl0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxlQUFlO0FBQ25CO0FBQ0E7SUFDSSxrQkFBa0I7QUFDdEI7QUFDQTtBQUNBO21CQUNtQjtBQUNuQixtQ0FBbUM7QUFDbkMsb0JBQW9CO0FBQ3BCLHFCQUFxQjtBQUNyQjtBQUNBO0FBQ0EsZUFBZTtBQUNmLG9CQUFvQjtBQUNwQixxQkFBcUI7QUFDckIsbUNBQW1DO0FBQ25DO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsaUJBQWlCO0FBQ3JCO0FBQ0E7SUFDSSxtQkFBbUI7O0FBRXZCO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsWUFBWTtJQUNaLGtCQUFrQjtJQUNsQixZQUFZO0lBQ1osYUFBYTtBQUNqQjtBQUNBO0lBQ0ksWUFBWTtBQUNoQjtBQUNBO0lBQ0ksV0FBVztJQUNYLCtCQUErQjtBQUNuQztBQUNBO0lBQ0ksYUFBYTtJQUNiLG1CQUFtQjtJQUNuQixXQUFXO0lBQ1gsOEJBQThCO0lBQzlCLHlCQUF5QjtBQUM3QjtBQUVBO0lBQ0ksWUFBWTtJQUNaLGFBQWE7SUFDYixlQUFlO0FBQ25CO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsc0NBQXNDO0FBQzFDO0FBQ0E7Q0FDQyxnQkFBZ0I7Q0FDaEIsa0JBQWtCO0FBQ25CO0FBQ0E7SUFDSSxZQUFZO0lBQ1osYUFBYTtJQUNiLG1CQUFtQjs7QUFFdkI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixpQkFBaUI7QUFDckI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixXQUFXO0FBQ2Y7QUFFQTtJQUNJLFlBQVk7SUFDWixZQUFZO0lBQ1osbUJBQW1CO0lBQ25CLHlDQUF5QztBQUM3QztBQUNBO0FBQ0EsZ0JBQWdCO0FBQ2hCLFNBQVM7QUFDVCxVQUFVOztBQUVWO0FBQ0E7SUFDSSxxQkFBcUI7SUFDckIsa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxpQkFBaUI7SUFDakIsaUJBQWlCO0lBQ2pCLGNBQWM7SUFDZCxxQkFBcUI7SUFDckIsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsY0FBYztBQUNsQjtBQUNBO0lBQ0ksZUFBZTtJQUNmLGNBQWM7QUFDbEI7QUFDQTtJQUNJLGFBQWE7SUFDYixhQUFhO0FBQ2pCO0FBRUE7SUFDSSx3QkFBd0I7QUFDNUI7QUFDQTtJQUNJLGNBQWM7SUFDZCxpQkFBaUI7QUFDckI7QUFFQTtJQUNJLGVBQWU7QUFDbkI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixpQkFBaUI7QUFDckI7QUFDQTtJQUNJLHFCQUFxQjtJQUNyQixVQUFVO0lBQ1YsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSw2QkFBNkI7SUFDN0I7QUFDSjtBQUdBO0lBQ0k7UUFDSSxjQUFjO1FBQ2QsZUFBZTtPQUNoQixRQUFRO0lBQ1g7SUFDQTtRQUNJLGNBQWM7UUFDZCxlQUFlO1FBQ2YsUUFBUTtJQUNaO0FBQ0o7QUFDQTs7SUFFSSxnQkFBZ0I7O0FBRXBCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy91c2VyL3Byb2ZpbGUvZWRpdC9lZGl0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJhOmhvdmVye1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcbmZvcm17XHJcbiAgICBtYXJnaW4tYm90dG9tOiAwcHg7XHJcbn1cclxuLmNvbnRlbnQtbGVmdHtcclxuLyogbWluLXdpZHRoOiAzMDBweDtcclxubWF4LXdpZHRoOiA0MDBweDsgKi9cclxucGFkZGluZzogMHB4IDVweCAwcHggNXB4ICFpbXBvcnRhbnQ7XHJcbmZsZXg6IDAgMCAzMy4zMzMzMzMlO1xyXG5tYXgtd2lkdGg6IDMzLjMzMzMzMyU7XHJcbn1cclxuLmNvbnRlbnQtcmlnaHR7XHJcbm1heC13aWR0aDogMTAwJTtcclxuZmxleDogMCAwIDY2LjY2NjY2NyU7XHJcbm1heC13aWR0aDogNjYuNjY2NjY3JTtcclxucGFkZGluZzogMHB4IDVweCAwcHggNXB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuLnVzZXItaW5mb3tcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIHBhZGRpbmctdG9wOiA1MHB4O1xyXG59XHJcbi5waG90b3tcclxuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XHJcbiAgIFxyXG59XHJcbi51cGxvYWR7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBvcGFjaXR5OiAwLjc7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgICB3aWR0aDogMjAwcHg7XHJcbiAgICBoZWlnaHQ6IDIwMHB4O1xyXG59XHJcbi51cGxvYWQ6aG92ZXJ7XHJcbiAgICBvcGFjaXR5OiAwLjY7XHJcbn1cclxuLnVwbG9hZCAudG9we1xyXG4gICAgaGVpZ2h0OiA1MCU7XHJcbiAgICBib3JkZXItcmFkaXVzOjEwMHB4IDEwMHB4IDAgMCAgO1xyXG59XHJcbi51cGxvYWQgLmJvdHRvbXtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gICAgaGVpZ2h0OiA1MCU7XHJcbiAgICBib3JkZXItcmFkaXVzOjAgMCAxMDBweCAxMDBweCA7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNjQ2MzYzO1xyXG59XHJcblxyXG4udXBsb2FkIGl7XHJcbiAgICBjb2xvcjogYmxhY2s7XHJcbiAgICBtYXJnaW46ICBhdXRvO1xyXG4gICAgZm9udC1zaXplOiA0MHB4O1xyXG59XHJcbi5ib3gtaGVhZGVye1xyXG4gICAgdGV4dC1hbGlnbjogbGVmdDtcclxuICAgIGJvcmRlci10b3A6IDFweCBzb2xpZCByZ2JhKDAsMCwwLDAuMTUpO1xyXG59XHJcbi5vdmVydmlld3tcclxuIHRleHQtYWxpZ246IGxlZnQ7XHJcbiBwYWRkaW5nLWxlZnQ6IDIwcHg7XHJcbn1cclxuLm92ZXJ2aWV3IC5pdGVte1xyXG4gICAgaGVpZ2h0OiA1MHB4O1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcblxyXG59XHJcbi5pdGVtICBzcGFue1xyXG4gICAgZm9udC1zaXplOiAxLjFlbTtcclxuICAgIHBhZGRpbmc6IDVweCAxMHB4O1xyXG59XHJcbi5pdGVtIGl7XHJcbiAgICBmb250LXNpemU6IDEuMWVtO1xyXG4gICAgd2lkdGg6IDIwcHg7XHJcbn1cclxuXHJcbi50YWItYmFye1xyXG4gICAgaGVpZ2h0OiA1MHB4O1xyXG4gICAgZGlzcGxheTpmbGV4O1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCByZ2JhKDAsMCwwLDAuMTUpO1xyXG59XHJcbi50YWItYmFyIHVse1xyXG5saXN0LXN0eWxlOiBub25lO1xyXG5tYXJnaW46IDA7XHJcbnBhZGRpbmc6IDA7XHJcblxyXG59XHJcbi50YWItYmFyIHVsIGxpe1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyOyBcclxufVxyXG4udGFiLWJhciB1bCBsaSBhe1xyXG4gICAgbGluZS1oZWlnaHQ6IDUwcHg7XHJcbiAgICBwYWRkaW5nOiAwcHggMTVweDtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG4gICAgZm9udC13ZWlnaHQ6IDUwMDtcclxufVxyXG4udGFiLWJhciB1bCBsaSBhIHNwYW57XHJcbiAgICBmb250LXdlaWdodDogNTAwO1xyXG4gICAgZm9udC1zaXplOiAxZW07IFxyXG59XHJcbi50YWItYmFyIHVsIGxpIGE6aG92ZXJ7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICBjb2xvcjogI0VENjUwNDtcclxufVxyXG4uY29udGVudHtcclxuICAgIHBhZGRpbmc6IDIwcHg7XHJcbiAgICBkaXNwbGF5OiBub25lO1xyXG59ICAgIFxyXG4gIFxyXG4uY29udGVudC1yaWdodCAuc2VsZWN0ZWR7XHJcbiAgICBkaXNwbGF5OiBibG9jayFpbXBvcnRhbnQ7XHJcbn1cclxuLmNvbnRlbnQtcmlnaHQgLmFjdGl2ZXtcclxuICAgIGNvbG9yOiAjRUQ2NTA0O1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbi5jb250ZW50LXJpZ2h0IHNlbGVjdDpob3ZlcntcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4uY29udGVudC1yaWdodCBidXR0b257XHJcbiAgICBtYXJnaW46IDBweCAxMHB4O1xyXG4gICAgcGFkZGluZzogNXB4IDMwcHg7XHJcbn1cclxuLmNvbnRlbnQtcmlnaHQgbGFiZWx7XHJcbiAgICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XHJcbiAgICBzaXplOiAxOHB4O1xyXG4gICAgZm9udC13ZWlnaHQ6IDYwMDtcclxufVxyXG4uYnV0dG9uLWJhcntcclxuICAgIGJvcmRlci10b3A6ICNlY2YwZjEgc29saWQgMnB4O1xyXG4gICAgcGFkZGluZy10b3A6IDIwcHhcclxufVxyXG5cclxuXHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2OHB4KXtcclxuICAgIC5jb250ZW50LWxlZnR7XHJcbiAgICAgICAgZmxleDogMCAwIDEwMCU7XHJcbiAgICAgICAgbWF4LXdpZHRoOiAxMDAlO1xyXG4gICAgICAgb3JkZXI6IDI7XHJcbiAgICB9XHJcbiAgICAuY29udGVudC1yaWdodHtcclxuICAgICAgICBmbGV4OiAwIDAgMTAwJTtcclxuICAgICAgICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgICAgICAgb3JkZXI6IDE7XHJcbiAgICB9XHJcbn1cclxuLmlucHV0LWZvY3VzOmZvY3Vze1xyXG4gICBcclxuICAgIGJveC1zaGFkb3c6IG5vbmU7XHJcblxyXG59Il19 */"
+module.exports = "a:hover{\r\n    cursor: pointer;\r\n}\r\nform{\r\n    margin-bottom: 0px;\r\n}\r\n.content-left{\r\n/* min-width: 300px;\r\nmax-width: 400px; */\r\npadding: 0px 5px 0px 5px !important;\r\nflex: 0 0 33.333333%;\r\nmax-width: 33.333333%;\r\n}\r\n.content-right{\r\nmax-width: 100%;\r\nflex: 0 0 66.666667%;\r\nmax-width: 66.666667%;\r\npadding: 0px 5px 0px 5px !important;\r\n}\r\n.user-info{\r\n    text-align: center;\r\n    padding-top: 50px;\r\n}\r\n.photo{\r\n    margin-bottom: 20px;\r\n   \r\n}\r\n.upload{\r\n    position: absolute;\r\n    opacity: 0.7;\r\n    border-radius: 50%;\r\n    width: 200px;\r\n    height: 200px;\r\n}\r\n.upload:hover{\r\n    opacity: 0.6;\r\n}\r\n.upload .top{\r\n    height: 50%;\r\n    border-radius:100px 100px 0 0  ;\r\n}\r\n.upload .bottom{\r\n    display: flex;\r\n    align-items: center;\r\n    height: 50%;\r\n    border-radius:0 0 100px 100px ;\r\n    background-color: #646363;\r\n}\r\n.upload i{\r\n    color: black;\r\n    margin:  auto;\r\n    font-size: 40px;\r\n}\r\n.box-header{\r\n    text-align: left;\r\n    border-top: 1px solid rgba(0,0,0,0.15);\r\n}\r\n.overview{\r\n text-align: left;\r\n padding-left: 20px;\r\n}\r\n.overview .item{\r\n    height: 50px;\r\n    display: flex;\r\n    align-items: center;\r\n\r\n}\r\n.item  span{\r\n    font-size: 1.1em;\r\n    padding: 5px 10px;\r\n}\r\n.item i{\r\n    font-size: 1.1em;\r\n    width: 20px;\r\n}\r\n.tab-bar{\r\n    height: 50px;\r\n    display:flex;\r\n    align-items: center;\r\n    padding-top: 10px;\r\n}\r\n.tab-bar ul{\r\nlist-style: none;\r\nmargin: 0;\r\npadding: 0;\r\nwidth: 100%;\r\n}\r\n.tab-bar ul li{\r\n    display: inline-block;\r\n    text-align: center; \r\n}\r\n.tab-bar ul li a{\r\n    line-height: 50px;\r\n    padding: 0px 15px;\r\n    display: block;\r\n    text-decoration: none;\r\n    font-weight: 500;\r\n}\r\n.tab-bar ul li a span{\r\n    font-weight: 500;\r\n    font-size: 1em; \r\n}\r\n.tab-bar ul li a:hover{\r\n    cursor: pointer;\r\n    color: #ED6504;\r\n}\r\n.content{\r\n    padding: 20px;\r\n    display: none;\r\n}\r\n.content-right .selected{\r\n    display: block!important;\r\n}\r\n.content-right .active{\r\n    color: #ED6504;\r\n    font-weight: bold;\r\n}\r\n.content-right select:hover{\r\n    cursor: pointer;\r\n}\r\n.content-right button{\r\n    margin: 0px 10px;\r\n    padding: 5px 30px;\r\n}\r\n.content-right label{\r\n    word-wrap: break-word;\r\n    size: 18px;\r\n    font-weight: 600;\r\n}\r\n.button-bar{\r\n    border-top: #ecf0f1 solid 2px;\r\n    padding-top: 20px\r\n}\r\n@media screen and (max-width: 768px){\r\n    .content-left{\r\n        flex: 0 0 100%;\r\n        max-width: 100%;\r\n       order: 2;\r\n    }\r\n    .content-right{\r\n        flex: 0 0 100%;\r\n        max-width: 100%;\r\n        order: 1;\r\n    }\r\n}\r\n.input-focus:focus{\r\n   \r\n    box-shadow: none;\r\n\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL3Byb2ZpbGUvZWRpdC9lZGl0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxlQUFlO0FBQ25CO0FBQ0E7SUFDSSxrQkFBa0I7QUFDdEI7QUFDQTtBQUNBO21CQUNtQjtBQUNuQixtQ0FBbUM7QUFDbkMsb0JBQW9CO0FBQ3BCLHFCQUFxQjtBQUNyQjtBQUNBO0FBQ0EsZUFBZTtBQUNmLG9CQUFvQjtBQUNwQixxQkFBcUI7QUFDckIsbUNBQW1DO0FBQ25DO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsaUJBQWlCO0FBQ3JCO0FBQ0E7SUFDSSxtQkFBbUI7O0FBRXZCO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsWUFBWTtJQUNaLGtCQUFrQjtJQUNsQixZQUFZO0lBQ1osYUFBYTtBQUNqQjtBQUNBO0lBQ0ksWUFBWTtBQUNoQjtBQUNBO0lBQ0ksV0FBVztJQUNYLCtCQUErQjtBQUNuQztBQUNBO0lBQ0ksYUFBYTtJQUNiLG1CQUFtQjtJQUNuQixXQUFXO0lBQ1gsOEJBQThCO0lBQzlCLHlCQUF5QjtBQUM3QjtBQUVBO0lBQ0ksWUFBWTtJQUNaLGFBQWE7SUFDYixlQUFlO0FBQ25CO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsc0NBQXNDO0FBQzFDO0FBQ0E7Q0FDQyxnQkFBZ0I7Q0FDaEIsa0JBQWtCO0FBQ25CO0FBQ0E7SUFDSSxZQUFZO0lBQ1osYUFBYTtJQUNiLG1CQUFtQjs7QUFFdkI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixpQkFBaUI7QUFDckI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixXQUFXO0FBQ2Y7QUFFQTtJQUNJLFlBQVk7SUFDWixZQUFZO0lBQ1osbUJBQW1CO0lBQ25CLGlCQUFpQjtBQUNyQjtBQUNBO0FBQ0EsZ0JBQWdCO0FBQ2hCLFNBQVM7QUFDVCxVQUFVO0FBQ1YsV0FBVztBQUNYO0FBQ0E7SUFDSSxxQkFBcUI7SUFDckIsa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxpQkFBaUI7SUFDakIsaUJBQWlCO0lBQ2pCLGNBQWM7SUFDZCxxQkFBcUI7SUFDckIsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsY0FBYztBQUNsQjtBQUNBO0lBQ0ksZUFBZTtJQUNmLGNBQWM7QUFDbEI7QUFDQTtJQUNJLGFBQWE7SUFDYixhQUFhO0FBQ2pCO0FBRUE7SUFDSSx3QkFBd0I7QUFDNUI7QUFDQTtJQUNJLGNBQWM7SUFDZCxpQkFBaUI7QUFDckI7QUFFQTtJQUNJLGVBQWU7QUFDbkI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixpQkFBaUI7QUFDckI7QUFDQTtJQUNJLHFCQUFxQjtJQUNyQixVQUFVO0lBQ1YsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSw2QkFBNkI7SUFDN0I7QUFDSjtBQUdBO0lBQ0k7UUFDSSxjQUFjO1FBQ2QsZUFBZTtPQUNoQixRQUFRO0lBQ1g7SUFDQTtRQUNJLGNBQWM7UUFDZCxlQUFlO1FBQ2YsUUFBUTtJQUNaO0FBQ0o7QUFDQTs7SUFFSSxnQkFBZ0I7O0FBRXBCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy91c2VyL3Byb2ZpbGUvZWRpdC9lZGl0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJhOmhvdmVye1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcbmZvcm17XHJcbiAgICBtYXJnaW4tYm90dG9tOiAwcHg7XHJcbn1cclxuLmNvbnRlbnQtbGVmdHtcclxuLyogbWluLXdpZHRoOiAzMDBweDtcclxubWF4LXdpZHRoOiA0MDBweDsgKi9cclxucGFkZGluZzogMHB4IDVweCAwcHggNXB4ICFpbXBvcnRhbnQ7XHJcbmZsZXg6IDAgMCAzMy4zMzMzMzMlO1xyXG5tYXgtd2lkdGg6IDMzLjMzMzMzMyU7XHJcbn1cclxuLmNvbnRlbnQtcmlnaHR7XHJcbm1heC13aWR0aDogMTAwJTtcclxuZmxleDogMCAwIDY2LjY2NjY2NyU7XHJcbm1heC13aWR0aDogNjYuNjY2NjY3JTtcclxucGFkZGluZzogMHB4IDVweCAwcHggNXB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuLnVzZXItaW5mb3tcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIHBhZGRpbmctdG9wOiA1MHB4O1xyXG59XHJcbi5waG90b3tcclxuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XHJcbiAgIFxyXG59XHJcbi51cGxvYWR7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBvcGFjaXR5OiAwLjc7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgICB3aWR0aDogMjAwcHg7XHJcbiAgICBoZWlnaHQ6IDIwMHB4O1xyXG59XHJcbi51cGxvYWQ6aG92ZXJ7XHJcbiAgICBvcGFjaXR5OiAwLjY7XHJcbn1cclxuLnVwbG9hZCAudG9we1xyXG4gICAgaGVpZ2h0OiA1MCU7XHJcbiAgICBib3JkZXItcmFkaXVzOjEwMHB4IDEwMHB4IDAgMCAgO1xyXG59XHJcbi51cGxvYWQgLmJvdHRvbXtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gICAgaGVpZ2h0OiA1MCU7XHJcbiAgICBib3JkZXItcmFkaXVzOjAgMCAxMDBweCAxMDBweCA7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNjQ2MzYzO1xyXG59XHJcblxyXG4udXBsb2FkIGl7XHJcbiAgICBjb2xvcjogYmxhY2s7XHJcbiAgICBtYXJnaW46ICBhdXRvO1xyXG4gICAgZm9udC1zaXplOiA0MHB4O1xyXG59XHJcbi5ib3gtaGVhZGVye1xyXG4gICAgdGV4dC1hbGlnbjogbGVmdDtcclxuICAgIGJvcmRlci10b3A6IDFweCBzb2xpZCByZ2JhKDAsMCwwLDAuMTUpO1xyXG59XHJcbi5vdmVydmlld3tcclxuIHRleHQtYWxpZ246IGxlZnQ7XHJcbiBwYWRkaW5nLWxlZnQ6IDIwcHg7XHJcbn1cclxuLm92ZXJ2aWV3IC5pdGVte1xyXG4gICAgaGVpZ2h0OiA1MHB4O1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcblxyXG59XHJcbi5pdGVtICBzcGFue1xyXG4gICAgZm9udC1zaXplOiAxLjFlbTtcclxuICAgIHBhZGRpbmc6IDVweCAxMHB4O1xyXG59XHJcbi5pdGVtIGl7XHJcbiAgICBmb250LXNpemU6IDEuMWVtO1xyXG4gICAgd2lkdGg6IDIwcHg7XHJcbn1cclxuXHJcbi50YWItYmFye1xyXG4gICAgaGVpZ2h0OiA1MHB4O1xyXG4gICAgZGlzcGxheTpmbGV4O1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIHBhZGRpbmctdG9wOiAxMHB4O1xyXG59XHJcbi50YWItYmFyIHVse1xyXG5saXN0LXN0eWxlOiBub25lO1xyXG5tYXJnaW46IDA7XHJcbnBhZGRpbmc6IDA7XHJcbndpZHRoOiAxMDAlO1xyXG59XHJcbi50YWItYmFyIHVsIGxpe1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyOyBcclxufVxyXG4udGFiLWJhciB1bCBsaSBhe1xyXG4gICAgbGluZS1oZWlnaHQ6IDUwcHg7XHJcbiAgICBwYWRkaW5nOiAwcHggMTVweDtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG4gICAgZm9udC13ZWlnaHQ6IDUwMDtcclxufVxyXG4udGFiLWJhciB1bCBsaSBhIHNwYW57XHJcbiAgICBmb250LXdlaWdodDogNTAwO1xyXG4gICAgZm9udC1zaXplOiAxZW07IFxyXG59XHJcbi50YWItYmFyIHVsIGxpIGE6aG92ZXJ7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICBjb2xvcjogI0VENjUwNDtcclxufVxyXG4uY29udGVudHtcclxuICAgIHBhZGRpbmc6IDIwcHg7XHJcbiAgICBkaXNwbGF5OiBub25lO1xyXG59ICAgIFxyXG4gIFxyXG4uY29udGVudC1yaWdodCAuc2VsZWN0ZWR7XHJcbiAgICBkaXNwbGF5OiBibG9jayFpbXBvcnRhbnQ7XHJcbn1cclxuLmNvbnRlbnQtcmlnaHQgLmFjdGl2ZXtcclxuICAgIGNvbG9yOiAjRUQ2NTA0O1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbi5jb250ZW50LXJpZ2h0IHNlbGVjdDpob3ZlcntcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4uY29udGVudC1yaWdodCBidXR0b257XHJcbiAgICBtYXJnaW46IDBweCAxMHB4O1xyXG4gICAgcGFkZGluZzogNXB4IDMwcHg7XHJcbn1cclxuLmNvbnRlbnQtcmlnaHQgbGFiZWx7XHJcbiAgICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XHJcbiAgICBzaXplOiAxOHB4O1xyXG4gICAgZm9udC13ZWlnaHQ6IDYwMDtcclxufVxyXG4uYnV0dG9uLWJhcntcclxuICAgIGJvcmRlci10b3A6ICNlY2YwZjEgc29saWQgMnB4O1xyXG4gICAgcGFkZGluZy10b3A6IDIwcHhcclxufVxyXG5cclxuXHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2OHB4KXtcclxuICAgIC5jb250ZW50LWxlZnR7XHJcbiAgICAgICAgZmxleDogMCAwIDEwMCU7XHJcbiAgICAgICAgbWF4LXdpZHRoOiAxMDAlO1xyXG4gICAgICAgb3JkZXI6IDI7XHJcbiAgICB9XHJcbiAgICAuY29udGVudC1yaWdodHtcclxuICAgICAgICBmbGV4OiAwIDAgMTAwJTtcclxuICAgICAgICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgICAgICAgb3JkZXI6IDE7XHJcbiAgICB9XHJcbn1cclxuLmlucHV0LWZvY3VzOmZvY3Vze1xyXG4gICBcclxuICAgIGJveC1zaGFkb3c6IG5vbmU7XHJcblxyXG59Il19 */"
 
 /***/ }),
 
@@ -1867,7 +1892,7 @@ module.exports = "\r\n.content-left{\r\n    /* min-width: 220px; */\r\n    max-w
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-write-reference-modal [people]=\"user\"></app-write-reference-modal>\r\n<app-send-message-modal [people]=\"user\"></app-send-message-modal>\r\n<app-send-request-modal [people]=\"user\"></app-send-request-modal>\r\n<app-send-report-modal [people]=\"user\"></app-send-report-modal>\r\n<div class=\"row\">\r\n  <div class=\"content-left col-3 \">\r\n    <div class=\"box user-info\">\r\n      <img class=\"photo img-responsive\"\r\n        [src]=\"user.avatarLocation?user.avatarLocation:'./../../../../assets/imgs/profile-picture-placeholder.png'\">\r\n      <div class=\"info\">\r\n        <p style=\"font-size:30px;font-weight: 600\">{{user.fullName}}</p>\r\n        <p style=\"font-size: 20px;\"> {{user.address}}</p>\r\n      </div>\r\n\r\n    </div>\r\n    <div class=\"box\" style=\"min-height:500px\">\r\n\r\n    </div>\r\n  </div>\r\n  <div class=\"content-right col \">\r\n    <div class=\"box status-bar\">\r\n      <i *ngIf=\"user.status;else not\" class=\"color-icon\"\r\n        style=\" margin-left: 20px; width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/ok.png)\"></i>\r\n      <ng-template #not>\r\n        <i class=\"color-icon\"\r\n          style=\" margin-left: 20px; width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/cancel.png)\"></i>\r\n      </ng-template>\r\n      <span class=\"status-value\" [style.color]=\"user.status?'green':'red'\">\r\n        {{user.status?'Acepting Guest':'Not Acepting Guest'}}\r\n      </span>\r\n      <div class=\"button-bar\">\r\n        <button (click)=\"sendRequestModal.open();\" *ngIf=\"!isUser&&user.status\" class=\"btn btn-primary\">Send\r\n          Request</button>\r\n        <button (click)=\"sendMessageModal.open();\" *ngIf=\"!isUser\" class=\"btn btn-primary\"><i\r\n            class=\"far fa-envelope\"></i></button>\r\n        <button *ngIf=\"isUser\" class=\"btn btn-primary\" routerLink=\"/Users/Profile/Edit\">Edit My Profile</button>\r\n        <div *ngIf=\"!isUser\" class=\"dropdown\" (clickOutside)=\"isdrop=false;\">\r\n          <button class=\"btn btn-primary dropdown-toggle\" type=\"button\" id=\"dropdownMenu2\" data-toggle=\"dropdown\"\r\n            (click)=\"isdrop=!isdrop\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n            More\r\n          </button>\r\n          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenu2\"\r\n            [style.display]=\"isdrop?'block':'none'\">\r\n            <button class=\"dropdown-item\" type=\"button\">Add Friend</button>\r\n            <button (click)=\"writeReferenceModal.open();\" class=\"dropdown-item\" type=\"button\">Write Reference</button>\r\n            <button (click)=\"sendReportModal.open();\" class=\"dropdown-item\" type=\"button\">Report</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n    <div class=\"box menu-bar\">\r\n      <ul>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['About']\"><span>About</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Myhome']\"><span>My Home</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Photos']\"><span>Photos</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['References']\"><span>References</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Friends']\"><span>Friends</span></a></li>\r\n      </ul>\r\n    </div>\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>"
+module.exports = "<app-write-reference-modal [people]=\"user\"></app-write-reference-modal>\r\n<app-send-message-modal [people]=\"user\"></app-send-message-modal>\r\n<app-send-request-modal [people]=\"user\"></app-send-request-modal>\r\n<app-send-report-modal [people]=\"user\"></app-send-report-modal>\r\n<div class=\"row\">\r\n  <div class=\"content-left col-3 \">\r\n    <div class=\"box user-info\">\r\n      <img class=\"photo img-responsive\"\r\n        [src]=\"user.avatarLocation?user.avatarLocation:'./../../../../assets/imgs/profile-picture-placeholder.png'\">\r\n      <div class=\"info\">\r\n        <p style=\"font-size:30px;font-weight: 600\">{{user.fullName}}</p>\r\n        <p style=\"font-size: 20px;\"> {{user.address}}</p>\r\n      </div>\r\n\r\n    </div>\r\n    <div class=\"box\" style=\"min-height:500px\">\r\n\r\n    </div>\r\n  </div>\r\n  <div class=\"content-right col \">\r\n    <div class=\"box status-bar\">\r\n      <i *ngIf=\"user.status;else not\" class=\"color-icon\"\r\n        style=\" margin-left: 20px; width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/ok.png)\"></i>\r\n      <ng-template #not>\r\n        <i class=\"color-icon\"\r\n          style=\" margin-left: 20px; width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/cancel.png)\"></i>\r\n      </ng-template>\r\n      <span class=\"status-value\" [style.color]=\"user.status?'green':'red'\">\r\n        {{user.status?'Acepting Guest':'Not Acepting Guest'}}\r\n      </span>\r\n      <div class=\"button-bar\">\r\n        <button (click)=\"sendRequestModal.open();\" *ngIf=\"!isUser&&user.status\" class=\"btn btn-primary\">Send\r\n          Request</button>\r\n        <button (click)=\"sendMessageModal.open();\" *ngIf=\"!isUser\" class=\"btn btn-primary\"><i\r\n            class=\"far fa-envelope\"></i></button>\r\n        <button *ngIf=\"isUser\" class=\"btn btn-primary\" routerLink=\"/Users/Profile/Edit\">Edit My Profile</button>\r\n        <div *ngIf=\"!isUser\" class=\"dropdown\" (clickOutside)=\"isdrop=false;\">\r\n          <button class=\"btn btn-primary dropdown-toggle\" type=\"button\" id=\"dropdownMenu2\" data-toggle=\"dropdown\"\r\n            (click)=\"isdrop=!isdrop\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n            More\r\n          </button>\r\n          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenu2\"\r\n            [style.display]=\"isdrop?'block':'none'\">\r\n            <button (click)=\"sendFriendRequest()\" class=\"dropdown-item\" type=\"button\">Add Friend</button>\r\n            <button (click)=\"writeReferenceModal.open();\" class=\"dropdown-item\" type=\"button\">Write Reference</button>\r\n            <button (click)=\"sendReportModal.open();\" class=\"dropdown-item\" type=\"button\">Report</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n    <div class=\"box menu-bar\">\r\n      <ul>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['About']\"><span>About</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Myhome']\"><span>My Home</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Photos']\"><span>Photos</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['References']\"><span>References</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Friends']\"><span>Friends</span></a></li>\r\n      </ul>\r\n    </div>\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -1889,6 +1914,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reuse_send_message_modal_send_message_modal_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../reuse/send-message-modal/send-message-modal.component */ "./src/app/components/user/reuse/send-message-modal/send-message-modal.component.ts");
 /* harmony import */ var _reuse_send_request_modal_send_request_modal_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../reuse/send-request-modal/send-request-modal.component */ "./src/app/components/user/reuse/send-request-modal/send-request-modal.component.ts");
 /* harmony import */ var _reuse_send_report_modal_send_report_modal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../reuse/send-report-modal/send-report-modal.component */ "./src/app/components/user/reuse/send-report-modal/send-report-modal.component.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+
 
 
 
@@ -1898,10 +1925,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ProfileComponent = /** @class */ (function () {
-    function ProfileComponent(router, service, activatedRoute) {
+    function ProfileComponent(router, service, activatedRoute, toast) {
         this.router = router;
         this.service = service;
         this.activatedRoute = activatedRoute;
+        this.toast = toast;
         this.user = {};
     }
     ProfileComponent.prototype.ngOnInit = function () {
@@ -1912,6 +1940,21 @@ var ProfileComponent = /** @class */ (function () {
         else {
             this.user = temp;
         }
+    };
+    ProfileComponent.prototype.sendFriendRequest = function () {
+        var _this = this;
+        this.isdrop = false;
+        var body = {
+            message: ""
+        };
+        this.service.sendFriendRequest(body, this.user.id).subscribe(function (res) {
+            if (res.status == 200) {
+                _this.toast.success("You had sent a friend request ");
+            }
+            else {
+                _this.toast.error("Fail");
+            }
+        });
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_reuse_write_reference_modal_write_reference_modal_component__WEBPACK_IMPORTED_MODULE_4__["WriteReferenceModalComponent"]),
@@ -1935,7 +1978,7 @@ var ProfileComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./profile.component.html */ "./src/app/components/user/profile/profile.component.html"),
             styles: [__webpack_require__(/*! ./profile.component.css */ "./src/app/components/user/profile/profile.component.css"), __webpack_require__(/*! ./../../../app.component.css */ "./src/app/app.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], ngx_toastr__WEBPACK_IMPORTED_MODULE_8__["ToastrService"]])
     ], ProfileComponent);
     return ProfileComponent;
 }());
@@ -2383,80 +2426,6 @@ var PublicTripComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/components/user/request/request.component.css":
-/*!***************************************************************!*\
-  !*** ./src/app/components/user/request/request.component.css ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ".menu-bar{\r\n    margin: auto;\r\n    display: flex;\r\n    align-items: center;\r\n    min-height: 70px;\r\n    margin-right: -10px;\r\n    margin-left: -10px;\r\n}\r\n.menu-bar ul{\r\n    -webkit-padding-start: 7px;\r\n            padding-inline-start: 7px;\r\n    list-style: none;\r\n    margin-top: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n.menu-bar ul li{\r\n    display: inline-block;\r\n    text-align: center; \r\n    margin: 0px 13px;\r\n}\r\n.menu-bar ul li a{\r\n    text-decoration: none;\r\n    font-size: 17px;\r\n    color: #287FB8;\r\n}\r\n.menu-bar ul li a:hover{\r\n    color: #ED6504;\r\n}\r\n.menu-bar ul li .is-selected{\r\n    color: #ED6504;\r\n    font-weight: 600;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL3JlcXVlc3QvcmVxdWVzdC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksWUFBWTtJQUNaLGFBQWE7SUFDYixtQkFBbUI7SUFDbkIsZ0JBQWdCO0lBQ2hCLG1CQUFtQjtJQUNuQixrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLDBCQUF5QjtZQUF6Qix5QkFBeUI7SUFDekIsZ0JBQWdCO0lBQ2hCLGVBQWU7SUFDZixrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLHFCQUFxQjtJQUNyQixrQkFBa0I7SUFDbEIsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxxQkFBcUI7SUFDckIsZUFBZTtJQUNmLGNBQWM7QUFDbEI7QUFDQTtJQUNJLGNBQWM7QUFDbEI7QUFDQTtJQUNJLGNBQWM7SUFDZCxnQkFBZ0I7QUFDcEIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3VzZXIvcmVxdWVzdC9yZXF1ZXN0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWVudS1iYXJ7XHJcbiAgICBtYXJnaW46IGF1dG87XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIG1pbi1oZWlnaHQ6IDcwcHg7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IC0xMHB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IC0xMHB4O1xyXG59XHJcbi5tZW51LWJhciB1bHtcclxuICAgIHBhZGRpbmctaW5saW5lLXN0YXJ0OiA3cHg7XHJcbiAgICBsaXN0LXN0eWxlOiBub25lO1xyXG4gICAgbWFyZ2luLXRvcDogMHB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMHB4O1xyXG59XHJcbi5tZW51LWJhciB1bCBsaXtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjsgXHJcbiAgICBtYXJnaW46IDBweCAxM3B4O1xyXG59XHJcbi5tZW51LWJhciB1bCBsaSBhe1xyXG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG4gICAgZm9udC1zaXplOiAxN3B4O1xyXG4gICAgY29sb3I6ICMyODdGQjg7XHJcbn1cclxuLm1lbnUtYmFyIHVsIGxpIGE6aG92ZXJ7XHJcbiAgICBjb2xvcjogI0VENjUwNDtcclxufVxyXG4ubWVudS1iYXIgdWwgbGkgLmlzLXNlbGVjdGVke1xyXG4gICAgY29sb3I6ICNFRDY1MDQ7XHJcbiAgICBmb250LXdlaWdodDogNjAwO1xyXG59Il19 */"
-
-/***/ }),
-
-/***/ "./src/app/components/user/request/request.component.html":
-/*!****************************************************************!*\
-  !*** ./src/app/components/user/request/request.component.html ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"box menu-bar\">\r\n\r\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/components/user/request/request.component.ts":
-/*!**************************************************************!*\
-  !*** ./src/app/components/user/request/request.component.ts ***!
-  \**************************************************************/
-/*! exports provided: RequestComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RequestComponent", function() { return RequestComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
-/* harmony import */ var _reuse_upload_upload_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../reuse/upload/upload.component */ "./src/app/components/user/reuse/upload/upload.component.ts");
-/* harmony import */ var src_app_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/user.service */ "./src/app/services/user.service.ts");
-
-
-
-
-
-var RequestComponent = /** @class */ (function () {
-    function RequestComponent(modalService, service) {
-        this.modalService = modalService;
-        this.service = service;
-    }
-    RequestComponent.prototype.ngOnInit = function () {
-        this.service.getHostOffer().subscribe(function (res) {
-            console.log(res);
-        });
-        this.service.getTraveRequest().subscribe(function (res) {
-            console.log(res);
-        });
-    };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_reuse_upload_upload_component__WEBPACK_IMPORTED_MODULE_3__["UploadComponent"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _reuse_upload_upload_component__WEBPACK_IMPORTED_MODULE_3__["UploadComponent"])
-    ], RequestComponent.prototype, "upload", void 0);
-    RequestComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-request',
-            template: __webpack_require__(/*! ./request.component.html */ "./src/app/components/user/request/request.component.html"),
-            styles: [__webpack_require__(/*! ./request.component.css */ "./src/app/components/user/request/request.component.css")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbModal"], src_app_services_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]])
-    ], RequestComponent);
-    return RequestComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/components/user/reuse/carousel-modal/carousel-modal.component.css":
 /*!***********************************************************************************!*\
   !*** ./src/app/components/user/reuse/carousel-modal/carousel-modal.component.css ***!
@@ -2775,7 +2744,7 @@ var DropdownComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".item{\r\n    border: solid 1px rgba(0,0,0,0.15);\r\n    border-radius: 25px;\r\n    margin-bottom: 20px;\r\n}\r\n.activity-info,.message,.action{\r\n    padding: 0;\r\n}\r\n.activity-info{\r\n    min-width: 280px;\r\n   \r\n    /* background-color: #f0f0f0; */\r\n    margin-bottom: 20px;\r\n}\r\n.activity{\r\n    margin: 0;\r\n    padding: 20px;\r\n}\r\n.card-info{\r\n    display: flex;\r\n}\r\n.card-info p{\r\n    margin-bottom:  0px;\r\n}\r\n.card-info .name{\r\n    font-size: 1.3em;\r\n    font-weight: 500;\r\n}\r\n.info{\r\n    padding-right: 20px;\r\n    word-break: break-all;\r\n}\r\n.avatar{\r\n    padding-right: 20px;\r\n}\r\n.avatar img{\r\n    height: 70px;\r\n    width: 70px;\r\n    border-radius: 50%;\r\n}\r\n.trip-info{\r\n    clear: both;\r\n    padding-bottom: 15px;\r\n}\r\n.content-message{\r\n    padding: 10px;\r\n    background-color: #f0f0f0;\r\n    position: relative;\r\n    border-radius: 5px;\r\n}\r\n.trip-decription::after{\r\n    border-bottom: 25px solid transparent;\r\n    border-left: 25px solid transparent;\r\n    border-top: 25px solid #f0f0f0;\r\n    content: '';\r\n    left: -15px;\r\n    position: absolute;\r\n    top: 0px;\r\n}\r\n.trip-info span{\r\n    padding-right: 10px;\r\n    \r\n}\r\n.trip-decription{\r\n   clear: both;\r\n   word-wrap: break-word;\r\n   white-space: pre-wrap;\r\n   max-height: 4.5em;\r\n   overflow: hidden; \r\n  transition: max-height 0.5s; \r\n\r\n}\r\n.trip-decription p{\r\n    margin-bottom: 0px; \r\n}\r\n.button-decription{\r\n    padding-top: 5px;\r\n    display: flex; \r\n    \r\n}\r\n.button-decription a{\r\ncolor: #287FB8;;\r\nfont-weight: 600;\r\n}\r\n.button-decription a:hover{\r\n    cursor: pointer;\r\n    color: #ED6504;\r\n}\r\n.action{\r\n    min-width: 200px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.time{\r\n    padding-left: 10px;\r\n    margin-top: auto;\r\n    padding-top: 20px;\r\n    margin-left: auto;\r\n}\r\n.button-bar{\r\n    padding-top: 20px;\r\n    margin-left: auto;\r\n   \r\n}\r\n.button-bar button{\r\n    \r\n    margin-left: 10px;\r\n}\r\n.time p{\r\n    font-size: 0.8em;\r\n    font-style: italic;\r\n    margin-bottom: 0px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL3JldXNlL2l0ZW0tYWN0aXZpdHkvaXRlbS1hY3Rpdml0eS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksa0NBQWtDO0lBQ2xDLG1CQUFtQjtJQUNuQixtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLFVBQVU7QUFDZDtBQUNBO0lBQ0ksZ0JBQWdCOztJQUVoQiwrQkFBK0I7SUFDL0IsbUJBQW1CO0FBQ3ZCO0FBQ0E7SUFDSSxTQUFTO0lBQ1QsYUFBYTtBQUNqQjtBQUNBO0lBQ0ksYUFBYTtBQUNqQjtBQUNBO0lBQ0ksbUJBQW1CO0FBQ3ZCO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxtQkFBbUI7SUFDbkIscUJBQXFCO0FBQ3pCO0FBQ0E7SUFDSSxtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLFlBQVk7SUFDWixXQUFXO0lBQ1gsa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsb0JBQW9CO0FBQ3hCO0FBQ0E7SUFDSSxhQUFhO0lBQ2IseUJBQXlCO0lBQ3pCLGtCQUFrQjtJQUNsQixrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLHFDQUFxQztJQUNyQyxtQ0FBbUM7SUFDbkMsOEJBQThCO0lBQzlCLFdBQVc7SUFDWCxXQUFXO0lBQ1gsa0JBQWtCO0lBQ2xCLFFBQVE7QUFDWjtBQUNBO0lBQ0ksbUJBQW1COztBQUV2QjtBQUVBO0dBQ0csV0FBVztHQUNYLHFCQUFxQjtHQUNyQixxQkFBcUI7R0FDckIsaUJBQWlCO0dBQ2pCLGdCQUFnQjtFQUNqQiwyQkFBMkI7O0FBRTdCO0FBQ0E7SUFDSSxrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixhQUFhOztBQUVqQjtBQUNBO0FBQ0EsY0FBYztBQUNkLGdCQUFnQjtBQUNoQjtBQUNBO0lBQ0ksZUFBZTtJQUNmLGNBQWM7QUFDbEI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixhQUFhO0lBQ2Isc0JBQXNCO0FBQzFCO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLGlCQUFpQjtJQUNqQixpQkFBaUI7QUFDckI7QUFDQTtJQUNJLGlCQUFpQjtJQUNqQixpQkFBaUI7O0FBRXJCO0FBQ0E7O0lBRUksaUJBQWlCO0FBQ3JCO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsa0JBQWtCO0lBQ2xCLGtCQUFrQjtBQUN0QiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvdXNlci9yZXVzZS9pdGVtLWFjdGl2aXR5L2l0ZW0tYWN0aXZpdHkuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pdGVte1xyXG4gICAgYm9yZGVyOiBzb2xpZCAxcHggcmdiYSgwLDAsMCwwLjE1KTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDI1cHg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xyXG59XHJcbi5hY3Rpdml0eS1pbmZvLC5tZXNzYWdlLC5hY3Rpb257XHJcbiAgICBwYWRkaW5nOiAwO1xyXG59XHJcbi5hY3Rpdml0eS1pbmZve1xyXG4gICAgbWluLXdpZHRoOiAyODBweDtcclxuICAgXHJcbiAgICAvKiBiYWNrZ3JvdW5kLWNvbG9yOiAjZjBmMGYwOyAqL1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcclxufVxyXG4uYWN0aXZpdHl7XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBwYWRkaW5nOiAyMHB4O1xyXG59XHJcbi5jYXJkLWluZm97XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5jYXJkLWluZm8gcHtcclxuICAgIG1hcmdpbi1ib3R0b206ICAwcHg7XHJcbn1cclxuLmNhcmQtaW5mbyAubmFtZXtcclxuICAgIGZvbnQtc2l6ZTogMS4zZW07XHJcbiAgICBmb250LXdlaWdodDogNTAwO1xyXG59XHJcbi5pbmZve1xyXG4gICAgcGFkZGluZy1yaWdodDogMjBweDtcclxuICAgIHdvcmQtYnJlYWs6IGJyZWFrLWFsbDtcclxufVxyXG4uYXZhdGFye1xyXG4gICAgcGFkZGluZy1yaWdodDogMjBweDtcclxufVxyXG4uYXZhdGFyIGltZ3tcclxuICAgIGhlaWdodDogNzBweDtcclxuICAgIHdpZHRoOiA3MHB4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG59XHJcbi50cmlwLWluZm97XHJcbiAgICBjbGVhcjogYm90aDtcclxuICAgIHBhZGRpbmctYm90dG9tOiAxNXB4O1xyXG59XHJcbi5jb250ZW50LW1lc3NhZ2V7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2YwZjBmMDtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcclxufVxyXG4udHJpcC1kZWNyaXB0aW9uOjphZnRlcntcclxuICAgIGJvcmRlci1ib3R0b206IDI1cHggc29saWQgdHJhbnNwYXJlbnQ7XHJcbiAgICBib3JkZXItbGVmdDogMjVweCBzb2xpZCB0cmFuc3BhcmVudDtcclxuICAgIGJvcmRlci10b3A6IDI1cHggc29saWQgI2YwZjBmMDtcclxuICAgIGNvbnRlbnQ6ICcnO1xyXG4gICAgbGVmdDogLTE1cHg7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6IDBweDtcclxufVxyXG4udHJpcC1pbmZvIHNwYW57XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG4gICAgXHJcbn1cclxuXHJcbi50cmlwLWRlY3JpcHRpb257XHJcbiAgIGNsZWFyOiBib3RoO1xyXG4gICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XHJcbiAgIHdoaXRlLXNwYWNlOiBwcmUtd3JhcDtcclxuICAgbWF4LWhlaWdodDogNC41ZW07XHJcbiAgIG92ZXJmbG93OiBoaWRkZW47IFxyXG4gIHRyYW5zaXRpb246IG1heC1oZWlnaHQgMC41czsgXHJcblxyXG59XHJcbi50cmlwLWRlY3JpcHRpb24gcHtcclxuICAgIG1hcmdpbi1ib3R0b206IDBweDsgXHJcbn1cclxuLmJ1dHRvbi1kZWNyaXB0aW9ue1xyXG4gICAgcGFkZGluZy10b3A6IDVweDtcclxuICAgIGRpc3BsYXk6IGZsZXg7IFxyXG4gICAgXHJcbn1cclxuLmJ1dHRvbi1kZWNyaXB0aW9uIGF7XHJcbmNvbG9yOiAjMjg3RkI4OztcclxuZm9udC13ZWlnaHQ6IDYwMDtcclxufVxyXG4uYnV0dG9uLWRlY3JpcHRpb24gYTpob3ZlcntcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIGNvbG9yOiAjRUQ2NTA0O1xyXG59XHJcbi5hY3Rpb257XHJcbiAgICBtaW4td2lkdGg6IDIwMHB4O1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbn1cclxuLnRpbWV7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7XHJcbiAgICBtYXJnaW4tdG9wOiBhdXRvO1xyXG4gICAgcGFkZGluZy10b3A6IDIwcHg7XHJcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcclxufVxyXG4uYnV0dG9uLWJhcntcclxuICAgIHBhZGRpbmctdG9wOiAyMHB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IGF1dG87XHJcbiAgIFxyXG59XHJcbi5idXR0b24tYmFyIGJ1dHRvbntcclxuICAgIFxyXG4gICAgbWFyZ2luLWxlZnQ6IDEwcHg7XHJcbn1cclxuLnRpbWUgcHtcclxuICAgIGZvbnQtc2l6ZTogMC44ZW07XHJcbiAgICBmb250LXN0eWxlOiBpdGFsaWM7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAwcHg7XHJcbn0iXX0= */"
+module.exports = ".item{\r\n    border: solid 1px rgba(0,0,0,0.15);\r\n    border-radius: 25px;\r\n    margin-bottom: 20px;\r\n}\r\n.item a{\r\n \r\n color: #27374c;\r\n}\r\n.item a:hover{\r\n    text-decoration: none;\r\n    cursor: pointer;\r\n    color: #ED6504;\r\n}\r\n.activity-info,.message,.action{\r\n    padding: 0;\r\n}\r\n.activity-info{\r\n    min-width: 280px;\r\n   \r\n    /* background-color: #f0f0f0; */\r\n    margin-bottom: 20px;\r\n}\r\n.activity{\r\n    margin: 0;\r\n    padding: 20px;\r\n}\r\n.card-info{\r\n    display: flex;\r\n}\r\n.card-info p{\r\n    margin-bottom:  0px;\r\n}\r\n.card-info .name{\r\n    font-size: 1.3em;\r\n    font-weight: 500;\r\n}\r\n.info{\r\n    padding-right: 20px;\r\n    word-break: break-all;\r\n}\r\n.avatar{\r\n    padding-right: 20px;\r\n}\r\n.avatar img{\r\n    height: 70px;\r\n    width: 70px;\r\n    border-radius: 50%;\r\n}\r\n.trip-info{\r\n    clear: both;\r\n    padding-bottom: 15px;\r\n}\r\n.content-message{\r\n    padding: 10px;\r\n    background-color: #f0f0f0;\r\n    position: relative;\r\n    border-radius: 5px;\r\n}\r\n.trip-decription::after{\r\n    border-bottom: 25px solid transparent;\r\n    border-left: 25px solid transparent;\r\n    border-top: 25px solid #f0f0f0;\r\n    content: '';\r\n    left: -15px;\r\n    position: absolute;\r\n    top: 0px;\r\n}\r\n.trip-info span{\r\n    padding-right: 10px;\r\n    \r\n}\r\n.trip-decription{\r\n   clear: both;\r\n   word-wrap: break-word;\r\n   white-space: pre-wrap;\r\n   max-height: 4.5em;\r\n   overflow: hidden; \r\n  transition: max-height 0.5s; \r\n\r\n}\r\n.trip-decription p{\r\n    margin-bottom: 0px; \r\n}\r\n.button-decription{\r\n    padding-top: 5px;\r\n    display: flex; \r\n    \r\n}\r\n.button-decription a{\r\ncolor: #287FB8;;\r\nfont-weight: 600;\r\n}\r\n.button-decription a:hover{\r\n    cursor: pointer;\r\n    color: #ED6504;\r\n}\r\n.action{\r\n    min-width: 200px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.time{\r\n    padding-left: 10px;\r\n    margin-top: auto;\r\n    padding-top: 20px;\r\n    margin-left: auto;\r\n}\r\n.button-bar{\r\n    padding-top: 20px;\r\n    margin-left: auto;\r\n   \r\n}\r\n.button-bar button{\r\n    \r\n    margin-left: 10px;\r\n}\r\n.time p{\r\n    font-size: 0.8em;\r\n    font-style: italic;\r\n    margin-bottom: 0px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL3JldXNlL2l0ZW0tYWN0aXZpdHkvaXRlbS1hY3Rpdml0eS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksa0NBQWtDO0lBQ2xDLG1CQUFtQjtJQUNuQixtQkFBbUI7QUFDdkI7QUFDQTs7Q0FFQyxjQUFjO0FBQ2Y7QUFDQTtJQUNJLHFCQUFxQjtJQUNyQixlQUFlO0lBQ2YsY0FBYztBQUNsQjtBQUNBO0lBQ0ksVUFBVTtBQUNkO0FBQ0E7SUFDSSxnQkFBZ0I7O0lBRWhCLCtCQUErQjtJQUMvQixtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLFNBQVM7SUFDVCxhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLG1CQUFtQjtJQUNuQixxQkFBcUI7QUFDekI7QUFDQTtJQUNJLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksWUFBWTtJQUNaLFdBQVc7SUFDWCxrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLFdBQVc7SUFDWCxvQkFBb0I7QUFDeEI7QUFDQTtJQUNJLGFBQWE7SUFDYix5QkFBeUI7SUFDekIsa0JBQWtCO0lBQ2xCLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0kscUNBQXFDO0lBQ3JDLG1DQUFtQztJQUNuQyw4QkFBOEI7SUFDOUIsV0FBVztJQUNYLFdBQVc7SUFDWCxrQkFBa0I7SUFDbEIsUUFBUTtBQUNaO0FBQ0E7SUFDSSxtQkFBbUI7O0FBRXZCO0FBRUE7R0FDRyxXQUFXO0dBQ1gscUJBQXFCO0dBQ3JCLHFCQUFxQjtHQUNyQixpQkFBaUI7R0FDakIsZ0JBQWdCO0VBQ2pCLDJCQUEyQjs7QUFFN0I7QUFDQTtJQUNJLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGFBQWE7O0FBRWpCO0FBQ0E7QUFDQSxjQUFjO0FBQ2QsZ0JBQWdCO0FBQ2hCO0FBQ0E7SUFDSSxlQUFlO0lBQ2YsY0FBYztBQUNsQjtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGFBQWE7SUFDYixzQkFBc0I7QUFDMUI7QUFDQTtJQUNJLGtCQUFrQjtJQUNsQixnQkFBZ0I7SUFDaEIsaUJBQWlCO0lBQ2pCLGlCQUFpQjtBQUNyQjtBQUNBO0lBQ0ksaUJBQWlCO0lBQ2pCLGlCQUFpQjs7QUFFckI7QUFDQTs7SUFFSSxpQkFBaUI7QUFDckI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixrQkFBa0I7SUFDbEIsa0JBQWtCO0FBQ3RCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy91c2VyL3JldXNlL2l0ZW0tYWN0aXZpdHkvaXRlbS1hY3Rpdml0eS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLml0ZW17XHJcbiAgICBib3JkZXI6IHNvbGlkIDFweCByZ2JhKDAsMCwwLDAuMTUpO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMjVweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XHJcbn1cclxuLml0ZW0gYXtcclxuIFxyXG4gY29sb3I6ICMyNzM3NGM7XHJcbn1cclxuLml0ZW0gYTpob3ZlcntcclxuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIGNvbG9yOiAjRUQ2NTA0O1xyXG59XHJcbi5hY3Rpdml0eS1pbmZvLC5tZXNzYWdlLC5hY3Rpb257XHJcbiAgICBwYWRkaW5nOiAwO1xyXG59XHJcbi5hY3Rpdml0eS1pbmZve1xyXG4gICAgbWluLXdpZHRoOiAyODBweDtcclxuICAgXHJcbiAgICAvKiBiYWNrZ3JvdW5kLWNvbG9yOiAjZjBmMGYwOyAqL1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcclxufVxyXG4uYWN0aXZpdHl7XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBwYWRkaW5nOiAyMHB4O1xyXG59XHJcbi5jYXJkLWluZm97XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5jYXJkLWluZm8gcHtcclxuICAgIG1hcmdpbi1ib3R0b206ICAwcHg7XHJcbn1cclxuLmNhcmQtaW5mbyAubmFtZXtcclxuICAgIGZvbnQtc2l6ZTogMS4zZW07XHJcbiAgICBmb250LXdlaWdodDogNTAwO1xyXG59XHJcbi5pbmZve1xyXG4gICAgcGFkZGluZy1yaWdodDogMjBweDtcclxuICAgIHdvcmQtYnJlYWs6IGJyZWFrLWFsbDtcclxufVxyXG4uYXZhdGFye1xyXG4gICAgcGFkZGluZy1yaWdodDogMjBweDtcclxufVxyXG4uYXZhdGFyIGltZ3tcclxuICAgIGhlaWdodDogNzBweDtcclxuICAgIHdpZHRoOiA3MHB4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG59XHJcbi50cmlwLWluZm97XHJcbiAgICBjbGVhcjogYm90aDtcclxuICAgIHBhZGRpbmctYm90dG9tOiAxNXB4O1xyXG59XHJcbi5jb250ZW50LW1lc3NhZ2V7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2YwZjBmMDtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcclxufVxyXG4udHJpcC1kZWNyaXB0aW9uOjphZnRlcntcclxuICAgIGJvcmRlci1ib3R0b206IDI1cHggc29saWQgdHJhbnNwYXJlbnQ7XHJcbiAgICBib3JkZXItbGVmdDogMjVweCBzb2xpZCB0cmFuc3BhcmVudDtcclxuICAgIGJvcmRlci10b3A6IDI1cHggc29saWQgI2YwZjBmMDtcclxuICAgIGNvbnRlbnQ6ICcnO1xyXG4gICAgbGVmdDogLTE1cHg7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6IDBweDtcclxufVxyXG4udHJpcC1pbmZvIHNwYW57XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG4gICAgXHJcbn1cclxuXHJcbi50cmlwLWRlY3JpcHRpb257XHJcbiAgIGNsZWFyOiBib3RoO1xyXG4gICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XHJcbiAgIHdoaXRlLXNwYWNlOiBwcmUtd3JhcDtcclxuICAgbWF4LWhlaWdodDogNC41ZW07XHJcbiAgIG92ZXJmbG93OiBoaWRkZW47IFxyXG4gIHRyYW5zaXRpb246IG1heC1oZWlnaHQgMC41czsgXHJcblxyXG59XHJcbi50cmlwLWRlY3JpcHRpb24gcHtcclxuICAgIG1hcmdpbi1ib3R0b206IDBweDsgXHJcbn1cclxuLmJ1dHRvbi1kZWNyaXB0aW9ue1xyXG4gICAgcGFkZGluZy10b3A6IDVweDtcclxuICAgIGRpc3BsYXk6IGZsZXg7IFxyXG4gICAgXHJcbn1cclxuLmJ1dHRvbi1kZWNyaXB0aW9uIGF7XHJcbmNvbG9yOiAjMjg3RkI4OztcclxuZm9udC13ZWlnaHQ6IDYwMDtcclxufVxyXG4uYnV0dG9uLWRlY3JpcHRpb24gYTpob3ZlcntcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIGNvbG9yOiAjRUQ2NTA0O1xyXG59XHJcbi5hY3Rpb257XHJcbiAgICBtaW4td2lkdGg6IDIwMHB4O1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbn1cclxuLnRpbWV7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7XHJcbiAgICBtYXJnaW4tdG9wOiBhdXRvO1xyXG4gICAgcGFkZGluZy10b3A6IDIwcHg7XHJcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcclxufVxyXG4uYnV0dG9uLWJhcntcclxuICAgIHBhZGRpbmctdG9wOiAyMHB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IGF1dG87XHJcbiAgIFxyXG59XHJcbi5idXR0b24tYmFyIGJ1dHRvbntcclxuICAgIFxyXG4gICAgbWFyZ2luLWxlZnQ6IDEwcHg7XHJcbn1cclxuLnRpbWUgcHtcclxuICAgIGZvbnQtc2l6ZTogMC44ZW07XHJcbiAgICBmb250LXN0eWxlOiBpdGFsaWM7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAwcHg7XHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -2786,7 +2755,7 @@ module.exports = ".item{\r\n    border: solid 1px rgba(0,0,0,0.15);\r\n    borde
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"item\">\r\n    <div class=\"activity row\">\r\n        <div class=\"activity-info col-sm-12 col-md-3\">\r\n            <div class=\"card-info\">\r\n                <div class=\"avatar\">\r\n                    <a href=\"\"><img [src]=\"item.sender.avatarLocation\"></a>\r\n                </div>\r\n                <div class=\"info\">\r\n                    <a>\r\n                        <p class=\"name\">{{item.sender.fullName}}</p>\r\n                    </a>\r\n                    <p>{{item.sender.address}}</p>\r\n                </div>\r\n\r\n            </div>\r\n\r\n        </div>\r\n        <div class=\"message col-md col-sm-12\">\r\n            <div class=\"trip-info\">\r\n                <span><i class=\"far fa-calendar-alt\"></i></span>\r\n                <span>{{item.arrivalDate|date:\"dd/MM/yyyy\" }} <i class=\"fas fa-arrow-right\"></i>\r\n                    {{item.departureDate|date:\"dd/MM/yyyy\"}}</span>\r\n                <span><i class=\"fas fa-user-friends\"></i></span><span>{{item.travelerNumber}} Traveler</span>\r\n            </div>\r\n            <div class=\"content-message\">\r\n                <div class=\"trip-decription\" (window:resize)=\"onResize($event)\"\r\n                    [ngStyle]=\"x && {'max-height.em':height}\">\r\n                    <p #des>{{item.message}} </p>\r\n                </div>\r\n                <div class=\"button-decription\" *ngIf=\"show\">\r\n                    <a style=\"margin-left:auto\" (click)=\"x=!x\">{{x?'[-]Read Less':'[+]Read More'}}</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"action col-lg-2 col-md-12\">\r\n            <div class=\"button-bar\">\r\n                <button [disabled]=\"item.isAccepted || isdiabled\" (click)=\"onAccept()\"\r\n                    class=\"btn btn-primary\">{{item.isAccepted?'Accepted':'Accept'}}</button>\r\n                <button [disabled]=\"isdiabled\" (click)=\"onIgnore()\" class=\"btn btn-danger\">Ignore</button>\r\n            </div>\r\n            <div class=\"time\">\r\n                <p>{{item.createDate|date:'dd MMMM, yyyy, HH:mm':'+0700'}}</p>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"item\">\r\n    <div class=\"activity row\">\r\n        <div class=\"activity-info col-sm-12 col-md-3\">\r\n            <div class=\"card-info\">\r\n                <div class=\"avatar\">\r\n                    <a routerLink=\"/Users/People/{{item.sender.id}}\"><img [src]=\"item.sender.avatarLocation\"></a>\r\n                </div>\r\n                <div class=\"info\">\r\n                    <a routerLink=\"/Users/People/{{item.sender.id}}\">\r\n                        <p class=\"name\">{{item.sender.fullName}}</p>\r\n                    </a>\r\n                    <p>{{item.sender.address}}</p>\r\n                </div>\r\n\r\n            </div>\r\n\r\n        </div>\r\n        <div *ngIf=\"from!='friendrequest'\" class=\"message col-md col-sm-12\">\r\n            <div class=\"trip-info\">\r\n                <span><i class=\"far fa-calendar-alt\"></i></span>\r\n                <span>{{item.arrivalDate|date:\"dd/MM/yyyy\" }} <i class=\"fas fa-arrow-right\"></i>\r\n                    {{item.departureDate|date:\"dd/MM/yyyy\"}}</span>\r\n                <span><i class=\"fas fa-user-friends\"></i></span><span>{{item.travelerNumber}} Traveler</span>\r\n            </div>\r\n            <div class=\"content-message\">\r\n                <div class=\"trip-decription\" (window:resize)=\"onResize($event)\"\r\n                    [ngStyle]=\"x && {'max-height.em':height}\">\r\n                    <p #des>{{item.message}} </p>\r\n                </div>\r\n                <div class=\"button-decription\" *ngIf=\"show\">\r\n                    <a style=\"margin-left:auto\" (click)=\"x=!x\">{{x?'[-]Read Less':'[+]Read More'}}</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"action col-lg-2 col-md-12\">\r\n            <div class=\"button-bar\">\r\n                <button [disabled]=\"item.isAccepted || isdiabled\" (click)=\"onAccept()\"\r\n                    [ngClass]=\"item.isAccepted?'btn-success':'btn-primary'\"\r\n                    class=\"btn \">{{item.isAccepted?'Accepted':'Accept'}}</button>\r\n                <button [disabled]=\"isdiabled\" (click)=\"onIgnore()\" class=\"btn btn-danger\">Ignore</button>\r\n            </div>\r\n            <div class=\"time\">\r\n                <p>{{item.createDate|date:'dd MMMM, yyyy, HH:mm':'+0700'}}</p>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -2817,13 +2786,14 @@ var ItemActivityComponent = /** @class */ (function () {
     }
     ItemActivityComponent.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () {
-            _this.onResize(event);
-        }, 0);
+        if (this.from != 'friendrequest')
+            setTimeout(function () {
+                _this.onResize(event);
+            }, 0);
     };
     ItemActivityComponent.prototype.onResize = function (event) {
         this.height = this.des.nativeElement.offsetHeight / 16;
-        this.show = (this.height > 6);
+        this.show = (this.height > 5);
     };
     ItemActivityComponent.prototype.onAccept = function () {
         var _this = this;
@@ -2844,6 +2814,18 @@ var ItemActivityComponent = /** @class */ (function () {
                 console.log(res);
             });
         }
+        else if (this.from == 'friendrequest') {
+            // let body = {
+            //   type: 'acceptfriend', id: this.item.friendRequestId
+            // }
+            // this.myClick.emit(body);
+            this.service.acceptFriendRequest(this.item.friendRequestId).subscribe(function (res) {
+                _this.toast.success('Accepted');
+                _this.item.isAccepted = res.isAccepted;
+                _this.isdiabled = false;
+                console.log(res);
+            });
+        }
     };
     ItemActivityComponent.prototype.onIgnore = function () {
         this.isdiabled = true;
@@ -2853,6 +2835,9 @@ var ItemActivityComponent = /** @class */ (function () {
         }
         else if (this.from == 'hostoffer') {
             id = this.item.hostOfferId;
+        }
+        else if (this.from == 'friendrequest') {
+            id = this.item.friendRequestId;
         }
         var body = {
             type: 'ignore', id: id
@@ -3103,7 +3088,7 @@ var PublictripComponent = /** @class */ (function () {
     };
     PublictripComponent.prototype.onResize = function (event) {
         this.height = this.des.nativeElement.offsetHeight / 16;
-        this.show = (this.height > 6);
+        this.show = (this.height > 5);
     };
     PublictripComponent.prototype.openModal = function () {
         // let x =<HTMLInputElement> window.document.getElementById('offerbutton');
@@ -3194,7 +3179,7 @@ var ReferenceComponent = /** @class */ (function () {
     };
     ReferenceComponent.prototype.onResize = function (event) {
         this.height = this.des.nativeElement.offsetHeight / 16;
-        this.show = (this.height > 6);
+        this.show = (this.height > 5);
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -3520,7 +3505,7 @@ var TripComponent = /** @class */ (function () {
     };
     TripComponent.prototype.onResize = function (event) {
         this.height = this.des.nativeElement.offsetHeight / 16;
-        this.show = (this.height > 6);
+        this.show = (this.height > 5);
     };
     TripComponent.prototype.onClickTrip = function () {
         this.router.navigate(['/Users/PublicTrip', this.trip.publicTripId]);
@@ -4527,6 +4512,19 @@ var UserService = /** @class */ (function () {
     };
     UserService.prototype.ignoreHostOffer = function (id) {
         return this.http.delete(this.BaseURI + '/HostOffers/' + id, { reportProgress: true, observe: "response" });
+    };
+    //==============================
+    UserService.prototype.getFriendRequest = function () {
+        return this.http.get(this.BaseURI + '/Users/FriendRequests/');
+    };
+    UserService.prototype.sendFriendRequest = function (body, id) {
+        return this.http.post(this.BaseURI + '/FriendRequests/' + id, body, { reportProgress: true, observe: "response" });
+    };
+    UserService.prototype.acceptFriendRequest = function (id) {
+        return this.http.put(this.BaseURI + '/FriendRequests/' + id, { reportProgress: true, observe: "response" });
+    };
+    UserService.prototype.ignoreFriendRequest = function (id) {
+        return this.http.delete(this.BaseURI + '/FriendRequests/' + id, { reportProgress: true, observe: "response" });
     };
     //  =============================
     UserService.prototype.getUserProfile = function () {
