@@ -109,14 +109,13 @@ var routes = [
             },
             { path: 'People', redirectTo: "/Users/Profile/About", pathMatch: 'full' },
             {
-                path: 'People/:id', component: _components_user_profile_profile_component__WEBPACK_IMPORTED_MODULE_10__["ProfileComponent"], resolve: { users: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["ProfileResolve"] },
+                path: 'People/:id', component: _components_user_profile_profile_component__WEBPACK_IMPORTED_MODULE_10__["ProfileComponent"], resolve: { users: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["ProfileResolve"], isFriend: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["IsFriendResolve"] },
                 children: [
                     { path: '', redirectTo: "About", pathMatch: 'full' },
                     { path: 'About', component: _components_user_profile_about_about_component__WEBPACK_IMPORTED_MODULE_13__["AboutComponent"] },
                     { path: 'Myhome', component: _components_user_profile_home_home_component__WEBPACK_IMPORTED_MODULE_17__["HomeComponent"] },
                     { path: 'Photos', component: _components_user_profile_photos_photos_component__WEBPACK_IMPORTED_MODULE_16__["PhotosComponent"] },
                     { path: 'References', component: _components_user_profile_references_references_component__WEBPACK_IMPORTED_MODULE_18__["ReferencesComponent"] },
-                    { path: 'Friends', component: _components_user_profile_friends_friends_component__WEBPACK_IMPORTED_MODULE_21__["FriendsComponent"] },
                 ]
             },
             {
@@ -278,6 +277,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_user_reuse_send_report_modal_send_report_modal_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./components/user/reuse/send-report-modal/send-report-modal.component */ "./src/app/components/user/reuse/send-report-modal/send-report-modal.component.ts");
 /* harmony import */ var _components_user_activity_activity_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./components/user/activity/activity.component */ "./src/app/components/user/activity/activity.component.ts");
 /* harmony import */ var _components_user_reuse_item_activity_item_activity_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./components/user/reuse/item-activity/item-activity.component */ "./src/app/components/user/reuse/item-activity/item-activity.component.ts");
+/* harmony import */ var _components_user_reuse_item_notification_item_notification_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./components/user/reuse/item-notification/item-notification.component */ "./src/app/components/user/reuse/item-notification/item-notification.component.ts");
+
 
 
 
@@ -379,6 +380,7 @@ var AppModule = /** @class */ (function () {
                 _components_user_reuse_send_report_modal_send_report_modal_component__WEBPACK_IMPORTED_MODULE_51__["SendReportModalComponent"],
                 _components_user_activity_activity_component__WEBPACK_IMPORTED_MODULE_52__["ActivityComponent"],
                 _components_user_reuse_item_activity_item_activity_component__WEBPACK_IMPORTED_MODULE_53__["ItemActivityComponent"],
+                _components_user_reuse_item_notification_item_notification_component__WEBPACK_IMPORTED_MODULE_54__["ItemNotificationComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -412,7 +414,8 @@ var AppModule = /** @class */ (function () {
                 _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["ProfileResolve"],
                 _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["TokenResolve"],
                 _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["HomeResolve"],
-                _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["PlacesDashboardResolve"]
+                _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["PlacesDashboardResolve"],
+                _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["IsFriendResolve"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
         })
@@ -622,7 +625,7 @@ module.exports = ".content{\r\n    padding: 20px;\r\n}\r\n.box-activity{\r\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-template #loading>\r\n  <app-loading></app-loading>\r\n</ng-template>\r\n<ng-template #nothing>\r\n  <div class=\"nothing\">\r\n    <span>Nothing to show</span>\r\n  </div>\r\n</ng-template>\r\n<div class=\"box box-activity\">\r\n  <div class=\"tab-bar\">\r\n    <ul class=\"nav \">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='travelrequest'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'travelrequest',select:'received'}\">Travel Request</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='hostoffer'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'hostoffer',select:'received'}\">Host Offer</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='friendrequest'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'friendrequest',select:'received'}\">Friend Request</a>\r\n      </li>\r\n      <!-- <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='notification'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'notification'}\">Notification</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='request'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'request'}\">Your Request</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='offer'}\" [routerLink]=\"\" [queryParams]=\"{type:'offer'}\">Your\r\n          Offer</a>\r\n      </li> -->\r\n    </ul>\r\n  </div>\r\n  \r\n  <div class=\"tab-menu\">\r\n    <ul class=\"nav nav-tabs\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':select==='received'}\" [routerLink]=\"\" [queryParams]=\"{type:type,select:'received'}\">Received</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':select==='send'}\" [routerLink]=\"\" [queryParams]=\"{type:type,select:'send'}\">Send</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n  <div class=\"content\">\r\n    <ng-container *ngIf=\"isLoading==false;else loading\">\r\n      <ng-container *ngIf=\"items.length;else nothing\">\r\n        <ng-container *ngFor=\"let item of items\">\r\n          <app-item-activity (myClick)=\"onAction($event)\" [item]=\"item\" [from]=\"type\"> </app-item-activity>\r\n        </ng-container>\r\n      </ng-container>\r\n\r\n    </ng-container>\r\n\r\n  </div>\r\n</div>"
+module.exports = "<ng-template #loading>\r\n  <app-loading></app-loading>\r\n</ng-template>\r\n<ng-template #nothing>\r\n  <div class=\"nothing\">\r\n    <span>Nothing to show</span>\r\n  </div>\r\n</ng-template>\r\n<div class=\"box box-activity\">\r\n  <div class=\"tab-bar\">\r\n    <ul class=\"nav \">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':data.type==='notification'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'notification'}\">Notification</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':data.type==='travelrequest'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'travelrequest'}\">Travel Request</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':data.type==='hostoffer'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'hostoffer'}\">Host Offer</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':data.type==='friendrequest'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'friendrequest'}\">Friend Request</a>\r\n      </li>\r\n      <!-- <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='notification'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'notification'}\">Notification</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='request'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:'request'}\">Your Request</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':type==='offer'}\" [routerLink]=\"\" [queryParams]=\"{type:'offer'}\">Your\r\n          Offer</a>\r\n      </li> -->\r\n    </ul>\r\n  </div>\r\n\r\n  <div *ngIf=\"data.type!='notification'\" class=\"tab-menu\">\r\n    <ul class=\"nav nav-tabs\">\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':data.select==='received'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:data.type}\">Received</a>\r\n      </li>\r\n      <li class=\"nav-item\">\r\n        <a class=\"nav-link\" [ngClass]=\"{'active':data.select==='sent'}\" [routerLink]=\"\"\r\n          [queryParams]=\"{type:data.type,select:'sent'}\">Sent</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n  <div class=\"content\">\r\n    <ng-container *ngIf=\"isLoading==false;else loading\">\r\n      <ng-container *ngIf=\"items.length;else nothing\">\r\n        <ng-container *ngFor=\"let item of items\">\r\n          <app-item-activity *ngIf=\"data.type!='notification'\" (myClick)=\"onAction($event)\" [item]=\"item\" [data]=\"data\">\r\n          </app-item-activity>\r\n          <app-item-notification *ngIf=\"data.type=='notification'\" (myClick)=\"onAction($event)\" [item]=\"item\"\r\n            [data]=\"data\"></app-item-notification>\r\n        </ng-container>\r\n      </ng-container>\r\n\r\n    </ng-container>\r\n\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -646,66 +649,202 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var Data = /** @class */ (function () {
+    function Data() {
+    }
+    return Data;
+}());
 var ActivityComponent = /** @class */ (function () {
     function ActivityComponent(router, activatedRoute, service, toast) {
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.service = service;
         this.toast = toast;
-        this.type = 'travelrequest';
-        this.select = 'received';
+        this.data = { type: 'notification' };
     }
     ActivityComponent.prototype.ngOnInit = function () {
         var _this = this;
-        // this.type = 'travelrequest';
-        // console.log(this.type)
         this.activatedRoute.queryParams.subscribe(function (res) {
+            // console.log(this.data)
             //  console.log(res)
             if (res.type) {
-                _this.type = res.type;
-                _this.select = res.select;
+                if (!res.select) {
+                    var temp = { type: res.type, select: 'received' };
+                    _this.data = temp;
+                    //console.log(123)
+                }
+                else {
+                    _this.data = res;
+                }
             }
-            _this.getItem(_this.type, _this.select);
+            console.log(_this.data);
+            _this.getItem(_this.data.type, _this.data.select);
         });
     };
     ActivityComponent.prototype.getItem = function (type, select) {
         var _this = this;
         this.isLoading = true;
         this.items = [];
-        if (select == 'received') {
-            if (type == 'travelrequest') {
-                this.service.getTraveRequest().subscribe(function (res) {
-                    _this.items = res;
+        switch (type) {
+            case 'notification': {
+                this.service.getNotification().subscribe(function (res) {
                     _this.isLoading = false;
+                    _this.items = res;
                     console.log(_this.items);
                 });
+                break;
             }
-            else if (type == 'hostoffer') {
-                this.service.getHostOffer().subscribe(function (res) {
-                    _this.items = res;
-                    _this.isLoading = false;
-                    console.log(_this.items);
-                });
+            case 'travelrequest': {
+                if (select == 'received') {
+                    this.service.getTraveRequest().subscribe(function (res) {
+                        _this.items = res;
+                        _this.isLoading = false;
+                        console.log(_this.items);
+                    });
+                }
+                else if (select == 'sent') {
+                    this.service.getSentTraveRequest().subscribe(function (res) {
+                        _this.items = res;
+                        _this.isLoading = false;
+                        console.log(_this.items);
+                    });
+                }
+                else {
+                    this.isLoading = false;
+                }
+                break;
             }
-            else if (type == 'friendrequest') {
-                this.service.getFriendRequest().subscribe(function (res) {
-                    _this.items = res;
-                    _this.isLoading = false;
-                    console.log(_this.items);
-                });
+            case 'hostoffer': {
+                if (select == 'received') {
+                    this.service.getHostOffer().subscribe(function (res) {
+                        _this.items = res;
+                        _this.isLoading = false;
+                        console.log(_this.items);
+                    });
+                }
+                else if (select == 'sent') {
+                    this.service.getSentHostOffer().subscribe(function (res) {
+                        _this.items = res;
+                        _this.isLoading = false;
+                        console.log(_this.items);
+                    });
+                }
+                else {
+                    this.isLoading = false;
+                }
+                break;
             }
-            else {
+            case 'friendrequest': {
+                if (select == 'received') {
+                    this.service.getFriendRequest().subscribe(function (res) {
+                        _this.items = res;
+                        _this.isLoading = false;
+                        console.log(_this.items);
+                    });
+                }
+                else if (select == 'sent') {
+                    this.service.getSentFriendRequest().subscribe(function (res) {
+                        _this.items = res;
+                        _this.isLoading = false;
+                        console.log(_this.items);
+                    });
+                }
+                else {
+                    this.isLoading = false;
+                }
+                break;
+            }
+            default: {
                 this.isLoading = false;
+                break;
             }
-        }
-        else if (select = 'send') {
-            this.isLoading = false;
         }
     };
+    // getItem(type, select) {
+    //   this.isLoading = true;
+    //   this.items = [];
+    //   if (select == 'received') {
+    //     if (type == 'travelrequest') {
+    //       this.service.getTraveRequest().subscribe(
+    //         res => {
+    //           this.items = res;
+    //           this.isLoading = false;
+    //           console.log(this.items)
+    //         }
+    //       );
+    //     }
+    //     else if (type == 'hostoffer') {
+    //       this.service.getHostOffer().subscribe(
+    //         res => {
+    //           this.items = res;
+    //           this.isLoading = false;
+    //           console.log(this.items)
+    //         }
+    //       );
+    //     }
+    //     else if (type == 'friendrequest') {
+    //       this.service.getFriendRequest().subscribe(
+    //         res => {
+    //           this.items = res;
+    //           this.isLoading = false;
+    //           console.log(this.items)
+    //         }
+    //       )
+    //     } else {
+    //       this.isLoading = false;
+    //     }
+    //   } else if (select == 'sent') {
+    //     if (type == 'travelrequest') {
+    //       this.service.getSentTraveRequest().subscribe(
+    //         res => {
+    //           this.items = res;
+    //           this.isLoading = false;
+    //           console.log(this.items)
+    //         }
+    //       );
+    //     }
+    //     else if (type == 'hostoffer') {
+    //       this.service.getSentHostOffer().subscribe(
+    //         res => {
+    //           this.items = res;
+    //           this.isLoading = false;
+    //           console.log(this.items)
+    //         }
+    //       );
+    //     }
+    //     else if (type == 'friendrequest') {
+    //       this.service.getSentFriendRequest().subscribe(
+    //         res => {
+    //           this.items = res;
+    //           this.isLoading = false;
+    //           console.log(this.items)
+    //         }
+    //       )
+    //     } else {
+    //       this.isLoading = false;
+    //     }
+    //   } else if (!select) {
+    //     if (type == 'notification') {
+    //       this.service.getNotification().subscribe(
+    //         res => {
+    //           this.isLoading = false;
+    //           this.items = res;
+    //           console.log(this.items)
+    //         }
+    //       )
+    //     } else {
+    //       this.isLoading = false;
+    //       this.items = [];
+    //     }
+    //   } else {
+    //     this.isLoading = false;
+    //     this.items = [];
+    //   }
+    // }
     ActivityComponent.prototype.onAction = function (event) {
         var _this = this;
         if (event.type == 'ignore') {
-            if (this.type == 'travelrequest') {
+            if (this.data.type == 'travelrequest') {
                 this.service.ignoreRequest(event.id).subscribe(function (res) {
                     if (res.status == 204) {
                         _this.toast.success('Deleted');
@@ -716,7 +855,7 @@ var ActivityComponent = /** @class */ (function () {
                     }
                 });
             }
-            else if (this.type == 'hostoffer') {
+            else if (this.data.type == 'hostoffer') {
                 this.service.ignoreHostOffer(event.id).subscribe(function (res) {
                     if (res.status == 204) {
                         _this.toast.success('Deleted');
@@ -727,7 +866,7 @@ var ActivityComponent = /** @class */ (function () {
                     }
                 });
             }
-            else if (this.type == 'friendrequest') {
+            else if (this.data.type == 'friendrequest') {
                 this.service.ignoreFriendRequest(event.id).subscribe(function (res) {
                     if (res.status == 204) {
                         _this.toast.success('Deleted');
@@ -738,6 +877,17 @@ var ActivityComponent = /** @class */ (function () {
                     }
                 });
             }
+        }
+        else if (event.type == 'delete') {
+            this.service.deleteNotification(event.id).subscribe(function (res) {
+                if (res.status == 204) {
+                    _this.toast.success('Deleted');
+                    _this.items = _this.items.filter(function (item) { return item.id !== event.id; });
+                }
+                else {
+                    _this.toast.success('Fail');
+                }
+            });
         }
     };
     ActivityComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1638,7 +1788,7 @@ module.exports = ".content-friends{\r\n    padding: 15px 5px;\r\n    margin: 0px
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-template #loading>\r\n  <div class=\"box\">\r\n    <app-loading></app-loading>\r\n  </div>\r\n</ng-template>\r\n<ng-template #nothing>\r\n  <div class=\"nothing\">\r\n    <span>Nothing to show</span>\r\n  </div>\r\n</ng-template>\r\n<ng-container *ngIf=\"isLoading==false;else loading\">\r\n  <div class=\"box box-friends\">\r\n    <div class=\"box-header\">\r\n      <span>FRIENDS</span>\r\n    </div>\r\n    <div class=\"content-friends row\">\r\n      <div *ngFor=\"let friend of friends\" class=\"col-md-6 col-sm-12 \">\r\n        <div class=\"item\">\r\n          <div class=\"avatar\">\r\n            <a><img class=\"photo\" src=\"./../../../../../assets/imgs/abc.jpg\"></a>\r\n          </div>\r\n          <div class=\"info\">\r\n            <a>\r\n              <p class=\"name\">Name</p>\r\n            </a>\r\n            <p class=\"address\">Adress</p>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</ng-container>"
+module.exports = "<ng-template #loading>\r\n  <div class=\"box\">\r\n    <app-loading></app-loading>\r\n  </div>\r\n</ng-template>\r\n<ng-template #nothing>\r\n  <div class=\"nothing\">\r\n    <span>Nothing to show</span>\r\n  </div>\r\n</ng-template>\r\n<ng-container *ngIf=\"isLoading==false;else loading\">\r\n  <div class=\"box box-friends\">\r\n    <div class=\"box-header\">\r\n      <span>FRIENDS</span>\r\n    </div>\r\n    <ng-container *ngIf=\"friends.length;else nothing\"></ng-container>\r\n    <div class=\"content-friends row\">\r\n      <div *ngFor=\"let friend of friends\" class=\"col-md-6 col-sm-12 \">\r\n        <div class=\"item\">\r\n          <div class=\"avatar\">\r\n            <a routerLink=\"/Users/People/{{friend.id}}\"><img class=\"photo\" [src]=\"friend.avatarLocation\"></a>\r\n          </div>\r\n          <div class=\"info\">\r\n            <a routerLink=\"/Users/People/{{friend.id}}\">\r\n              <p class=\"name\">{{friend.fullName}}</p>\r\n            </a>\r\n            <p class=\"address\">{{friend.address}}</p>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</ng-container>"
 
 /***/ }),
 
@@ -1654,15 +1804,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FriendsComponent", function() { return FriendsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
 
 
 var FriendsComponent = /** @class */ (function () {
-    function FriendsComponent() {
-        this.friends = [1, 2, 3, 4, 5, 6, 7, 8];
+    function FriendsComponent(service, router) {
+        this.service = service;
+        this.router = router;
+        this.friends = [];
         this.isLoading = true;
     }
+    FriendsComponent.prototype.ngOnDestroy = function () {
+        this.navigationSubscription.unsubscribe();
+    };
     FriendsComponent.prototype.ngOnInit = function () {
-        this.isLoading = false;
+        var _this = this;
+        this.navigationSubscription = this.router.events.subscribe(function (e) {
+            if (e instanceof _angular_router__WEBPACK_IMPORTED_MODULE_3__["NavigationEnd"]) {
+                _this.load();
+            }
+        });
+        this.load();
+    };
+    FriendsComponent.prototype.load = function () {
+        var _this = this;
+        this.isLoading = true;
+        this.service.getUserFriends().subscribe(function (res) {
+            _this.friends = res;
+            _this.isLoading = false;
+        });
     };
     FriendsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1670,7 +1843,7 @@ var FriendsComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./friends.component.html */ "./src/app/components/user/profile/friends/friends.component.html"),
             styles: [__webpack_require__(/*! ./friends.component.css */ "./src/app/components/user/profile/friends/friends.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], FriendsComponent);
     return FriendsComponent;
 }());
@@ -1892,7 +2065,7 @@ module.exports = "\r\n.content-left{\r\n    /* min-width: 220px; */\r\n    max-w
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-write-reference-modal [people]=\"user\"></app-write-reference-modal>\r\n<app-send-message-modal [people]=\"user\"></app-send-message-modal>\r\n<app-send-request-modal [people]=\"user\"></app-send-request-modal>\r\n<app-send-report-modal [people]=\"user\"></app-send-report-modal>\r\n<div class=\"row\">\r\n  <div class=\"content-left col-3 \">\r\n    <div class=\"box user-info\">\r\n      <img class=\"photo img-responsive\"\r\n        [src]=\"user.avatarLocation?user.avatarLocation:'./../../../../assets/imgs/profile-picture-placeholder.png'\">\r\n      <div class=\"info\">\r\n        <p style=\"font-size:30px;font-weight: 600\">{{user.fullName}}</p>\r\n        <p style=\"font-size: 20px;\"> {{user.address}}</p>\r\n      </div>\r\n\r\n    </div>\r\n    <div class=\"box\" style=\"min-height:500px\">\r\n\r\n    </div>\r\n  </div>\r\n  <div class=\"content-right col \">\r\n    <div class=\"box status-bar\">\r\n      <i *ngIf=\"user.status;else not\" class=\"color-icon\"\r\n        style=\" margin-left: 20px; width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/ok.png)\"></i>\r\n      <ng-template #not>\r\n        <i class=\"color-icon\"\r\n          style=\" margin-left: 20px; width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/cancel.png)\"></i>\r\n      </ng-template>\r\n      <span class=\"status-value\" [style.color]=\"user.status?'green':'red'\">\r\n        {{user.status?'Acepting Guest':'Not Acepting Guest'}}\r\n      </span>\r\n      <div class=\"button-bar\">\r\n        <button (click)=\"sendRequestModal.open();\" *ngIf=\"!isUser&&user.status\" class=\"btn btn-primary\">Send\r\n          Request</button>\r\n        <button (click)=\"sendMessageModal.open();\" *ngIf=\"!isUser\" class=\"btn btn-primary\"><i\r\n            class=\"far fa-envelope\"></i></button>\r\n        <button *ngIf=\"isUser\" class=\"btn btn-primary\" routerLink=\"/Users/Profile/Edit\">Edit My Profile</button>\r\n        <div *ngIf=\"!isUser\" class=\"dropdown\" (clickOutside)=\"isdrop=false;\">\r\n          <button class=\"btn btn-primary dropdown-toggle\" type=\"button\" id=\"dropdownMenu2\" data-toggle=\"dropdown\"\r\n            (click)=\"isdrop=!isdrop\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n            More\r\n          </button>\r\n          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenu2\"\r\n            [style.display]=\"isdrop?'block':'none'\">\r\n            <button (click)=\"sendFriendRequest()\" class=\"dropdown-item\" type=\"button\">Add Friend</button>\r\n            <button (click)=\"writeReferenceModal.open();\" class=\"dropdown-item\" type=\"button\">Write Reference</button>\r\n            <button (click)=\"sendReportModal.open();\" class=\"dropdown-item\" type=\"button\">Report</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n    <div class=\"box menu-bar\">\r\n      <ul>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['About']\"><span>About</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Myhome']\"><span>My Home</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Photos']\"><span>Photos</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['References']\"><span>References</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Friends']\"><span>Friends</span></a></li>\r\n      </ul>\r\n    </div>\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>"
+module.exports = "<app-write-reference-modal [people]=\"user\"></app-write-reference-modal>\r\n<app-send-message-modal [people]=\"user\"></app-send-message-modal>\r\n<app-send-request-modal [people]=\"user\"></app-send-request-modal>\r\n<app-send-report-modal [people]=\"user\"></app-send-report-modal>\r\n<div class=\"row\">\r\n  <div class=\"content-left col-3 \">\r\n    <div class=\"box user-info\">\r\n      <img class=\"photo img-responsive\"\r\n        [src]=\"user.avatarLocation?user.avatarLocation:'./../../../../assets/imgs/profile-picture-placeholder.png'\">\r\n      <div class=\"info\">\r\n        <p style=\"font-size:30px;font-weight: 600\">{{user.fullName}}</p>\r\n        <p style=\"font-size: 20px;\"> {{user.address}}</p>\r\n      </div>\r\n\r\n    </div>\r\n    <div class=\"box\" style=\"min-height:500px\">\r\n\r\n    </div>\r\n  </div>\r\n  <div class=\"content-right col \">\r\n    <div class=\"box status-bar\">\r\n      <i *ngIf=\"user.status;else not\" class=\"color-icon\"\r\n        style=\" margin-left: 20px; width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/ok.png)\"></i>\r\n      <ng-template #not>\r\n        <i class=\"color-icon\"\r\n          style=\" margin-left: 20px; width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/cancel.png)\"></i>\r\n      </ng-template>\r\n      <span class=\"status-value\" [style.color]=\"user.status?'green':'red'\">\r\n        {{user.status?'Acepting Guest':'Not Acepting Guest'}}\r\n      </span>\r\n      <div class=\"button-bar\">\r\n        <button (click)=\"sendRequestModal.open();\" *ngIf=\"!isUser&&user.status\" class=\"btn btn-primary\">Send\r\n          Request</button>\r\n        <button (click)=\"sendMessageModal.open();\" *ngIf=\"!isUser\" class=\"btn btn-primary\"><i\r\n            class=\"far fa-envelope\"></i></button>\r\n        <button *ngIf=\"isUser\" class=\"btn btn-primary\" routerLink=\"/Users/Profile/Edit\">Edit My Profile</button>\r\n        <div *ngIf=\"!isUser\" class=\"dropdown\" (clickOutside)=\"isdrop=false;\">\r\n          <button class=\"btn btn-primary dropdown-toggle\" type=\"button\" id=\"dropdownMenu2\" data-toggle=\"dropdown\"\r\n            (click)=\"isdrop=!isdrop\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n            More\r\n          </button>\r\n          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenu2\"\r\n            [style.display]=\"isdrop?'block':'none'\">\r\n            <button *ngIf=\"!isFriend\" (click)=\"sendFriendRequest()\" class=\"dropdown-item\" type=\"button\">Add Friend</button>\r\n            <button *ngIf=\"isFriend\"  class=\"dropdown-item\" type=\"button\">Remove Friend</button>\r\n            <button (click)=\"writeReferenceModal.open();\" class=\"dropdown-item\" type=\"button\">Write Reference</button>\r\n            <button (click)=\"sendReportModal.open();\" class=\"dropdown-item\" type=\"button\">Report</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n    <div class=\"box menu-bar\">\r\n      <ul>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['About']\"><span>About</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Myhome']\"><span>My Home</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Photos']\"><span>Photos</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['References']\"><span>References</span></a></li>\r\n        <li *ngIf=\"isUser\"><a routerLinkActive='is-selected' [routerLink]=\"['Friends']\"><span>Friends</span></a></li>\r\n      </ul>\r\n    </div>\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -1935,6 +2108,8 @@ var ProfileComponent = /** @class */ (function () {
     ProfileComponent.prototype.ngOnInit = function () {
         this.isUser = this.service.getisUser();
         var temp = this.activatedRoute.snapshot.data.users;
+        if (!this.isUser)
+            this.isFriend = this.activatedRoute.snapshot.data.isFriend.isFriend;
         if (temp.err == '404')
             this.router.navigate(['/Users/' + temp.id]);
         else {
@@ -2744,7 +2919,7 @@ var DropdownComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".item{\r\n    border: solid 1px rgba(0,0,0,0.15);\r\n    border-radius: 25px;\r\n    margin-bottom: 20px;\r\n}\r\n.item a{\r\n \r\n color: #27374c;\r\n}\r\n.item a:hover{\r\n    text-decoration: none;\r\n    cursor: pointer;\r\n    color: #ED6504;\r\n}\r\n.activity-info,.message,.action{\r\n    padding: 0;\r\n}\r\n.activity-info{\r\n    min-width: 280px;\r\n   \r\n    /* background-color: #f0f0f0; */\r\n    margin-bottom: 20px;\r\n}\r\n.activity{\r\n    margin: 0;\r\n    padding: 20px;\r\n}\r\n.card-info{\r\n    display: flex;\r\n}\r\n.card-info p{\r\n    margin-bottom:  0px;\r\n}\r\n.card-info .name{\r\n    font-size: 1.3em;\r\n    font-weight: 500;\r\n}\r\n.info{\r\n    padding-right: 20px;\r\n    word-break: break-all;\r\n}\r\n.avatar{\r\n    padding-right: 20px;\r\n}\r\n.avatar img{\r\n    height: 70px;\r\n    width: 70px;\r\n    border-radius: 50%;\r\n}\r\n.trip-info{\r\n    clear: both;\r\n    padding-bottom: 15px;\r\n}\r\n.content-message{\r\n    padding: 10px;\r\n    background-color: #f0f0f0;\r\n    position: relative;\r\n    border-radius: 5px;\r\n}\r\n.trip-decription::after{\r\n    border-bottom: 25px solid transparent;\r\n    border-left: 25px solid transparent;\r\n    border-top: 25px solid #f0f0f0;\r\n    content: '';\r\n    left: -15px;\r\n    position: absolute;\r\n    top: 0px;\r\n}\r\n.trip-info span{\r\n    padding-right: 10px;\r\n    \r\n}\r\n.trip-decription{\r\n   clear: both;\r\n   word-wrap: break-word;\r\n   white-space: pre-wrap;\r\n   max-height: 4.5em;\r\n   overflow: hidden; \r\n  transition: max-height 0.5s; \r\n\r\n}\r\n.trip-decription p{\r\n    margin-bottom: 0px; \r\n}\r\n.button-decription{\r\n    padding-top: 5px;\r\n    display: flex; \r\n    \r\n}\r\n.button-decription a{\r\ncolor: #287FB8;;\r\nfont-weight: 600;\r\n}\r\n.button-decription a:hover{\r\n    cursor: pointer;\r\n    color: #ED6504;\r\n}\r\n.action{\r\n    min-width: 200px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.time{\r\n    padding-left: 10px;\r\n    margin-top: auto;\r\n    padding-top: 20px;\r\n    margin-left: auto;\r\n}\r\n.button-bar{\r\n    padding-top: 20px;\r\n    margin-left: auto;\r\n   \r\n}\r\n.button-bar button{\r\n    \r\n    margin-left: 10px;\r\n}\r\n.time p{\r\n    font-size: 0.8em;\r\n    font-style: italic;\r\n    margin-bottom: 0px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL3JldXNlL2l0ZW0tYWN0aXZpdHkvaXRlbS1hY3Rpdml0eS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksa0NBQWtDO0lBQ2xDLG1CQUFtQjtJQUNuQixtQkFBbUI7QUFDdkI7QUFDQTs7Q0FFQyxjQUFjO0FBQ2Y7QUFDQTtJQUNJLHFCQUFxQjtJQUNyQixlQUFlO0lBQ2YsY0FBYztBQUNsQjtBQUNBO0lBQ0ksVUFBVTtBQUNkO0FBQ0E7SUFDSSxnQkFBZ0I7O0lBRWhCLCtCQUErQjtJQUMvQixtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLFNBQVM7SUFDVCxhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLG1CQUFtQjtJQUNuQixxQkFBcUI7QUFDekI7QUFDQTtJQUNJLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksWUFBWTtJQUNaLFdBQVc7SUFDWCxrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLFdBQVc7SUFDWCxvQkFBb0I7QUFDeEI7QUFDQTtJQUNJLGFBQWE7SUFDYix5QkFBeUI7SUFDekIsa0JBQWtCO0lBQ2xCLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0kscUNBQXFDO0lBQ3JDLG1DQUFtQztJQUNuQyw4QkFBOEI7SUFDOUIsV0FBVztJQUNYLFdBQVc7SUFDWCxrQkFBa0I7SUFDbEIsUUFBUTtBQUNaO0FBQ0E7SUFDSSxtQkFBbUI7O0FBRXZCO0FBRUE7R0FDRyxXQUFXO0dBQ1gscUJBQXFCO0dBQ3JCLHFCQUFxQjtHQUNyQixpQkFBaUI7R0FDakIsZ0JBQWdCO0VBQ2pCLDJCQUEyQjs7QUFFN0I7QUFDQTtJQUNJLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGFBQWE7O0FBRWpCO0FBQ0E7QUFDQSxjQUFjO0FBQ2QsZ0JBQWdCO0FBQ2hCO0FBQ0E7SUFDSSxlQUFlO0lBQ2YsY0FBYztBQUNsQjtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGFBQWE7SUFDYixzQkFBc0I7QUFDMUI7QUFDQTtJQUNJLGtCQUFrQjtJQUNsQixnQkFBZ0I7SUFDaEIsaUJBQWlCO0lBQ2pCLGlCQUFpQjtBQUNyQjtBQUNBO0lBQ0ksaUJBQWlCO0lBQ2pCLGlCQUFpQjs7QUFFckI7QUFDQTs7SUFFSSxpQkFBaUI7QUFDckI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixrQkFBa0I7SUFDbEIsa0JBQWtCO0FBQ3RCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy91c2VyL3JldXNlL2l0ZW0tYWN0aXZpdHkvaXRlbS1hY3Rpdml0eS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLml0ZW17XHJcbiAgICBib3JkZXI6IHNvbGlkIDFweCByZ2JhKDAsMCwwLDAuMTUpO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMjVweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XHJcbn1cclxuLml0ZW0gYXtcclxuIFxyXG4gY29sb3I6ICMyNzM3NGM7XHJcbn1cclxuLml0ZW0gYTpob3ZlcntcclxuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIGNvbG9yOiAjRUQ2NTA0O1xyXG59XHJcbi5hY3Rpdml0eS1pbmZvLC5tZXNzYWdlLC5hY3Rpb257XHJcbiAgICBwYWRkaW5nOiAwO1xyXG59XHJcbi5hY3Rpdml0eS1pbmZve1xyXG4gICAgbWluLXdpZHRoOiAyODBweDtcclxuICAgXHJcbiAgICAvKiBiYWNrZ3JvdW5kLWNvbG9yOiAjZjBmMGYwOyAqL1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcclxufVxyXG4uYWN0aXZpdHl7XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBwYWRkaW5nOiAyMHB4O1xyXG59XHJcbi5jYXJkLWluZm97XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5jYXJkLWluZm8gcHtcclxuICAgIG1hcmdpbi1ib3R0b206ICAwcHg7XHJcbn1cclxuLmNhcmQtaW5mbyAubmFtZXtcclxuICAgIGZvbnQtc2l6ZTogMS4zZW07XHJcbiAgICBmb250LXdlaWdodDogNTAwO1xyXG59XHJcbi5pbmZve1xyXG4gICAgcGFkZGluZy1yaWdodDogMjBweDtcclxuICAgIHdvcmQtYnJlYWs6IGJyZWFrLWFsbDtcclxufVxyXG4uYXZhdGFye1xyXG4gICAgcGFkZGluZy1yaWdodDogMjBweDtcclxufVxyXG4uYXZhdGFyIGltZ3tcclxuICAgIGhlaWdodDogNzBweDtcclxuICAgIHdpZHRoOiA3MHB4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG59XHJcbi50cmlwLWluZm97XHJcbiAgICBjbGVhcjogYm90aDtcclxuICAgIHBhZGRpbmctYm90dG9tOiAxNXB4O1xyXG59XHJcbi5jb250ZW50LW1lc3NhZ2V7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2YwZjBmMDtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcclxufVxyXG4udHJpcC1kZWNyaXB0aW9uOjphZnRlcntcclxuICAgIGJvcmRlci1ib3R0b206IDI1cHggc29saWQgdHJhbnNwYXJlbnQ7XHJcbiAgICBib3JkZXItbGVmdDogMjVweCBzb2xpZCB0cmFuc3BhcmVudDtcclxuICAgIGJvcmRlci10b3A6IDI1cHggc29saWQgI2YwZjBmMDtcclxuICAgIGNvbnRlbnQ6ICcnO1xyXG4gICAgbGVmdDogLTE1cHg7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6IDBweDtcclxufVxyXG4udHJpcC1pbmZvIHNwYW57XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG4gICAgXHJcbn1cclxuXHJcbi50cmlwLWRlY3JpcHRpb257XHJcbiAgIGNsZWFyOiBib3RoO1xyXG4gICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XHJcbiAgIHdoaXRlLXNwYWNlOiBwcmUtd3JhcDtcclxuICAgbWF4LWhlaWdodDogNC41ZW07XHJcbiAgIG92ZXJmbG93OiBoaWRkZW47IFxyXG4gIHRyYW5zaXRpb246IG1heC1oZWlnaHQgMC41czsgXHJcblxyXG59XHJcbi50cmlwLWRlY3JpcHRpb24gcHtcclxuICAgIG1hcmdpbi1ib3R0b206IDBweDsgXHJcbn1cclxuLmJ1dHRvbi1kZWNyaXB0aW9ue1xyXG4gICAgcGFkZGluZy10b3A6IDVweDtcclxuICAgIGRpc3BsYXk6IGZsZXg7IFxyXG4gICAgXHJcbn1cclxuLmJ1dHRvbi1kZWNyaXB0aW9uIGF7XHJcbmNvbG9yOiAjMjg3RkI4OztcclxuZm9udC13ZWlnaHQ6IDYwMDtcclxufVxyXG4uYnV0dG9uLWRlY3JpcHRpb24gYTpob3ZlcntcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIGNvbG9yOiAjRUQ2NTA0O1xyXG59XHJcbi5hY3Rpb257XHJcbiAgICBtaW4td2lkdGg6IDIwMHB4O1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbn1cclxuLnRpbWV7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7XHJcbiAgICBtYXJnaW4tdG9wOiBhdXRvO1xyXG4gICAgcGFkZGluZy10b3A6IDIwcHg7XHJcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcclxufVxyXG4uYnV0dG9uLWJhcntcclxuICAgIHBhZGRpbmctdG9wOiAyMHB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IGF1dG87XHJcbiAgIFxyXG59XHJcbi5idXR0b24tYmFyIGJ1dHRvbntcclxuICAgIFxyXG4gICAgbWFyZ2luLWxlZnQ6IDEwcHg7XHJcbn1cclxuLnRpbWUgcHtcclxuICAgIGZvbnQtc2l6ZTogMC44ZW07XHJcbiAgICBmb250LXN0eWxlOiBpdGFsaWM7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAwcHg7XHJcbn0iXX0= */"
+module.exports = ".item{\r\n    border: solid 1px rgba(0,0,0,0.15);\r\n    border-radius: 25px;\r\n    margin-bottom: 20px;\r\n}\r\n.item a{\r\n color: #27374c;\r\n}\r\n.item a:hover{\r\n    text-decoration: none;\r\n    cursor: pointer;\r\n    color: #ED6504;\r\n}\r\n.activity-info,.message,.action{\r\n    padding: 0;\r\n}\r\n.activity-info{\r\n    min-width: 280px;\r\n   \r\n    /* background-color: #f0f0f0; */\r\n    margin-bottom: 20px;\r\n}\r\n.activity{\r\n    margin: 0;\r\n    padding: 20px;\r\n}\r\n.card-info{\r\n    display: flex;\r\n}\r\n.card-info p{\r\n    margin-bottom:  0px;\r\n}\r\n.card-info .name{\r\n    font-size: 1.3em;\r\n    font-weight: 500;\r\n}\r\n.info{\r\n    padding-right: 20px;\r\n    word-break: break-all;\r\n}\r\n.avatar{\r\n    padding-right: 20px;\r\n}\r\n.avatar img{\r\n    height: 70px;\r\n    width: 70px;\r\n    border-radius: 50%;\r\n}\r\n.trip-info{\r\n    clear: both;\r\n    padding-bottom: 15px;\r\n}\r\n.content-message{\r\n    padding: 10px;\r\n    background-color: #f0f0f0;\r\n    position: relative;\r\n    border-radius: 5px;\r\n}\r\n.content-message-sent{\r\n    padding: 10px;\r\n    position: relative;\r\n    border-radius: 5px;\r\n    border: solid 1px rgba(0,0,0,0.15);\r\n}\r\n.content-message::after{\r\n    border-bottom: 25px solid transparent;\r\n    border-left: 25px solid transparent;\r\n    border-top: 25px solid #f0f0f0;\r\n    content: '';\r\n    left: -15px;\r\n    position: absolute;\r\n    top: 0px;\r\n}\r\n.trip-info span{\r\n    padding-right: 10px;\r\n    \r\n}\r\n.trip-decription{\r\n   clear: both;\r\n   word-wrap: break-word;\r\n   white-space: pre-wrap;\r\n   max-height: 4.5em;\r\n   overflow: hidden; \r\n  transition: max-height 0.5s; \r\n\r\n}\r\n.trip-decription p{\r\n    margin-bottom: 0px; \r\n}\r\n.button-decription{\r\n    padding-top: 5px;\r\n    display: flex; \r\n    \r\n}\r\n.button-decription a{\r\ncolor: #287FB8;;\r\nfont-weight: 600;\r\n}\r\n.button-decription a:hover{\r\n    cursor: pointer;\r\n    color: #ED6504;\r\n}\r\n.action{\r\n    min-width: 200px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.time{\r\n    padding-left: 10px;\r\n    margin-top: auto;\r\n    padding-top: 20px;\r\n    margin-left: auto;\r\n}\r\n.button-bar{\r\n    padding-top: 20px;\r\n    margin-left: auto;\r\n   \r\n}\r\n.button-bar button{\r\n    \r\n    margin-left: 10px;\r\n}\r\n.time p{\r\n    font-size: 0.8em;\r\n    font-style: italic;\r\n    margin-bottom: 0px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL3JldXNlL2l0ZW0tYWN0aXZpdHkvaXRlbS1hY3Rpdml0eS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksa0NBQWtDO0lBQ2xDLG1CQUFtQjtJQUNuQixtQkFBbUI7QUFDdkI7QUFDQTtDQUNDLGNBQWM7QUFDZjtBQUNBO0lBQ0kscUJBQXFCO0lBQ3JCLGVBQWU7SUFDZixjQUFjO0FBQ2xCO0FBQ0E7SUFDSSxVQUFVO0FBQ2Q7QUFDQTtJQUNJLGdCQUFnQjs7SUFFaEIsK0JBQStCO0lBQy9CLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksU0FBUztJQUNULGFBQWE7QUFDakI7QUFDQTtJQUNJLGFBQWE7QUFDakI7QUFDQTtJQUNJLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGdCQUFnQjtBQUNwQjtBQUNBO0lBQ0ksbUJBQW1CO0lBQ25CLHFCQUFxQjtBQUN6QjtBQUNBO0lBQ0ksbUJBQW1CO0FBQ3ZCO0FBQ0E7SUFDSSxZQUFZO0lBQ1osV0FBVztJQUNYLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0ksV0FBVztJQUNYLG9CQUFvQjtBQUN4QjtBQUNBO0lBQ0ksYUFBYTtJQUNiLHlCQUF5QjtJQUN6QixrQkFBa0I7SUFDbEIsa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxhQUFhO0lBQ2Isa0JBQWtCO0lBQ2xCLGtCQUFrQjtJQUNsQixrQ0FBa0M7QUFDdEM7QUFDQTtJQUNJLHFDQUFxQztJQUNyQyxtQ0FBbUM7SUFDbkMsOEJBQThCO0lBQzlCLFdBQVc7SUFDWCxXQUFXO0lBQ1gsa0JBQWtCO0lBQ2xCLFFBQVE7QUFDWjtBQUNBO0lBQ0ksbUJBQW1COztBQUV2QjtBQUVBO0dBQ0csV0FBVztHQUNYLHFCQUFxQjtHQUNyQixxQkFBcUI7R0FDckIsaUJBQWlCO0dBQ2pCLGdCQUFnQjtFQUNqQiwyQkFBMkI7O0FBRTdCO0FBQ0E7SUFDSSxrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixhQUFhOztBQUVqQjtBQUNBO0FBQ0EsY0FBYztBQUNkLGdCQUFnQjtBQUNoQjtBQUNBO0lBQ0ksZUFBZTtJQUNmLGNBQWM7QUFDbEI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixhQUFhO0lBQ2Isc0JBQXNCO0FBQzFCO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLGlCQUFpQjtJQUNqQixpQkFBaUI7QUFDckI7QUFDQTtJQUNJLGlCQUFpQjtJQUNqQixpQkFBaUI7O0FBRXJCO0FBQ0E7O0lBRUksaUJBQWlCO0FBQ3JCO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsa0JBQWtCO0lBQ2xCLGtCQUFrQjtBQUN0QiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvdXNlci9yZXVzZS9pdGVtLWFjdGl2aXR5L2l0ZW0tYWN0aXZpdHkuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pdGVte1xyXG4gICAgYm9yZGVyOiBzb2xpZCAxcHggcmdiYSgwLDAsMCwwLjE1KTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDI1cHg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xyXG59XHJcbi5pdGVtIGF7XHJcbiBjb2xvcjogIzI3Mzc0YztcclxufVxyXG4uaXRlbSBhOmhvdmVye1xyXG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgY29sb3I6ICNFRDY1MDQ7XHJcbn1cclxuLmFjdGl2aXR5LWluZm8sLm1lc3NhZ2UsLmFjdGlvbntcclxuICAgIHBhZGRpbmc6IDA7XHJcbn1cclxuLmFjdGl2aXR5LWluZm97XHJcbiAgICBtaW4td2lkdGg6IDI4MHB4O1xyXG4gICBcclxuICAgIC8qIGJhY2tncm91bmQtY29sb3I6ICNmMGYwZjA7ICovXHJcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xyXG59XHJcbi5hY3Rpdml0eXtcclxuICAgIG1hcmdpbjogMDtcclxuICAgIHBhZGRpbmc6IDIwcHg7XHJcbn1cclxuLmNhcmQtaW5mb3tcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuLmNhcmQtaW5mbyBwe1xyXG4gICAgbWFyZ2luLWJvdHRvbTogIDBweDtcclxufVxyXG4uY2FyZC1pbmZvIC5uYW1le1xyXG4gICAgZm9udC1zaXplOiAxLjNlbTtcclxuICAgIGZvbnQtd2VpZ2h0OiA1MDA7XHJcbn1cclxuLmluZm97XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiAyMHB4O1xyXG4gICAgd29yZC1icmVhazogYnJlYWstYWxsO1xyXG59XHJcbi5hdmF0YXJ7XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiAyMHB4O1xyXG59XHJcbi5hdmF0YXIgaW1ne1xyXG4gICAgaGVpZ2h0OiA3MHB4O1xyXG4gICAgd2lkdGg6IDcwcHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbn1cclxuLnRyaXAtaW5mb3tcclxuICAgIGNsZWFyOiBib3RoO1xyXG4gICAgcGFkZGluZy1ib3R0b206IDE1cHg7XHJcbn1cclxuLmNvbnRlbnQtbWVzc2FnZXtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjBmMGYwO1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG59XHJcbi5jb250ZW50LW1lc3NhZ2Utc2VudHtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgICBib3JkZXI6IHNvbGlkIDFweCByZ2JhKDAsMCwwLDAuMTUpO1xyXG59XHJcbi5jb250ZW50LW1lc3NhZ2U6OmFmdGVye1xyXG4gICAgYm9yZGVyLWJvdHRvbTogMjVweCBzb2xpZCB0cmFuc3BhcmVudDtcclxuICAgIGJvcmRlci1sZWZ0OiAyNXB4IHNvbGlkIHRyYW5zcGFyZW50O1xyXG4gICAgYm9yZGVyLXRvcDogMjVweCBzb2xpZCAjZjBmMGYwO1xyXG4gICAgY29udGVudDogJyc7XHJcbiAgICBsZWZ0OiAtMTVweDtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHRvcDogMHB4O1xyXG59XHJcbi50cmlwLWluZm8gc3BhbntcclxuICAgIHBhZGRpbmctcmlnaHQ6IDEwcHg7XHJcbiAgICBcclxufVxyXG5cclxuLnRyaXAtZGVjcmlwdGlvbntcclxuICAgY2xlYXI6IGJvdGg7XHJcbiAgIHdvcmQtd3JhcDogYnJlYWstd29yZDtcclxuICAgd2hpdGUtc3BhY2U6IHByZS13cmFwO1xyXG4gICBtYXgtaGVpZ2h0OiA0LjVlbTtcclxuICAgb3ZlcmZsb3c6IGhpZGRlbjsgXHJcbiAgdHJhbnNpdGlvbjogbWF4LWhlaWdodCAwLjVzOyBcclxuXHJcbn1cclxuLnRyaXAtZGVjcmlwdGlvbiBwe1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMHB4OyBcclxufVxyXG4uYnV0dG9uLWRlY3JpcHRpb257XHJcbiAgICBwYWRkaW5nLXRvcDogNXB4O1xyXG4gICAgZGlzcGxheTogZmxleDsgXHJcbiAgICBcclxufVxyXG4uYnV0dG9uLWRlY3JpcHRpb24gYXtcclxuY29sb3I6ICMyODdGQjg7O1xyXG5mb250LXdlaWdodDogNjAwO1xyXG59XHJcbi5idXR0b24tZGVjcmlwdGlvbiBhOmhvdmVye1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgY29sb3I6ICNFRDY1MDQ7XHJcbn1cclxuLmFjdGlvbntcclxuICAgIG1pbi13aWR0aDogMjAwcHg7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxufVxyXG4udGltZXtcclxuICAgIHBhZGRpbmctbGVmdDogMTBweDtcclxuICAgIG1hcmdpbi10b3A6IGF1dG87XHJcbiAgICBwYWRkaW5nLXRvcDogMjBweDtcclxuICAgIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG59XHJcbi5idXR0b24tYmFye1xyXG4gICAgcGFkZGluZy10b3A6IDIwcHg7XHJcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcclxuICAgXHJcbn1cclxuLmJ1dHRvbi1iYXIgYnV0dG9ue1xyXG4gICAgXHJcbiAgICBtYXJnaW4tbGVmdDogMTBweDtcclxufVxyXG4udGltZSBwe1xyXG4gICAgZm9udC1zaXplOiAwLjhlbTtcclxuICAgIGZvbnQtc3R5bGU6IGl0YWxpYztcclxuICAgIG1hcmdpbi1ib3R0b206IDBweDtcclxufSJdfQ== */"
 
 /***/ }),
 
@@ -2755,7 +2930,7 @@ module.exports = ".item{\r\n    border: solid 1px rgba(0,0,0,0.15);\r\n    borde
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"item\">\r\n    <div class=\"activity row\">\r\n        <div class=\"activity-info col-sm-12 col-md-3\">\r\n            <div class=\"card-info\">\r\n                <div class=\"avatar\">\r\n                    <a routerLink=\"/Users/People/{{item.sender.id}}\"><img [src]=\"item.sender.avatarLocation\"></a>\r\n                </div>\r\n                <div class=\"info\">\r\n                    <a routerLink=\"/Users/People/{{item.sender.id}}\">\r\n                        <p class=\"name\">{{item.sender.fullName}}</p>\r\n                    </a>\r\n                    <p>{{item.sender.address}}</p>\r\n                </div>\r\n\r\n            </div>\r\n\r\n        </div>\r\n        <div *ngIf=\"from!='friendrequest'\" class=\"message col-md col-sm-12\">\r\n            <div class=\"trip-info\">\r\n                <span><i class=\"far fa-calendar-alt\"></i></span>\r\n                <span>{{item.arrivalDate|date:\"dd/MM/yyyy\" }} <i class=\"fas fa-arrow-right\"></i>\r\n                    {{item.departureDate|date:\"dd/MM/yyyy\"}}</span>\r\n                <span><i class=\"fas fa-user-friends\"></i></span><span>{{item.travelerNumber}} Traveler</span>\r\n            </div>\r\n            <div class=\"content-message\">\r\n                <div class=\"trip-decription\" (window:resize)=\"onResize($event)\"\r\n                    [ngStyle]=\"x && {'max-height.em':height}\">\r\n                    <p #des>{{item.message}} </p>\r\n                </div>\r\n                <div class=\"button-decription\" *ngIf=\"show\">\r\n                    <a style=\"margin-left:auto\" (click)=\"x=!x\">{{x?'[-]Read Less':'[+]Read More'}}</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"action col-lg-2 col-md-12\">\r\n            <div class=\"button-bar\">\r\n                <button [disabled]=\"item.isAccepted || isdiabled\" (click)=\"onAccept()\"\r\n                    [ngClass]=\"item.isAccepted?'btn-success':'btn-primary'\"\r\n                    class=\"btn \">{{item.isAccepted?'Accepted':'Accept'}}</button>\r\n                <button [disabled]=\"isdiabled\" (click)=\"onIgnore()\" class=\"btn btn-danger\">Ignore</button>\r\n            </div>\r\n            <div class=\"time\">\r\n                <p>{{item.createDate|date:'dd MMMM, yyyy, HH:mm':'+0700'}}</p>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"item\">\r\n    <div class=\"activity row\">\r\n        <div class=\"activity-info col-sm-12 col-md-3\">\r\n            <div class=\"card-info\">\r\n                <div class=\"avatar\">\r\n                    <a routerLink=\"/Users/People/{{data.select==='received'?item.sender.id:item.receiver.id}}\">\r\n                        <img [src]=\"data.select==='received'?item.sender.avatarLocation:item.receiver.avatarLocation\"></a>\r\n                </div>\r\n                <div class=\"info\">\r\n                    <a routerLink=\"/Users/People/{{data.select==='received'?item.sender.id:item.receiver.id}}\">\r\n                        <p class=\"name\">\r\n                            {{data.select==='received'?item.sender.fullName:item.receiver.fullName}}</p>\r\n                    </a>\r\n                    <p>{{data.select==='received'?item.sender.address:item.receiver.address}}</p>\r\n                </div>\r\n\r\n            </div>\r\n\r\n        </div>\r\n        <div *ngIf=\"data.type!='friendrequest'\" class=\"message col-md col-sm-12\">\r\n            <div class=\"trip-info\">\r\n                <span><i class=\"far fa-calendar-alt\"></i></span>\r\n                <span>{{item.arrivalDate|date:\"dd/MM/yyyy\" }} <i class=\"fas fa-arrow-right\"></i>\r\n                    {{item.departureDate|date:\"dd/MM/yyyy\"}}</span>\r\n                <span><i class=\"fas fa-user-friends\"></i></span><span>{{item.travelerNumber}} Traveler</span>\r\n            </div>\r\n            <div class=\"content-message\"\r\n                [ngClass]=\"{'content-message':data.select=='received','content-message-sent':data.select=='sent'}\">\r\n                <div class=\"trip-decription\" (window:resize)=\"onResize($event)\"\r\n                    [ngStyle]=\"x && {'max-height.em':height}\">\r\n                    <p #des>{{item.message}}</p>\r\n                </div>\r\n                <div class=\"button-decription\" *ngIf=\"show\">\r\n                    <a style=\"margin-left:auto\" (click)=\"x=!x\">{{x?'[-]Read Less':'[+]Read More'}}</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"action col-lg-2 col-md-12\">\r\n            <div class=\"button-bar\">\r\n                <button *ngIf=\"data.select=='received'\" [disabled]=\"item.isAccepted || isdiabled\" (click)=\"onAccept()\"\r\n                    [ngClass]=\"item.isAccepted?'btn-success':'btn-primary'\"\r\n                    class=\"btn \">{{item.isAccepted?'Accepted':'Accept'}}</button>\r\n                <button *ngIf=\"data.select=='received'\" [disabled]=\"isdiabled\" (click)=\"onIgnore()\"\r\n                    class=\"btn btn-danger\">Ignore</button>\r\n                <button *ngIf=\"data.select=='sent'\" [disabled]=\"isdiabled\" (click)=\"onCancel()\"\r\n                    class=\"btn btn-danger\">Cancel</button>\r\n            </div>\r\n            <div class=\"time\">\r\n                <p>{{item.createDate|date:'dd MMMM, yyyy, HH:mm':'+0700'}}</p>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -2786,7 +2961,8 @@ var ItemActivityComponent = /** @class */ (function () {
     }
     ItemActivityComponent.prototype.ngOnInit = function () {
         var _this = this;
-        if (this.from != 'friendrequest')
+        // console.log(this.data)
+        if (this.data.type != 'friendrequest')
             setTimeout(function () {
                 _this.onResize(event);
             }, 0);
@@ -2798,7 +2974,7 @@ var ItemActivityComponent = /** @class */ (function () {
     ItemActivityComponent.prototype.onAccept = function () {
         var _this = this;
         this.isdiabled = true;
-        if (this.from == 'travelrequest') {
+        if (this.data.type == 'travelrequest') {
             this.service.acceptRequest(this.item.travelRequestId).subscribe(function (res) {
                 _this.toast.success('Accepted');
                 _this.item.isAccepted = res.isAccepted;
@@ -2806,7 +2982,7 @@ var ItemActivityComponent = /** @class */ (function () {
                 console.log(res);
             });
         }
-        else if (this.from == 'hostoffer') {
+        else if (this.data.type == 'hostoffer') {
             this.service.acceptHostOffer(this.item.hostOfferId).subscribe(function (res) {
                 _this.toast.success('Accepted');
                 _this.item.isAccepted = res.isAccepted;
@@ -2814,7 +2990,7 @@ var ItemActivityComponent = /** @class */ (function () {
                 console.log(res);
             });
         }
-        else if (this.from == 'friendrequest') {
+        else if (this.data.type == 'friendrequest') {
             // let body = {
             //   type: 'acceptfriend', id: this.item.friendRequestId
             // }
@@ -2830,13 +3006,13 @@ var ItemActivityComponent = /** @class */ (function () {
     ItemActivityComponent.prototype.onIgnore = function () {
         this.isdiabled = true;
         var id;
-        if (this.from == 'travelrequest') {
+        if (this.data.type == 'travelrequest') {
             id = this.item.travelRequestId;
         }
-        else if (this.from == 'hostoffer') {
+        else if (this.data.type == 'hostoffer') {
             id = this.item.hostOfferId;
         }
-        else if (this.from == 'friendrequest') {
+        else if (this.data.type == 'friendrequest') {
             id = this.item.friendRequestId;
         }
         var body = {
@@ -2851,7 +3027,7 @@ var ItemActivityComponent = /** @class */ (function () {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], ItemActivityComponent.prototype, "from", void 0);
+    ], ItemActivityComponent.prototype, "data", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -2869,6 +3045,92 @@ var ItemActivityComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
     ], ItemActivityComponent);
     return ItemActivityComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/user/reuse/item-notification/item-notification.component.css":
+/*!*****************************************************************************************!*\
+  !*** ./src/app/components/user/reuse/item-notification/item-notification.component.css ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".item{\r\n    border: solid 1px rgba(0,0,0,0.15);\r\n    border-radius: 25px;\r\n    margin-bottom: 20px;\r\n}\r\n.item a{\r\n color: #27374c;\r\n}\r\n.item a:hover{\r\n    text-decoration: none;\r\n    cursor: pointer;\r\n    color: #ED6504;\r\n}\r\n.notification{\r\n    display: flex;\r\n    padding: 20px;\r\n}\r\n.notify p{\r\n    margin-bottom:  0px;\r\n}\r\n.notify .name{\r\n    font-size: 1.3em;\r\n    font-weight: 500;\r\n}\r\n.avatar{\r\n    padding-right: 20px;\r\n}\r\n.avatar img{\r\n    height: 70px;\r\n    width: 70px;\r\n    border-radius: 50%;\r\n}\r\n.button-bar{\r\n    margin-left: auto;\r\n    margin-bottom: auto;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL3JldXNlL2l0ZW0tbm90aWZpY2F0aW9uL2l0ZW0tbm90aWZpY2F0aW9uLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxrQ0FBa0M7SUFDbEMsbUJBQW1CO0lBQ25CLG1CQUFtQjtBQUN2QjtBQUNBO0NBQ0MsY0FBYztBQUNmO0FBQ0E7SUFDSSxxQkFBcUI7SUFDckIsZUFBZTtJQUNmLGNBQWM7QUFDbEI7QUFDQTtJQUNJLGFBQWE7SUFDYixhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksWUFBWTtJQUNaLFdBQVc7SUFDWCxrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLGlCQUFpQjtJQUNqQixtQkFBbUI7QUFDdkIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3VzZXIvcmV1c2UvaXRlbS1ub3RpZmljYXRpb24vaXRlbS1ub3RpZmljYXRpb24uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pdGVte1xyXG4gICAgYm9yZGVyOiBzb2xpZCAxcHggcmdiYSgwLDAsMCwwLjE1KTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDI1cHg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xyXG59XHJcbi5pdGVtIGF7XHJcbiBjb2xvcjogIzI3Mzc0YztcclxufVxyXG4uaXRlbSBhOmhvdmVye1xyXG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgY29sb3I6ICNFRDY1MDQ7XHJcbn1cclxuLm5vdGlmaWNhdGlvbntcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBwYWRkaW5nOiAyMHB4O1xyXG59XHJcbi5ub3RpZnkgcHtcclxuICAgIG1hcmdpbi1ib3R0b206ICAwcHg7XHJcbn1cclxuLm5vdGlmeSAubmFtZXtcclxuICAgIGZvbnQtc2l6ZTogMS4zZW07XHJcbiAgICBmb250LXdlaWdodDogNTAwO1xyXG59XHJcbi5hdmF0YXJ7XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiAyMHB4O1xyXG59XHJcbi5hdmF0YXIgaW1ne1xyXG4gICAgaGVpZ2h0OiA3MHB4O1xyXG4gICAgd2lkdGg6IDcwcHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbn1cclxuLmJ1dHRvbi1iYXJ7XHJcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcclxuICAgIG1hcmdpbi1ib3R0b206IGF1dG87XHJcbn0iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/components/user/reuse/item-notification/item-notification.component.html":
+/*!******************************************************************************************!*\
+  !*** ./src/app/components/user/reuse/item-notification/item-notification.component.html ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"item\">\r\n  <div class=\"notification\">\r\n    <div class=\"avatar\">\r\n      <a routerLink=\"/Users/People/{{item.senderId}}\"><img [src]=\"item.senderAvatar\"></a>\r\n    </div>\r\n    <div class=\"notify\">\r\n      <p class=\"name\">{{item.senderName}} has accepted your {{typeShow()}}</p>\r\n    </div>\r\n    <div class=\"button-bar\">\r\n      <button class=\"btn btn-danger\" [disabled]=\"isdiabled\" (click)=\"onDelete()\">Delete</button>\r\n    </div>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/user/reuse/item-notification/item-notification.component.ts":
+/*!****************************************************************************************!*\
+  !*** ./src/app/components/user/reuse/item-notification/item-notification.component.ts ***!
+  \****************************************************************************************/
+/*! exports provided: ItemNotificationComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ItemNotificationComponent", function() { return ItemNotificationComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var ItemNotificationComponent = /** @class */ (function () {
+    function ItemNotificationComponent() {
+        this.myClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
+    ItemNotificationComponent.prototype.ngOnInit = function () {
+    };
+    ItemNotificationComponent.prototype.typeShow = function () {
+        if (this.item.type == "HostOffer")
+            return "Host Offer";
+        else if (this.item.type == "FriendRequest") {
+            return "Friend Request";
+        }
+        else if (this.item.type == "TravelRequest") {
+            return "Travel Request";
+        }
+    };
+    ItemNotificationComponent.prototype.onDelete = function () {
+        this.isdiabled = true;
+        var body = {
+            type: 'delete', id: this.item.id
+        };
+        this.myClick.emit(body);
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], ItemNotificationComponent.prototype, "item", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], ItemNotificationComponent.prototype, "data", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], ItemNotificationComponent.prototype, "myClick", void 0);
+    ItemNotificationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-item-notification',
+            template: __webpack_require__(/*! ./item-notification.component.html */ "./src/app/components/user/reuse/item-notification/item-notification.component.html"),
+            styles: [__webpack_require__(/*! ./item-notification.component.css */ "./src/app/components/user/reuse/item-notification/item-notification.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], ItemNotificationComponent);
+    return ItemNotificationComponent;
 }());
 
 
@@ -4324,7 +4586,7 @@ var FormatDataPipe = /** @class */ (function () {
 /*!******************************************!*\
   !*** ./src/app/services/user.resolve.ts ***!
   \******************************************/
-/*! exports provided: TokenResolve, UserResolve, HomeResolve, PlacesDashboardResolve, ProfileResolve */
+/*! exports provided: TokenResolve, UserResolve, HomeResolve, PlacesDashboardResolve, ProfileResolve, IsFriendResolve */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4334,6 +4596,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeResolve", function() { return HomeResolve; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PlacesDashboardResolve", function() { return PlacesDashboardResolve; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileResolve", function() { return ProfileResolve; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IsFriendResolve", function() { return IsFriendResolve; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
@@ -4422,6 +4685,21 @@ var ProfileResolve = /** @class */ (function () {
     return ProfileResolve;
 }());
 
+var IsFriendResolve = /** @class */ (function () {
+    function IsFriendResolve(service) {
+        this.service = service;
+    }
+    IsFriendResolve.prototype.resolve = function (activatedRouteSnapshot) {
+        var id = activatedRouteSnapshot.paramMap.get('id');
+        return this.service.checkIsFriend(id);
+    };
+    IsFriendResolve = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
+    ], IsFriendResolve);
+    return IsFriendResolve;
+}());
+
 
 
 /***/ }),
@@ -4488,6 +4766,22 @@ var UserService = /** @class */ (function () {
         return this.getPeopleImages(this.peopleid);
     };
     //  =============================
+    UserService.prototype.getSentTraveRequest = function () {
+        return this.http.get(this.BaseURI + '/Users/SentTravelRequests');
+    };
+    UserService.prototype.getSentHostOffer = function () {
+        return this.http.get(this.BaseURI + '/Users/SentHostOffers');
+    };
+    UserService.prototype.getSentFriendRequest = function () {
+        return this.http.get(this.BaseURI + '/Users/SentFriendRequests');
+    };
+    UserService.prototype.getNotification = function () {
+        return this.http.get(this.BaseURI + '/Notifications');
+    };
+    UserService.prototype.deleteNotification = function (id) {
+        return this.http.delete(this.BaseURI + '/Notifications/' + id, { reportProgress: true, observe: "response" });
+    };
+    //  =============================
     UserService.prototype.getTraveRequest = function () {
         return this.http.get(this.BaseURI + '/Users/TravelRequests');
     };
@@ -4534,6 +4828,13 @@ var UserService = /** @class */ (function () {
         return this.http.get(this.BaseURI + '/Users/' + id).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (err) {
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])({ 'err': err.status, 'id': id });
         }));
+    };
+    //  =============================
+    UserService.prototype.getUserFriends = function () {
+        return this.http.get(this.BaseURI + '/Users/Friends');
+    };
+    UserService.prototype.checkIsFriend = function (id) {
+        return this.http.get(this.BaseURI + '/Friends/CheckIsFriend/' + id);
     };
     //  =============================
     UserService.prototype.getUserHome = function () {
