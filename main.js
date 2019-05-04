@@ -1637,7 +1637,7 @@ var MessageComponent = /** @class */ (function () {
         //   });
         // }
         this.hubConnection = new _aspnet_signalr__WEBPACK_IMPORTED_MODULE_4__["HubConnectionBuilder"]()
-            .withUrl('http://travelhelperwebsite.azurewebsites.net/chat', {
+            .withUrl('https://travelhelperwebsite.azurewebsites.net/chat', {
             accessTokenFactory: function () {
                 return _this.token;
             },
@@ -5018,13 +5018,14 @@ var ListUserChatResolve = /** @class */ (function () {
     ListUserChatResolve.prototype.resolve = function (activatedRouteSnapshot) {
         var _this = this;
         var id = activatedRouteSnapshot.queryParamMap.get('id');
-        //console.log(id)
-        if (id == null)
+        console.log(id);
+        if (id == null) {
             this.service.getListUserChat().subscribe(function (res) {
                 if (res[0]) {
                     _this.router.navigate(['/Users/Message'], { queryParams: { id: res[0].id } });
                 }
             });
+        }
     };
     ListUserChatResolve = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
