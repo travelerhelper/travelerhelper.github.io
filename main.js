@@ -56,6 +56,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./services/user.resolve */ "./src/app/services/user.resolve.ts");
 /* harmony import */ var _components_user_profile_friends_friends_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/user/profile/friends/friends.component */ "./src/app/components/user/profile/friends/friends.component.ts");
 /* harmony import */ var _components_user_activity_activity_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/user/activity/activity.component */ "./src/app/components/user/activity/activity.component.ts");
+/* harmony import */ var _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/admin/admin.component */ "./src/app/components/admin/admin.component.ts");
+/* harmony import */ var _components_admin_dashboard_admin_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/admin/dashboard-admin/dashboard-admin.component */ "./src/app/components/admin/dashboard-admin/dashboard-admin.component.ts");
+
+
 
 
 
@@ -134,10 +138,19 @@ var routes = [
                 path: 'ChangePassword',
                 component: _components_user_change_pass_change_pass_component__WEBPACK_IMPORTED_MODULE_19__["ChangePassComponent"], resolve: { users: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["UserResolve"] }
             },
-            { path: 'Message', component: _components_user_message_message_component__WEBPACK_IMPORTED_MODULE_11__["MessageComponent"], resolve: { users: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["UserResolve"] } },
+            { path: 'Message', component: _components_user_message_message_component__WEBPACK_IMPORTED_MODULE_11__["MessageComponent"], resolve: { user: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["UserResolve"], ListUserChatResolve: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["ListUserChatResolve"] } },
+            // { path: 'Message/:id', component: MessageComponent, resolve: { users: UserResolve }},
             { path: 'Activity', component: _components_user_activity_activity_component__WEBPACK_IMPORTED_MODULE_22__["ActivityComponent"], resolve: { users: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["UserResolve"] } },
             { path: '404', component: _components_notfound_component__WEBPACK_IMPORTED_MODULE_12__["NotfoundComponent"] },
             { path: '**', component: _components_notfound_component__WEBPACK_IMPORTED_MODULE_12__["NotfoundComponent"] },
+        ]
+    },
+    {
+        path: 'Admin', component: _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_23__["AdminComponent"],
+        children: [
+            {
+                path: 'Dashboard', component: _components_admin_dashboard_admin_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_24__["DashboardAdminComponent"]
+            }
         ]
     },
     { path: '**', component: _components_notfound_component__WEBPACK_IMPORTED_MODULE_12__["NotfoundComponent"] },
@@ -277,7 +290,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_user_reuse_send_report_modal_send_report_modal_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./components/user/reuse/send-report-modal/send-report-modal.component */ "./src/app/components/user/reuse/send-report-modal/send-report-modal.component.ts");
 /* harmony import */ var _components_user_activity_activity_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./components/user/activity/activity.component */ "./src/app/components/user/activity/activity.component.ts");
 /* harmony import */ var _components_user_reuse_item_activity_item_activity_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./components/user/reuse/item-activity/item-activity.component */ "./src/app/components/user/reuse/item-activity/item-activity.component.ts");
-/* harmony import */ var _components_user_reuse_item_notification_item_notification_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./components/user/reuse/item-notification/item-notification.component */ "./src/app/components/user/reuse/item-notification/item-notification.component.ts");
+/* harmony import */ var _components_admin_dashboard_admin_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./components/admin/dashboard-admin/dashboard-admin.component */ "./src/app/components/admin/dashboard-admin/dashboard-admin.component.ts");
+/* harmony import */ var _components_user_reuse_item_notification_item_notification_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./components/user/reuse/item-notification/item-notification.component */ "./src/app/components/user/reuse/item-notification/item-notification.component.ts");
+/* harmony import */ var _components_user_message_box_chat_box_chat_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./components/user/message/box-chat/box-chat.component */ "./src/app/components/user/message/box-chat/box-chat.component.ts");
+
+
 
 
 
@@ -380,7 +397,9 @@ var AppModule = /** @class */ (function () {
                 _components_user_reuse_send_report_modal_send_report_modal_component__WEBPACK_IMPORTED_MODULE_51__["SendReportModalComponent"],
                 _components_user_activity_activity_component__WEBPACK_IMPORTED_MODULE_52__["ActivityComponent"],
                 _components_user_reuse_item_activity_item_activity_component__WEBPACK_IMPORTED_MODULE_53__["ItemActivityComponent"],
-                _components_user_reuse_item_notification_item_notification_component__WEBPACK_IMPORTED_MODULE_54__["ItemNotificationComponent"],
+                _components_admin_dashboard_admin_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_54__["DashboardAdminComponent"],
+                _components_user_reuse_item_notification_item_notification_component__WEBPACK_IMPORTED_MODULE_55__["ItemNotificationComponent"],
+                _components_user_message_box_chat_box_chat_component__WEBPACK_IMPORTED_MODULE_56__["BoxChatComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -415,7 +434,8 @@ var AppModule = /** @class */ (function () {
                 _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["TokenResolve"],
                 _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["HomeResolve"],
                 _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["PlacesDashboardResolve"],
-                _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["IsFriendResolve"]
+                _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["IsFriendResolve"],
+                _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["ListUserChatResolve"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
         })
@@ -524,7 +544,7 @@ var AuthInterceptor = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvYWRtaW4vYWRtaW4uY29tcG9uZW50LmNzcyJ9 */"
+module.exports = ".content{\r\n  height: 100%;\r\n  width: 100%;\r\n  margin: 0px;\r\n  padding: 0px;\r\n}\r\n\r\n.container {\r\n  padding-left: 0px;\r\n  padding-right: 0px;\r\n  padding-top: 60px !important;\r\n  margin: 0px ;\r\n  max-width: 100% !important;\r\n}\r\n\r\n.menu{\r\n  height:100%;\r\n  padding: 0px;\r\n  color: #AAA;\r\n  position: fixed;\r\n  max-width: 25%;\r\n  width: 100%;\r\n}\r\n\r\n.menu li{\r\n  display: block;\r\n  width: 100%;\r\n  border-bottom: 1px solid rgb(102, 102, 102) !important\r\n}\r\n\r\n.menu li:last-child{\r\n  border-bottom: none !important;\r\n}\r\n\r\n.menu li:hover a{\r\n  color: white;\r\n  background: #2a2d31;\r\n}\r\n\r\n.menu a{\r\n  color: #AAA;\r\n  padding-left: 10%;\r\n}\r\n\r\n.menu i{\r\n  margin-right: 15px;\r\n}\r\n\r\n.left {\r\n  padding: 0px;\r\n}\r\n\r\n.headerContent{\r\n  background: #343a40 ;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hZG1pbi9hZG1pbi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7RUFDWCxXQUFXO0VBQ1gsWUFBWTtBQUNkOztBQUVBO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQiw0QkFBNEI7RUFDNUIsWUFBWTtFQUNaLDBCQUEwQjtBQUM1Qjs7QUFFQTtFQUNFLFdBQVc7RUFDWCxZQUFZO0VBQ1osV0FBVztFQUNYLGVBQWU7RUFDZixjQUFjO0VBQ2QsV0FBVztBQUNiOztBQUVBO0VBQ0UsY0FBYztFQUNkLFdBQVc7RUFDWDtBQUNGOztBQUVBO0VBQ0UsOEJBQThCO0FBQ2hDOztBQUVBO0VBQ0UsWUFBWTtFQUNaLG1CQUFtQjtBQUNyQjs7QUFFQTtFQUNFLFdBQVc7RUFDWCxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxvQkFBb0I7QUFDdEIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2FkbWluL2FkbWluLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGVudHtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgbWFyZ2luOiAwcHg7XHJcbiAgcGFkZGluZzogMHB4O1xyXG59XHJcblxyXG4uY29udGFpbmVyIHtcclxuICBwYWRkaW5nLWxlZnQ6IDBweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAwcHg7XHJcbiAgcGFkZGluZy10b3A6IDYwcHggIWltcG9ydGFudDtcclxuICBtYXJnaW46IDBweCA7XHJcbiAgbWF4LXdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5tZW51e1xyXG4gIGhlaWdodDoxMDAlO1xyXG4gIHBhZGRpbmc6IDBweDtcclxuICBjb2xvcjogI0FBQTtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgbWF4LXdpZHRoOiAyNSU7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5tZW51IGxpe1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCByZ2IoMTAyLCAxMDIsIDEwMikgIWltcG9ydGFudFxyXG59XHJcblxyXG4ubWVudSBsaTpsYXN0LWNoaWxke1xyXG4gIGJvcmRlci1ib3R0b206IG5vbmUgIWltcG9ydGFudDtcclxufVxyXG5cclxuLm1lbnUgbGk6aG92ZXIgYXtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgYmFja2dyb3VuZDogIzJhMmQzMTtcclxufVxyXG5cclxuLm1lbnUgYXtcclxuICBjb2xvcjogI0FBQTtcclxuICBwYWRkaW5nLWxlZnQ6IDEwJTtcclxufVxyXG5cclxuLm1lbnUgaXtcclxuICBtYXJnaW4tcmlnaHQ6IDE1cHg7XHJcbn1cclxuXHJcbi5sZWZ0IHtcclxuICBwYWRkaW5nOiAwcHg7XHJcbn1cclxuXHJcbi5oZWFkZXJDb250ZW50e1xyXG4gIGJhY2tncm91bmQ6ICMzNDNhNDAgO1xyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -535,7 +555,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  admin works!\r\n</p>\r\n"
+module.exports = "\r\n\r\n\r\n  <div class=\"header shadow-sm bg-white  \">\r\n      <div class=\"row box \" style=\"  margin: 0px !important;\">\r\n        <div class=\"col-sm-3\"></div>\r\n          <div class=\"col-sm headerContent\" style=\"padding: 0px;\">\r\n\r\n            <app-header [admin]=\"true\"></app-header>\r\n\r\n          </div>\r\n        </div>\r\n  </div>\r\n  <div class=\"container\">\r\n      <div class=\"row content\">\r\n          <div class=\"col-sm-3 left\">\r\n            <nav class=\"navbar menu navbar-expand-lg navbar-dark bg-dark flex-column\">\r\n              <div style=\"padding: 20px 0px 20px 0px\">\r\n                <img class=\"photo img-responsive\"\r\n                [src]=\"'/assets/imgs/profile-picture-placeholder.png'\">\r\n\r\n              </div>\r\n\r\n              <li class=\"nav-item\">\r\n                <a class=\"nav-link active\" href=\"#\"> <span><i class=\"fas fa-chalkboard\"></i></span>  Dashboard</a>\r\n              </li>\r\n              <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\"> <span> <i class=\"fas fa-users\"></i></span> Users</a>\r\n              </li>\r\n              <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\"> <span> <i class=\"fas fa-book-open\"></i></span> Report</a>\r\n              </li>\r\n              <li class=\"nav-item \">\r\n                <a class=\"nav-link \" href=\"#\"  ><span> <i class=\"fas fa-user-slash\"></i> </span>Banned</a>\r\n              </li>\r\n\r\n            </nav>\r\n          </div>\r\n\r\n          <div class=\"col-sm-9 right\">\r\n\r\n            <div class=\"\">\r\n              <router-outlet></router-outlet>\r\n            </div>\r\n          </div>\r\n        </div>\r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -567,6 +587,62 @@ var AdminComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], AdminComponent);
     return AdminComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/admin/dashboard-admin/dashboard-admin.component.css":
+/*!********************************************************************************!*\
+  !*** ./src/app/components/admin/dashboard-admin/dashboard-admin.component.css ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".container {\r\n  padding-top: 20px !important;\r\n}\r\n\r\n\r\n.wrapicon {\r\n  margin: auto;\r\n  font-size: 40px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hZG1pbi9kYXNoYm9hcmQtYWRtaW4vZGFzaGJvYXJkLWFkbWluLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSw0QkFBNEI7QUFDOUI7OztBQUdBO0VBQ0UsWUFBWTtFQUNaLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2FkbWluL2Rhc2hib2FyZC1hZG1pbi9kYXNoYm9hcmQtYWRtaW4uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb250YWluZXIge1xyXG4gIHBhZGRpbmctdG9wOiAyMHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcblxyXG4ud3JhcGljb24ge1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBmb250LXNpemU6IDQwcHg7XHJcbn1cclxuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/components/admin/dashboard-admin/dashboard-admin.component.html":
+/*!*********************************************************************************!*\
+  !*** ./src/app/components/admin/dashboard-admin/dashboard-admin.component.html ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\r\n  <div class=\"row justify-content-center\">\r\n    <div class=\"col-sm-3 box\" style=\"font-size: 25px;  background: #007bff; color: white\">\r\n      <div class=\"d-flex align-items-center\">\r\n        <div class=\"wrapicon\">\r\n            <i class=\"fas fa-users\"></i>\r\n        </div>\r\n        <div class=\"m-auto\" style=\"padding: 20px;\">\r\n          <div >123456</div>\r\n          <div >Users</div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-sm-1\"></div>\r\n\r\n    <div class=\"col-sm-3 box\" style=\"font-size: 25px; background: #ffc107; color: white\">\r\n      <div class=\"d-flex align-items-center\">\r\n        <div class=\"wrapicon\">\r\n            <i class=\"fas fa-sticky-note\"></i>\r\n        </div>\r\n        <div class=\"m-auto\" style=\"padding: 20px;\">\r\n          <div>5555</div>\r\n          <div>Reports</div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-sm-1\"></div>\r\n\r\n    <div class=\"col-sm-3 box\" style=\"font-size: 25px; background: #dc3545; color: white\">\r\n      <div class=\"d-flex align-items-center\">\r\n        <div class=\"wrapicon\">\r\n          <i class=\"fas fa-user-slash\"></i>\r\n        </div>\r\n        <div class=\"m-auto\" style=\"padding: 20px;\">\r\n          <div>1243</div>\r\n          <div>Banned</div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n\r\n\r\n  <!-- part 2 -->\r\n\r\n\r\n\r\n  <div class=\"card box\" style=\"margin-top: 20px;\">\r\n    <div class=\"card-header bg-warning\" style=\"color: white\">\r\n        <i class=\"fas fa-list\"></i> List reports\r\n    </div>\r\n    <div class=\"card-body\">\r\n      <table class=\"table table-bordered\">\r\n        <thead>\r\n          <tr>\r\n            <th scope=\"col\">STT</th>\r\n            <th scope=\"col\">User report</th>\r\n            <th scope=\"col\">User is reported</th>\r\n            <th scope=\"col\">Content</th>\r\n            <th scope=\"col\">Action</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr>\r\n            <th scope=\"row\">1</th>\r\n            <td>2</td>\r\n            <td>3</td>\r\n            <td>4</td>\r\n            <td>\r\n                <button class=\"btn btn-primary\">View</button>\r\n              </td>\r\n          </tr>\r\n          <tr>\r\n            <th scope=\"row\">2</th>\r\n            <td>Jacob</td>\r\n            <td>Thornton</td>\r\n            <td>@fat</td>\r\n            <td>\r\n                <button class=\"btn btn-primary\">View</button>\r\n              </td>\r\n          </tr>\r\n          <tr>\r\n            <th scope=\"row\">3</th>\r\n            <td>Larry</td>\r\n            <td>the Bird</td>\r\n            <td>@twitter</td>\r\n            <td>\r\n                <button class=\"btn btn-primary\">View</button>\r\n              </td>\r\n          </tr>\r\n          <tr>\r\n            <th scope=\"row\">...</th>\r\n            <td>...</td>\r\n            <td>...</td>\r\n            <td>...</td>\r\n            <td>...</td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <a href=\"#\" class=\"btn btn-warning\" style=\"color: white\">See more</a>\r\n    </div>\r\n  </div>\r\n\r\n\r\n<!-- part 3 -->\r\n\r\n<div class=\"card box\" style=\"margin-top: 20px;\">\r\n  <div class=\"card-header bg-danger\" style=\"color: white\">\r\n    <i class=\"fas fa-list\"></i> List user is banned\r\n  </div>\r\n  <div class=\"card-body\">\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th scope=\"col\">STT</th>\r\n          <th scope=\"col\">User is banned</th>\r\n          <th scope=\"col\">Action</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <th scope=\"row\">1</th>\r\n          <td>2</td>\r\n          <td>\r\n            <button class=\"btn btn-primary\">Active</button>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <th scope=\"row\">2</th>\r\n          <td>Jacob</td>\r\n          <td>\r\n            <button class=\"btn btn-primary\">Active</button>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <th scope=\"row\">3</th>\r\n          <td>Larry</td>\r\n          <td>\r\n            <button class=\"btn btn-primary\">Active</button>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <th scope=\"row\">...</th>\r\n          <td>...</td>\r\n          <td>...</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n    <a href=\"#\" class=\"btn btn-danger\">See more</a>\r\n  </div>\r\n</div>\r\n\r\n\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/components/admin/dashboard-admin/dashboard-admin.component.ts":
+/*!*******************************************************************************!*\
+  !*** ./src/app/components/admin/dashboard-admin/dashboard-admin.component.ts ***!
+  \*******************************************************************************/
+/*! exports provided: DashboardAdminComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardAdminComponent", function() { return DashboardAdminComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var DashboardAdminComponent = /** @class */ (function () {
+    function DashboardAdminComponent() {
+    }
+    DashboardAdminComponent.prototype.ngOnInit = function () {
+    };
+    DashboardAdminComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-dashboard-admin',
+            template: __webpack_require__(/*! ./dashboard-admin.component.html */ "./src/app/components/admin/dashboard-admin/dashboard-admin.component.html"),
+            styles: [__webpack_require__(/*! ./dashboard-admin.component.css */ "./src/app/components/admin/dashboard-admin/dashboard-admin.component.css"), __webpack_require__(/*! ./../../../app.component.css */ "./src/app/app.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], DashboardAdminComponent);
+    return DashboardAdminComponent;
 }());
 
 
@@ -1046,7 +1122,7 @@ var ChangePassComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n.content-left{\r\n    /* min-width: 220px; */\r\n    max-width: 300px; \r\n    min-width: 260px;\r\n   \r\n    padding: 0px 5px 0px 5px !important;\r\n}\r\n.content-right{\r\n    padding: 0px 5px 0px 5px !important;\r\n    min-width: 100px;\r\n}\r\n.content-right .row{\r\n    margin: 0px ;\r\n}\r\n.user-info{\r\n    padding-top: 50px;\r\n    text-align: center;\r\n}\r\n.info{\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\r\n}\r\n.status{\r\n    border-top: 1px solid rgba(0,0,0,0.15);\r\n    padding-bottom: 30px;\r\n    padding-top: 30px;\r\n}\r\n.info p{\r\n    padding: 3px 0px 3px 0px;\r\n    margin-bottom: 0px !important;\r\n}\r\n.status-value {\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n    padding: 10px 10px 10px 10px;\r\n\r\n}\r\n.profile-content{\r\n    padding: 20px;\r\n    /* border-bottom: 1px solid rgba(0,0,0,0.15); */\r\n}\r\n.progress-bar{\r\n    text-align: left;\r\n    width: 100%;\r\n    background-color: #cdc9c9;\r\n    height: 35px;\r\n    border: 1px solid rgba(0,0,0,0.15);\r\n}\r\n.percent{\r\n    display: flex;\r\n    align-items: center;\r\n    height: 100%;\r\n    background-color: #41b866;\r\n}\r\n.progress-bar span{\r\n    padding-left: 10px;\r\n    overflow: visible;\r\n\r\n\r\n   \r\n}\r\n/* info */\r\n.proposed-box{\r\n    padding: 15px;\r\n}\r\n.proposed-box .item1{\r\n   padding: 5px;\r\n  \r\n}\r\n.proposed-box a{\r\n    text-decoration: none;\r\n    display: block;\r\n    /* background-image: url('/assets/imgs/background.jpg'); */\r\n    background-size: cover;\r\n    background-position: center;\r\n    width: 100%;\r\n    height: 250px;\r\n    text-align: center;\r\n    color: white;\r\n }\r\n.proposed-box a:hover{\r\n   cursor: pointer;\r\n }\r\n.proposed-box p{\r\n     font-weight: 600;\r\n    font-size: 22px;\r\n    margin: 0px;\r\n    padding: 25px 0px 5px 0px;\r\n }\r\n.proposed-box span{\r\n    font-weight: 400;\r\n    font-size: 17px;\r\n}\r\n.search-box{\r\n    padding: 15px 0px;\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n.search-form{\r\n    display: inline-block;\r\n    text-align: center;\r\n    position: relative;\r\n    \r\n}\r\n.search-box form{\r\n    border: 2px solid #c5ccd5;\r\n    border-radius: 25px;\r\n    padding: 0.5px 10px 0.5px 20px;\r\n}\r\n.search-form input{\r\n    height: 38px;\r\n    width: 250px;\r\n    display: inline-block;\r\n     border: none;\r\n}\r\n.search-form input:focus {\r\n    outline: none;\r\n}\r\n.search-form input:hover{\r\n    cursor: pointer;\r\n}\r\n.search-box  button {\r\n\r\n    border-radius: 25px;\r\n    background: none;\r\n    border: none;\r\n}\r\n.search-box  button:focus{\r\n    outline: none;\r\n}\r\n/*find-host*/\r\n.notrip{\r\n    height: 150px;\r\n    border-bottom: 1px solid rgba(0,0,0,0.15);\r\n    display: flex;\r\n    background: #eceef0;\r\n    align-items: center;\r\n}\r\n.notrip span{\r\n    margin: auto;\r\n}\r\n/*plans*/\r\n/*public-trips*/\r\n@media screen and (max-width: 768px) {\r\n    .content-left{\r\n        flex: 0 0 100%;\r\n        max-width: 100%;\r\n        order: 2;\r\n    }\r\n    .content-right{\r\n        order: 1;\r\n\r\n    }\r\n    .hide{\r\n        display: none;\r\n    }\r\n    \r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUVBO0lBQ0ksc0JBQXNCO0lBQ3RCLGdCQUFnQjtJQUNoQixnQkFBZ0I7O0lBRWhCLG1DQUFtQztBQUN2QztBQUNBO0lBQ0ksbUNBQW1DO0lBQ25DLGdCQUFnQjtBQUNwQjtBQUNBO0lBQ0ksWUFBWTtBQUNoQjtBQUdBO0lBQ0ksaUJBQWlCO0lBQ2pCLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0ksaUJBQWlCO0lBQ2pCLG9CQUFvQjtBQUN4QjtBQUNBO0lBQ0ksc0NBQXNDO0lBQ3RDLG9CQUFvQjtJQUNwQixpQkFBaUI7QUFDckI7QUFDQTtJQUNJLHdCQUF3QjtJQUN4Qiw2QkFBNkI7QUFDakM7QUFDQTtJQUNJLGlCQUFpQjtJQUNqQixlQUFlO0lBQ2YsNEJBQTRCOztBQUVoQztBQUNBO0lBQ0ksYUFBYTtJQUNiLCtDQUErQztBQUNuRDtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLFdBQVc7SUFDWCx5QkFBeUI7SUFDekIsWUFBWTtJQUNaLGtDQUFrQztBQUN0QztBQUNBO0lBQ0ksYUFBYTtJQUNiLG1CQUFtQjtJQUNuQixZQUFZO0lBQ1oseUJBQXlCO0FBQzdCO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsaUJBQWlCOzs7O0FBSXJCO0FBQ0EsU0FBUztBQUdUO0lBQ0ksYUFBYTtBQUNqQjtBQUNBO0dBQ0csWUFBWTs7QUFFZjtBQUNBO0lBQ0kscUJBQXFCO0lBQ3JCLGNBQWM7SUFDZCwwREFBMEQ7SUFDMUQsc0JBQXNCO0lBQ3RCLDJCQUEyQjtJQUMzQixXQUFXO0lBQ1gsYUFBYTtJQUNiLGtCQUFrQjtJQUNsQixZQUFZO0NBQ2Y7QUFDQTtHQUNFLGVBQWU7Q0FDakI7QUFDQTtLQUNJLGdCQUFnQjtJQUNqQixlQUFlO0lBQ2YsV0FBVztJQUNYLHlCQUF5QjtDQUM1QjtBQUNBO0lBQ0csZ0JBQWdCO0lBQ2hCLGVBQWU7QUFDbkI7QUFHQTtJQUNJLGlCQUFpQjtJQUNqQixhQUFhO0lBQ2IsdUJBQXVCO0FBQzNCO0FBQ0M7SUFDRyxxQkFBcUI7SUFDckIsa0JBQWtCO0lBQ2xCLGtCQUFrQjs7QUFFdEI7QUFDQTtJQUNJLHlCQUF5QjtJQUN6QixtQkFBbUI7SUFDbkIsOEJBQThCO0FBQ2xDO0FBQ0E7SUFDSSxZQUFZO0lBQ1osWUFBWTtJQUNaLHFCQUFxQjtLQUNwQixZQUFZO0FBQ2pCO0FBQ0E7SUFDSSxhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxlQUFlO0FBQ25CO0FBQ0E7O0lBRUksbUJBQW1CO0lBQ25CLGdCQUFnQjtJQUNoQixZQUFZO0FBQ2hCO0FBQ0E7SUFDSSxhQUFhO0FBQ2pCO0FBSUEsWUFBWTtBQUNaO0lBQ0ksYUFBYTtJQUNiLHlDQUF5QztJQUN6QyxhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksWUFBWTtBQUNoQjtBQUNBLFFBQVE7QUFHUixlQUFlO0FBQ2Y7SUFDSTtRQUNJLGNBQWM7UUFDZCxlQUFlO1FBQ2YsUUFBUTtJQUNaO0lBQ0E7UUFDSSxRQUFROztJQUVaO0lBQ0E7UUFDSSxhQUFhO0lBQ2pCOztBQUVKIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy91c2VyL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG5cclxuLmNvbnRlbnQtbGVmdHtcclxuICAgIC8qIG1pbi13aWR0aDogMjIwcHg7ICovXHJcbiAgICBtYXgtd2lkdGg6IDMwMHB4OyBcclxuICAgIG1pbi13aWR0aDogMjYwcHg7XHJcbiAgIFxyXG4gICAgcGFkZGluZzogMHB4IDVweCAwcHggNXB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuLmNvbnRlbnQtcmlnaHR7XHJcbiAgICBwYWRkaW5nOiAwcHggNXB4IDBweCA1cHggIWltcG9ydGFudDtcclxuICAgIG1pbi13aWR0aDogMTAwcHg7XHJcbn1cclxuLmNvbnRlbnQtcmlnaHQgLnJvd3tcclxuICAgIG1hcmdpbjogMHB4IDtcclxufVxyXG5cclxuXHJcbi51c2VyLWluZm97XHJcbiAgICBwYWRkaW5nLXRvcDogNTBweDtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4uaW5mb3tcclxuICAgIHBhZGRpbmctdG9wOiAxMHB4O1xyXG4gICAgcGFkZGluZy1ib3R0b206IDEwcHg7XHJcbn1cclxuLnN0YXR1c3tcclxuICAgIGJvcmRlci10b3A6IDFweCBzb2xpZCByZ2JhKDAsMCwwLDAuMTUpO1xyXG4gICAgcGFkZGluZy1ib3R0b206IDMwcHg7XHJcbiAgICBwYWRkaW5nLXRvcDogMzBweDtcclxufVxyXG4uaW5mbyBwe1xyXG4gICAgcGFkZGluZzogM3B4IDBweCAzcHggMHB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuLnN0YXR1cy12YWx1ZSB7XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxuICAgIGZvbnQtc2l6ZTogMjBweDtcclxuICAgIHBhZGRpbmc6IDEwcHggMTBweCAxMHB4IDEwcHg7XHJcblxyXG59XHJcbi5wcm9maWxlLWNvbnRlbnR7XHJcbiAgICBwYWRkaW5nOiAyMHB4O1xyXG4gICAgLyogYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMCwwLDAsMC4xNSk7ICovXHJcbn1cclxuLnByb2dyZXNzLWJhcntcclxuICAgIHRleHQtYWxpZ246IGxlZnQ7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNjZGM5Yzk7XHJcbiAgICBoZWlnaHQ6IDM1cHg7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCByZ2JhKDAsMCwwLDAuMTUpO1xyXG59XHJcbi5wZXJjZW50e1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDFiODY2O1xyXG59XHJcbi5wcm9ncmVzcy1iYXIgc3BhbntcclxuICAgIHBhZGRpbmctbGVmdDogMTBweDtcclxuICAgIG92ZXJmbG93OiB2aXNpYmxlO1xyXG5cclxuXHJcbiAgIFxyXG59XHJcbi8qIGluZm8gKi9cclxuXHJcblxyXG4ucHJvcG9zZWQtYm94e1xyXG4gICAgcGFkZGluZzogMTVweDtcclxufVxyXG4ucHJvcG9zZWQtYm94IC5pdGVtMXtcclxuICAgcGFkZGluZzogNXB4O1xyXG4gIFxyXG59XHJcbi5wcm9wb3NlZC1ib3ggYXtcclxuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgLyogYmFja2dyb3VuZC1pbWFnZTogdXJsKCcvYXNzZXRzL2ltZ3MvYmFja2dyb3VuZC5qcGcnKTsgKi9cclxuICAgIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XHJcbiAgICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXI7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogMjUwcHg7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiB9XHJcbiAucHJvcG9zZWQtYm94IGE6aG92ZXJ7XHJcbiAgIGN1cnNvcjogcG9pbnRlcjtcclxuIH1cclxuIC5wcm9wb3NlZC1ib3ggcHtcclxuICAgICBmb250LXdlaWdodDogNjAwO1xyXG4gICAgZm9udC1zaXplOiAyMnB4O1xyXG4gICAgbWFyZ2luOiAwcHg7XHJcbiAgICBwYWRkaW5nOiAyNXB4IDBweCA1cHggMHB4O1xyXG4gfVxyXG4gLnByb3Bvc2VkLWJveCBzcGFue1xyXG4gICAgZm9udC13ZWlnaHQ6IDQwMDtcclxuICAgIGZvbnQtc2l6ZTogMTdweDtcclxufVxyXG5cclxuXHJcbi5zZWFyY2gtYm94e1xyXG4gICAgcGFkZGluZzogMTVweCAwcHg7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuIC5zZWFyY2gtZm9ybXtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIFxyXG59XHJcbi5zZWFyY2gtYm94IGZvcm17XHJcbiAgICBib3JkZXI6IDJweCBzb2xpZCAjYzVjY2Q1O1xyXG4gICAgYm9yZGVyLXJhZGl1czogMjVweDtcclxuICAgIHBhZGRpbmc6IDAuNXB4IDEwcHggMC41cHggMjBweDtcclxufVxyXG4uc2VhcmNoLWZvcm0gaW5wdXR7XHJcbiAgICBoZWlnaHQ6IDM4cHg7XHJcbiAgICB3aWR0aDogMjUwcHg7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICAgYm9yZGVyOiBub25lO1xyXG59XHJcbi5zZWFyY2gtZm9ybSBpbnB1dDpmb2N1cyB7XHJcbiAgICBvdXRsaW5lOiBub25lO1xyXG59XHJcbi5zZWFyY2gtZm9ybSBpbnB1dDpob3ZlcntcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4uc2VhcmNoLWJveCAgYnV0dG9uIHtcclxuXHJcbiAgICBib3JkZXItcmFkaXVzOiAyNXB4O1xyXG4gICAgYmFja2dyb3VuZDogbm9uZTtcclxuICAgIGJvcmRlcjogbm9uZTtcclxufVxyXG4uc2VhcmNoLWJveCAgYnV0dG9uOmZvY3Vze1xyXG4gICAgb3V0bGluZTogbm9uZTtcclxufVxyXG5cclxuXHJcblxyXG4vKmZpbmQtaG9zdCovXHJcbi5ub3RyaXB7XHJcbiAgICBoZWlnaHQ6IDE1MHB4O1xyXG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMCwwLDAsMC4xNSk7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgYmFja2dyb3VuZDogI2VjZWVmMDtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbn1cclxuLm5vdHJpcCBzcGFue1xyXG4gICAgbWFyZ2luOiBhdXRvO1xyXG59XHJcbi8qcGxhbnMqL1xyXG5cclxuXHJcbi8qcHVibGljLXRyaXBzKi9cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzY4cHgpIHtcclxuICAgIC5jb250ZW50LWxlZnR7XHJcbiAgICAgICAgZmxleDogMCAwIDEwMCU7XHJcbiAgICAgICAgbWF4LXdpZHRoOiAxMDAlO1xyXG4gICAgICAgIG9yZGVyOiAyO1xyXG4gICAgfVxyXG4gICAgLmNvbnRlbnQtcmlnaHR7XHJcbiAgICAgICAgb3JkZXI6IDE7XHJcblxyXG4gICAgfVxyXG4gICAgLmhpZGV7XHJcbiAgICAgICAgZGlzcGxheTogbm9uZTtcclxuICAgIH1cclxuICAgIFxyXG59XHJcbiJdfQ== */"
+module.exports = ".content-left{\r\n    /* min-width: 220px; */\r\n    max-width: 300px; \r\n    min-width: 260px;\r\n   \r\n    padding: 0px 5px 0px 5px !important;\r\n}\r\n.content-right{\r\n    padding: 0px 5px 0px 5px !important;\r\n    min-width: 100px;\r\n}\r\n.content-right .row{\r\n    margin: 0px ;\r\n}\r\n.user-info{\r\n    padding-top: 50px;\r\n    text-align: center;\r\n}\r\n.info{\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\r\n}\r\n.status{\r\n    border-top: 1px solid rgba(0,0,0,0.15);\r\n    padding-bottom: 30px;\r\n    padding-top: 30px;\r\n}\r\n.info p{\r\n    padding: 3px 0px 3px 0px;\r\n    margin-bottom: 0px !important;\r\n}\r\n.status-value {\r\n    font-weight: bold;\r\n    font-size: 20px;\r\n    padding: 10px 10px 10px 10px;\r\n\r\n}\r\n.profile-content{\r\n    padding: 20px;\r\n    /* border-bottom: 1px solid rgba(0,0,0,0.15); */\r\n}\r\n.progress-bar{\r\n    text-align: left;\r\n    width: 100%;\r\n    background-color: #cdc9c9;\r\n    height: 35px;\r\n    border: 1px solid rgba(0,0,0,0.15);\r\n}\r\n.percent{\r\n    display: flex;\r\n    align-items: center;\r\n    height: 100%;\r\n    background-color: #41b866;\r\n}\r\n.progress-bar span{\r\n    padding-left: 10px;\r\n    overflow: visible;\r\n\r\n\r\n   \r\n}\r\n/* info */\r\n.proposed-box{\r\n    padding: 15px;\r\n}\r\n.proposed-box .item1{\r\n   padding: 5px;\r\n  \r\n}\r\n.proposed-box a{\r\n    text-decoration: none;\r\n    display: block;\r\n    background-size: cover;\r\n    background-position: center;\r\n    width: 100%;\r\n    height: 250px;\r\n    text-align: center;\r\n    color: white;\r\n }\r\n.proposed-box a:hover{\r\n   cursor: pointer;\r\n }\r\n.proposed-box p{\r\n     font-weight: 600;\r\n    font-size: 22px;\r\n    margin: 0px;\r\n    padding: 25px 0px 5px 0px;\r\n }\r\n.proposed-box span{\r\n    font-weight: 400;\r\n    font-size: 17px;\r\n}\r\n.search-box{\r\n    padding: 15px 0px;\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n.search-form{\r\n    display: inline-block;\r\n    text-align: center;\r\n    position: relative;\r\n    \r\n}\r\n.search-box form{\r\n    border: 2px solid #c5ccd5;\r\n    border-radius: 25px;\r\n    padding: 0.5px 10px 0.5px 20px;\r\n}\r\n.search-form input{\r\n    height: 38px;\r\n    width: 250px;\r\n    display: inline-block;\r\n     border: none;\r\n}\r\n.search-form input:focus {\r\n    outline: none;\r\n}\r\n.search-form input:hover{\r\n    cursor: pointer;\r\n}\r\n.search-box  button {\r\n\r\n    border-radius: 25px;\r\n    background: none;\r\n    border: none;\r\n}\r\n.search-box  button:focus{\r\n    outline: none;\r\n}\r\n/*find-host*/\r\n.notrip{\r\n    height: 150px;\r\n    border-bottom: 1px solid rgba(0,0,0,0.15);\r\n    display: flex;\r\n    background: #eceef0;\r\n    align-items: center;\r\n}\r\n.notrip span{\r\n    margin: auto;\r\n}\r\n/*plans*/\r\n/*public-trips*/\r\n@media screen and (max-width: 768px) {\r\n    .content-left{\r\n        flex: 0 0 100%;\r\n        max-width: 100%;\r\n        order: 2;\r\n    }\r\n    .content-right{\r\n        order: 1;\r\n\r\n    }\r\n    .hide{\r\n        display: none;\r\n    }\r\n    \r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLHNCQUFzQjtJQUN0QixnQkFBZ0I7SUFDaEIsZ0JBQWdCOztJQUVoQixtQ0FBbUM7QUFDdkM7QUFDQTtJQUNJLG1DQUFtQztJQUNuQyxnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLFlBQVk7QUFDaEI7QUFHQTtJQUNJLGlCQUFpQjtJQUNqQixrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLGlCQUFpQjtJQUNqQixvQkFBb0I7QUFDeEI7QUFDQTtJQUNJLHNDQUFzQztJQUN0QyxvQkFBb0I7SUFDcEIsaUJBQWlCO0FBQ3JCO0FBQ0E7SUFDSSx3QkFBd0I7SUFDeEIsNkJBQTZCO0FBQ2pDO0FBQ0E7SUFDSSxpQkFBaUI7SUFDakIsZUFBZTtJQUNmLDRCQUE0Qjs7QUFFaEM7QUFDQTtJQUNJLGFBQWE7SUFDYiwrQ0FBK0M7QUFDbkQ7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixXQUFXO0lBQ1gseUJBQXlCO0lBQ3pCLFlBQVk7SUFDWixrQ0FBa0M7QUFDdEM7QUFDQTtJQUNJLGFBQWE7SUFDYixtQkFBbUI7SUFDbkIsWUFBWTtJQUNaLHlCQUF5QjtBQUM3QjtBQUNBO0lBQ0ksa0JBQWtCO0lBQ2xCLGlCQUFpQjs7OztBQUlyQjtBQUNBLFNBQVM7QUFHVDtJQUNJLGFBQWE7QUFDakI7QUFDQTtHQUNHLFlBQVk7O0FBRWY7QUFDQTtJQUNJLHFCQUFxQjtJQUNyQixjQUFjO0lBQ2Qsc0JBQXNCO0lBQ3RCLDJCQUEyQjtJQUMzQixXQUFXO0lBQ1gsYUFBYTtJQUNiLGtCQUFrQjtJQUNsQixZQUFZO0NBQ2Y7QUFDQTtHQUNFLGVBQWU7Q0FDakI7QUFDQTtLQUNJLGdCQUFnQjtJQUNqQixlQUFlO0lBQ2YsV0FBVztJQUNYLHlCQUF5QjtDQUM1QjtBQUNBO0lBQ0csZ0JBQWdCO0lBQ2hCLGVBQWU7QUFDbkI7QUFHQTtJQUNJLGlCQUFpQjtJQUNqQixhQUFhO0lBQ2IsdUJBQXVCO0FBQzNCO0FBQ0M7SUFDRyxxQkFBcUI7SUFDckIsa0JBQWtCO0lBQ2xCLGtCQUFrQjs7QUFFdEI7QUFDQTtJQUNJLHlCQUF5QjtJQUN6QixtQkFBbUI7SUFDbkIsOEJBQThCO0FBQ2xDO0FBQ0E7SUFDSSxZQUFZO0lBQ1osWUFBWTtJQUNaLHFCQUFxQjtLQUNwQixZQUFZO0FBQ2pCO0FBQ0E7SUFDSSxhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxlQUFlO0FBQ25CO0FBQ0E7O0lBRUksbUJBQW1CO0lBQ25CLGdCQUFnQjtJQUNoQixZQUFZO0FBQ2hCO0FBQ0E7SUFDSSxhQUFhO0FBQ2pCO0FBSUEsWUFBWTtBQUNaO0lBQ0ksYUFBYTtJQUNiLHlDQUF5QztJQUN6QyxhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksWUFBWTtBQUNoQjtBQUNBLFFBQVE7QUFHUixlQUFlO0FBQ2Y7SUFDSTtRQUNJLGNBQWM7UUFDZCxlQUFlO1FBQ2YsUUFBUTtJQUNaO0lBQ0E7UUFDSSxRQUFROztJQUVaO0lBQ0E7UUFDSSxhQUFhO0lBQ2pCOztBQUVKIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy91c2VyL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb250ZW50LWxlZnR7XHJcbiAgICAvKiBtaW4td2lkdGg6IDIyMHB4OyAqL1xyXG4gICAgbWF4LXdpZHRoOiAzMDBweDsgXHJcbiAgICBtaW4td2lkdGg6IDI2MHB4O1xyXG4gICBcclxuICAgIHBhZGRpbmc6IDBweCA1cHggMHB4IDVweCAhaW1wb3J0YW50O1xyXG59XHJcbi5jb250ZW50LXJpZ2h0e1xyXG4gICAgcGFkZGluZzogMHB4IDVweCAwcHggNXB4ICFpbXBvcnRhbnQ7XHJcbiAgICBtaW4td2lkdGg6IDEwMHB4O1xyXG59XHJcbi5jb250ZW50LXJpZ2h0IC5yb3d7XHJcbiAgICBtYXJnaW46IDBweCA7XHJcbn1cclxuXHJcblxyXG4udXNlci1pbmZve1xyXG4gICAgcGFkZGluZy10b3A6IDUwcHg7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLmluZm97XHJcbiAgICBwYWRkaW5nLXRvcDogMTBweDtcclxuICAgIHBhZGRpbmctYm90dG9tOiAxMHB4O1xyXG59XHJcbi5zdGF0dXN7XHJcbiAgICBib3JkZXItdG9wOiAxcHggc29saWQgcmdiYSgwLDAsMCwwLjE1KTtcclxuICAgIHBhZGRpbmctYm90dG9tOiAzMHB4O1xyXG4gICAgcGFkZGluZy10b3A6IDMwcHg7XHJcbn1cclxuLmluZm8gcHtcclxuICAgIHBhZGRpbmc6IDNweCAwcHggM3B4IDBweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDBweCAhaW1wb3J0YW50O1xyXG59XHJcbi5zdGF0dXMtdmFsdWUge1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICBmb250LXNpemU6IDIwcHg7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDEwcHggMTBweCAxMHB4O1xyXG5cclxufVxyXG4ucHJvZmlsZS1jb250ZW50e1xyXG4gICAgcGFkZGluZzogMjBweDtcclxuICAgIC8qIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCByZ2JhKDAsMCwwLDAuMTUpOyAqL1xyXG59XHJcbi5wcm9ncmVzcy1iYXJ7XHJcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjY2RjOWM5O1xyXG4gICAgaGVpZ2h0OiAzNXB4O1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgwLDAsMCwwLjE1KTtcclxufVxyXG4ucGVyY2VudHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzQxYjg2NjtcclxufVxyXG4ucHJvZ3Jlc3MtYmFyIHNwYW57XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7XHJcbiAgICBvdmVyZmxvdzogdmlzaWJsZTtcclxuXHJcblxyXG4gICBcclxufVxyXG4vKiBpbmZvICovXHJcblxyXG5cclxuLnByb3Bvc2VkLWJveHtcclxuICAgIHBhZGRpbmc6IDE1cHg7XHJcbn1cclxuLnByb3Bvc2VkLWJveCAuaXRlbTF7XHJcbiAgIHBhZGRpbmc6IDVweDtcclxuICBcclxufVxyXG4ucHJvcG9zZWQtYm94IGF7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XHJcbiAgICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXI7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogMjUwcHg7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiB9XHJcbiAucHJvcG9zZWQtYm94IGE6aG92ZXJ7XHJcbiAgIGN1cnNvcjogcG9pbnRlcjtcclxuIH1cclxuIC5wcm9wb3NlZC1ib3ggcHtcclxuICAgICBmb250LXdlaWdodDogNjAwO1xyXG4gICAgZm9udC1zaXplOiAyMnB4O1xyXG4gICAgbWFyZ2luOiAwcHg7XHJcbiAgICBwYWRkaW5nOiAyNXB4IDBweCA1cHggMHB4O1xyXG4gfVxyXG4gLnByb3Bvc2VkLWJveCBzcGFue1xyXG4gICAgZm9udC13ZWlnaHQ6IDQwMDtcclxuICAgIGZvbnQtc2l6ZTogMTdweDtcclxufVxyXG5cclxuXHJcbi5zZWFyY2gtYm94e1xyXG4gICAgcGFkZGluZzogMTVweCAwcHg7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuIC5zZWFyY2gtZm9ybXtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIFxyXG59XHJcbi5zZWFyY2gtYm94IGZvcm17XHJcbiAgICBib3JkZXI6IDJweCBzb2xpZCAjYzVjY2Q1O1xyXG4gICAgYm9yZGVyLXJhZGl1czogMjVweDtcclxuICAgIHBhZGRpbmc6IDAuNXB4IDEwcHggMC41cHggMjBweDtcclxufVxyXG4uc2VhcmNoLWZvcm0gaW5wdXR7XHJcbiAgICBoZWlnaHQ6IDM4cHg7XHJcbiAgICB3aWR0aDogMjUwcHg7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICAgYm9yZGVyOiBub25lO1xyXG59XHJcbi5zZWFyY2gtZm9ybSBpbnB1dDpmb2N1cyB7XHJcbiAgICBvdXRsaW5lOiBub25lO1xyXG59XHJcbi5zZWFyY2gtZm9ybSBpbnB1dDpob3ZlcntcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4uc2VhcmNoLWJveCAgYnV0dG9uIHtcclxuXHJcbiAgICBib3JkZXItcmFkaXVzOiAyNXB4O1xyXG4gICAgYmFja2dyb3VuZDogbm9uZTtcclxuICAgIGJvcmRlcjogbm9uZTtcclxufVxyXG4uc2VhcmNoLWJveCAgYnV0dG9uOmZvY3Vze1xyXG4gICAgb3V0bGluZTogbm9uZTtcclxufVxyXG5cclxuXHJcblxyXG4vKmZpbmQtaG9zdCovXHJcbi5ub3RyaXB7XHJcbiAgICBoZWlnaHQ6IDE1MHB4O1xyXG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMCwwLDAsMC4xNSk7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgYmFja2dyb3VuZDogI2VjZWVmMDtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbn1cclxuLm5vdHJpcCBzcGFue1xyXG4gICAgbWFyZ2luOiBhdXRvO1xyXG59XHJcbi8qcGxhbnMqL1xyXG5cclxuXHJcbi8qcHVibGljLXRyaXBzKi9cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzY4cHgpIHtcclxuICAgIC5jb250ZW50LWxlZnR7XHJcbiAgICAgICAgZmxleDogMCAwIDEwMCU7XHJcbiAgICAgICAgbWF4LXdpZHRoOiAxMDAlO1xyXG4gICAgICAgIG9yZGVyOiAyO1xyXG4gICAgfVxyXG4gICAgLmNvbnRlbnQtcmlnaHR7XHJcbiAgICAgICAgb3JkZXI6IDE7XHJcblxyXG4gICAgfVxyXG4gICAgLmhpZGV7XHJcbiAgICAgICAgZGlzcGxheTogbm9uZTtcclxuICAgIH1cclxuICAgIFxyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -1200,7 +1276,7 @@ module.exports = ".footer1 {\r\n  display: flex;\r\n  padding: 0 34.5px;\r\n  fl
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n<div class=\"footer1 row\">\r\n  <div class=\"info col\">\r\n    <div class=\"about\">\r\n      About\r\n    </div>\r\n    <h6>\r\n      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut, recusandae unde? Ut obcaecati dolore est.\r\n    </h6>\r\n  </div>\r\n  <div class=\"website col\">\r\n    Copyright @2019-2020 travelhelper.com\r\n  </div>\r\n  <div class=\"member col\">\r\n    <div [style.width.px]=\"200\">\r\n        <p>\r\n            FOLLOW US\r\n        </p>\r\n          <ul class=\"list\">\r\n                <li class=\"\"><i class=\"eva eva-github-outline\"></i></li>\r\n                <li class=\"\"><i class=\"eva eva-facebook\"></i></li>\r\n          </ul>\r\n    </div>\r\n\r\n\r\n  </div>\r\n</div> -->\r\n\r\n<div class=\"container\" style=\"padding-top: 20px !important\">\r\n  <div class=\"row\">\r\n    <div class=\"col-sm\">\r\n\r\n      <div class=\"about\">\r\n        ABOUT\r\n      </div>\r\n      <span>\r\n        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut, recusandae unde? Ut obcaecati dolore est.\r\n        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut, recusandae unde? Ut obcaecati dolore est.\r\n        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut, recusandae unde? Ut obcaecati dolore est.\r\n        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut, recusandae unde? Ut obcaecati dolore est.\r\n      </span>\r\n\r\n    </div>\r\n    <div class=\"col-sm\">\r\n        <div class=\"about\">\r\n            JOIN TRAVEL\r\n          </div>\r\n          <span>\r\n            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut, recusandae unde? Ut obcaecati dolore est.\r\n          </span>\r\n          <div>\r\n            <img src=\"../../../../assets/imgs/world-map.jpg\" alt=\"\" height=\"80%\" width=\"100%\">\r\n\r\n          </div>\r\n    </div>\r\n    <div class=\"col-sm\">\r\n      <ul class=\"list\">\r\n          <div class=\"about\">\r\n              CONTACT US\r\n            </div>\r\n        <li class=\"\">\r\n            <div class=\"row\">\r\n                <div class=\"col-1\"><i class=\"fas fa-home \"></i></div>\r\n                <div class=\"col\">\r\n                  <p>ADDRESS</p>\r\n                  <span>54 Nguyễn Lương Bằng, Hoà Khánh Bắc, Liên Chiểu, Đà Nẵng 550000</span></div>\r\n            </div>\r\n        </li>\r\n\r\n        <li class=\"\">\r\n          <div class=\"row\">\r\n              <div class=\"col-1\"><i class=\"fas fa-phone \"></i></div>\r\n              <div class=\"col\">\r\n                <p>PHONE</p>\r\n                <span>0902449450</span></div>\r\n          </div>\r\n        </li>\r\n\r\n        <li class=\"\">\r\n          <div class=\"row\">\r\n              <div class=\"col-1\"><i class=\"far fa-envelope \"></i></div>\r\n              <div class=\"col\">\r\n                <p>EMAIL</p>\r\n                <span>email@email.com</span></div>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n\r\n  <hr style=\"color: #888\">\r\n\r\n  <div class=\"container\" style=\"padding-bottom: 10px; padding-top: 10px !important\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm\">\r\n            <h6>Copyright @2019-2020 travelhelper.com</h6>\r\n        </div>\r\n        <div class=\"col-sm\">\r\n\r\n        </div>\r\n        <div class=\"col-sm\">\r\n          <div class=\"row\">\r\n            <div class=\"col\">\r\n              <h6>FOLLOW US </h6>\r\n\r\n              <i class=\"eva eva-github\"></i>\r\n              <i class=\"eva eva-facebook\"></i>\r\n              <i class=\"eva eva-twitter\"></i>\r\n              <i class=\"fab fa-instagram\"></i>\r\n\r\n            </div>\r\n\r\n            <div class=\"col\">\r\n                <h6>MOBILE APP </h6>\r\n\r\n                <i class=\"fab fa-android\"></i>\r\n                <i class=\"fab fa-apple\"></i>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<!--\r\n<div class=\"footer1 row\">\r\n  <div class=\"info col\">\r\n    <div class=\"about\">\r\n      About\r\n    </div>\r\n    <h6>\r\n      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut, recusandae unde? Ut obcaecati dolore est.\r\n    </h6>\r\n  </div>\r\n  <div class=\"website col\">\r\n    Copyright @2019-2020 travelhelper.com\r\n  </div>\r\n  <div class=\"member col\">\r\n    <div [style.width.px]=\"200\">\r\n        <p>\r\n            FOLLOW US\r\n        </p>\r\n          <ul class=\"list\">\r\n                <li class=\"\"><i class=\"eva eva-github-outline\"></i></li>\r\n                <li class=\"\"><i class=\"eva eva-facebook\"></i></li>\r\n          </ul>\r\n    </div>\r\n\r\n\r\n  </div>\r\n</div> -->\r\n\r\n<div class=\"container\" style=\"padding-top: 20px !important\">\r\n  <div class=\"row\">\r\n    <div class=\"col-sm\">\r\n\r\n      <div class=\"about\">\r\n        ABOUT\r\n      </div>\r\n      <span>\r\n        This website is about to help people around the world when they travel.\r\n      </span>\r\n\r\n    </div>\r\n    <div class=\"col-sm\">\r\n        <div class=\"about\">\r\n            JOIN TRAVEL\r\n          </div>\r\n          <span>\r\n            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut, recusandae unde? Ut obcaecati dolore est.\r\n          </span>\r\n          <div>\r\n            <img src=\"../../../../assets/imgs/world-map.jpg\" alt=\"\" height=\"80%\" width=\"100%\">\r\n\r\n          </div>\r\n    </div>\r\n    <div class=\"col-sm\">\r\n      <ul class=\"list\">\r\n          <div class=\"about\">\r\n              CONTACT US\r\n            </div>\r\n        <li class=\"\">\r\n            <div class=\"row\">\r\n                <div class=\"col-1\"><i class=\"fas fa-home \"></i></div>\r\n                <div class=\"col\">\r\n                  <p>ADDRESS</p>\r\n                  <span>54 Nguyễn Lương Bằng, Hoà Khánh Bắc, Liên Chiểu, Đà Nẵng 550000</span></div>\r\n            </div>\r\n        </li>\r\n\r\n        <li class=\"\">\r\n          <div class=\"row\">\r\n              <div class=\"col-1\"><i class=\"fas fa-phone \"></i></div>\r\n              <div class=\"col\">\r\n                <p>PHONE</p>\r\n                <span>0902449450</span></div>\r\n          </div>\r\n        </li>\r\n\r\n        <li class=\"\">\r\n          <div class=\"row\">\r\n              <div class=\"col-1\"><i class=\"far fa-envelope \"></i></div>\r\n              <div class=\"col\">\r\n                <p>EMAIL</p>\r\n                <span>email@email.com</span></div>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n\r\n  <hr style=\"color: #888\">\r\n\r\n  <div class=\"container\" style=\"padding-bottom: 10px; padding-top: 10px !important\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm\">\r\n            <h6>Copyright @2019-2020 travelhelper.com</h6>\r\n        </div>\r\n        <div class=\"col-sm\">\r\n\r\n        </div>\r\n        <div class=\"col-sm\">\r\n          <div class=\"row\">\r\n            <div class=\"col\">\r\n              <h6>FOLLOW US </h6>\r\n\r\n              <i class=\"eva eva-github\"></i>\r\n              <i class=\"eva eva-facebook\"></i>\r\n              <i class=\"eva eva-twitter\"></i>\r\n              <i class=\"fab fa-instagram\"></i>\r\n\r\n            </div>\r\n\r\n            <div class=\"col\">\r\n                <h6>MOBILE APP </h6>\r\n\r\n                <i class=\"fab fa-android\"></i>\r\n                <i class=\"fab fa-apple\"></i>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1256,7 +1332,7 @@ module.exports = ".header-wrapper{\r\n    max-width: 1280px;\r\n    margin: auto
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"header-wrapper\" (clickOutside)=\"isMenu = false;isSearch = false;\">\r\n    <div class=\"logo\">\r\n        <a href='' routerLinkActive='active'>\r\n            <i class=\"fas fa-globe-asia\"></i>\r\n        </a>\r\n    </div>\r\n\r\n    <div class=\"button-responsive\" style=\"padding-right:10px;\">\r\n        <div class=\"search-responsive\" style=\"padding-right: 6px\">\r\n            <button (click)=\"isSearch = !isSearch;isMenu = false;\">\r\n                <i [ngStyle]=\"isSearch && !isMenu && {'color':'#ED6504'}\" class=\"fas fa-search \"></i></button>\r\n        </div>\r\n        <div class=\"menu-responsive\">\r\n            <button (click)=\"isMenu = !isMenu;isSearch = false;\">\r\n                <i [ngStyle]=\"isMenu && !isSearch && {'color':'#ED6504'}\" class=\"fas fa-bars\"></i></button>\r\n        </div>\r\n    </div>\r\n    <div [ngStyle]=\"isSearch && !isMenu && {'display':'flex'}\" class=\"search-box\" >\r\n        <form #formSearch=\"ngForm\" autocomplete=\"off\" (submit)=\"onSubmit(formSearch);\">\r\n            <div class=\"search-form row\">\r\n                <select [(ngModel)]=\"textSelect\" (change)=\"onChange()\" class=\" search-select form-control shadow-sm col\" name=\"select\">\r\n                    <option value=\"host\" selected>Find Host</option>\r\n                    <option value=\"traveler\">Find Traveler</option>\r\n                    <option value=\"people\">Find People</option>\r\n                </select>\r\n                <div class=\"search-form-1 col\" (clickOutside)=\"textInput = '';\">\r\n                    <button class=\"\" type=\"submit\"><i class=\"fas fa-search\"></i></button>\r\n                    <input [(ngModel)]=\"textInput\" (keyup)=\"onKeyup(formSearch);\" class=\"form-control shadow-sm\" type=\"text\"\r\n                        name=\"input\" [placeholder]=\"placeholder\">\r\n                    <app-dropdown [formSearch]=\"formSearch\" (myClick)=\"resetvalue();\"\r\n                        [searchedSubject]=\"searchedSubject\"></app-dropdown>\r\n                </div>\r\n            </div>\r\n        </form>\r\n    </div>\r\n    <nav [ngStyle]=\"isMenu && !isSearch && {'display':'block'}\" class=\"menu-bar\">\r\n        <ul>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Dashboard']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <i class=\"fas fa-home\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Dashboard\r\n                        </span>\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Profile']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <i class=\"fas fa-user-circle\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Profile\r\n                        </span>\r\n\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Message']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <i class=\"fas fa-comments\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Message\r\n                        </span>\r\n\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Activity']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <!-- <i class=\"fas fa-envelope\"></i> -->\r\n                        <!-- <i class=\"fas fa-bell\"></i> -->\r\n                        <!-- <i class=\"fas fa-users\"></i> -->\r\n                        <i class=\"far fa-calendar-alt\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Activity\r\n                        </span>\r\n\r\n                    </div>\r\n                </a>\r\n            </li>\r\n\r\n            <li>\r\n                <div class=\"dropdown\" (clickOutside)=\"isdrop=false;\">\r\n                    <a class=\"\" id=\"dropdownMenu2\" data-toggle=\"dropdown\" (click)=\"isdrop=!isdrop\" aria-haspopup=\"true\"\r\n                        aria-expanded=\"false\">\r\n\r\n                        <div class=\"icon\" style=\"display: flex\">\r\n                            <div class=\"dropdown-toggle\">\r\n                                <i class=\"fas fa-cog\"></i>\r\n                            </div>\r\n\r\n                        </div>\r\n                        <div class=\"name\">\r\n                            <span>\r\n                                Setting\r\n                            </span>\r\n\r\n                        </div>\r\n                    </a>\r\n                    <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenu2\"\r\n                        [style.display]=\"isdrop?'block':'none'\" >\r\n\r\n\r\n\r\n                        <button class=\"dropdown-item\" type=\"button\" (click)=\"onChangePassword()\" ><i class=\"fas fa-user-cog\"></i> Change\r\n                            Password</button>\r\n                        <button (click)=\"onLogout();\" class=\"dropdown-item\" type=\"button\"><i\r\n                                class=\"fas fa-sign-out-alt\"></i> Log Out</button>\r\n\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </nav>\r\n\r\n\r\n\r\n\r\n</nav>\r\n"
+module.exports = "<nav class=\"header-wrapper\" (clickOutside)=\"isMenu = false;isSearch = false;\">\r\n    <div class=\"logo\">\r\n        <a href='' routerLinkActive='active' [ngStyle]=\"logo_admin\">\r\n            <i class=\"fas fa-globe-asia\"></i>\r\n        </a>\r\n    </div>\r\n\r\n    <div class=\"button-responsive\" style=\"padding-right:10px;\">\r\n        <div class=\"search-responsive\" style=\"padding-right: 6px\">\r\n            <button (click)=\"isSearch = !isSearch;isMenu = false;\">\r\n                <i [ngStyle]=\"isSearch && !isMenu && {'color':'#ED6504'}\" class=\"fas fa-search \"></i></button>\r\n        </div>\r\n        <div class=\"menu-responsive\">\r\n            <button (click)=\"isMenu = !isMenu;isSearch = false;\">\r\n                <i [ngStyle]=\"isMenu && !isSearch && {'color':'#ED6504'}\" class=\"fas fa-bars\"></i></button>\r\n        </div>\r\n    </div>\r\n    <div [ngStyle]=\"isSearch && !isMenu && {'display':'flex'}\"  class=\"search-box\" >\r\n        <form #formSearch=\"ngForm\" autocomplete=\"off\" (submit)=\"onSubmit(formSearch);\">\r\n            <div class=\"search-form row\">\r\n                <select [(ngModel)]=\"textSelect\" (change)=\"onChange()\" class=\" search-select form-control shadow-sm col\" name=\"select\">\r\n                    <option value=\"host\" selected>Find Host</option>\r\n                    <option value=\"traveler\">Find Traveler</option>\r\n                    <option value=\"people\">Find People</option>\r\n                </select>\r\n                <div class=\"search-form-1 col\" (clickOutside)=\"textInput = '';\">\r\n                    <button class=\"\" type=\"submit\"><i class=\"fas fa-search\"></i></button>\r\n                    <input [(ngModel)]=\"textInput\" (keyup)=\"onKeyup(formSearch);\" class=\"form-control shadow-sm\" type=\"text\"\r\n                        name=\"input\" [placeholder]=\"placeholder\">\r\n                    <app-dropdown [formSearch]=\"formSearch\" (myClick)=\"resetvalue();\"\r\n                        [searchedSubject]=\"searchedSubject\"></app-dropdown>\r\n                </div>\r\n            </div>\r\n        </form>\r\n    </div>\r\n    <nav  [ngStyle]=\"isMenu && !isSearch && {'display':'block'}\"  class=\"menu-bar\">\r\n        <ul>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Dashboard']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <i class=\"fas fa-home\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Dashboard\r\n                        </span>\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Profile']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <i class=\"fas fa-user-circle\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Profile\r\n                        </span>\r\n\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Message']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <i class=\"fas fa-comments\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Message\r\n                        </span>\r\n\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Activity']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <!-- <i class=\"fas fa-envelope\"></i> -->\r\n                        <!-- <i class=\"fas fa-bell\"></i> -->\r\n                        <!-- <i class=\"fas fa-users\"></i> -->\r\n                        <i class=\"far fa-calendar-alt\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Activity\r\n                        </span>\r\n\r\n                    </div>\r\n                </a>\r\n            </li>\r\n\r\n            <li>\r\n                <div class=\"dropdown\" (clickOutside)=\"isdrop=false;\">\r\n                    <a class=\"\" id=\"dropdownMenu2\" data-toggle=\"dropdown\" (click)=\"isdrop=!isdrop\" aria-haspopup=\"true\"\r\n                        aria-expanded=\"false\">\r\n\r\n                        <div class=\"icon\" style=\"display: flex\">\r\n                            <div class=\"dropdown-toggle\">\r\n                                <i class=\"fas fa-cog\"></i>\r\n                            </div>\r\n\r\n                        </div>\r\n                        <div class=\"name\">\r\n                            <span>\r\n                                Setting\r\n                            </span>\r\n\r\n                        </div>\r\n                    </a>\r\n                    <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenu2\"\r\n                        [style.display]=\"isdrop?'block':'none'\" >\r\n\r\n\r\n\r\n                        <button class=\"dropdown-item\" type=\"button\" (click)=\"onChangePassword()\" ><i class=\"fas fa-user-cog\"></i> Change\r\n                            Password</button>\r\n                        <button (click)=\"onLogout();\" class=\"dropdown-item\" type=\"button\"><i\r\n                                class=\"fas fa-sign-out-alt\"></i> Log Out</button>\r\n\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </nav>\r\n\r\n\r\n\r\n\r\n</nav>\r\n"
 
 /***/ }),
 
@@ -1289,9 +1365,17 @@ var HeaderComponent = /** @class */ (function () {
         this.textInput = "";
         this.textSelect = "host";
         this.placeholder = "Search for Place";
+        this.logo_admin = {};
+        this.admin_display = 'unset';
         this.searchedSubject = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
     }
     HeaderComponent.prototype.ngOnInit = function () {
+        if (this.admin) {
+            this.logo_admin = {
+                color: 'white'
+            };
+            this.admin_display = 'none';
+        }
     };
     HeaderComponent.prototype.onLogout = function () {
         localStorage.removeItem('token');
@@ -1316,6 +1400,10 @@ var HeaderComponent = /** @class */ (function () {
         this.router.navigate(['/Users/ChangePassword']);
         this.isdrop = false;
     };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], HeaderComponent.prototype, "admin", void 0);
     HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-header',
@@ -1331,6 +1419,140 @@ var HeaderComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/user/message/box-chat/box-chat.component.css":
+/*!*************************************************************************!*\
+  !*** ./src/app/components/user/message/box-chat/box-chat.component.css ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".message-item {\r\n    clear: both;\r\n    padding: 5px;\r\n    max-width: 70%;\r\n}\r\n.user{\r\n    float: right;\r\n}\r\n.user span{\r\n    color: red;\r\n    float: right;\r\n    \r\n}\r\n.message-item span{\r\n    float: left;\r\n    padding: 3px;\r\n    border: 1px solid;\r\n    border-radius: 5px;\r\n    background-color: white;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL21lc3NhZ2UvYm94LWNoYXQvYm94LWNoYXQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLFdBQVc7SUFDWCxZQUFZO0lBQ1osY0FBYztBQUNsQjtBQUNBO0lBQ0ksWUFBWTtBQUNoQjtBQUNBO0lBQ0ksVUFBVTtJQUNWLFlBQVk7O0FBRWhCO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsWUFBWTtJQUNaLGlCQUFpQjtJQUNqQixrQkFBa0I7SUFDbEIsdUJBQXVCO0FBQzNCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy91c2VyL21lc3NhZ2UvYm94LWNoYXQvYm94LWNoYXQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5tZXNzYWdlLWl0ZW0ge1xyXG4gICAgY2xlYXI6IGJvdGg7XHJcbiAgICBwYWRkaW5nOiA1cHg7XHJcbiAgICBtYXgtd2lkdGg6IDcwJTtcclxufVxyXG4udXNlcntcclxuICAgIGZsb2F0OiByaWdodDtcclxufVxyXG4udXNlciBzcGFue1xyXG4gICAgY29sb3I6IHJlZDtcclxuICAgIGZsb2F0OiByaWdodDtcclxuICAgIFxyXG59XHJcbi5tZXNzYWdlLWl0ZW0gc3BhbntcclxuICAgIGZsb2F0OiBsZWZ0O1xyXG4gICAgcGFkZGluZzogM3B4O1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQ7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/components/user/message/box-chat/box-chat.component.html":
+/*!**************************************************************************!*\
+  !*** ./src/app/components/user/message/box-chat/box-chat.component.html ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<div #boxchat id=\"box-chat\" style=\"max-height:200px; overflow: auto; text-align: center\">\n  <ng-template #loading> Loading...</ng-template>\n  <button *ngIf=\"!isLoading;else loading\" (click)=\"seeMore()\">more</button>\n  <ng-container *ngFor=\"let message of messages\">\n    <div class=\"message-item\" [ngClass]=\"{'user':message.isYou}\">\n      <span>{{message.content}}</span>\n    </div>\n\n  </ng-container>\n\n</div>\n<div class=\"chatControl\">\n  <form (submit)=\"sendMessage()\" #formchat=\"ngForm\" autocomplete=\"off\">\n    <input ngModel [(ngModel)]=\"textchat\" name=\"textchat\" type=\"text\" required>\n    <button [disabled]=\"formchat.invalid\" type=\"submit\">Send</button>\n  </form>\n  {{x}}\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/user/message/box-chat/box-chat.component.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/components/user/message/box-chat/box-chat.component.ts ***!
+  \************************************************************************/
+/*! exports provided: BoxChatComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BoxChatComponent", function() { return BoxChatComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+
+var BoxChatComponent = /** @class */ (function () {
+    function BoxChatComponent(service, router, activatedRoute) {
+        this.service = service;
+        this.router = router;
+        this.activatedRoute = activatedRoute;
+        this.send = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.indexSeeMore = 0;
+        this.x = 0;
+    }
+    BoxChatComponent.prototype.ngAfterViewChecked = function () {
+        // console.log(this.boxchat.nativeElement.scrollHeight)
+        this.boxchat.nativeElement.scrollTop = this.boxchat.nativeElement.scrollHeight;
+    };
+    BoxChatComponent.prototype.ngOnInit = function () {
+        console.log(this.peopleId);
+        // console.log(this.boxchat.nativeElement.scrollHeight)
+        // setTimeout(() => {
+        //   console.log(this.boxchat.nativeElement.scrollHeight)
+        //   this.boxchat.nativeElement.scrollTop = this.boxchat.nativeElement.scrollHeight;
+        // }, 2000);
+    };
+    BoxChatComponent.prototype.loadMessage = function (receiveMessage) {
+        this.x++;
+        // console.log(receiveMessage.from == this.peopleId)
+        if (receiveMessage.from == this.peopleId) {
+            var item = {
+                isYou: false,
+                content: receiveMessage.message,
+            };
+            this.messages.push(item);
+            //console.log(this.messages)
+        }
+    };
+    BoxChatComponent.prototype.load = function (peopleId) {
+        var _this = this;
+        //console.log('load')
+        this.peopleId = peopleId;
+        this.service.getMessage(this.peopleId, this.indexSeeMore).subscribe(function (res) {
+            _this.messages = res;
+            //   console.log(this.messages)
+        });
+    };
+    BoxChatComponent.prototype.sendMessage = function () {
+        console.log(this.textchat);
+        var item = {
+            isYou: true,
+            content: this.textchat
+        };
+        this.messages.push(item);
+        var data = {
+            peopleId: this.peopleId,
+            textchat: this.textchat
+        };
+        console.log(data);
+        this.textchat = "";
+        this.send.emit(data);
+    };
+    BoxChatComponent.prototype.seeMore = function () {
+        var _this = this;
+        this.isLoading = true;
+        this.indexSeeMore = this.indexSeeMore + 1;
+        this.service.getMessage(this.peopleId, this.indexSeeMore).subscribe(function (res) {
+            _this.isLoading = false;
+            console.log(res);
+            _this.messages = res.concat(_this.messages);
+        });
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], BoxChatComponent.prototype, "peopleId", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], BoxChatComponent.prototype, "send", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('boxchat'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+    ], BoxChatComponent.prototype, "boxchat", void 0);
+    BoxChatComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-box-chat',
+            template: __webpack_require__(/*! ./box-chat.component.html */ "./src/app/components/user/message/box-chat/box-chat.component.html"),
+            styles: [__webpack_require__(/*! ./box-chat.component.css */ "./src/app/components/user/message/box-chat/box-chat.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
+    ], BoxChatComponent);
+    return BoxChatComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/user/message/message.component.css":
 /*!***************************************************************!*\
   !*** ./src/app/components/user/message/message.component.css ***!
@@ -1338,7 +1560,7 @@ var HeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvdXNlci9tZXNzYWdlL21lc3NhZ2UuY29tcG9uZW50LmNzcyJ9 */"
+module.exports = ".cover{\r\n   \r\n}\r\n.left-section{\r\n    overflow: auto;\r\n    max-width:400px ;\r\n}\r\n.right-section{\r\n    width: 50%;\r\n    height: 500px;\r\n}\r\n.list-chat-box{\r\n    padding: 20px;\r\n}\r\n.sender-item{\r\n    display: flex;\r\n    border-radius: 5px;\r\n    border: 1px solid;\r\n    margin-bottom: 20px;\r\n}\r\na:hover{\r\n    background-color: #f2f2f2;\r\n    cursor: pointer;\r\n}\r\n.sender-item img{\r\n    height: 70px;\r\n    width: 70px;\r\n}\r\n.about{\r\n    \r\n}\r\n.active{\r\n    background-color: #f2f2f2;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL21lc3NhZ2UvbWVzc2FnZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztBQUVBO0FBQ0E7SUFDSSxjQUFjO0lBQ2QsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxVQUFVO0lBQ1YsYUFBYTtBQUNqQjtBQUNBO0lBQ0ksYUFBYTtBQUNqQjtBQUNBO0lBQ0ksYUFBYTtJQUNiLGtCQUFrQjtJQUNsQixpQkFBaUI7SUFDakIsbUJBQW1CO0FBQ3ZCO0FBQ0E7SUFDSSx5QkFBeUI7SUFDekIsZUFBZTtBQUNuQjtBQUNBO0lBQ0ksWUFBWTtJQUNaLFdBQVc7QUFDZjtBQUNBOztBQUVBO0FBQ0E7SUFDSSx5QkFBeUI7QUFDN0IiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3VzZXIvbWVzc2FnZS9tZXNzYWdlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY292ZXJ7XHJcbiAgIFxyXG59XHJcbi5sZWZ0LXNlY3Rpb257XHJcbiAgICBvdmVyZmxvdzogYXV0bztcclxuICAgIG1heC13aWR0aDo0MDBweCA7XHJcbn1cclxuLnJpZ2h0LXNlY3Rpb257XHJcbiAgICB3aWR0aDogNTAlO1xyXG4gICAgaGVpZ2h0OiA1MDBweDtcclxufVxyXG4ubGlzdC1jaGF0LWJveHtcclxuICAgIHBhZGRpbmc6IDIwcHg7XHJcbn1cclxuLnNlbmRlci1pdGVte1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcclxufVxyXG5hOmhvdmVye1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2YyZjJmMjtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4uc2VuZGVyLWl0ZW0gaW1ne1xyXG4gICAgaGVpZ2h0OiA3MHB4O1xyXG4gICAgd2lkdGg6IDcwcHg7XHJcbn1cclxuLmFib3V0e1xyXG4gICAgXHJcbn1cclxuLmFjdGl2ZXtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmMmYyZjI7XHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -1349,7 +1571,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n        <h4>message works!</h4>\r\n        <h3>{{select}}</h3>\r\n        <h3>{{city}}</h3>\r\n</div>\r\n\r\n"
+module.exports = "<h1>All you recent messages</h1>\r\n<div class=\"cover row\">\r\n        <div class=\"left-section col\">\r\n                <div class=\"box list-chat-box\">\r\n                        <ng-container *ngFor=\"let sender of listUserChats\">\r\n                                <a [ngClass]=\"{'active':peopleId==sender.id}\" class=\"sender-item\" [routerLink]=\"\"\r\n                                        [queryParams]=\"{id:sender.id}\">\r\n                                        <div class=\"avatar\">\r\n                                                <img class=\"photo\" [src]=\"sender.avatar\">\r\n                                        </div>\r\n                                        <div class=\"about\">\r\n                                                <p class=\"name\">{{sender.fullName}}</p>\r\n                                                <p>{{sender.lastedMessage}}</p>\r\n                                                <p>{{sender.createDate}}</p>\r\n                                        </div>\r\n                                </a>\r\n                        </ng-container>\r\n                </div>\r\n        </div>\r\n        <div class=\"right-section col\">\r\n                \r\n                <div class=\"box\">\r\n\r\n                      \r\n                        <app-box-chat (send)=\"sendMessage($event)\" [peopleId]=\"peopleId\"></app-box-chat>\r\n                </div>\r\n\r\n        </div>\r\n</div>"
 
 /***/ }),
 
@@ -1366,28 +1588,94 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _aspnet_signalr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @aspnet/signalr */ "./node_modules/@aspnet/signalr/dist/esm/index.js");
+/* harmony import */ var src_app_services_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _box_chat_box_chat_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./box-chat/box-chat.component */ "./src/app/components/user/message/box-chat/box-chat.component.ts");
+
+
+
+
 
 
 
 var MessageComponent = /** @class */ (function () {
-    function MessageComponent(router, activatedRoute) {
+    function MessageComponent(service, router, activatedRoute, http) {
+        this.service = service;
         this.router = router;
         this.activatedRoute = activatedRoute;
+        this.http = http;
+        this.token = localStorage.getItem("token");
     }
+    MessageComponent.prototype.sendMessage = function (event) {
+        // console.log(event)
+        // console.log(this.peopleId)
+        this.hubConnection
+            .invoke('sendChatMessage', event.peopleId, event.textchat)
+            .catch(function (err) { return console.error(err); });
+    };
     MessageComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.activatedRoute.queryParamMap.subscribe(function (params) {
-            _this.select = params.get('type');
-            _this.city = params.get('location');
+        this.getId();
+        this.service.getListUserChat().subscribe(function (res) {
+            //  console.log(res)
+            _this.listUserChats = res;
+            _this.peopleId = _this.listUserChats[0].id;
+            // this.router.navigateByUrl("/Users/Message/" + this.peopleId );
+        });
+        // this.http.get('http://travelhelperwebsite.azurewebsites.net/api/users/messagesenders').subscribe((res: MessageSender[]) => {
+        //   this.listUserChats = res;
+        //   console.log(res)
+        //   this.peopleId = this.listUserChats[0].id;
+        //   this.router.navigateByUrl("/Users/Message/" + this.peopleId + "");
+        // });
+        // if (this.peopleId != undefined) {
+        //   this.http.get('http://travelhelperwebsite.azurewebsites.net/api/userchats/' + this.peopleId).subscribe((res: UserChat) => {
+        //     this.name = res.fullName;
+        //     this.avatar = res.avatar;
+        //     console.log(res);
+        //   });
+        // }
+        this.hubConnection = new _aspnet_signalr__WEBPACK_IMPORTED_MODULE_4__["HubConnectionBuilder"]()
+            .withUrl('http://travelhelperwebsite.azurewebsites.net/chat', {
+            accessTokenFactory: function () {
+                return _this.token;
+            },
+        })
+            .build();
+        this.hubConnection
+            .start()
+            .then(function () { return console.log('Connection Started!'); });
+        this.hubConnection.on('sendChatMessage', function (from, message) {
+            console.log(from + ":" + message);
+            _this.receiveMessage = { from: from, message: message };
+            _this.boxChatComponent.loadMessage(_this.receiveMessage);
         });
     };
+    MessageComponent.prototype.getId = function () {
+        var _this = this;
+        this.activatedRoute.queryParams.subscribe(function (params) {
+            _this.peopleId = params['id'];
+            _this.boxChatComponent.load(_this.peopleId);
+            // console.log(this.peopleId)
+        });
+    };
+    MessageComponent.prototype.onSelectPeople = function (id) {
+        this.router.navigateByUrl("/Users/Message/" + id + "");
+        //this.ngOnInit();
+        //console.log("reload");
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_box_chat_box_chat_component__WEBPACK_IMPORTED_MODULE_6__["BoxChatComponent"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _box_chat_box_chat_component__WEBPACK_IMPORTED_MODULE_6__["BoxChatComponent"])
+    ], MessageComponent.prototype, "boxChatComponent", void 0);
     MessageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-message',
             template: __webpack_require__(/*! ./message.component.html */ "./src/app/components/user/message/message.component.html"),
             styles: [__webpack_require__(/*! ./message.component.css */ "./src/app/components/user/message/message.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
     ], MessageComponent);
     return MessageComponent;
 }());
@@ -1414,7 +1702,7 @@ module.exports = "\r\n/* .content-left{\r\n    min-width: 300px;\r\n    max-widt
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n<div class=\"card box\" style=\"height: 230px\" >\r\n\r\n  <div class=\"headers\">\r\n      <img  [src]=\"user.avatarLocation ? user.avatarLocation : img\" class=\"card-img-top\" (click)=\"onClickPeople()\" alt=\"...\">\r\n\r\n      <div class=\"info\" >\r\n        <ul class=\"list-group \">\r\n          <li class=\"list-group-item name\" ><span id=\"b\" class=\"people\" (click)=\"onClickPeople()\">{{user.fullName}}</span></li>\r\n          <li class=\"list-group-item\">\r\n\r\n                <i class=\"eva eva-message-square wrapper-icon\"></i>\r\n\r\n                <span><b>{{user.referenceReceived ? user.referenceReceived.length : '0'}}</b> Reference</span>\r\n          </li>\r\n\r\n          <ng-container *ngIf=\"!trip;else traveler\">\r\n            <li class=\"list-group-item\" >\r\n\r\n                <i class=\"eva eva-briefcase wrapper-icon\"></i>\r\n\r\n            <span>{{user.occupation}}</span>\r\n          </li>\r\n          </ng-container>\r\n\r\n          <ng-template #traveler>\r\n            <li class=\"list-group-item\">\r\n              <i class=\"fas fa-user-friends wrapper-icon\"></i>\r\n              <!-- <i class=\"eva eva-people wrapper-icon\"></i> -->\r\n\r\n                <span><b>{{trip.trip.travelerNumber}} Traveler{{trip.trip.travelerNumber > 1 ? 's' : ''}}</b> in town</span>\r\n            </li>\r\n          </ng-template>\r\n\r\n\r\n\r\n          <li class=\"list-group-item\">\r\n\r\n              <i class=\"eva eva-globe-2 wrapper-icon\"></i>\r\n\r\n            <span>Speak <b>{{language | formatData:0:15}}</b></span>\r\n          </li>\r\n\r\n          <ng-container *ngIf=\"trip\">\r\n            <li class=\"list-group-item\" >\r\n\r\n              <i class=\"far fa-calendar-alt wrapper-icon\"></i>\r\n\r\n            <span><b>{{trip.trip.arrivalDate | date:'MMM d'}} to {{trip.trip.departureDate | date:'MMM d'}}</b></span>\r\n          </li>\r\n          </ng-container>\r\n\r\n        </ul>\r\n      </div>\r\n  </div>\r\n  <div class=\"card-body\" [style.padding.px]=\"10\">\r\n    <ng-container *ngIf=\"trip? !trip.trip.description : !user.about;else des\">\r\n        <p class=\"text-muted\">\r\n            <i>empty</i>\r\n        </p>\r\n    </ng-container>\r\n\r\n\r\n    <ng-template #des>\r\n        <p class=\"card-text\">{{trip ? (trip.trip.description | formatData:0:50) : (user.about | formatData:0:50)}}</p>\r\n    </ng-template>\r\n\r\n\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n"
+module.exports = "\r\n\r\n<div class=\"card box\" [ngStyle]=\"obj\">\r\n\r\n  <div class=\"headers\">\r\n      <img  [src]=\"user.avatarLocation ? user.avatarLocation : img\" class=\"card-img-top\" (click)=\"onClickPeople()\" alt=\"...\">\r\n\r\n      <div class=\"info\" >\r\n        <ul class=\"list-group \">\r\n          <ng-container  *ngIf=\"user.fullName;else notName\">\r\n            <li class=\"list-group-item name\"><span id=\"b\" class=\"people\" (click)=\"onClickPeople()\">{{user.fullName}}</span></li>\r\n          </ng-container>\r\n          <ng-template #notName>\r\n            <li class=\"list-group-item\">\r\n              <i>empty</i>\r\n            </li>\r\n          </ng-template>\r\n\r\n\r\n          <ng-container *ngIf=\"people\">\r\n              <li class=\"list-group-item\" >\r\n\r\n                <i class=\"far fa-map wrapper-icon\"></i>\r\n\r\n              <span><b>{{user.address | formatData:0:25}}</b></span>\r\n            </li>\r\n          </ng-container>\r\n          <li class=\"list-group-item\">\r\n\r\n                <i class=\"eva eva-message-square wrapper-icon\"></i>\r\n\r\n                <span><b>{{user.referenceReceived ? user.referenceReceived.length : '0'}}</b> Reference</span>\r\n          </li>\r\n\r\n          <ng-container *ngIf=\"!trip;else traveler\">\r\n            <li class=\"list-group-item\" >\r\n\r\n                <i class=\"eva eva-briefcase wrapper-icon\"></i>\r\n\r\n            <span>{{user.occupation}}</span>\r\n          </li>\r\n          </ng-container>\r\n\r\n          <ng-template #traveler>\r\n            <li class=\"list-group-item\">\r\n              <i class=\"fas fa-user-friends wrapper-icon\"></i>\r\n              <!-- <i class=\"eva eva-people wrapper-icon\"></i> -->\r\n\r\n                <span><b>{{trip.trip.travelerNumber}} Traveler{{trip.trip.travelerNumber > 1 ? 's' : ''}}</b> in town</span>\r\n            </li>\r\n          </ng-template>\r\n\r\n\r\n\r\n          <li class=\"list-group-item\">\r\n\r\n              <i class=\"eva eva-globe-2 wrapper-icon\"></i>\r\n\r\n            <span>Speak <b>{{language | formatData:0:15}}</b></span>\r\n          </li>\r\n\r\n          <ng-container *ngIf=\"trip\">\r\n            <li class=\"list-group-item\" >\r\n\r\n              <i class=\"far fa-calendar-alt wrapper-icon\"></i>\r\n\r\n            <span><b>{{trip.trip.arrivalDate | date:'MMM d'}} to {{trip.trip.departureDate | date:'MMM d'}}</b></span>\r\n          </li>\r\n          </ng-container>\r\n\r\n\r\n        </ul>\r\n      </div>\r\n  </div>\r\n\r\n  <div class=\"card-body\" [style.padding.px]=\"10\" *ngIf=\"!people\">\r\n    <ng-container *ngIf=\"trip? !trip.trip.description : !user.about;else des\">\r\n        <p class=\"text-muted\">\r\n            <i>empty</i>\r\n        </p>\r\n    </ng-container>\r\n\r\n\r\n    <ng-template #des>\r\n        <p class=\"card-text\">{{trip ? (trip.trip.description | formatData:0:50) : (user.about | formatData:0:50)}}</p>\r\n    </ng-template>\r\n\r\n\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -1442,6 +1730,9 @@ var PeopleComponent = /** @class */ (function () {
     function PeopleComponent(router) {
         this.router = router;
         this.img = '/assets/imgs/profile-picture-placeholder.png';
+        this.obj = {
+            height: '230px'
+        };
     }
     PeopleComponent.prototype.ngOnInit = function () {
         if (this.trip) {
@@ -1449,8 +1740,15 @@ var PeopleComponent = /** @class */ (function () {
             this.user = this.trip.user;
             this.trip.trip = tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, this.trip);
         }
+        if (this.people) {
+            this.user = this.people;
+            this.obj.height = '170px';
+        }
         //console.log(this.user, this.trip);
         this.language = [this.user.fluentLanguage ? this.user.fluentLanguage : '', this.user.learningLanguage ? this.user.learningLanguage : ''];
+        if (this.language[0] === '' && this.language[1] === '') {
+            this.language = [];
+        }
     };
     PeopleComponent.prototype.onClickPeople = function () {
         this.router.navigate(["/Users/People/" + this.user.id]);
@@ -1463,6 +1761,10 @@ var PeopleComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", src_app_models_publictrip__WEBPACK_IMPORTED_MODULE_3__["PublicTrip"])
     ], PeopleComponent.prototype, "trip", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", src_app_models_user__WEBPACK_IMPORTED_MODULE_2__["User"])
+    ], PeopleComponent.prototype, "people", void 0);
     PeopleComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-people',
@@ -4056,7 +4358,7 @@ module.exports = ".center {\r\n  display: flex;\r\n  justify-content: center;\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div class=\"center\">\r\n  <div class=\"wrapper\">\r\n    <div class=\"alert alert-light\" role=\"alert\">\r\n        <b>{{peoples.length}} Results</b>\r\n    </div>\r\n    <app-people\r\n      *ngFor=\"let people of peoples; let i = index\"\r\n      [ngClass]=\"{left: true, clear: i % 2 === 0 ? true : false}\"\r\n    >\r\n    </app-people>\r\n  </div>\r\n</div> -->\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-sm-2\"></div>\r\n\r\n  <div class=\"col-sm\">\r\n    <!-- <div class=\"lds-ring\" *ngIf=\"!peoples\"><div></div><div></div><div></div><div></div></div> -->\r\n\r\n    <div class=\"d-flex justify-content-center text-secondary m-3\" *ngIf=\"!hosts && !travelers; else inform\">\r\n        <div class=\"spinner-border\" role=\"status\" style=\"width: 3em; height: 3em;\">\r\n          <span class=\"sr-only\">Loading...</span>\r\n        </div>\r\n    </div>\r\n\r\n    <ng-template #inform>\r\n        <div class=\"alert alert-light box\" *ngIf=\"length === 0;else Result\">No result with key \"{{address}}\" for {{hosts ? 'hosts' : 'travelers'}}</div>\r\n        <ng-template #Result>\r\n            <div class=\"alert alert-light box\">{{length}} result{{length > 1 ? 's' : ''}} with key \"{{address}}\" for {{hosts ? 'hosts' : 'travelers'}}</div>\r\n        </ng-template>\r\n    </ng-template>\r\n\r\n\r\n\r\n    <div class=\"row\">\r\n      <ng-container *ngIf=\"hosts;else trip\">\r\n        <div class=\"col-sm-6\" *ngFor=\"let host of hosts\" [ngStyle]=\"{padding: '5px'}\">\r\n          <app-people [user]=\"host\"></app-people>\r\n        </div>\r\n      </ng-container>\r\n\r\n      <ng-template #trip>\r\n          <div class=\"col-sm-6\" *ngFor=\"let traveler of travelers\" [ngStyle]=\"{padding: '5px'}\">\r\n              <app-people [trip]=\"traveler\"></app-people>\r\n          </div>\r\n      </ng-template>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"col-sm-2\">\r\n\r\n  </div>\r\n</div>\r\n"
+module.exports = "<!-- <div class=\"center\">\r\n  <div class=\"wrapper\">\r\n    <div class=\"alert alert-light\" role=\"alert\">\r\n        <b>{{peoples.length}} Results</b>\r\n    </div>\r\n    <app-people\r\n      *ngFor=\"let people of peoples; let i = index\"\r\n      [ngClass]=\"{left: true, clear: i % 2 === 0 ? true : false}\"\r\n    >\r\n    </app-people>\r\n  </div>\r\n</div> -->\r\n\r\n<div class=\"row\">\r\n  <div class=\"col-sm-2\"></div>\r\n\r\n  <div class=\"col-sm\">\r\n    <!-- <div class=\"lds-ring\" *ngIf=\"!peoples\"><div></div><div></div><div></div><div></div></div> -->\r\n\r\n    <div class=\"d-flex justify-content-center text-secondary m-3\" *ngIf=\"!hosts && !travelers && !peoples; else inform\">\r\n        <div class=\"spinner-border\" role=\"status\" style=\"width: 3em; height: 3em;\">\r\n          <span class=\"sr-only\">Loading...</span>\r\n        </div>\r\n    </div>\r\n\r\n    <ng-template #inform>\r\n        <div class=\"alert alert-light box\" *ngIf=\"length === 0;else Result\">No result with key \"{{address}}\" for {{hosts ? 'hosts' : travelers ? 'travelers' : 'people'}}</div>\r\n        <ng-template #Result>\r\n            <div class=\"alert alert-light box\">{{length}} result{{length > 1 ? 's' : ''}} with key \"{{address}}\" for {{hosts ? 'hosts' : travelers ? 'travelers' : 'people'}}</div>\r\n        </ng-template>\r\n    </ng-template>\r\n\r\n\r\n\r\n    <div class=\"row\">\r\n      <ng-container *ngIf=\"hosts;else noHost\">\r\n        <div class=\"col-sm-6\" *ngFor=\"let host of hosts\" [ngStyle]=\"{padding: '5px'}\">\r\n          <app-people [user]=\"host\"></app-people>\r\n        </div>\r\n      </ng-container>\r\n\r\n      <ng-template #noHost>\r\n        <ng-container *ngIf=\"travelers; else user\">\r\n          <div class=\"col-sm-6\" *ngFor=\"let traveler of travelers\" [ngStyle]=\"{padding: '5px'}\">\r\n              <app-people [trip]=\"traveler\"></app-people>\r\n          </div>\r\n        </ng-container>\r\n\r\n        <ng-template #user>\r\n          <div class=\"col-sm-6\" *ngFor=\"let people of peoples\" [ngStyle]=\"{padding: '5px'}\">\r\n              <app-people [people]=\"people\"></app-people>\r\n          </div>\r\n        </ng-template>\r\n\r\n      </ng-template>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"col-sm-2\">\r\n\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -4098,11 +4400,19 @@ var SearchHostComponent = /** @class */ (function () {
                     _this.length = _this.hosts.length;
                 });
             }
-            else {
+            else if (data.type === 'traveler') {
                 _this.subscription = _this.UserService.getTravelerByAddress(_this.address).subscribe(function (trip) {
                     _this.travelers = trip;
                     _this.length = _this.travelers.length;
                     _this.hosts = null;
+                });
+            }
+            else {
+                _this.subscription = _this.UserService.getUserByFullName(_this.address).subscribe(function (people) {
+                    _this.peoples = people;
+                    _this.length = people.length;
+                    _this.hosts = null;
+                    _this.travelers = null;
                 });
             }
         });
@@ -4560,7 +4870,6 @@ var FormatDataPipe = /** @class */ (function () {
             return '';
         }
         if (value instanceof Array) {
-            //console.log(value);
             value = value.join(', ');
         }
         // else {
@@ -4586,7 +4895,7 @@ var FormatDataPipe = /** @class */ (function () {
 /*!******************************************!*\
   !*** ./src/app/services/user.resolve.ts ***!
   \******************************************/
-/*! exports provided: TokenResolve, UserResolve, HomeResolve, PlacesDashboardResolve, ProfileResolve, IsFriendResolve */
+/*! exports provided: TokenResolve, UserResolve, HomeResolve, PlacesDashboardResolve, ProfileResolve, IsFriendResolve, ListUserChatResolve */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4597,6 +4906,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PlacesDashboardResolve", function() { return PlacesDashboardResolve; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileResolve", function() { return ProfileResolve; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IsFriendResolve", function() { return IsFriendResolve; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListUserChatResolve", function() { return ListUserChatResolve; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
@@ -4700,6 +5010,29 @@ var IsFriendResolve = /** @class */ (function () {
     return IsFriendResolve;
 }());
 
+var ListUserChatResolve = /** @class */ (function () {
+    function ListUserChatResolve(service, router) {
+        this.service = service;
+        this.router = router;
+    }
+    ListUserChatResolve.prototype.resolve = function (activatedRouteSnapshot) {
+        var _this = this;
+        var id = activatedRouteSnapshot.queryParamMap.get('id');
+        //console.log(id)
+        if (id == null)
+            this.service.getListUserChat().subscribe(function (res) {
+                if (res[0]) {
+                    _this.router.navigate(['/Users/Message'], { queryParams: { id: res[0].id } });
+                }
+            });
+    };
+    ListUserChatResolve = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], ListUserChatResolve);
+    return ListUserChatResolve;
+}());
+
 
 
 /***/ }),
@@ -4733,6 +5066,7 @@ var UserService = /** @class */ (function () {
         this.userPublicTrip = '/Users/Publictrips';
         this.publicTrip = '/Publictrips/';
         this.changePass = '/ApplicationUser/ChangePassword';
+        this.searchUser = '/Users/SearchByName?name=';
     }
     UserService.prototype.setPeopleid = function (id) {
         this.peopleid = id;
@@ -4933,6 +5267,16 @@ var UserService = /** @class */ (function () {
     };
     UserService.prototype.changePassword = function (password) {
         return this.http.put(this.BaseURI + this.changePass, password, { reportProgress: true, observe: "response" });
+    };
+    UserService.prototype.getUserByFullName = function (name) {
+        return this.http.get(this.BaseURI + this.searchUser + name);
+    };
+    //message
+    UserService.prototype.getMessage = function (id, index) {
+        return this.http.get(this.BaseURI + '/Users/Messages/' + id + '?index=' + index);
+    };
+    UserService.prototype.getListUserChat = function () {
+        return this.http.get(this.BaseURI + '/users/messagesenders');
     };
     UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
