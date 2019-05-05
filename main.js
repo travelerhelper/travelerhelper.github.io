@@ -138,7 +138,10 @@ var routes = [
                 path: 'ChangePassword',
                 component: _components_user_change_pass_change_pass_component__WEBPACK_IMPORTED_MODULE_19__["ChangePassComponent"], resolve: { users: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["UserResolve"] }
             },
-            { path: 'Message', component: _components_user_message_message_component__WEBPACK_IMPORTED_MODULE_11__["MessageComponent"], resolve: { user: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["UserResolve"], ListUserChatResolve: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["ListUserChatResolve"] } },
+            {
+                path: 'Message', component: _components_user_message_message_component__WEBPACK_IMPORTED_MODULE_11__["MessageComponent"],
+                resolve: { user: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["UserResolve"], DefaultUserChatResolve: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["DefaultUserChatResolve"], listUserChats: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["ListUserChatResolve"], currentUserChat: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["CurrentUserChatResolve"] }
+            },
             // { path: 'Message/:id', component: MessageComponent, resolve: { users: UserResolve }},
             { path: 'Activity', component: _components_user_activity_activity_component__WEBPACK_IMPORTED_MODULE_22__["ActivityComponent"], resolve: { users: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["UserResolve"] } },
             { path: '404', component: _components_notfound_component__WEBPACK_IMPORTED_MODULE_12__["NotfoundComponent"] },
@@ -435,7 +438,9 @@ var AppModule = /** @class */ (function () {
                 _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["HomeResolve"],
                 _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["PlacesDashboardResolve"],
                 _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["IsFriendResolve"],
-                _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["ListUserChatResolve"]
+                _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["ListUserChatResolve"],
+                _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["CurrentUserChatResolve"],
+                _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["DefaultUserChatResolve"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
         })
@@ -1332,7 +1337,7 @@ module.exports = ".header-wrapper{\r\n    max-width: 1280px;\r\n    margin: auto
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"header-wrapper\" (clickOutside)=\"isMenu = false;isSearch = false;\">\r\n    <div class=\"logo\">\r\n        <a href='' routerLinkActive='active' [ngStyle]=\"logo_admin\">\r\n            <i class=\"fas fa-globe-asia\"></i>\r\n        </a>\r\n    </div>\r\n\r\n    <div class=\"button-responsive\" style=\"padding-right:10px;\">\r\n        <div class=\"search-responsive\" style=\"padding-right: 6px\">\r\n            <button (click)=\"isSearch = !isSearch;isMenu = false;\">\r\n                <i [ngStyle]=\"isSearch && !isMenu && {'color':'#ED6504'}\" class=\"fas fa-search \"></i></button>\r\n        </div>\r\n        <div class=\"menu-responsive\">\r\n            <button (click)=\"isMenu = !isMenu;isSearch = false;\">\r\n                <i [ngStyle]=\"isMenu && !isSearch && {'color':'#ED6504'}\" class=\"fas fa-bars\"></i></button>\r\n        </div>\r\n    </div>\r\n    <div [ngStyle]=\"isSearch && !isMenu && {'display':'flex'}\"  class=\"search-box\" >\r\n        <form #formSearch=\"ngForm\" autocomplete=\"off\" (submit)=\"onSubmit(formSearch);\">\r\n            <div class=\"search-form row\">\r\n                <select [(ngModel)]=\"textSelect\" (change)=\"onChange()\" class=\" search-select form-control shadow-sm col\" name=\"select\">\r\n                    <option value=\"host\" selected>Find Host</option>\r\n                    <option value=\"traveler\">Find Traveler</option>\r\n                    <option value=\"people\">Find People</option>\r\n                </select>\r\n                <div class=\"search-form-1 col\" (clickOutside)=\"textInput = '';\">\r\n                    <button class=\"\" type=\"submit\"><i class=\"fas fa-search\"></i></button>\r\n                    <input [(ngModel)]=\"textInput\" (keyup)=\"onKeyup(formSearch);\" class=\"form-control shadow-sm\" type=\"text\"\r\n                        name=\"input\" [placeholder]=\"placeholder\">\r\n                    <app-dropdown [formSearch]=\"formSearch\" (myClick)=\"resetvalue();\"\r\n                        [searchedSubject]=\"searchedSubject\"></app-dropdown>\r\n                </div>\r\n            </div>\r\n        </form>\r\n    </div>\r\n    <nav  [ngStyle]=\"isMenu && !isSearch && {'display':'block'}\"  class=\"menu-bar\">\r\n        <ul>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Dashboard']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <i class=\"fas fa-home\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Dashboard\r\n                        </span>\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Profile']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <i class=\"fas fa-user-circle\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Profile\r\n                        </span>\r\n\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Message']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <i class=\"fas fa-comments\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Message\r\n                        </span>\r\n\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Activity']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <!-- <i class=\"fas fa-envelope\"></i> -->\r\n                        <!-- <i class=\"fas fa-bell\"></i> -->\r\n                        <!-- <i class=\"fas fa-users\"></i> -->\r\n                        <i class=\"far fa-calendar-alt\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Activity\r\n                        </span>\r\n\r\n                    </div>\r\n                </a>\r\n            </li>\r\n\r\n            <li>\r\n                <div class=\"dropdown\" (clickOutside)=\"isdrop=false;\">\r\n                    <a class=\"\" id=\"dropdownMenu2\" data-toggle=\"dropdown\" (click)=\"isdrop=!isdrop\" aria-haspopup=\"true\"\r\n                        aria-expanded=\"false\">\r\n\r\n                        <div class=\"icon\" style=\"display: flex\">\r\n                            <div class=\"dropdown-toggle\">\r\n                                <i class=\"fas fa-cog\"></i>\r\n                            </div>\r\n\r\n                        </div>\r\n                        <div class=\"name\">\r\n                            <span>\r\n                                Setting\r\n                            </span>\r\n\r\n                        </div>\r\n                    </a>\r\n                    <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenu2\"\r\n                        [style.display]=\"isdrop?'block':'none'\" >\r\n\r\n\r\n\r\n                        <button class=\"dropdown-item\" type=\"button\" (click)=\"onChangePassword()\" ><i class=\"fas fa-user-cog\"></i> Change\r\n                            Password</button>\r\n                        <button (click)=\"onLogout();\" class=\"dropdown-item\" type=\"button\"><i\r\n                                class=\"fas fa-sign-out-alt\"></i> Log Out</button>\r\n\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </nav>\r\n\r\n\r\n\r\n\r\n</nav>\r\n"
+module.exports = "<nav class=\"header-wrapper\" (clickOutside)=\"isMenu = false;isSearch = false;\">\r\n    <div class=\"logo\">\r\n        <a href='' routerLinkActive='active' [ngStyle]=\"logo_admin\">\r\n            <i class=\"fas fa-globe-asia\"></i>\r\n        </a>\r\n    </div>\r\n\r\n    <div class=\"button-responsive\" style=\"padding-right:10px;\">\r\n        <div class=\"search-responsive\" style=\"padding-right: 6px\">\r\n            <button (click)=\"isSearch = !isSearch;isMenu = false;\">\r\n                <i [ngStyle]=\"isSearch && !isMenu && {'color':'#ED6504'}\" class=\"fas fa-search \"></i></button>\r\n        </div>\r\n        <div class=\"menu-responsive\">\r\n            <button (click)=\"isMenu = !isMenu;isSearch = false;\">\r\n                <i [ngStyle]=\"isMenu && !isSearch && {'color':'#ED6504'}\" class=\"fas fa-bars\"></i></button>\r\n        </div>\r\n    </div>\r\n    <div [ngStyle]=\"isSearch && !isMenu && {'display':'flex'}\" class=\"search-box\">\r\n        <form #formSearch=\"ngForm\" autocomplete=\"off\" (submit)=\"onSubmit(formSearch);\">\r\n            <div class=\"search-form row\">\r\n                <select [(ngModel)]=\"textSelect\" (change)=\"onChange()\" class=\" search-select form-control shadow-sm col\"\r\n                    name=\"select\">\r\n                    <option value=\"host\" selected>Find Host</option>\r\n                    <option value=\"traveler\">Find Traveler</option>\r\n                    <option value=\"people\">Find People</option>\r\n                </select>\r\n                <div class=\"search-form-1 col\" (clickOutside)=\"textInput = '';\">\r\n                    <button class=\"\" type=\"submit\"><i class=\"fas fa-search\"></i></button>\r\n                    <input [(ngModel)]=\"textInput\" (keyup)=\"onKeyup(formSearch);\" class=\"form-control shadow-sm\"\r\n                        type=\"text\" name=\"input\" [placeholder]=\"placeholder\">\r\n                    <app-dropdown [formSearch]=\"formSearch\" (myClick)=\"resetvalue();\"\r\n                        [searchedSubject]=\"searchedSubject\"></app-dropdown>\r\n                </div>\r\n            </div>\r\n        </form>\r\n    </div>\r\n    <nav [ngStyle]=\"isMenu && !isSearch && {'display':'block'}\" class=\"menu-bar\">\r\n        <ul>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Dashboard']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <i class=\"fas fa-home\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Dashboard\r\n                        </span>\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Profile']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <i class=\"fas fa-user-circle\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Profile\r\n                        </span>\r\n\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Message']\" [queryParams]=\"{id:idMessage}\"\r\n                    [ngClass]=\"{'active':isActive()}\">\r\n                    <div class=\"icon\">\r\n                        <i class=\"fas fa-comments\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Message\r\n                        </span>\r\n\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Activity']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <!-- <i class=\"fas fa-envelope\"></i> -->\r\n                        <!-- <i class=\"fas fa-bell\"></i> -->\r\n                        <!-- <i class=\"fas fa-users\"></i> -->\r\n                        <i class=\"far fa-calendar-alt\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Activity\r\n                        </span>\r\n\r\n                    </div>\r\n                </a>\r\n            </li>\r\n\r\n            <li>\r\n                <div class=\"dropdown\" (clickOutside)=\"isdrop=false;\">\r\n                    <a class=\"\" id=\"dropdownMenu2\" data-toggle=\"dropdown\" (click)=\"isdrop=!isdrop\" aria-haspopup=\"true\"\r\n                        aria-expanded=\"false\">\r\n\r\n                        <div class=\"icon\" style=\"display: flex\">\r\n                            <div class=\"dropdown-toggle\">\r\n                                <i class=\"fas fa-cog\"></i>\r\n                            </div>\r\n\r\n                        </div>\r\n                        <div class=\"name\">\r\n                            <span>\r\n                                Setting\r\n                            </span>\r\n\r\n                        </div>\r\n                    </a>\r\n                    <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenu2\"\r\n                        [style.display]=\"isdrop?'block':'none'\">\r\n\r\n\r\n\r\n                        <button class=\"dropdown-item\" type=\"button\" (click)=\"onChangePassword()\"><i\r\n                                class=\"fas fa-user-cog\"></i> Change\r\n                            Password</button>\r\n                        <button (click)=\"onLogout();\" class=\"dropdown-item\" type=\"button\"><i\r\n                                class=\"fas fa-sign-out-alt\"></i> Log Out</button>\r\n\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </nav>\r\n\r\n\r\n\r\n\r\n</nav>"
 
 /***/ }),
 
@@ -1367,9 +1372,24 @@ var HeaderComponent = /** @class */ (function () {
         this.placeholder = "Search for Place";
         this.logo_admin = {};
         this.admin_display = 'unset';
+        this.idMessage = null;
         this.searchedSubject = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
     }
+    HeaderComponent.prototype.isActive = function () {
+        return (this.router.url.includes("/Users/Message"));
+    };
     HeaderComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.queryParams.subscribe(function (params) {
+            console.log(_this.isActive());
+            var id = params['id'];
+            if (id) {
+                _this.idMessage = id;
+            }
+            else {
+                _this.idMessage = null;
+            }
+        });
         if (this.admin) {
             this.logo_admin = {
                 color: 'white'
@@ -1437,7 +1457,7 @@ module.exports = ".message-item {\r\n    clear: both;\r\n    padding: 5px;\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div #boxchat id=\"box-chat\" style=\"max-height:200px; overflow: auto; text-align: center\">\n  <ng-template #loading> Loading...</ng-template>\n  <button *ngIf=\"!isLoading;else loading\" (click)=\"seeMore()\">more</button>\n  <ng-container *ngFor=\"let message of messages\">\n    <div class=\"message-item\" [ngClass]=\"{'user':message.isYou}\">\n      <span>{{message.content}}</span>\n    </div>\n\n  </ng-container>\n\n</div>\n<div class=\"chatControl\">\n  <form (submit)=\"sendMessage()\" #formchat=\"ngForm\" autocomplete=\"off\">\n    <input ngModel [(ngModel)]=\"textchat\" name=\"textchat\" type=\"text\" required>\n    <button [disabled]=\"formchat.invalid\" type=\"submit\">Send</button>\n  </form>\n  {{x}}\n</div>"
+module.exports = "<ng-template #loading>\n  <div class=\"box\">\n    <app-loading></app-loading>\n  </div>\n\n\n</ng-template>\n\n\n<ng-container *ngIf=\"!isLoading;else loading\">\n  <div #boxchat id=\"box-chat\" style=\"max-height:200px; overflow: auto; text-align: center\">\n    <ng-template #loadingmess> Loading...</ng-template>\n    <button *ngIf=\"!isLoadingMess;else loadingmess\" (click)=\"seeMore()\">more</button>\n    <ng-container *ngFor=\"let message of messages \">\n      <div class=\"message-item\" [ngClass]=\"{'user':message.isYou}\">\n        <span>{{message.content}}</span>\n      </div>\n\n    </ng-container>\n\n  </div>\n  <div class=\"chatControl\">\n    <form (submit)=\"sendMessage()\" #formchat=\"ngForm\" autocomplete=\"off\">\n      <input ngModel [(ngModel)]=\"textchat\" name=\"textchat\" type=\"text\" required>\n      <button [disabled]=\"formchat.invalid\" type=\"submit\">Send</button>\n    </form>\n  </div>\n</ng-container>"
 
 /***/ }),
 
@@ -1460,72 +1480,83 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var BoxChatComponent = /** @class */ (function () {
-    function BoxChatComponent(service, router, activatedRoute) {
+    function BoxChatComponent(service, router, activatedRoute, cdr) {
         this.service = service;
         this.router = router;
         this.activatedRoute = activatedRoute;
+        this.cdr = cdr;
         this.send = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.indexSeeMore = 0;
-        this.x = 0;
     }
-    BoxChatComponent.prototype.ngAfterViewChecked = function () {
-        // console.log(this.boxchat.nativeElement.scrollHeight)
-        this.boxchat.nativeElement.scrollTop = this.boxchat.nativeElement.scrollHeight;
-    };
     BoxChatComponent.prototype.ngOnInit = function () {
-        console.log(this.peopleId);
+        //this.mang.next(this.service.getListUserChat(0))
+        //console.log(this.peopleId)
+        //this.load(this.peopleId);
         // console.log(this.boxchat.nativeElement.scrollHeight)
         // setTimeout(() => {
         //   console.log(this.boxchat.nativeElement.scrollHeight)
         //   this.boxchat.nativeElement.scrollTop = this.boxchat.nativeElement.scrollHeight;
-        // }, 2000);
+        // }, 0);
+    };
+    BoxChatComponent.prototype.load = function (peopleId) {
+        var _this = this;
+        this.isLoading = true;
+        this.peopleId = peopleId;
+        this.service.getMessage(this.peopleId, this.indexSeeMore).subscribe(function (res) {
+            _this.messages = res;
+            _this.isLoading = false;
+            setTimeout(function () {
+                _this.boxchat.nativeElement.scrollTop = _this.boxchat.nativeElement.scrollHeight;
+            }, 0);
+        });
     };
     BoxChatComponent.prototype.loadMessage = function (receiveMessage) {
-        this.x++;
-        // console.log(receiveMessage.from == this.peopleId)
         if (receiveMessage.from == this.peopleId) {
             var item = {
                 isYou: false,
                 content: receiveMessage.message,
             };
             this.messages.push(item);
-            //console.log(this.messages)
         }
-    };
-    BoxChatComponent.prototype.load = function (peopleId) {
-        var _this = this;
-        //console.log('load')
-        this.peopleId = peopleId;
-        this.service.getMessage(this.peopleId, this.indexSeeMore).subscribe(function (res) {
-            _this.messages = res;
-            //   console.log(this.messages)
-        });
+        else if (receiveMessage.from == this.userId) {
+            var item = {
+                isYou: true,
+                content: receiveMessage.message,
+            };
+            this.messages.push(item);
+        }
+        this.cdr.detectChanges();
+        this.boxchat.nativeElement.scrollTop = this.boxchat.nativeElement.scrollHeight;
     };
     BoxChatComponent.prototype.sendMessage = function () {
-        console.log(this.textchat);
-        var item = {
-            isYou: true,
-            content: this.textchat
-        };
-        this.messages.push(item);
+        // console.log(this.textchat)
+        // let item = {
+        //   isYou: true,
+        //   content: this.textchat
+        // }
+        // this.messages.push(item)
         var data = {
             peopleId: this.peopleId,
             textchat: this.textchat
         };
-        console.log(data);
+        // console.log(data)
         this.textchat = "";
         this.send.emit(data);
     };
     BoxChatComponent.prototype.seeMore = function () {
         var _this = this;
-        this.isLoading = true;
+        this.isLoadingMess = true;
         this.indexSeeMore = this.indexSeeMore + 1;
         this.service.getMessage(this.peopleId, this.indexSeeMore).subscribe(function (res) {
-            _this.isLoading = false;
+            _this.isLoadingMess = false;
             console.log(res);
             _this.messages = res.concat(_this.messages);
         });
     };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], BoxChatComponent.prototype, "userId", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -1544,7 +1575,7 @@ var BoxChatComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./box-chat.component.html */ "./src/app/components/user/message/box-chat/box-chat.component.html"),
             styles: [__webpack_require__(/*! ./box-chat.component.css */ "./src/app/components/user/message/box-chat/box-chat.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
     ], BoxChatComponent);
     return BoxChatComponent;
 }());
@@ -1571,7 +1602,7 @@ module.exports = ".cover{\r\n   \r\n}\r\n.left-section{\r\n    overflow: auto;\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>All you recent messages</h1>\r\n<div class=\"cover row\">\r\n        <div class=\"left-section col\">\r\n                <div class=\"box list-chat-box\">\r\n                        <ng-container *ngFor=\"let sender of listUserChats\">\r\n                                <a [ngClass]=\"{'active':peopleId==sender.id}\" class=\"sender-item\" [routerLink]=\"\"\r\n                                        [queryParams]=\"{id:sender.id}\">\r\n                                        <div class=\"avatar\">\r\n                                                <img class=\"photo\" [src]=\"sender.avatar\">\r\n                                        </div>\r\n                                        <div class=\"about\">\r\n                                                <p class=\"name\">{{sender.fullName}}</p>\r\n                                                <p>{{sender.lastedMessage}}</p>\r\n                                                <p>{{sender.createDate}}</p>\r\n                                        </div>\r\n                                </a>\r\n                        </ng-container>\r\n                </div>\r\n        </div>\r\n        <div class=\"right-section col\">\r\n                \r\n                <div class=\"box\">\r\n\r\n                      \r\n                        <app-box-chat (send)=\"sendMessage($event)\" [peopleId]=\"peopleId\"></app-box-chat>\r\n                </div>\r\n\r\n        </div>\r\n</div>"
+module.exports = "<h1>All you recent messages</h1>\r\n<div class=\"cover row\">\r\n        <div class=\"left-section col\">\r\n                <div class=\"box list-chat-box\">\r\n                        <ng-container *ngFor=\"let sender of listUserChats\">\r\n                                <a [ngClass]=\"{'active':peopleId==sender.id}\" class=\"sender-item\" [routerLink]=\"\"\r\n                                        [queryParams]=\"{id:sender.id}\">\r\n                                        <div class=\"avatar\">\r\n                                                <img class=\"photo\" [src]=\"sender.avatar\">\r\n                                        </div>\r\n                                        <div class=\"about\">\r\n                                                <p class=\"name\">{{sender.fullName}}</p>\r\n                                                <p>{{sender.lastedMessage}}</p>\r\n                                                <p>{{sender.createDate}}</p>\r\n                                        </div>\r\n                                </a>\r\n                        </ng-container>\r\n                        <button (click)=\"loadMoreList()\">More</button>\r\n                </div>\r\n        </div>\r\n        <div class=\"right-section col\">\r\n                <h3 *ngIf=\"people\">{{people.fullName}}</h3>\r\n\r\n                <div class=\"box\">\r\n\r\n\r\n                        <app-box-chat (send)=\"sendMessage($event)\" [userId]=\"user.id\" [peopleId]=\"peopleId\">\r\n                        </app-box-chat>\r\n                </div>\r\n\r\n        </div>\r\n</div>"
 
 /***/ }),
 
@@ -1606,36 +1637,16 @@ var MessageComponent = /** @class */ (function () {
         this.activatedRoute = activatedRoute;
         this.http = http;
         this.token = localStorage.getItem("token");
+        this.index = 0;
     }
-    MessageComponent.prototype.sendMessage = function (event) {
-        // console.log(event)
-        // console.log(this.peopleId)
-        this.hubConnection
-            .invoke('sendChatMessage', event.peopleId, event.textchat)
-            .catch(function (err) { return console.error(err); });
-    };
     MessageComponent.prototype.ngOnInit = function () {
-        var _this = this;
+        this.user = this.activatedRoute.snapshot.data.user;
+        this.listUserChats = this.activatedRoute.snapshot.data.listUserChats;
         this.getId();
-        this.service.getListUserChat().subscribe(function (res) {
-            //  console.log(res)
-            _this.listUserChats = res;
-            _this.peopleId = _this.listUserChats[0].id;
-            // this.router.navigateByUrl("/Users/Message/" + this.peopleId );
-        });
-        // this.http.get('http://travelhelperwebsite.azurewebsites.net/api/users/messagesenders').subscribe((res: MessageSender[]) => {
-        //   this.listUserChats = res;
-        //   console.log(res)
-        //   this.peopleId = this.listUserChats[0].id;
-        //   this.router.navigateByUrl("/Users/Message/" + this.peopleId + "");
-        // });
-        // if (this.peopleId != undefined) {
-        //   this.http.get('http://travelhelperwebsite.azurewebsites.net/api/userchats/' + this.peopleId).subscribe((res: UserChat) => {
-        //     this.name = res.fullName;
-        //     this.avatar = res.avatar;
-        //     console.log(res);
-        //   });
-        // }
+        this.connect();
+    };
+    MessageComponent.prototype.connect = function () {
+        var _this = this;
         this.hubConnection = new _aspnet_signalr__WEBPACK_IMPORTED_MODULE_4__["HubConnectionBuilder"]()
             .withUrl('https://travelhelperwebsite.azurewebsites.net/chat', {
             accessTokenFactory: function () {
@@ -1652,18 +1663,33 @@ var MessageComponent = /** @class */ (function () {
             _this.boxChatComponent.loadMessage(_this.receiveMessage);
         });
     };
+    MessageComponent.prototype.sendMessage = function (event) {
+        this.hubConnection
+            .invoke('sendChatMessage', event.peopleId, event.textchat)
+            .catch(function (err) { return console.error(err); });
+    };
     MessageComponent.prototype.getId = function () {
         var _this = this;
         this.activatedRoute.queryParams.subscribe(function (params) {
             _this.peopleId = params['id'];
-            _this.boxChatComponent.load(_this.peopleId);
-            // console.log(this.peopleId)
+            console.log(_this.peopleId);
+            if (_this.peopleId) {
+                _this.service.getPeopleProfile(_this.peopleId).subscribe(function (res) {
+                    _this.people = res;
+                });
+                _this.boxChatComponent.load(_this.peopleId);
+            }
+            else {
+                console.log('un');
+                _this.router.navigate(["/Users/Message/"], { queryParams: { id: _this.listUserChats[0].id } });
+            }
         });
     };
-    MessageComponent.prototype.onSelectPeople = function (id) {
-        this.router.navigateByUrl("/Users/Message/" + id + "");
-        //this.ngOnInit();
-        //console.log("reload");
+    MessageComponent.prototype.loadMoreList = function () {
+        this.index++;
+        this.service.getListUserChat(this.index).subscribe(function (res) {
+            console.log(res);
+        });
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_box_chat_box_chat_component__WEBPACK_IMPORTED_MODULE_6__["BoxChatComponent"]),
@@ -2367,7 +2393,7 @@ module.exports = "\r\n.content-left{\r\n    /* min-width: 220px; */\r\n    max-w
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-write-reference-modal [people]=\"user\"></app-write-reference-modal>\r\n<app-send-message-modal [people]=\"user\"></app-send-message-modal>\r\n<app-send-request-modal [people]=\"user\"></app-send-request-modal>\r\n<app-send-report-modal [people]=\"user\"></app-send-report-modal>\r\n<div class=\"row\">\r\n  <div class=\"content-left col-3 \">\r\n    <div class=\"box user-info\">\r\n      <img class=\"photo img-responsive\"\r\n        [src]=\"user.avatarLocation?user.avatarLocation:'./../../../../assets/imgs/profile-picture-placeholder.png'\">\r\n      <div class=\"info\">\r\n        <p style=\"font-size:30px;font-weight: 600\">{{user.fullName}}</p>\r\n        <p style=\"font-size: 20px;\"> {{user.address}}</p>\r\n      </div>\r\n\r\n    </div>\r\n    <div class=\"box\" style=\"min-height:500px\">\r\n\r\n    </div>\r\n  </div>\r\n  <div class=\"content-right col \">\r\n    <div class=\"box status-bar\">\r\n      <i *ngIf=\"user.status;else not\" class=\"color-icon\"\r\n        style=\" margin-left: 20px; width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/ok.png)\"></i>\r\n      <ng-template #not>\r\n        <i class=\"color-icon\"\r\n          style=\" margin-left: 20px; width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/cancel.png)\"></i>\r\n      </ng-template>\r\n      <span class=\"status-value\" [style.color]=\"user.status?'green':'red'\">\r\n        {{user.status?'Acepting Guest':'Not Acepting Guest'}}\r\n      </span>\r\n      <div class=\"button-bar\">\r\n        <button (click)=\"sendRequestModal.open();\" *ngIf=\"!isUser&&user.status\" class=\"btn btn-primary\">Send\r\n          Request</button>\r\n        <button (click)=\"sendMessageModal.open();\" *ngIf=\"!isUser\" class=\"btn btn-primary\"><i\r\n            class=\"far fa-envelope\"></i></button>\r\n        <button *ngIf=\"isUser\" class=\"btn btn-primary\" routerLink=\"/Users/Profile/Edit\">Edit My Profile</button>\r\n        <div *ngIf=\"!isUser\" class=\"dropdown\" (clickOutside)=\"isdrop=false;\">\r\n          <button class=\"btn btn-primary dropdown-toggle\" type=\"button\" id=\"dropdownMenu2\" data-toggle=\"dropdown\"\r\n            (click)=\"isdrop=!isdrop\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n            More\r\n          </button>\r\n          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenu2\"\r\n            [style.display]=\"isdrop?'block':'none'\">\r\n            <button *ngIf=\"!isFriend\" (click)=\"sendFriendRequest()\" class=\"dropdown-item\" type=\"button\">Add Friend</button>\r\n            <button *ngIf=\"isFriend\"  class=\"dropdown-item\" type=\"button\">Remove Friend</button>\r\n            <button (click)=\"writeReferenceModal.open();\" class=\"dropdown-item\" type=\"button\">Write Reference</button>\r\n            <button (click)=\"sendReportModal.open();\" class=\"dropdown-item\" type=\"button\">Report</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n    <div class=\"box menu-bar\">\r\n      <ul>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['About']\"><span>About</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Myhome']\"><span>My Home</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Photos']\"><span>Photos</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['References']\"><span>References</span></a></li>\r\n        <li *ngIf=\"isUser\"><a routerLinkActive='is-selected' [routerLink]=\"['Friends']\"><span>Friends</span></a></li>\r\n      </ul>\r\n    </div>\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>"
+module.exports = "<app-write-reference-modal [people]=\"user\"></app-write-reference-modal>\r\n<app-send-message-modal [people]=\"user\"></app-send-message-modal>\r\n<app-send-request-modal [people]=\"user\"></app-send-request-modal>\r\n<app-send-report-modal [people]=\"user\"></app-send-report-modal>\r\n<div class=\"row\">\r\n  <div class=\"content-left col-3 \">\r\n    <div class=\"box user-info\">\r\n      <img class=\"photo img-responsive\"\r\n        [src]=\"user.avatarLocation?user.avatarLocation:'./../../../../assets/imgs/profile-picture-placeholder.png'\">\r\n      <div class=\"info\">\r\n        <p style=\"font-size:30px;font-weight: 600\">{{user.fullName}}</p>\r\n        <p style=\"font-size: 20px;\"> {{user.address}}</p>\r\n      </div>\r\n\r\n    </div>\r\n    <div class=\"box\" style=\"min-height:500px\">\r\n\r\n    </div>\r\n  </div>\r\n  <div class=\"content-right col \">\r\n    <div class=\"box status-bar\">\r\n      <i *ngIf=\"user.status;else not\" class=\"color-icon\"\r\n        style=\" margin-left: 20px; width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/ok.png)\"></i>\r\n      <ng-template #not>\r\n        <i class=\"color-icon\"\r\n          style=\" margin-left: 20px; width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/cancel.png)\"></i>\r\n      </ng-template>\r\n      <span class=\"status-value\" [style.color]=\"user.status?'green':'red'\">\r\n        {{user.status?'Acepting Guest':'Not Acepting Guest'}}\r\n      </span>\r\n      <div class=\"button-bar\">\r\n        <button (click)=\"sendRequestModal.open();\" *ngIf=\"!isUser&&user.status\" class=\"btn btn-primary\">Send\r\n          Request</button>\r\n          <!-- (click)=\"sendMessageModal.open();\"  -->\r\n        <button routerLink=\"/Users/Message\" [queryParams]=\"{id:user.id}\"\r\n          *ngIf=\"!isUser\" class=\"btn btn-primary\"><i class=\"far fa-envelope\"></i></button>\r\n        <button *ngIf=\"isUser\" class=\"btn btn-primary\" routerLink=\"/Users/Profile/Edit\">Edit My Profile</button>\r\n        <div *ngIf=\"!isUser\" class=\"dropdown\" (clickOutside)=\"isdrop=false;\">\r\n          <button class=\"btn btn-primary dropdown-toggle\" type=\"button\" id=\"dropdownMenu2\" data-toggle=\"dropdown\"\r\n            (click)=\"isdrop=!isdrop\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n            More\r\n          </button>\r\n          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenu2\"\r\n            [style.display]=\"isdrop?'block':'none'\">\r\n            <button *ngIf=\"!isFriend\" (click)=\"sendFriendRequest()\" class=\"dropdown-item\" type=\"button\">Add\r\n              Friend</button>\r\n            <button *ngIf=\"isFriend\" class=\"dropdown-item\" type=\"button\">Remove Friend</button>\r\n            <button (click)=\"writeReferenceModal.open();\" class=\"dropdown-item\" type=\"button\">Write Reference</button>\r\n            <button (click)=\"sendReportModal.open();\" class=\"dropdown-item\" type=\"button\">Report</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n    <div class=\"box menu-bar\">\r\n      <ul>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['About']\"><span>About</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Myhome']\"><span>My Home</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Photos']\"><span>Photos</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['References']\"><span>References</span></a></li>\r\n        <li *ngIf=\"isUser\"><a routerLinkActive='is-selected' [routerLink]=\"['Friends']\"><span>Friends</span></a></li>\r\n      </ul>\r\n    </div>\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -2417,6 +2443,7 @@ var ProfileComponent = /** @class */ (function () {
         else {
             this.user = temp;
         }
+        console.log(this.user.id);
     };
     ProfileComponent.prototype.sendFriendRequest = function () {
         var _this = this;
@@ -4895,7 +4922,7 @@ var FormatDataPipe = /** @class */ (function () {
 /*!******************************************!*\
   !*** ./src/app/services/user.resolve.ts ***!
   \******************************************/
-/*! exports provided: TokenResolve, UserResolve, HomeResolve, PlacesDashboardResolve, ProfileResolve, IsFriendResolve, ListUserChatResolve */
+/*! exports provided: TokenResolve, UserResolve, HomeResolve, PlacesDashboardResolve, ProfileResolve, IsFriendResolve, DefaultUserChatResolve, ListUserChatResolve, CurrentUserChatResolve */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4906,7 +4933,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PlacesDashboardResolve", function() { return PlacesDashboardResolve; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileResolve", function() { return ProfileResolve; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IsFriendResolve", function() { return IsFriendResolve; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DefaultUserChatResolve", function() { return DefaultUserChatResolve; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListUserChatResolve", function() { return ListUserChatResolve; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CurrentUserChatResolve", function() { return CurrentUserChatResolve; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
@@ -5010,28 +5039,62 @@ var IsFriendResolve = /** @class */ (function () {
     return IsFriendResolve;
 }());
 
+var DefaultUserChatResolve = /** @class */ (function () {
+    function DefaultUserChatResolve(service, router) {
+        this.service = service;
+        this.router = router;
+    }
+    DefaultUserChatResolve.prototype.resolve = function (activatedRouteSnapshot) {
+        var _this = this;
+        var id = activatedRouteSnapshot.queryParamMap.get('id');
+        console.log(id);
+        if (id == null) {
+            this.service.getListUserChat(0).subscribe(function (res) {
+                if (res[0]) {
+                    _this.router.navigate(['/Users/Message'], { queryParams: { id: res[0].id } });
+                }
+            });
+        }
+        console.log(id);
+    };
+    DefaultUserChatResolve = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], DefaultUserChatResolve);
+    return DefaultUserChatResolve;
+}());
+
 var ListUserChatResolve = /** @class */ (function () {
     function ListUserChatResolve(service, router) {
         this.service = service;
         this.router = router;
     }
     ListUserChatResolve.prototype.resolve = function (activatedRouteSnapshot) {
-        var _this = this;
-        var id = activatedRouteSnapshot.queryParamMap.get('id');
-        console.log(id);
-        if (id == null) {
-            this.service.getListUserChat().subscribe(function (res) {
-                if (res[0]) {
-                    _this.router.navigate(['/Users/Message'], { queryParams: { id: res[0].id } });
-                }
-            });
-        }
+        return this.service.getListUserChat(0);
     };
     ListUserChatResolve = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], ListUserChatResolve);
     return ListUserChatResolve;
+}());
+
+var CurrentUserChatResolve = /** @class */ (function () {
+    function CurrentUserChatResolve(service, router) {
+        this.service = service;
+        this.router = router;
+    }
+    CurrentUserChatResolve.prototype.resolve = function (activatedRouteSnapshot) {
+        var id = activatedRouteSnapshot.queryParamMap.get('id');
+        console.log(id);
+        if (id)
+            return this.service.getPeopleProfile(id);
+    };
+    CurrentUserChatResolve = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], CurrentUserChatResolve);
+    return CurrentUserChatResolve;
 }());
 
 
@@ -5276,8 +5339,8 @@ var UserService = /** @class */ (function () {
     UserService.prototype.getMessage = function (id, index) {
         return this.http.get(this.BaseURI + '/Users/Messages/' + id + '?index=' + index);
     };
-    UserService.prototype.getListUserChat = function () {
-        return this.http.get(this.BaseURI + '/users/messagesenders');
+    UserService.prototype.getListUserChat = function (index) {
+        return this.http.get(this.BaseURI + '/users/messagesenders?index=' + index);
     };
     UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
