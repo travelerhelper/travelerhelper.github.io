@@ -1476,7 +1476,7 @@ module.exports = ".box-chat{\r\n    display: flex;\r\n    flex-direction: column
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"header-section\">\r\n  <a routerLink=\"/Users/People/{{peopleId}}\"><span class=\"header-title\">{{people}}</span></a>\r\n</div>\r\n\r\n<ng-template #loading>\r\n  <app-loading></app-loading>\r\n</ng-template>\r\n\r\n\r\n<ng-container *ngIf=\"!isLoading;else loading\">\r\n\r\n  <div #boxchat id=\"box-chat\" class=\"box-chat\" infiniteScroll [scrollWindow]=\"false\" [infiniteScrollDistance]=\"0\"\r\n    [infiniteScrollUpDistance]=\"0\" [infiniteScrollThrottle]=\"100\" \r\n    (scrolledUp)=\"onScrollUp()\">\r\n    <!-- <ng-template #loadingmess> Loading...</ng-template> -->\r\n    <!-- <button *ngIf=\"!isLoadingMess;else loadingmess\" (click)=\"seeMore()\">more</button> -->\r\n   \r\n    <div class=\"loading\" *ngIf=\"isLoadingMess\"><img src=\"./../../../../../assets/imgs/spinner.gif\"></div>\r\n    <ng-container *ngFor=\"let message of messages; index as index \">\r\n      <div class=\"message-item\" [ngClass]=\"{'user':message.isYou}\">\r\n        <span [placement]=\"message.isYou?'left':'right'\" [ngbTooltip]=\"message.createDate\">{{message.content}}</span>\r\n        <ng-template #tick><i class=\"fas fa-check tick\"></i></ng-template>\r\n        <div class=\"sent\" *ngIf=\"index==(messages.length-1) && message.isYou\"><img *ngIf=\"isSent;else tick\"\r\n            src=\"./../../../../../assets/imgs/spinner.gif\"></div>\r\n      </div>\r\n\r\n    </ng-container>\r\n\r\n  </div>\r\n  <div class=\"chatControl\">\r\n    <form (submit)=\"sendMessage()\" #formchat=\"ngForm\" autocomplete=\"off\">\r\n      <!-- <input ngModel [(ngModel)]=\"textchat\" name=\"textchat\" type=\"text\" required placeholder=\"Input Message ...\"> -->\r\n      <textarea #area autofocus ngModel [(ngModel)]=\"textarea\" name=\"textarea\" (keydown.enter)=\"$event.preventDefault()\"\r\n        (keyup)=onkeyup($event) placeholder=\"Input Message ...\" required></textarea>\r\n      <button [disabled]=\"formchat.invalid\" type=\"submit\"><i class=\"fas fa-paper-plane\"></i></button>\r\n    </form>\r\n  </div>\r\n\r\n</ng-container>"
+module.exports = "<div class=\"header-section\">\r\n  <a routerLink=\"/Users/People/{{peopleId}}\"><span class=\"header-title\">{{people}}</span></a>\r\n</div>\r\n\r\n<ng-template #loading>\r\n  <app-loading></app-loading>\r\n</ng-template>\r\n\r\n\r\n<ng-container *ngIf=\"!isLoading;else loading\">\r\n\r\n  <div #boxchat id=\"box-chat\" [infiniteScrollContainer]=\"boxchat\" class=\"box-chat\" infiniteScroll [scrollWindow]=\"false\" [infiniteScrollDistance]=\"0\"\r\n    [infiniteScrollUpDistance]=\"0\" [infiniteScrollThrottle]=\"100\" \r\n    (scrolledUp)=\"onScrollUp()\">\r\n    <!-- <ng-template #loadingmess> Loading...</ng-template> -->\r\n    <!-- <button *ngIf=\"!isLoadingMess;else loadingmess\" (click)=\"seeMore()\">more</button> -->\r\n   \r\n    <div class=\"loading\" *ngIf=\"isLoadingMess\"><img src=\"./../../../../../assets/imgs/spinner.gif\"></div>\r\n    <ng-container *ngFor=\"let message of messages; index as index \">\r\n      <div class=\"message-item\" [ngClass]=\"{'user':message.isYou}\">\r\n        <span [placement]=\"message.isYou?'left':'right'\" [ngbTooltip]=\"message.createDate\">{{message.content}}</span>\r\n        <ng-template #tick><i class=\"fas fa-check tick\"></i></ng-template>\r\n        <div class=\"sent\" *ngIf=\"index==(messages.length-1) && message.isYou\"><img *ngIf=\"isSent;else tick\"\r\n            src=\"./../../../../../assets/imgs/spinner.gif\"></div>\r\n      </div>\r\n\r\n    </ng-container>\r\n\r\n  </div>\r\n  <div class=\"chatControl\">\r\n    <form (submit)=\"sendMessage()\" #formchat=\"ngForm\" autocomplete=\"off\">\r\n      <!-- <input ngModel [(ngModel)]=\"textchat\" name=\"textchat\" type=\"text\" required placeholder=\"Input Message ...\"> -->\r\n      <textarea #area autofocus ngModel [(ngModel)]=\"textarea\" name=\"textarea\" (keydown.enter)=\"$event.preventDefault()\"\r\n        (keyup)=onkeyup($event) placeholder=\"Input Message ...\" required></textarea>\r\n      <button [disabled]=\"formchat.invalid\" type=\"submit\"><i class=\"fas fa-paper-plane\"></i></button>\r\n    </form>\r\n  </div>\r\n\r\n</ng-container>"
 
 /***/ }),
 
@@ -1729,22 +1729,39 @@ var MessageComponent = /** @class */ (function () {
         })
             .build();
         this.connect();
+        this.hubConnection.state;
         this.hubConnection.on('sendChatMessage', function (from, message) {
             console.log(from + ":" + message);
             _this.receiveMessage = { from: from, message: message };
             _this.boxChatComponent.loadMessage(_this.receiveMessage);
         });
+        this.hubConnection.onclose(function () {
+            _this.connect();
+        });
     };
     MessageComponent.prototype.connect = function () {
-        var _this = this;
-        this.hubConnection
-            .start()
-            .then(function () {
-            console.log('Connection Started!');
-        })
-            .catch(function (err) {
-            console.log(err);
-            _this.connect();
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                this.hubConnection
+                    .start()
+                    .then(function () {
+                    console.log('Connection Started!');
+                })
+                    .catch(function (err) {
+                    console.log(err);
+                    _this.sleep(5000);
+                    _this.connect();
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    MessageComponent.prototype.sleep = function (msec) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve) { return setTimeout(resolve, msec); })];
+            });
         });
     };
     MessageComponent.prototype.sendMessage = function (event) {
