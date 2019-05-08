@@ -1531,7 +1531,7 @@ var BoxChatComponent = /** @class */ (function () {
             //   formatDate(this.message.createDate,'dd MM yyyy HH:mm z','en-US','UTC+14')
             _this.isLoading = false;
             setTimeout(function () {
-                _this.boxchat.nativeElement.scrollTop = _this.boxchat.nativeElement.scrollHeight;
+                // this.boxchat.nativeElement.scrollTop = this.boxchat.nativeElement.scrollHeight;
                 // console.log(this.boxchat.nativeElement.scrollHeight)
             }, 0);
         });
@@ -1712,7 +1712,7 @@ var MessageComponent = /** @class */ (function () {
     };
     MessageComponent.prototype.ngOnInit = function () {
         window.document.getElementById("main-container").style.cssText = "height:100vh;padding-bottom:10px;";
-        // window.document.getElementById("main-footer").style.cssText = "display:none";
+        window.document.getElementById("main-footer").style.cssText = "display:none";
         this.setup();
         this.user = this.activatedRoute.snapshot.data.user;
         this.listUserChats = this.activatedRoute.snapshot.data.listUserChats;
