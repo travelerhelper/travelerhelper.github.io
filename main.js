@@ -296,10 +296,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_user_reuse_item_activity_item_activity_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./components/user/reuse/item-activity/item-activity.component */ "./src/app/components/user/reuse/item-activity/item-activity.component.ts");
 /* harmony import */ var _components_admin_dashboard_admin_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./components/admin/dashboard-admin/dashboard-admin.component */ "./src/app/components/admin/dashboard-admin/dashboard-admin.component.ts");
 /* harmony import */ var _components_user_reuse_item_notification_item_notification_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./components/user/reuse/item-notification/item-notification.component */ "./src/app/components/user/reuse/item-notification/item-notification.component.ts");
-/* harmony import */ var _components_user_message_box_chat_box_chat_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./components/user/message/box-chat/box-chat.component */ "./src/app/components/user/message/box-chat/box-chat.component.ts");
-/* harmony import */ var time_ago_pipe__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! time-ago-pipe */ "./node_modules/time-ago-pipe/esm5/time-ago-pipe.js");
-/* harmony import */ var _pipes_format_date_pipe__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./pipes/format-date.pipe */ "./src/app/pipes/format-date.pipe.ts");
-/* harmony import */ var ngx_infinite_scroll__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ngx-infinite-scroll */ "./node_modules/ngx-infinite-scroll/modules/ngx-infinite-scroll.es5.js");
+/* harmony import */ var _components_admin_dashboard_admin_statistic_statistic_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./components/admin/dashboard-admin/statistic/statistic.component */ "./src/app/components/admin/dashboard-admin/statistic/statistic.component.ts");
+/* harmony import */ var _components_admin_dashboard_admin_table_report_table_report_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./components/admin/dashboard-admin/table-report/table-report.component */ "./src/app/components/admin/dashboard-admin/table-report/table-report.component.ts");
+/* harmony import */ var _components_admin_dashboard_admin_table_banned_table_banned_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./components/admin/dashboard-admin/table-banned/table-banned.component */ "./src/app/components/admin/dashboard-admin/table-banned/table-banned.component.ts");
+/* harmony import */ var _components_user_message_box_chat_box_chat_component__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./components/user/message/box-chat/box-chat.component */ "./src/app/components/user/message/box-chat/box-chat.component.ts");
+/* harmony import */ var time_ago_pipe__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! time-ago-pipe */ "./node_modules/time-ago-pipe/esm5/time-ago-pipe.js");
+/* harmony import */ var _pipes_format_date_pipe__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./pipes/format-date.pipe */ "./src/app/pipes/format-date.pipe.ts");
+/* harmony import */ var ngx_infinite_scroll__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ngx-infinite-scroll */ "./node_modules/ngx-infinite-scroll/modules/ngx-infinite-scroll.es5.js");
+
+
+
 
 
 
@@ -409,9 +415,12 @@ var AppModule = /** @class */ (function () {
                 _components_user_reuse_item_activity_item_activity_component__WEBPACK_IMPORTED_MODULE_53__["ItemActivityComponent"],
                 _components_admin_dashboard_admin_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_54__["DashboardAdminComponent"],
                 _components_user_reuse_item_notification_item_notification_component__WEBPACK_IMPORTED_MODULE_55__["ItemNotificationComponent"],
-                _components_user_message_box_chat_box_chat_component__WEBPACK_IMPORTED_MODULE_56__["BoxChatComponent"],
-                time_ago_pipe__WEBPACK_IMPORTED_MODULE_57__["TimeAgoPipe"],
-                _pipes_format_date_pipe__WEBPACK_IMPORTED_MODULE_58__["FormatDate"]
+                _components_admin_dashboard_admin_statistic_statistic_component__WEBPACK_IMPORTED_MODULE_56__["StatisticComponent"],
+                _components_admin_dashboard_admin_table_report_table_report_component__WEBPACK_IMPORTED_MODULE_57__["TableReportComponent"],
+                _components_admin_dashboard_admin_table_banned_table_banned_component__WEBPACK_IMPORTED_MODULE_58__["TableBannedComponent"],
+                _components_user_message_box_chat_box_chat_component__WEBPACK_IMPORTED_MODULE_59__["BoxChatComponent"],
+                time_ago_pipe__WEBPACK_IMPORTED_MODULE_60__["TimeAgoPipe"],
+                _pipes_format_date_pipe__WEBPACK_IMPORTED_MODULE_61__["FormatDate"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -431,7 +440,7 @@ var AppModule = /** @class */ (function () {
                     color: '#ED6504',
                     spinner: false,
                 }),
-                ngx_infinite_scroll__WEBPACK_IMPORTED_MODULE_59__["InfiniteScrollModule"]
+                ngx_infinite_scroll__WEBPACK_IMPORTED_MODULE_62__["InfiniteScrollModule"]
             ],
             providers: [_services_userauth_service__WEBPACK_IMPORTED_MODULE_17__["UserauthService"],
                 Location, { provide: _angular_common__WEBPACK_IMPORTED_MODULE_47__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_47__["HashLocationStrategy"] },
@@ -559,7 +568,7 @@ var AuthInterceptor = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".content{\r\n  height: 100%;\r\n  width: 100%;\r\n  margin: 0px;\r\n  padding: 0px;\r\n}\r\n\r\n.container {\r\n  padding-left: 0px;\r\n  padding-right: 0px;\r\n  padding-top: 60px !important;\r\n  margin: 0px ;\r\n  max-width: 100% !important;\r\n}\r\n\r\n.menu{\r\n  height:100%;\r\n  padding: 0px;\r\n  color: #AAA;\r\n  position: fixed;\r\n  max-width: 25%;\r\n  width: 100%;\r\n}\r\n\r\n.menu li{\r\n  display: block;\r\n  width: 100%;\r\n  border-bottom: 1px solid rgb(102, 102, 102) !important\r\n}\r\n\r\n.menu li:last-child{\r\n  border-bottom: none !important;\r\n}\r\n\r\n.menu li:hover a{\r\n  color: white;\r\n  background: #2a2d31;\r\n}\r\n\r\n.menu a{\r\n  color: #AAA;\r\n  padding-left: 10%;\r\n}\r\n\r\n.menu i{\r\n  margin-right: 15px;\r\n}\r\n\r\n.left {\r\n  padding: 0px;\r\n}\r\n\r\n.headerContent{\r\n  background: #343a40 ;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hZG1pbi9hZG1pbi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7RUFDWCxXQUFXO0VBQ1gsWUFBWTtBQUNkOztBQUVBO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQiw0QkFBNEI7RUFDNUIsWUFBWTtFQUNaLDBCQUEwQjtBQUM1Qjs7QUFFQTtFQUNFLFdBQVc7RUFDWCxZQUFZO0VBQ1osV0FBVztFQUNYLGVBQWU7RUFDZixjQUFjO0VBQ2QsV0FBVztBQUNiOztBQUVBO0VBQ0UsY0FBYztFQUNkLFdBQVc7RUFDWDtBQUNGOztBQUVBO0VBQ0UsOEJBQThCO0FBQ2hDOztBQUVBO0VBQ0UsWUFBWTtFQUNaLG1CQUFtQjtBQUNyQjs7QUFFQTtFQUNFLFdBQVc7RUFDWCxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxvQkFBb0I7QUFDdEIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2FkbWluL2FkbWluLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGVudHtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgbWFyZ2luOiAwcHg7XHJcbiAgcGFkZGluZzogMHB4O1xyXG59XHJcblxyXG4uY29udGFpbmVyIHtcclxuICBwYWRkaW5nLWxlZnQ6IDBweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAwcHg7XHJcbiAgcGFkZGluZy10b3A6IDYwcHggIWltcG9ydGFudDtcclxuICBtYXJnaW46IDBweCA7XHJcbiAgbWF4LXdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5tZW51e1xyXG4gIGhlaWdodDoxMDAlO1xyXG4gIHBhZGRpbmc6IDBweDtcclxuICBjb2xvcjogI0FBQTtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgbWF4LXdpZHRoOiAyNSU7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5tZW51IGxpe1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCByZ2IoMTAyLCAxMDIsIDEwMikgIWltcG9ydGFudFxyXG59XHJcblxyXG4ubWVudSBsaTpsYXN0LWNoaWxke1xyXG4gIGJvcmRlci1ib3R0b206IG5vbmUgIWltcG9ydGFudDtcclxufVxyXG5cclxuLm1lbnUgbGk6aG92ZXIgYXtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgYmFja2dyb3VuZDogIzJhMmQzMTtcclxufVxyXG5cclxuLm1lbnUgYXtcclxuICBjb2xvcjogI0FBQTtcclxuICBwYWRkaW5nLWxlZnQ6IDEwJTtcclxufVxyXG5cclxuLm1lbnUgaXtcclxuICBtYXJnaW4tcmlnaHQ6IDE1cHg7XHJcbn1cclxuXHJcbi5sZWZ0IHtcclxuICBwYWRkaW5nOiAwcHg7XHJcbn1cclxuXHJcbi5oZWFkZXJDb250ZW50e1xyXG4gIGJhY2tncm91bmQ6ICMzNDNhNDAgO1xyXG59XHJcbiJdfQ== */"
+module.exports = ".content{\r\n  height: 100%;\r\n  width: 100%;\r\n  margin: 0px;\r\n  padding: 0px;\r\n}\r\n\r\n.container {\r\n  padding-left: 0px;\r\n  padding-right: 0px;\r\n  padding-top: 60px !important;\r\n  margin: 0px ;\r\n  max-width: 100% !important;\r\n}\r\n\r\n.menu{\r\n  height:100%;\r\n  padding: 0px;\r\n  color: #AAA;\r\n  position: fixed;\r\n  max-width: 25%;\r\n  width: 100%;\r\n}\r\n\r\n.menu li{\r\n  display: block;\r\n  width: 100%;\r\n  border-bottom: 1px solid rgb(102, 102, 102) !important\r\n}\r\n\r\n.menu li:last-child{\r\n  border-bottom: none !important;\r\n}\r\n\r\n.menu li:hover a{\r\n  color: white;\r\n  background: #2a2d31;\r\n}\r\n\r\n.menu a{\r\n  color: #AAA;\r\n  padding-left: 10%;\r\n}\r\n\r\n.menu i{\r\n  margin-right: 15px;\r\n}\r\n\r\n.left {\r\n  padding: 0px;\r\n}\r\n\r\n.headerContent{\r\n  --background: #343a40 ;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hZG1pbi9hZG1pbi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7RUFDWCxXQUFXO0VBQ1gsWUFBWTtBQUNkOztBQUVBO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQiw0QkFBNEI7RUFDNUIsWUFBWTtFQUNaLDBCQUEwQjtBQUM1Qjs7QUFFQTtFQUNFLFdBQVc7RUFDWCxZQUFZO0VBQ1osV0FBVztFQUNYLGVBQWU7RUFDZixjQUFjO0VBQ2QsV0FBVztBQUNiOztBQUVBO0VBQ0UsY0FBYztFQUNkLFdBQVc7RUFDWDtBQUNGOztBQUVBO0VBQ0UsOEJBQThCO0FBQ2hDOztBQUVBO0VBQ0UsWUFBWTtFQUNaLG1CQUFtQjtBQUNyQjs7QUFFQTtFQUNFLFdBQVc7RUFDWCxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxzQkFBc0I7QUFDeEIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2FkbWluL2FkbWluLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGVudHtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgbWFyZ2luOiAwcHg7XHJcbiAgcGFkZGluZzogMHB4O1xyXG59XHJcblxyXG4uY29udGFpbmVyIHtcclxuICBwYWRkaW5nLWxlZnQ6IDBweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAwcHg7XHJcbiAgcGFkZGluZy10b3A6IDYwcHggIWltcG9ydGFudDtcclxuICBtYXJnaW46IDBweCA7XHJcbiAgbWF4LXdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5tZW51e1xyXG4gIGhlaWdodDoxMDAlO1xyXG4gIHBhZGRpbmc6IDBweDtcclxuICBjb2xvcjogI0FBQTtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgbWF4LXdpZHRoOiAyNSU7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5tZW51IGxpe1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCByZ2IoMTAyLCAxMDIsIDEwMikgIWltcG9ydGFudFxyXG59XHJcblxyXG4ubWVudSBsaTpsYXN0LWNoaWxke1xyXG4gIGJvcmRlci1ib3R0b206IG5vbmUgIWltcG9ydGFudDtcclxufVxyXG5cclxuLm1lbnUgbGk6aG92ZXIgYXtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgYmFja2dyb3VuZDogIzJhMmQzMTtcclxufVxyXG5cclxuLm1lbnUgYXtcclxuICBjb2xvcjogI0FBQTtcclxuICBwYWRkaW5nLWxlZnQ6IDEwJTtcclxufVxyXG5cclxuLm1lbnUgaXtcclxuICBtYXJnaW4tcmlnaHQ6IDE1cHg7XHJcbn1cclxuXHJcbi5sZWZ0IHtcclxuICBwYWRkaW5nOiAwcHg7XHJcbn1cclxuXHJcbi5oZWFkZXJDb250ZW50e1xyXG4gIC0tYmFja2dyb3VuZDogIzM0M2E0MCA7XHJcbn1cclxuIl19 */"
 
 /***/ }),
 
@@ -570,7 +579,7 @@ module.exports = ".content{\r\n  height: 100%;\r\n  width: 100%;\r\n  margin: 0p
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n\r\n  <div class=\"header shadow-sm bg-white  \">\r\n      <div class=\"row box \" style=\"  margin: 0px !important;\">\r\n        <div class=\"col-sm-3\"></div>\r\n          <div class=\"col-sm headerContent\" style=\"padding: 0px;\">\r\n\r\n            <app-header [admin]=\"true\"></app-header>\r\n\r\n          </div>\r\n        </div>\r\n  </div>\r\n  <div class=\"container\">\r\n      <div class=\"row content\">\r\n          <div class=\"col-sm-3 left\">\r\n            <nav class=\"navbar menu navbar-expand-lg navbar-dark bg-dark flex-column\">\r\n              <div style=\"padding: 20px 0px 20px 0px\">\r\n                <img class=\"photo img-responsive\"\r\n                [src]=\"'/assets/imgs/profile-picture-placeholder.png'\">\r\n\r\n              </div>\r\n\r\n              <li class=\"nav-item\">\r\n                <a class=\"nav-link active\" href=\"#\"> <span><i class=\"fas fa-chalkboard\"></i></span>  Dashboard</a>\r\n              </li>\r\n              <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\"> <span> <i class=\"fas fa-users\"></i></span> Users</a>\r\n              </li>\r\n              <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\"> <span> <i class=\"fas fa-book-open\"></i></span> Report</a>\r\n              </li>\r\n              <li class=\"nav-item \">\r\n                <a class=\"nav-link \" href=\"#\"  ><span> <i class=\"fas fa-user-slash\"></i> </span>Banned</a>\r\n              </li>\r\n\r\n            </nav>\r\n          </div>\r\n\r\n          <div class=\"col-sm-9 right\">\r\n\r\n            <div class=\"\">\r\n              <router-outlet></router-outlet>\r\n            </div>\r\n          </div>\r\n        </div>\r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n"
+module.exports = "\r\n\r\n\r\n  <div class=\"header shadow-sm bg-white  \">\r\n      <div class=\"row box \" style=\"  margin: 0px !important;\">\r\n\r\n        <div class=\"col-sm headerContent\" style=\"padding: 0px;\">\r\n\r\n          <app-header ></app-header>\r\n\r\n        </div>\r\n      </div>\r\n  </div>\r\n  <div class=\"container\">\r\n      <div class=\"row content\">\r\n          <div class=\"col-sm-3 left\">\r\n            <nav class=\"navbar menu navbar-expand-lg navbar-dark bg-dark flex-column\">\r\n              <div style=\"padding: 20px 0px 20px 0px\">\r\n                <img class=\"photo img-responsive\"\r\n                [src]=\"'/assets/imgs/profile-picture-placeholder.png'\">\r\n\r\n              </div>\r\n\r\n              <li class=\"nav-item\">\r\n                <a class=\"nav-link active\" href=\"#\"> <span><i class=\"fas fa-chalkboard\"></i></span>  Dashboard</a>\r\n              </li>\r\n              <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\"> <span> <i class=\"fas fa-users\"></i></span> Users</a>\r\n              </li>\r\n              <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\"> <span> <i class=\"fas fa-book-open\"></i></span> Report</a>\r\n              </li>\r\n              <li class=\"nav-item \">\r\n                <a class=\"nav-link \" href=\"#\"  ><span> <i class=\"fas fa-user-slash\"></i> </span>Banned</a>\r\n              </li>\r\n\r\n            </nav>\r\n          </div>\r\n\r\n          <div class=\"col-sm-9 right\">\r\n\r\n            <div class=\"\">\r\n              <router-outlet></router-outlet>\r\n            </div>\r\n          </div>\r\n        </div>\r\n  </div>\r\n\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -615,7 +624,7 @@ var AdminComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\r\n  padding-top: 20px !important;\r\n}\r\n\r\n\r\n.wrapicon {\r\n  margin: auto;\r\n  font-size: 40px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hZG1pbi9kYXNoYm9hcmQtYWRtaW4vZGFzaGJvYXJkLWFkbWluLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSw0QkFBNEI7QUFDOUI7OztBQUdBO0VBQ0UsWUFBWTtFQUNaLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2FkbWluL2Rhc2hib2FyZC1hZG1pbi9kYXNoYm9hcmQtYWRtaW4uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb250YWluZXIge1xyXG4gIHBhZGRpbmctdG9wOiAyMHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcblxyXG4ud3JhcGljb24ge1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBmb250LXNpemU6IDQwcHg7XHJcbn1cclxuIl19 */"
+module.exports = ".container {\r\n  padding-top: 20px !important;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hZG1pbi9kYXNoYm9hcmQtYWRtaW4vZGFzaGJvYXJkLWFkbWluLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSw0QkFBNEI7QUFDOUIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2FkbWluL2Rhc2hib2FyZC1hZG1pbi9kYXNoYm9hcmQtYWRtaW4uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb250YWluZXIge1xyXG4gIHBhZGRpbmctdG9wOiAyMHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuIl19 */"
 
 /***/ }),
 
@@ -626,7 +635,7 @@ module.exports = ".container {\r\n  padding-top: 20px !important;\r\n}\r\n\r\n\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <div class=\"row justify-content-center\">\r\n    <div class=\"col-sm-3 box\" style=\"font-size: 25px;  background: #007bff; color: white\">\r\n      <div class=\"d-flex align-items-center\">\r\n        <div class=\"wrapicon\">\r\n            <i class=\"fas fa-users\"></i>\r\n        </div>\r\n        <div class=\"m-auto\" style=\"padding: 20px;\">\r\n          <div >123456</div>\r\n          <div >Users</div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-sm-1\"></div>\r\n\r\n    <div class=\"col-sm-3 box\" style=\"font-size: 25px; background: #ffc107; color: white\">\r\n      <div class=\"d-flex align-items-center\">\r\n        <div class=\"wrapicon\">\r\n            <i class=\"fas fa-sticky-note\"></i>\r\n        </div>\r\n        <div class=\"m-auto\" style=\"padding: 20px;\">\r\n          <div>5555</div>\r\n          <div>Reports</div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-sm-1\"></div>\r\n\r\n    <div class=\"col-sm-3 box\" style=\"font-size: 25px; background: #dc3545; color: white\">\r\n      <div class=\"d-flex align-items-center\">\r\n        <div class=\"wrapicon\">\r\n          <i class=\"fas fa-user-slash\"></i>\r\n        </div>\r\n        <div class=\"m-auto\" style=\"padding: 20px;\">\r\n          <div>1243</div>\r\n          <div>Banned</div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n\r\n\r\n  <!-- part 2 -->\r\n\r\n\r\n\r\n  <div class=\"card box\" style=\"margin-top: 20px;\">\r\n    <div class=\"card-header bg-warning\" style=\"color: white\">\r\n        <i class=\"fas fa-list\"></i> List reports\r\n    </div>\r\n    <div class=\"card-body\">\r\n      <table class=\"table table-bordered\">\r\n        <thead>\r\n          <tr>\r\n            <th scope=\"col\">STT</th>\r\n            <th scope=\"col\">User report</th>\r\n            <th scope=\"col\">User is reported</th>\r\n            <th scope=\"col\">Content</th>\r\n            <th scope=\"col\">Action</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr>\r\n            <th scope=\"row\">1</th>\r\n            <td>2</td>\r\n            <td>3</td>\r\n            <td>4</td>\r\n            <td>\r\n                <button class=\"btn btn-primary\">View</button>\r\n              </td>\r\n          </tr>\r\n          <tr>\r\n            <th scope=\"row\">2</th>\r\n            <td>Jacob</td>\r\n            <td>Thornton</td>\r\n            <td>@fat</td>\r\n            <td>\r\n                <button class=\"btn btn-primary\">View</button>\r\n              </td>\r\n          </tr>\r\n          <tr>\r\n            <th scope=\"row\">3</th>\r\n            <td>Larry</td>\r\n            <td>the Bird</td>\r\n            <td>@twitter</td>\r\n            <td>\r\n                <button class=\"btn btn-primary\">View</button>\r\n              </td>\r\n          </tr>\r\n          <tr>\r\n            <th scope=\"row\">...</th>\r\n            <td>...</td>\r\n            <td>...</td>\r\n            <td>...</td>\r\n            <td>...</td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <a href=\"#\" class=\"btn btn-warning\" style=\"color: white\">See more</a>\r\n    </div>\r\n  </div>\r\n\r\n\r\n<!-- part 3 -->\r\n\r\n<div class=\"card box\" style=\"margin-top: 20px;\">\r\n  <div class=\"card-header bg-danger\" style=\"color: white\">\r\n    <i class=\"fas fa-list\"></i> List user is banned\r\n  </div>\r\n  <div class=\"card-body\">\r\n    <table class=\"table table-bordered\">\r\n      <thead>\r\n        <tr>\r\n          <th scope=\"col\">STT</th>\r\n          <th scope=\"col\">User is banned</th>\r\n          <th scope=\"col\">Action</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr>\r\n          <th scope=\"row\">1</th>\r\n          <td>2</td>\r\n          <td>\r\n            <button class=\"btn btn-primary\">Active</button>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <th scope=\"row\">2</th>\r\n          <td>Jacob</td>\r\n          <td>\r\n            <button class=\"btn btn-primary\">Active</button>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <th scope=\"row\">3</th>\r\n          <td>Larry</td>\r\n          <td>\r\n            <button class=\"btn btn-primary\">Active</button>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n          <th scope=\"row\">...</th>\r\n          <td>...</td>\r\n          <td>...</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n    <a href=\"#\" class=\"btn btn-danger\">See more</a>\r\n  </div>\r\n</div>\r\n\r\n\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row justify-content-center\">\r\n    <div class=\"col-sm-3 box\" style=\"font-size: 25px;  background: #007bff; color: white\">\r\n      <app-statistic [type]=\"'users'\"></app-statistic>\r\n    </div>\r\n\r\n\r\n    <div class=\"col-sm-1\"></div>\r\n\r\n    <div class=\"col-sm-3 box\" style=\"font-size: 25px; background: #ffc107; color: white\">\r\n        <app-statistic [type]=\"'reports'\"></app-statistic>\r\n    </div>\r\n\r\n    <div class=\"col-sm-1\"></div>\r\n\r\n    <div class=\"col-sm-3 box\" style=\"font-size: 25px; background: #dc3545; color: white\">\r\n        <app-statistic [type]=\"'banned'\"></app-statistic>\r\n    </div>\r\n\r\n  </div>\r\n\r\n\r\n  <!-- part 2 -->\r\n\r\n  <app-table-report></app-table-report>\r\n\r\n\r\n<!-- part 3 -->\r\n\r\n  <app-table-banned></app-table-banned>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -658,6 +667,178 @@ var DashboardAdminComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], DashboardAdminComponent);
     return DashboardAdminComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/admin/dashboard-admin/statistic/statistic.component.css":
+/*!************************************************************************************!*\
+  !*** ./src/app/components/admin/dashboard-admin/statistic/statistic.component.css ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".wrapicon {\r\n  margin: auto;\r\n  font-size: 40px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hZG1pbi9kYXNoYm9hcmQtYWRtaW4vc3RhdGlzdGljL3N0YXRpc3RpYy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtFQUNaLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2FkbWluL2Rhc2hib2FyZC1hZG1pbi9zdGF0aXN0aWMvc3RhdGlzdGljLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIud3JhcGljb24ge1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBmb250LXNpemU6IDQwcHg7XHJcbn1cclxuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/components/admin/dashboard-admin/statistic/statistic.component.html":
+/*!*************************************************************************************!*\
+  !*** ./src/app/components/admin/dashboard-admin/statistic/statistic.component.html ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\r\n  <div class=\"d-flex align-items-center\">\r\n    <div class=\"wrapicon\">\r\n      <ng-container *ngIf=\"type === 'users';else notUsers\">\r\n        <i class=\"fas fa-users\"></i>\r\n      </ng-container>\r\n      <ng-template #notUsers>\r\n        <ng-container *ngIf=\"type === 'reports'else notReports\">\r\n          <i class=\"fas fa-sticky-note\"></i>\r\n        </ng-container>\r\n\r\n        <ng-template #notReports>\r\n          <i class=\"fas fa-user-slash\"></i>\r\n        </ng-template>\r\n      </ng-template>\r\n    </div>\r\n    <div class=\"m-auto\" style=\"padding: 20px;\">\r\n      <div >123456</div>\r\n      <div >Users</div>\r\n    </div>\r\n  </div>\r\n\r\n"
+
+/***/ }),
+
+/***/ "./src/app/components/admin/dashboard-admin/statistic/statistic.component.ts":
+/*!***********************************************************************************!*\
+  !*** ./src/app/components/admin/dashboard-admin/statistic/statistic.component.ts ***!
+  \***********************************************************************************/
+/*! exports provided: StatisticComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StatisticComponent", function() { return StatisticComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var StatisticComponent = /** @class */ (function () {
+    function StatisticComponent() {
+    }
+    StatisticComponent.prototype.ngOnInit = function () {
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+    ], StatisticComponent.prototype, "type", void 0);
+    StatisticComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-statistic',
+            template: __webpack_require__(/*! ./statistic.component.html */ "./src/app/components/admin/dashboard-admin/statistic/statistic.component.html"),
+            styles: [__webpack_require__(/*! ./statistic.component.css */ "./src/app/components/admin/dashboard-admin/statistic/statistic.component.css"), __webpack_require__(/*! ./../../../../app.component.css */ "./src/app/app.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], StatisticComponent);
+    return StatisticComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/admin/dashboard-admin/table-banned/table-banned.component.css":
+/*!******************************************************************************************!*\
+  !*** ./src/app/components/admin/dashboard-admin/table-banned/table-banned.component.css ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvYWRtaW4vZGFzaGJvYXJkLWFkbWluL3RhYmxlLWJhbm5lZC90YWJsZS1iYW5uZWQuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/components/admin/dashboard-admin/table-banned/table-banned.component.html":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/components/admin/dashboard-admin/table-banned/table-banned.component.html ***!
+  \*******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card box\" style=\"margin-top: 20px;\">\r\n    <div class=\"card-header bg-danger\" style=\"color: white\">\r\n      <i class=\"fas fa-list\"></i> List user is banned\r\n    </div>\r\n    <div class=\"card-body\">\r\n      <table class=\"table table-bordered\">\r\n        <thead>\r\n          <tr>\r\n            <th scope=\"col\">STT</th>\r\n            <th scope=\"col\">User is banned</th>\r\n            <th scope=\"col\">Action</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr>\r\n            <th scope=\"row\">1</th>\r\n            <td>2</td>\r\n            <td>\r\n              <button class=\"btn btn-primary\">Active</button>\r\n            </td>\r\n          </tr>\r\n          <tr>\r\n            <th scope=\"row\">2</th>\r\n            <td>Jacob</td>\r\n            <td>\r\n              <button class=\"btn btn-primary\">Active</button>\r\n            </td>\r\n          </tr>\r\n          <tr>\r\n            <th scope=\"row\">3</th>\r\n            <td>Larry</td>\r\n            <td>\r\n              <button class=\"btn btn-primary\">Active</button>\r\n            </td>\r\n          </tr>\r\n          <tr>\r\n            <th scope=\"row\">...</th>\r\n            <td>...</td>\r\n            <td>...</td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <a href=\"#\" class=\"btn btn-danger\">See more</a>\r\n    </div>\r\n  </div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/components/admin/dashboard-admin/table-banned/table-banned.component.ts":
+/*!*****************************************************************************************!*\
+  !*** ./src/app/components/admin/dashboard-admin/table-banned/table-banned.component.ts ***!
+  \*****************************************************************************************/
+/*! exports provided: TableBannedComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TableBannedComponent", function() { return TableBannedComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var TableBannedComponent = /** @class */ (function () {
+    function TableBannedComponent() {
+    }
+    TableBannedComponent.prototype.ngOnInit = function () {
+    };
+    TableBannedComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-table-banned',
+            template: __webpack_require__(/*! ./table-banned.component.html */ "./src/app/components/admin/dashboard-admin/table-banned/table-banned.component.html"),
+            styles: [__webpack_require__(/*! ./table-banned.component.css */ "./src/app/components/admin/dashboard-admin/table-banned/table-banned.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], TableBannedComponent);
+    return TableBannedComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/admin/dashboard-admin/table-report/table-report.component.css":
+/*!******************************************************************************************!*\
+  !*** ./src/app/components/admin/dashboard-admin/table-report/table-report.component.css ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvYWRtaW4vZGFzaGJvYXJkLWFkbWluL3RhYmxlLXJlcG9ydC90YWJsZS1yZXBvcnQuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/components/admin/dashboard-admin/table-report/table-report.component.html":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/components/admin/dashboard-admin/table-report/table-report.component.html ***!
+  \*******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card box\" style=\"margin-top: 20px;\">\r\n    <div class=\"card-header bg-warning\" style=\"color: white\">\r\n        <i class=\"fas fa-list\"></i> List reports\r\n    </div>\r\n    <div class=\"card-body\">\r\n      <table class=\"table table-bordered\">\r\n        <thead>\r\n          <tr>\r\n            <th scope=\"col\">STT</th>\r\n            <th scope=\"col\">User report</th>\r\n            <th scope=\"col\">User is reported</th>\r\n            <th scope=\"col\">Content</th>\r\n            <th scope=\"col\">Action</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr>\r\n            <th scope=\"row\">1</th>\r\n            <td>2</td>\r\n            <td>3</td>\r\n            <td>4</td>\r\n            <td>\r\n                <button class=\"btn btn-primary\">View</button>\r\n              </td>\r\n          </tr>\r\n          <tr>\r\n            <th scope=\"row\">2</th>\r\n            <td>Jacob</td>\r\n            <td>Thornton</td>\r\n            <td>@fat</td>\r\n            <td>\r\n                <button class=\"btn btn-primary\">View</button>\r\n              </td>\r\n          </tr>\r\n          <tr>\r\n            <th scope=\"row\">3</th>\r\n            <td>Larry</td>\r\n            <td>the Bird</td>\r\n            <td>@twitter</td>\r\n            <td>\r\n                <button class=\"btn btn-primary\">View</button>\r\n              </td>\r\n          </tr>\r\n          <tr>\r\n            <th scope=\"row\">...</th>\r\n            <td>...</td>\r\n            <td>...</td>\r\n            <td>...</td>\r\n            <td>...</td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <a href=\"#\" class=\"btn btn-warning\" style=\"color: white\">See more</a>\r\n    </div>\r\n  </div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/components/admin/dashboard-admin/table-report/table-report.component.ts":
+/*!*****************************************************************************************!*\
+  !*** ./src/app/components/admin/dashboard-admin/table-report/table-report.component.ts ***!
+  \*****************************************************************************************/
+/*! exports provided: TableReportComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TableReportComponent", function() { return TableReportComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var TableReportComponent = /** @class */ (function () {
+    function TableReportComponent() {
+    }
+    TableReportComponent.prototype.ngOnInit = function () {
+    };
+    TableReportComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-table-report',
+            template: __webpack_require__(/*! ./table-report.component.html */ "./src/app/components/admin/dashboard-admin/table-report/table-report.component.html"),
+            styles: [__webpack_require__(/*! ./table-report.component.css */ "./src/app/components/admin/dashboard-admin/table-report/table-report.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], TableReportComponent);
+    return TableReportComponent;
 }());
 
 
@@ -1730,34 +1911,6 @@ var MessageComponent = /** @class */ (function () {
         console.log(this.listUserChats);
         this.getIdcurrentPeople();
     };
-    // setup() {
-    //   this.hubConnection = new signalR.HubConnectionBuilder()
-    //     .withUrl('https://travelhelperwebsite.azurewebsites.net/chat', {
-    //       accessTokenFactory: () => {
-    //         return this.token;
-    //       },
-    //     } as signalR.IHttpConnectionOptions)
-    //     .build();
-    //   this.connect();
-    //   // this.hubConnection.onclose(() => {
-    //   //   this.connect();
-    //   // })
-    // }
-    // async connect() {
-    //   this.hubConnection
-    //     .start()
-    //     .then(() => {
-    //       console.log('Connection Started!')
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //       this.sleep(5000);
-    //       this.connect();
-    //     })
-    // }
-    // async sleep(msec) {
-    //   return new Promise(resolve => setTimeout(resolve, msec));
-    // }
     MessageComponent.prototype.sendMessage = function (event) {
         _models_global__WEBPACK_IMPORTED_MODULE_5__["hubConnection"]
             .invoke('sendChatMessage', event.peopleId, event.textchat)
@@ -1765,22 +1918,9 @@ var MessageComponent = /** @class */ (function () {
     };
     MessageComponent.prototype.receive = function () {
         var _this = this;
-        // on((from, message) => {
-        //   console.log(from + ":" + message)
-        //   this.receiveMessage = { from: from, message: message };
-        //   if (!this.destroyComponent)
-        //     this.boxChatComponent.loadMessage(this.receiveMessage)
-        // })
         _models_global__WEBPACK_IMPORTED_MODULE_5__["hubConnection"].on('sendChatMessage', function (from, fullName, avatar, message) {
             console.log(from + ":" + message);
             if (!_this.destroyComponent) {
-                // this.listUserChats.forEach(item => {
-                //   if (item.id == from) {
-                //     this.listUserChats = this.listUserChats.filter(item => { item.id != from })
-                //     this.listUserChats.unshift(item);
-                //     console.log(this.listUserChats)
-                //   }
-                // })
                 if (from == _this.user.id) {
                     var item = _this.listUserChatsAll.filter(function (item) { return item.id == _this.people.id; });
                     //console.log(item)
@@ -1796,7 +1936,8 @@ var MessageComponent = /** @class */ (function () {
                             _this.listUserChats.unshift(item[0]);
                             _this.count++;
                         }
-                        _this.listUserChats[0].createDate = new Date().toLocaleString("en-US", { timeZone: "Iceland" });
+                        _this.listUserChats[0].createDate = new Date();
+                        //.toLocaleString("en-US", { timeZone: "Iceland" });
                         _this.listUserChats[0].lastedMessage = message;
                     }
                     else {
@@ -1828,20 +1969,15 @@ var MessageComponent = /** @class */ (function () {
                             _this.listUserChats.unshift(item[0]);
                             _this.count++;
                         }
-                        _this.listUserChats[0].createDate = new Date().toLocaleString("en-US", { timeZone: "Iceland" });
+                        _this.listUserChats[0].createDate = new Date();
+                        //.toLocaleString("en-US", { timeZone: "Iceland" });
                         _this.listUserChats[0].lastedMessage = message;
                     }
                     else {
-                        // let xxx;
-                        // this.service.getPeopleProfile(from).subscribe(
-                        //   res => {
-                        //     xxx = res;
-                        //   }
-                        // )
                         var data = {
                             avatar: avatar,
                             fullName: fullName,
-                            createDate: new Date,
+                            createDate: new Date(),
                             lastedMessage: message,
                             id: from
                         };
@@ -1849,13 +1985,8 @@ var MessageComponent = /** @class */ (function () {
                         _this.listUserChatsAll.unshift(data);
                         _this.count++;
                     }
-                    // for (let i = 0; i < this.listUserChatsAll.length; i++) {
-                    //   if (this.listUserChatsAll[i].id == from) {
-                    //     this.listUserChatsAll.splice(0, 0, this.listUserChats.splice(i, 1)[0]);
-                    //     break;
-                    //   }
-                    // }
-                    _this.listUserChats[0].createDate = new Date().toLocaleString("en-US", { timeZone: "Iceland" });
+                    _this.listUserChats[0].createDate = new Date();
+                    //.toLocaleString("en-US", { timeZone: "Iceland" });
                     _this.listUserChats[0].lastedMessage = message;
                 }
                 _this.cdr.detectChanges();
