@@ -95,7 +95,7 @@ var routes = [
         ]
     },
     {
-        path: 'Users', component: _components_user_user_component__WEBPACK_IMPORTED_MODULE_4__["UserComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]],
+        path: 'Users', component: _components_user_user_component__WEBPACK_IMPORTED_MODULE_4__["UserComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]], resolve: { users: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["UserResolve"] },
         children: [
             { path: '', redirectTo: 'Dashboard', pathMatch: 'full' },
             { path: 'Dashboard', component: _components_user_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_5__["DashboardComponent"], resolve: { users: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["UserResolve"], placesres: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["PlacesDashboardResolve"] } },
@@ -141,7 +141,7 @@ var routes = [
             },
             {
                 path: 'Message', component: _components_user_message_message_component__WEBPACK_IMPORTED_MODULE_11__["MessageComponent"],
-                resolve: { user: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["UserResolve"], DefaultUserChatResolve: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["DefaultUserChatResolve"], listUserChats: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["ListUserChatResolve"], currentUserChat: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["CurrentUserChatResolve"] }
+                resolve: { user: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["UserResolve"], DefaultUserChatResolve: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["DefaultUserChatResolve"], listUserChats: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["ListUserChatResolve"], }
             },
             // { path: 'Message/:id', component: MessageComponent, resolve: { users: UserResolve }},
             { path: 'Activity', component: _components_user_activity_activity_component__WEBPACK_IMPORTED_MODULE_22__["ActivityComponent"], resolve: { users: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["UserResolve"] } },
@@ -421,7 +421,7 @@ var AppModule = /** @class */ (function () {
                 ngx_toastr__WEBPACK_IMPORTED_MODULE_7__["ToastrModule"].forRoot({
                     positionClass: 'toast-custom',
                     timeOut: 3000,
-                    progressBar: true
+                    progressBar: false,
                 }),
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"],
@@ -1343,7 +1343,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".header-wrapper{\r\n    max-width: 1280px;\r\n    margin: auto;\r\n    display: flex;\r\n    align-items: center;\r\n    height: 60px;\r\n}\r\na:hover{\r\n    cursor: pointer;\r\n}\r\n.menu-bar{\r\n    margin-left: auto;\r\n}\r\n.menu-bar ul{\r\n    -webkit-padding-start: 0px;\r\n            padding-inline-start: 0px;\r\n    margin: 0 auto;\r\n    list-style: none;\r\n}\r\n.menu-bar ul li{\r\n  display: inline-block;\r\n    text-align: center;\r\n\r\n}\r\n.menu-bar ul li a{\r\n    height: 60px;\r\n    color: wheat;\r\n    padding: 0px 13px;\r\n    display: block;\r\n\r\n}\r\n.menu-bar ul li a:hover{\r\n    color: #ED6504;\r\n    text-decoration: none;\r\n}\r\n.menu-bar ul li a i{\r\n    font-size: 25px;\r\n}\r\n.menu-bar ul li .active{\r\n    color: #ED6504;\r\n    border-bottom: solid 4px #ED6504;\r\n}\r\n.menu-bar .icon{\r\n    padding-top: 8px;\r\n\r\n    height: 30px;\r\n}\r\n.menu-bar span{\r\n    font-size: 13px;\r\n    font-weight: 500;\r\n}\r\n.menu-bar .name{\r\n    padding-top: 6px;\r\n    line-height: 1;\r\n\r\n}\r\n.logo{\r\n    padding-left: 10px;\r\n}\r\n.logo a{\r\n    display: inline-block;\r\n    color: #ED6504;\r\n}\r\n.logo i{\r\n    font-size: 50px;\r\n}\r\n.search-box{\r\n    padding-left: 30px;\r\n}\r\n.search-box .row,.col{\r\n    padding: 0px;\r\n    margin: 0px;\r\n}\r\n.search-box .search-form-1{\r\n    \r\n    text-align: center;\r\n    position: relative;\r\n   \r\n}\r\n.search-box .search-form .search-select{\r\n    display: inline-block !important;\r\n    width: 120px;\r\n    height: 40px;\r\n    border-radius: 0.25rem 0rem 0rem 0.25rem;\r\n    border-right: none;\r\n    border-color: #b7b4b4;\r\n    padding-left: 5px;\r\n    font-weight: 500;\r\n}\r\n.search-select option{\r\n font-weight: 500;\r\n}\r\n.search-box select:hover{\r\n    cursor: pointer;\r\n}\r\n.search-box .search-form-1 input{\r\n    height: 40px;\r\n    width: 300px;\r\n    display: inline-block;\r\n    border-radius:0rem 0.25rem 0.25rem 0rem;\r\n    border-color: #b7b4b4;\r\n    text-indent: 25px;\r\n}\r\n/* .search-box .search-form-1 input:hover{\r\n    cursor: pointer;\r\n} */\r\n.search-box .search-form-1 input:focus{\r\n    cursor: text;\r\n}\r\n.search-box .search-form input:focus {\r\n    outline: none;\r\n}\r\n.search-box .search-form-1  button {\r\n    width: 40px;\r\n    height: 40px;\r\n    position: absolute;\r\n    border-radius: 25px;\r\n    background: none;\r\n    border: none;\r\n    background: none;\r\n}\r\n.search-box .search-form  button:focus{\r\n    outline: none;\r\n}\r\n.search-box .search-form  i{\r\n    color: #ED6504;\r\n    font-size: 1.2em;\r\n}\r\n.button-responsive{\r\n    display: none;\r\n    align-items: center;\r\n    height: 60px;\r\n}\r\n.button-responsive button {\r\n    padding: 0px;\r\n    height: 40px;\r\n    /* width: 40px; */\r\n    background: none;\r\n    border: none;\r\n}\r\n.button-responsive i{\r\n    /* -webkit-text-stroke: 1px white; */\r\n    font-size: 35px;\r\n    color: wheat;\r\n}\r\n.button-responsive  button:focus{\r\n    outline: none;\r\n}\r\n.button-responsive  button:hover i{\r\n    color: #ED6504;\r\n    \r\n}\r\n.dropdown button:hover{\r\n    color: #ED6504;;\r\n}\r\n.dropdown-menu{\r\n    top: -10px!important;\r\n}\r\n.dropdown-item{\r\n    padding: 0.25rem 0.5rem !important;\r\n}\r\n@media screen and (max-width: 890px) {\r\n    .header-wrapper{\r\n        flex-wrap: wrap;\r\n    }\r\n    .button-responsive{\r\n        margin-left: auto;\r\n        display: flex !important;\r\n    }\r\n    .search-box{\r\n        display: none;\r\n        clear: both;\r\n        padding: 0px;\r\n        width: 100%;\r\n        height: 100%;\r\n    }\r\n    .search-box form{\r\n        width: 100%;\r\n\r\n    }\r\n\r\n    .search-box .search-form{\r\n        width: 100%;\r\n\r\n\r\n    }\r\n    .search-box .row,.col{\r\n        padding: 0px;\r\n        margin: 0px;\r\n    }\r\n\r\n    .search-box .search-form .search-select{\r\n        max-width: 110px;\r\n     \r\n    }\r\n    .search-box .search-form-1{\r\n       max-width: 100%;\r\n    }\r\n    .search-box .search-form-1 input{\r\n        width: 100%;\r\n     \r\n    }\r\n    .menu-bar{\r\n        display: none ;\r\n        width: 100%;\r\n    }\r\n    .menu-bar ul{\r\n        width: 100%;\r\n        padding: 0px !important;\r\n    }\r\n    .menu-bar ul li{\r\n      display: block;\r\n      background-color: #27374c;\r\n       border-bottom: solid 1px #f2f2f2;\r\n   }\r\n   .menu-bar ul li:first-child{\r\n    border-top: solid 1px #f2f2f2;\r\n    }\r\n    .menu-bar ul li a div{\r\n       float: left;\r\n       border: none;\r\n   }\r\n   .menu-bar ul li a {\r\n    border: none !important;\r\n    height: 40px;\r\n    align-items: center;\r\n    display: flex;\r\n    }\r\n    .menu-bar .icon{\r\n        width: 40px;\r\n        height: auto;\r\n        text-align: left;\r\n        padding-top: 0px;\r\n    }\r\n    .menu-bar .name{\r\n        padding: 0px;\r\n        padding-left: 10px;\r\n    }\r\n    .menu-bar .name span{\r\n\r\n        font-size: 1em;\r\n    }\r\n    .dropdown-menu{\r\n        -webkit-transform: translate3d(10px, 30px, 0px)!important;\r\n                transform: translate3d(10px, 30px, 0px)!important;\r\n    }\r\n}\r\n/*---Header---*/\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL2hlYWRlci9oZWFkZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGlCQUFpQjtJQUNqQixZQUFZO0lBQ1osYUFBYTtJQUNiLG1CQUFtQjtJQUNuQixZQUFZO0FBQ2hCO0FBQ0E7SUFDSSxlQUFlO0FBQ25CO0FBQ0E7SUFDSSxpQkFBaUI7QUFDckI7QUFDQTtJQUNJLDBCQUF5QjtZQUF6Qix5QkFBeUI7SUFDekIsY0FBYztJQUNkLGdCQUFnQjtBQUNwQjtBQUNBO0VBQ0UscUJBQXFCO0lBQ25CLGtCQUFrQjs7QUFFdEI7QUFDQTtJQUNJLFlBQVk7SUFDWixZQUFZO0lBQ1osaUJBQWlCO0lBQ2pCLGNBQWM7O0FBRWxCO0FBQ0E7SUFDSSxjQUFjO0lBQ2QscUJBQXFCO0FBQ3pCO0FBQ0E7SUFDSSxlQUFlO0FBQ25CO0FBQ0E7SUFDSSxjQUFjO0lBQ2QsZ0NBQWdDO0FBQ3BDO0FBQ0E7SUFDSSxnQkFBZ0I7O0lBRWhCLFlBQVk7QUFDaEI7QUFDQTtJQUNJLGVBQWU7SUFDZixnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixjQUFjOztBQUVsQjtBQUNBO0lBQ0ksa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxxQkFBcUI7SUFDckIsY0FBYztBQUNsQjtBQUNBO0lBQ0ksZUFBZTtBQUNuQjtBQUNBO0lBQ0ksa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxZQUFZO0lBQ1osV0FBVztBQUNmO0FBQ0E7O0lBRUksa0JBQWtCO0lBQ2xCLGtCQUFrQjs7QUFFdEI7QUFDQTtJQUNJLGdDQUFnQztJQUNoQyxZQUFZO0lBQ1osWUFBWTtJQUNaLHdDQUF3QztJQUN4QyxrQkFBa0I7SUFDbEIscUJBQXFCO0lBQ3JCLGlCQUFpQjtJQUNqQixnQkFBZ0I7QUFDcEI7QUFDQTtDQUNDLGdCQUFnQjtBQUNqQjtBQUNBO0lBQ0ksZUFBZTtBQUNuQjtBQUNBO0lBQ0ksWUFBWTtJQUNaLFlBQVk7SUFDWixxQkFBcUI7SUFDckIsdUNBQXVDO0lBQ3ZDLHFCQUFxQjtJQUNyQixpQkFBaUI7QUFDckI7QUFDQTs7R0FFRztBQUNIO0lBQ0ksWUFBWTtBQUNoQjtBQUNBO0lBQ0ksYUFBYTtBQUNqQjtBQUNBO0lBQ0ksV0FBVztJQUNYLFlBQVk7SUFDWixrQkFBa0I7SUFDbEIsbUJBQW1CO0lBQ25CLGdCQUFnQjtJQUNoQixZQUFZO0lBQ1osZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxjQUFjO0lBQ2QsZ0JBQWdCO0FBQ3BCO0FBRUE7SUFDSSxhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLFlBQVk7QUFDaEI7QUFDQTtJQUNJLFlBQVk7SUFDWixZQUFZO0lBQ1osaUJBQWlCO0lBQ2pCLGdCQUFnQjtJQUNoQixZQUFZO0FBQ2hCO0FBQ0E7SUFDSSxvQ0FBb0M7SUFDcEMsZUFBZTtJQUNmLFlBQVk7QUFDaEI7QUFDQTtJQUNJLGFBQWE7QUFDakI7QUFDQTtJQUNJLGNBQWM7O0FBRWxCO0FBQ0E7SUFDSSxjQUFjO0FBQ2xCO0FBQ0E7SUFDSSxvQkFBb0I7QUFDeEI7QUFDQTtJQUNJLGtDQUFrQztBQUN0QztBQUNBO0lBQ0k7UUFDSSxlQUFlO0lBQ25CO0lBQ0E7UUFDSSxpQkFBaUI7UUFDakIsd0JBQXdCO0lBQzVCO0lBQ0E7UUFDSSxhQUFhO1FBQ2IsV0FBVztRQUNYLFlBQVk7UUFDWixXQUFXO1FBQ1gsWUFBWTtJQUNoQjtJQUNBO1FBQ0ksV0FBVzs7SUFFZjs7SUFFQTtRQUNJLFdBQVc7OztJQUdmO0lBQ0E7UUFDSSxZQUFZO1FBQ1osV0FBVztJQUNmOztJQUVBO1FBQ0ksZ0JBQWdCOztJQUVwQjtJQUNBO09BQ0csZUFBZTtJQUNsQjtJQUNBO1FBQ0ksV0FBVzs7SUFFZjtJQUNBO1FBQ0ksY0FBYztRQUNkLFdBQVc7SUFDZjtJQUNBO1FBQ0ksV0FBVztRQUNYLHVCQUF1QjtJQUMzQjtJQUNBO01BQ0UsY0FBYztNQUNkLHlCQUF5QjtPQUN4QixnQ0FBZ0M7R0FDcEM7R0FDQTtJQUNDLDZCQUE2QjtJQUM3QjtJQUNBO09BQ0csV0FBVztPQUNYLFlBQVk7R0FDaEI7R0FDQTtJQUNDLHVCQUF1QjtJQUN2QixZQUFZO0lBQ1osbUJBQW1CO0lBQ25CLGFBQWE7SUFDYjtJQUNBO1FBQ0ksV0FBVztRQUNYLFlBQVk7UUFDWixnQkFBZ0I7UUFDaEIsZ0JBQWdCO0lBQ3BCO0lBQ0E7UUFDSSxZQUFZO1FBQ1osa0JBQWtCO0lBQ3RCO0lBQ0E7O1FBRUksY0FBYztJQUNsQjtJQUNBO1FBQ0kseURBQWlEO2dCQUFqRCxpREFBaUQ7SUFDckQ7QUFDSjtBQUNBLGVBQWUiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3VzZXIvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmhlYWRlci13cmFwcGVye1xyXG4gICAgbWF4LXdpZHRoOiAxMjgwcHg7XHJcbiAgICBtYXJnaW46IGF1dG87XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIGhlaWdodDogNjBweDtcclxufVxyXG5hOmhvdmVye1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcbi5tZW51LWJhcntcclxuICAgIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG59XHJcbi5tZW51LWJhciB1bHtcclxuICAgIHBhZGRpbmctaW5saW5lLXN0YXJ0OiAwcHg7XHJcbiAgICBtYXJnaW46IDAgYXV0bztcclxuICAgIGxpc3Qtc3R5bGU6IG5vbmU7XHJcbn1cclxuLm1lbnUtYmFyIHVsIGxpe1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuXHJcbn1cclxuLm1lbnUtYmFyIHVsIGxpIGF7XHJcbiAgICBoZWlnaHQ6IDYwcHg7XHJcbiAgICBjb2xvcjogd2hlYXQ7XHJcbiAgICBwYWRkaW5nOiAwcHggMTNweDtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG5cclxufVxyXG4ubWVudS1iYXIgdWwgbGkgYTpob3ZlcntcclxuICAgIGNvbG9yOiAjRUQ2NTA0O1xyXG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG59XHJcbi5tZW51LWJhciB1bCBsaSBhIGl7XHJcbiAgICBmb250LXNpemU6IDI1cHg7XHJcbn1cclxuLm1lbnUtYmFyIHVsIGxpIC5hY3RpdmV7XHJcbiAgICBjb2xvcjogI0VENjUwNDtcclxuICAgIGJvcmRlci1ib3R0b206IHNvbGlkIDRweCAjRUQ2NTA0O1xyXG59XHJcbi5tZW51LWJhciAuaWNvbntcclxuICAgIHBhZGRpbmctdG9wOiA4cHg7XHJcblxyXG4gICAgaGVpZ2h0OiAzMHB4O1xyXG59XHJcbi5tZW51LWJhciBzcGFue1xyXG4gICAgZm9udC1zaXplOiAxM3B4O1xyXG4gICAgZm9udC13ZWlnaHQ6IDUwMDtcclxufVxyXG4ubWVudS1iYXIgLm5hbWV7XHJcbiAgICBwYWRkaW5nLXRvcDogNnB4O1xyXG4gICAgbGluZS1oZWlnaHQ6IDE7XHJcblxyXG59XHJcbi5sb2dve1xyXG4gICAgcGFkZGluZy1sZWZ0OiAxMHB4O1xyXG59XHJcbi5sb2dvIGF7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICBjb2xvcjogI0VENjUwNDtcclxufVxyXG4ubG9nbyBpe1xyXG4gICAgZm9udC1zaXplOiA1MHB4O1xyXG59XHJcbi5zZWFyY2gtYm94e1xyXG4gICAgcGFkZGluZy1sZWZ0OiAzMHB4O1xyXG59XHJcbi5zZWFyY2gtYm94IC5yb3csLmNvbHtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIG1hcmdpbjogMHB4O1xyXG59XHJcbi5zZWFyY2gtYm94IC5zZWFyY2gtZm9ybS0xe1xyXG4gICAgXHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgIFxyXG59XHJcbi5zZWFyY2gtYm94IC5zZWFyY2gtZm9ybSAuc2VhcmNoLXNlbGVjdHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jayAhaW1wb3J0YW50O1xyXG4gICAgd2lkdGg6IDEyMHB4O1xyXG4gICAgaGVpZ2h0OiA0MHB4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogMC4yNXJlbSAwcmVtIDByZW0gMC4yNXJlbTtcclxuICAgIGJvcmRlci1yaWdodDogbm9uZTtcclxuICAgIGJvcmRlci1jb2xvcjogI2I3YjRiNDtcclxuICAgIHBhZGRpbmctbGVmdDogNXB4O1xyXG4gICAgZm9udC13ZWlnaHQ6IDUwMDtcclxufVxyXG4uc2VhcmNoLXNlbGVjdCBvcHRpb257XHJcbiBmb250LXdlaWdodDogNTAwO1xyXG59XHJcbi5zZWFyY2gtYm94IHNlbGVjdDpob3ZlcntcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4uc2VhcmNoLWJveCAuc2VhcmNoLWZvcm0tMSBpbnB1dHtcclxuICAgIGhlaWdodDogNDBweDtcclxuICAgIHdpZHRoOiAzMDBweDtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIGJvcmRlci1yYWRpdXM6MHJlbSAwLjI1cmVtIDAuMjVyZW0gMHJlbTtcclxuICAgIGJvcmRlci1jb2xvcjogI2I3YjRiNDtcclxuICAgIHRleHQtaW5kZW50OiAyNXB4O1xyXG59XHJcbi8qIC5zZWFyY2gtYm94IC5zZWFyY2gtZm9ybS0xIGlucHV0OmhvdmVye1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59ICovXHJcbi5zZWFyY2gtYm94IC5zZWFyY2gtZm9ybS0xIGlucHV0OmZvY3Vze1xyXG4gICAgY3Vyc29yOiB0ZXh0O1xyXG59XHJcbi5zZWFyY2gtYm94IC5zZWFyY2gtZm9ybSBpbnB1dDpmb2N1cyB7XHJcbiAgICBvdXRsaW5lOiBub25lO1xyXG59XHJcbi5zZWFyY2gtYm94IC5zZWFyY2gtZm9ybS0xICBidXR0b24ge1xyXG4gICAgd2lkdGg6IDQwcHg7XHJcbiAgICBoZWlnaHQ6IDQwcHg7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBib3JkZXItcmFkaXVzOiAyNXB4O1xyXG4gICAgYmFja2dyb3VuZDogbm9uZTtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIGJhY2tncm91bmQ6IG5vbmU7XHJcbn1cclxuLnNlYXJjaC1ib3ggLnNlYXJjaC1mb3JtICBidXR0b246Zm9jdXN7XHJcbiAgICBvdXRsaW5lOiBub25lO1xyXG59XHJcbi5zZWFyY2gtYm94IC5zZWFyY2gtZm9ybSAgaXtcclxuICAgIGNvbG9yOiAjRUQ2NTA0O1xyXG4gICAgZm9udC1zaXplOiAxLjJlbTtcclxufVxyXG5cclxuLmJ1dHRvbi1yZXNwb25zaXZle1xyXG4gICAgZGlzcGxheTogbm9uZTtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgICBoZWlnaHQ6IDYwcHg7XHJcbn1cclxuLmJ1dHRvbi1yZXNwb25zaXZlIGJ1dHRvbiB7XHJcbiAgICBwYWRkaW5nOiAwcHg7XHJcbiAgICBoZWlnaHQ6IDQwcHg7XHJcbiAgICAvKiB3aWR0aDogNDBweDsgKi9cclxuICAgIGJhY2tncm91bmQ6IG5vbmU7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbn1cclxuLmJ1dHRvbi1yZXNwb25zaXZlIGl7XHJcbiAgICAvKiAtd2Via2l0LXRleHQtc3Ryb2tlOiAxcHggd2hpdGU7ICovXHJcbiAgICBmb250LXNpemU6IDM1cHg7XHJcbiAgICBjb2xvcjogd2hlYXQ7XHJcbn1cclxuLmJ1dHRvbi1yZXNwb25zaXZlICBidXR0b246Zm9jdXN7XHJcbiAgICBvdXRsaW5lOiBub25lO1xyXG59XHJcbi5idXR0b24tcmVzcG9uc2l2ZSAgYnV0dG9uOmhvdmVyIGl7XHJcbiAgICBjb2xvcjogI0VENjUwNDtcclxuICAgIFxyXG59XHJcbi5kcm9wZG93biBidXR0b246aG92ZXJ7XHJcbiAgICBjb2xvcjogI0VENjUwNDs7XHJcbn1cclxuLmRyb3Bkb3duLW1lbnV7XHJcbiAgICB0b3A6IC0xMHB4IWltcG9ydGFudDtcclxufVxyXG4uZHJvcGRvd24taXRlbXtcclxuICAgIHBhZGRpbmc6IDAuMjVyZW0gMC41cmVtICFpbXBvcnRhbnQ7XHJcbn1cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogODkwcHgpIHtcclxuICAgIC5oZWFkZXItd3JhcHBlcntcclxuICAgICAgICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgICB9XHJcbiAgICAuYnV0dG9uLXJlc3BvbnNpdmV7XHJcbiAgICAgICAgbWFyZ2luLWxlZnQ6IGF1dG87XHJcbiAgICAgICAgZGlzcGxheTogZmxleCAhaW1wb3J0YW50O1xyXG4gICAgfVxyXG4gICAgLnNlYXJjaC1ib3h7XHJcbiAgICAgICAgZGlzcGxheTogbm9uZTtcclxuICAgICAgICBjbGVhcjogYm90aDtcclxuICAgICAgICBwYWRkaW5nOiAwcHg7XHJcbiAgICAgICAgd2lkdGg6IDEwMCU7XHJcbiAgICAgICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgfVxyXG4gICAgLnNlYXJjaC1ib3ggZm9ybXtcclxuICAgICAgICB3aWR0aDogMTAwJTtcclxuXHJcbiAgICB9XHJcblxyXG4gICAgLnNlYXJjaC1ib3ggLnNlYXJjaC1mb3Jte1xyXG4gICAgICAgIHdpZHRoOiAxMDAlO1xyXG5cclxuXHJcbiAgICB9XHJcbiAgICAuc2VhcmNoLWJveCAucm93LC5jb2x7XHJcbiAgICAgICAgcGFkZGluZzogMHB4O1xyXG4gICAgICAgIG1hcmdpbjogMHB4O1xyXG4gICAgfVxyXG5cclxuICAgIC5zZWFyY2gtYm94IC5zZWFyY2gtZm9ybSAuc2VhcmNoLXNlbGVjdHtcclxuICAgICAgICBtYXgtd2lkdGg6IDExMHB4O1xyXG4gICAgIFxyXG4gICAgfVxyXG4gICAgLnNlYXJjaC1ib3ggLnNlYXJjaC1mb3JtLTF7XHJcbiAgICAgICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgICB9XHJcbiAgICAuc2VhcmNoLWJveCAuc2VhcmNoLWZvcm0tMSBpbnB1dHtcclxuICAgICAgICB3aWR0aDogMTAwJTtcclxuICAgICBcclxuICAgIH1cclxuICAgIC5tZW51LWJhcntcclxuICAgICAgICBkaXNwbGF5OiBub25lIDtcclxuICAgICAgICB3aWR0aDogMTAwJTtcclxuICAgIH1cclxuICAgIC5tZW51LWJhciB1bHtcclxuICAgICAgICB3aWR0aDogMTAwJTtcclxuICAgICAgICBwYWRkaW5nOiAwcHggIWltcG9ydGFudDtcclxuICAgIH1cclxuICAgIC5tZW51LWJhciB1bCBsaXtcclxuICAgICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICAgIGJhY2tncm91bmQtY29sb3I6ICMyNzM3NGM7XHJcbiAgICAgICBib3JkZXItYm90dG9tOiBzb2xpZCAxcHggI2YyZjJmMjtcclxuICAgfVxyXG4gICAubWVudS1iYXIgdWwgbGk6Zmlyc3QtY2hpbGR7XHJcbiAgICBib3JkZXItdG9wOiBzb2xpZCAxcHggI2YyZjJmMjtcclxuICAgIH1cclxuICAgIC5tZW51LWJhciB1bCBsaSBhIGRpdntcclxuICAgICAgIGZsb2F0OiBsZWZ0O1xyXG4gICAgICAgYm9yZGVyOiBub25lO1xyXG4gICB9XHJcbiAgIC5tZW51LWJhciB1bCBsaSBhIHtcclxuICAgIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xyXG4gICAgaGVpZ2h0OiA0MHB4O1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICB9XHJcbiAgICAubWVudS1iYXIgLmljb257XHJcbiAgICAgICAgd2lkdGg6IDQwcHg7XHJcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xyXG4gICAgICAgIHRleHQtYWxpZ246IGxlZnQ7XHJcbiAgICAgICAgcGFkZGluZy10b3A6IDBweDtcclxuICAgIH1cclxuICAgIC5tZW51LWJhciAubmFtZXtcclxuICAgICAgICBwYWRkaW5nOiAwcHg7XHJcbiAgICAgICAgcGFkZGluZy1sZWZ0OiAxMHB4O1xyXG4gICAgfVxyXG4gICAgLm1lbnUtYmFyIC5uYW1lIHNwYW57XHJcblxyXG4gICAgICAgIGZvbnQtc2l6ZTogMWVtO1xyXG4gICAgfVxyXG4gICAgLmRyb3Bkb3duLW1lbnV7XHJcbiAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUzZCgxMHB4LCAzMHB4LCAwcHgpIWltcG9ydGFudDtcclxuICAgIH1cclxufVxyXG4vKi0tLUhlYWRlci0tLSovXHJcbiJdfQ== */"
+module.exports = ".header-wrapper{\r\n    max-width: 1280px;\r\n    margin: auto;\r\n    display: flex;\r\n    align-items: center;\r\n    height: 60px;\r\n}\r\na:hover{\r\n    cursor: pointer;\r\n}\r\n.menu-bar{\r\n    margin-left: auto;\r\n}\r\n.menu-bar ul{\r\n    -webkit-padding-start: 0px;\r\n            padding-inline-start: 0px;\r\n    margin: 0 auto;\r\n    list-style: none;\r\n}\r\n.menu-bar ul li{\r\n  display: inline-block;\r\n    text-align: center;\r\n\r\n}\r\n.menu-bar ul li a{\r\n    height: 60px;\r\n    color: wheat;\r\n    padding: 0px 13px;\r\n    display: block;\r\n\r\n}\r\n.menu-bar ul li a:hover{\r\n    color: #ED6504;\r\n    text-decoration: none;\r\n}\r\n.menu-bar ul li a i{\r\n    font-size: 25px;\r\n}\r\n.menu-bar ul li .active{\r\n    color: #ED6504;\r\n    border-bottom: solid 4px #ED6504;\r\n}\r\n.menu-bar .icon{\r\n    padding-top: 8px;\r\n    position: relative;\r\n    height: 30px;\r\n}\r\n.noti{\r\n    position: absolute;\r\n    width: 20px;\r\n    height: 20px;\r\n    background-color: #fc4242;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    border-radius: 5px;\r\n    right: 3px;\r\n}\r\n.noti i{\r\n    font-size: 10px!important;\r\n    color: white!important;\r\n}\r\n.menu-bar span{\r\n    font-size: 13px;\r\n    font-weight: 500;\r\n}\r\n.menu-bar .name{\r\n    padding-top: 6px;\r\n    line-height: 1;\r\n\r\n}\r\n.logo{\r\n    padding-left: 10px;\r\n}\r\n.logo a{\r\n    display: inline-block;\r\n    color: #ED6504;\r\n}\r\n.logo i{\r\n    font-size: 50px;\r\n}\r\n.search-box{\r\n    padding-left: 30px;\r\n}\r\n.search-box .row,.col{\r\n    padding: 0px;\r\n    margin: 0px;\r\n}\r\n.search-box .search-form-1{\r\n    \r\n    text-align: center;\r\n    position: relative;\r\n   \r\n}\r\n.search-box .search-form .search-select{\r\n    display: inline-block !important;\r\n    width: 120px;\r\n    height: 40px;\r\n    border-radius: 0.25rem 0rem 0rem 0.25rem;\r\n    border-right: none;\r\n    border-color: #b7b4b4;\r\n    padding-left: 5px;\r\n    font-weight: 500;\r\n}\r\n.search-select option{\r\n font-weight: 500;\r\n}\r\n.search-box select:hover{\r\n    cursor: pointer;\r\n}\r\n.search-box .search-form-1 input{\r\n    height: 40px;\r\n    width: 300px;\r\n    display: inline-block;\r\n    border-radius:0rem 0.25rem 0.25rem 0rem;\r\n    border-color: #b7b4b4;\r\n    text-indent: 25px;\r\n}\r\n/* .search-box .search-form-1 input:hover{\r\n    cursor: pointer;\r\n} */\r\n.search-box .search-form-1 input:focus{\r\n    cursor: text;\r\n}\r\n.search-box .search-form input:focus {\r\n    outline: none;\r\n}\r\n.search-box .search-form-1  button {\r\n    width: 40px;\r\n    height: 40px;\r\n    position: absolute;\r\n    border-radius: 25px;\r\n    background: none;\r\n    border: none;\r\n    background: none;\r\n}\r\n.search-box .search-form  button:focus{\r\n    outline: none;\r\n}\r\n.search-box .search-form  i{\r\n    color: #ED6504;\r\n    font-size: 1.2em;\r\n}\r\n.button-responsive{\r\n    display: none;\r\n    align-items: center;\r\n    height: 60px;\r\n}\r\n.button-responsive button {\r\n    padding: 0px;\r\n    height: 40px;\r\n    /* width: 40px; */\r\n    background: none;\r\n    border: none;\r\n}\r\n.button-responsive i{\r\n    /* -webkit-text-stroke: 1px white; */\r\n    font-size: 35px;\r\n    color: wheat;\r\n}\r\n.button-responsive  button:focus{\r\n    outline: none;\r\n}\r\n.button-responsive  button:hover i{\r\n    color: #ED6504;\r\n    \r\n}\r\n.dropdown button:hover{\r\n    color: #ED6504;;\r\n}\r\n.dropdown-menu{\r\n    top: -10px!important;\r\n}\r\n.dropdown-item{\r\n    padding: 0.25rem 0.5rem !important;\r\n}\r\n@media screen and (max-width: 890px) {\r\n    .header-wrapper{\r\n        flex-wrap: wrap;\r\n    }\r\n    .button-responsive{\r\n        margin-left: auto;\r\n        display: flex !important;\r\n    }\r\n    .search-box{\r\n        display: none;\r\n        clear: both;\r\n        padding: 0px;\r\n        width: 100%;\r\n        height: 100%;\r\n    }\r\n    .search-box form{\r\n        width: 100%;\r\n\r\n    }\r\n\r\n    .search-box .search-form{\r\n        width: 100%;\r\n\r\n\r\n    }\r\n    .search-box .row,.col{\r\n        padding: 0px;\r\n        margin: 0px;\r\n    }\r\n\r\n    .search-box .search-form .search-select{\r\n        max-width: 110px;\r\n     \r\n    }\r\n    .search-box .search-form-1{\r\n       max-width: 100%;\r\n    }\r\n    .search-box .search-form-1 input{\r\n        width: 100%;\r\n     \r\n    }\r\n    .menu-bar{\r\n        display: none ;\r\n        width: 100%;\r\n    }\r\n    .menu-bar ul{\r\n        width: 100%;\r\n        padding: 0px !important;\r\n    }\r\n    .menu-bar ul li{\r\n      display: block;\r\n      background-color: #27374c;\r\n       border-bottom: solid 1px #f2f2f2;\r\n   }\r\n   .menu-bar ul li:first-child{\r\n    border-top: solid 1px #f2f2f2;\r\n    }\r\n    .menu-bar ul li a div{\r\n       float: left;\r\n       border: none;\r\n   }\r\n   .menu-bar ul li a {\r\n    border: none !important;\r\n    height: 40px;\r\n    align-items: center;\r\n    display: flex;\r\n    }\r\n    .menu-bar .icon{\r\n        width: 40px;\r\n        height: auto;\r\n        text-align: left;\r\n        padding-top: 0px;\r\n    }\r\n    .menu-bar .name{\r\n        padding: 0px;\r\n        padding-left: 10px;\r\n    }\r\n    .menu-bar .name span{\r\n\r\n        font-size: 1em;\r\n    }\r\n    .dropdown-menu{\r\n        -webkit-transform: translate3d(10px, 30px, 0px)!important;\r\n                transform: translate3d(10px, 30px, 0px)!important;\r\n    }\r\n}\r\n/*---Header---*/\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL2hlYWRlci9oZWFkZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGlCQUFpQjtJQUNqQixZQUFZO0lBQ1osYUFBYTtJQUNiLG1CQUFtQjtJQUNuQixZQUFZO0FBQ2hCO0FBQ0E7SUFDSSxlQUFlO0FBQ25CO0FBQ0E7SUFDSSxpQkFBaUI7QUFDckI7QUFDQTtJQUNJLDBCQUF5QjtZQUF6Qix5QkFBeUI7SUFDekIsY0FBYztJQUNkLGdCQUFnQjtBQUNwQjtBQUNBO0VBQ0UscUJBQXFCO0lBQ25CLGtCQUFrQjs7QUFFdEI7QUFDQTtJQUNJLFlBQVk7SUFDWixZQUFZO0lBQ1osaUJBQWlCO0lBQ2pCLGNBQWM7O0FBRWxCO0FBQ0E7SUFDSSxjQUFjO0lBQ2QscUJBQXFCO0FBQ3pCO0FBQ0E7SUFDSSxlQUFlO0FBQ25CO0FBQ0E7SUFDSSxjQUFjO0lBQ2QsZ0NBQWdDO0FBQ3BDO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsa0JBQWtCO0lBQ2xCLFlBQVk7QUFDaEI7QUFDQTtJQUNJLGtCQUFrQjtJQUNsQixXQUFXO0lBQ1gsWUFBWTtJQUNaLHlCQUF5QjtJQUN6QixhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLHVCQUF1QjtJQUN2QixrQkFBa0I7SUFDbEIsVUFBVTtBQUNkO0FBQ0E7SUFDSSx5QkFBeUI7SUFDekIsc0JBQXNCO0FBQzFCO0FBQ0E7SUFDSSxlQUFlO0lBQ2YsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsY0FBYzs7QUFFbEI7QUFDQTtJQUNJLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0kscUJBQXFCO0lBQ3JCLGNBQWM7QUFDbEI7QUFDQTtJQUNJLGVBQWU7QUFDbkI7QUFDQTtJQUNJLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0ksWUFBWTtJQUNaLFdBQVc7QUFDZjtBQUNBOztJQUVJLGtCQUFrQjtJQUNsQixrQkFBa0I7O0FBRXRCO0FBQ0E7SUFDSSxnQ0FBZ0M7SUFDaEMsWUFBWTtJQUNaLFlBQVk7SUFDWix3Q0FBd0M7SUFDeEMsa0JBQWtCO0lBQ2xCLHFCQUFxQjtJQUNyQixpQkFBaUI7SUFDakIsZ0JBQWdCO0FBQ3BCO0FBQ0E7Q0FDQyxnQkFBZ0I7QUFDakI7QUFDQTtJQUNJLGVBQWU7QUFDbkI7QUFDQTtJQUNJLFlBQVk7SUFDWixZQUFZO0lBQ1oscUJBQXFCO0lBQ3JCLHVDQUF1QztJQUN2QyxxQkFBcUI7SUFDckIsaUJBQWlCO0FBQ3JCO0FBQ0E7O0dBRUc7QUFDSDtJQUNJLFlBQVk7QUFDaEI7QUFDQTtJQUNJLGFBQWE7QUFDakI7QUFDQTtJQUNJLFdBQVc7SUFDWCxZQUFZO0lBQ1osa0JBQWtCO0lBQ2xCLG1CQUFtQjtJQUNuQixnQkFBZ0I7SUFDaEIsWUFBWTtJQUNaLGdCQUFnQjtBQUNwQjtBQUNBO0lBQ0ksYUFBYTtBQUNqQjtBQUNBO0lBQ0ksY0FBYztJQUNkLGdCQUFnQjtBQUNwQjtBQUVBO0lBQ0ksYUFBYTtJQUNiLG1CQUFtQjtJQUNuQixZQUFZO0FBQ2hCO0FBQ0E7SUFDSSxZQUFZO0lBQ1osWUFBWTtJQUNaLGlCQUFpQjtJQUNqQixnQkFBZ0I7SUFDaEIsWUFBWTtBQUNoQjtBQUNBO0lBQ0ksb0NBQW9DO0lBQ3BDLGVBQWU7SUFDZixZQUFZO0FBQ2hCO0FBQ0E7SUFDSSxhQUFhO0FBQ2pCO0FBQ0E7SUFDSSxjQUFjOztBQUVsQjtBQUNBO0lBQ0ksY0FBYztBQUNsQjtBQUNBO0lBQ0ksb0JBQW9CO0FBQ3hCO0FBQ0E7SUFDSSxrQ0FBa0M7QUFDdEM7QUFDQTtJQUNJO1FBQ0ksZUFBZTtJQUNuQjtJQUNBO1FBQ0ksaUJBQWlCO1FBQ2pCLHdCQUF3QjtJQUM1QjtJQUNBO1FBQ0ksYUFBYTtRQUNiLFdBQVc7UUFDWCxZQUFZO1FBQ1osV0FBVztRQUNYLFlBQVk7SUFDaEI7SUFDQTtRQUNJLFdBQVc7O0lBRWY7O0lBRUE7UUFDSSxXQUFXOzs7SUFHZjtJQUNBO1FBQ0ksWUFBWTtRQUNaLFdBQVc7SUFDZjs7SUFFQTtRQUNJLGdCQUFnQjs7SUFFcEI7SUFDQTtPQUNHLGVBQWU7SUFDbEI7SUFDQTtRQUNJLFdBQVc7O0lBRWY7SUFDQTtRQUNJLGNBQWM7UUFDZCxXQUFXO0lBQ2Y7SUFDQTtRQUNJLFdBQVc7UUFDWCx1QkFBdUI7SUFDM0I7SUFDQTtNQUNFLGNBQWM7TUFDZCx5QkFBeUI7T0FDeEIsZ0NBQWdDO0dBQ3BDO0dBQ0E7SUFDQyw2QkFBNkI7SUFDN0I7SUFDQTtPQUNHLFdBQVc7T0FDWCxZQUFZO0dBQ2hCO0dBQ0E7SUFDQyx1QkFBdUI7SUFDdkIsWUFBWTtJQUNaLG1CQUFtQjtJQUNuQixhQUFhO0lBQ2I7SUFDQTtRQUNJLFdBQVc7UUFDWCxZQUFZO1FBQ1osZ0JBQWdCO1FBQ2hCLGdCQUFnQjtJQUNwQjtJQUNBO1FBQ0ksWUFBWTtRQUNaLGtCQUFrQjtJQUN0QjtJQUNBOztRQUVJLGNBQWM7SUFDbEI7SUFDQTtRQUNJLHlEQUFpRDtnQkFBakQsaURBQWlEO0lBQ3JEO0FBQ0o7QUFDQSxlQUFlIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy91c2VyL2hlYWRlci9oZWFkZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5oZWFkZXItd3JhcHBlcntcclxuICAgIG1heC13aWR0aDogMTI4MHB4O1xyXG4gICAgbWFyZ2luOiBhdXRvO1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgICBoZWlnaHQ6IDYwcHg7XHJcbn1cclxuYTpob3ZlcntcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4ubWVudS1iYXJ7XHJcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcclxufVxyXG4ubWVudS1iYXIgdWx7XHJcbiAgICBwYWRkaW5nLWlubGluZS1zdGFydDogMHB4O1xyXG4gICAgbWFyZ2luOiAwIGF1dG87XHJcbiAgICBsaXN0LXN0eWxlOiBub25lO1xyXG59XHJcbi5tZW51LWJhciB1bCBsaXtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcblxyXG59XHJcbi5tZW51LWJhciB1bCBsaSBhe1xyXG4gICAgaGVpZ2h0OiA2MHB4O1xyXG4gICAgY29sb3I6IHdoZWF0O1xyXG4gICAgcGFkZGluZzogMHB4IDEzcHg7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuXHJcbn1cclxuLm1lbnUtYmFyIHVsIGxpIGE6aG92ZXJ7XHJcbiAgICBjb2xvcjogI0VENjUwNDtcclxuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxufVxyXG4ubWVudS1iYXIgdWwgbGkgYSBpe1xyXG4gICAgZm9udC1zaXplOiAyNXB4O1xyXG59XHJcbi5tZW51LWJhciB1bCBsaSAuYWN0aXZle1xyXG4gICAgY29sb3I6ICNFRDY1MDQ7XHJcbiAgICBib3JkZXItYm90dG9tOiBzb2xpZCA0cHggI0VENjUwNDtcclxufVxyXG4ubWVudS1iYXIgLmljb257XHJcbiAgICBwYWRkaW5nLXRvcDogOHB4O1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgaGVpZ2h0OiAzMHB4O1xyXG59XHJcbi5ub3Rpe1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgd2lkdGg6IDIwcHg7XHJcbiAgICBoZWlnaHQ6IDIwcHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmM0MjQyO1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcclxuICAgIHJpZ2h0OiAzcHg7XHJcbn1cclxuLm5vdGkgaXtcclxuICAgIGZvbnQtc2l6ZTogMTBweCFpbXBvcnRhbnQ7XHJcbiAgICBjb2xvcjogd2hpdGUhaW1wb3J0YW50O1xyXG59XHJcbi5tZW51LWJhciBzcGFue1xyXG4gICAgZm9udC1zaXplOiAxM3B4O1xyXG4gICAgZm9udC13ZWlnaHQ6IDUwMDtcclxufVxyXG4ubWVudS1iYXIgLm5hbWV7XHJcbiAgICBwYWRkaW5nLXRvcDogNnB4O1xyXG4gICAgbGluZS1oZWlnaHQ6IDE7XHJcblxyXG59XHJcbi5sb2dve1xyXG4gICAgcGFkZGluZy1sZWZ0OiAxMHB4O1xyXG59XHJcbi5sb2dvIGF7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICBjb2xvcjogI0VENjUwNDtcclxufVxyXG4ubG9nbyBpe1xyXG4gICAgZm9udC1zaXplOiA1MHB4O1xyXG59XHJcbi5zZWFyY2gtYm94e1xyXG4gICAgcGFkZGluZy1sZWZ0OiAzMHB4O1xyXG59XHJcbi5zZWFyY2gtYm94IC5yb3csLmNvbHtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIG1hcmdpbjogMHB4O1xyXG59XHJcbi5zZWFyY2gtYm94IC5zZWFyY2gtZm9ybS0xe1xyXG4gICAgXHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgIFxyXG59XHJcbi5zZWFyY2gtYm94IC5zZWFyY2gtZm9ybSAuc2VhcmNoLXNlbGVjdHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jayAhaW1wb3J0YW50O1xyXG4gICAgd2lkdGg6IDEyMHB4O1xyXG4gICAgaGVpZ2h0OiA0MHB4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogMC4yNXJlbSAwcmVtIDByZW0gMC4yNXJlbTtcclxuICAgIGJvcmRlci1yaWdodDogbm9uZTtcclxuICAgIGJvcmRlci1jb2xvcjogI2I3YjRiNDtcclxuICAgIHBhZGRpbmctbGVmdDogNXB4O1xyXG4gICAgZm9udC13ZWlnaHQ6IDUwMDtcclxufVxyXG4uc2VhcmNoLXNlbGVjdCBvcHRpb257XHJcbiBmb250LXdlaWdodDogNTAwO1xyXG59XHJcbi5zZWFyY2gtYm94IHNlbGVjdDpob3ZlcntcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4uc2VhcmNoLWJveCAuc2VhcmNoLWZvcm0tMSBpbnB1dHtcclxuICAgIGhlaWdodDogNDBweDtcclxuICAgIHdpZHRoOiAzMDBweDtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIGJvcmRlci1yYWRpdXM6MHJlbSAwLjI1cmVtIDAuMjVyZW0gMHJlbTtcclxuICAgIGJvcmRlci1jb2xvcjogI2I3YjRiNDtcclxuICAgIHRleHQtaW5kZW50OiAyNXB4O1xyXG59XHJcbi8qIC5zZWFyY2gtYm94IC5zZWFyY2gtZm9ybS0xIGlucHV0OmhvdmVye1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59ICovXHJcbi5zZWFyY2gtYm94IC5zZWFyY2gtZm9ybS0xIGlucHV0OmZvY3Vze1xyXG4gICAgY3Vyc29yOiB0ZXh0O1xyXG59XHJcbi5zZWFyY2gtYm94IC5zZWFyY2gtZm9ybSBpbnB1dDpmb2N1cyB7XHJcbiAgICBvdXRsaW5lOiBub25lO1xyXG59XHJcbi5zZWFyY2gtYm94IC5zZWFyY2gtZm9ybS0xICBidXR0b24ge1xyXG4gICAgd2lkdGg6IDQwcHg7XHJcbiAgICBoZWlnaHQ6IDQwcHg7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBib3JkZXItcmFkaXVzOiAyNXB4O1xyXG4gICAgYmFja2dyb3VuZDogbm9uZTtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIGJhY2tncm91bmQ6IG5vbmU7XHJcbn1cclxuLnNlYXJjaC1ib3ggLnNlYXJjaC1mb3JtICBidXR0b246Zm9jdXN7XHJcbiAgICBvdXRsaW5lOiBub25lO1xyXG59XHJcbi5zZWFyY2gtYm94IC5zZWFyY2gtZm9ybSAgaXtcclxuICAgIGNvbG9yOiAjRUQ2NTA0O1xyXG4gICAgZm9udC1zaXplOiAxLjJlbTtcclxufVxyXG5cclxuLmJ1dHRvbi1yZXNwb25zaXZle1xyXG4gICAgZGlzcGxheTogbm9uZTtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgICBoZWlnaHQ6IDYwcHg7XHJcbn1cclxuLmJ1dHRvbi1yZXNwb25zaXZlIGJ1dHRvbiB7XHJcbiAgICBwYWRkaW5nOiAwcHg7XHJcbiAgICBoZWlnaHQ6IDQwcHg7XHJcbiAgICAvKiB3aWR0aDogNDBweDsgKi9cclxuICAgIGJhY2tncm91bmQ6IG5vbmU7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbn1cclxuLmJ1dHRvbi1yZXNwb25zaXZlIGl7XHJcbiAgICAvKiAtd2Via2l0LXRleHQtc3Ryb2tlOiAxcHggd2hpdGU7ICovXHJcbiAgICBmb250LXNpemU6IDM1cHg7XHJcbiAgICBjb2xvcjogd2hlYXQ7XHJcbn1cclxuLmJ1dHRvbi1yZXNwb25zaXZlICBidXR0b246Zm9jdXN7XHJcbiAgICBvdXRsaW5lOiBub25lO1xyXG59XHJcbi5idXR0b24tcmVzcG9uc2l2ZSAgYnV0dG9uOmhvdmVyIGl7XHJcbiAgICBjb2xvcjogI0VENjUwNDtcclxuICAgIFxyXG59XHJcbi5kcm9wZG93biBidXR0b246aG92ZXJ7XHJcbiAgICBjb2xvcjogI0VENjUwNDs7XHJcbn1cclxuLmRyb3Bkb3duLW1lbnV7XHJcbiAgICB0b3A6IC0xMHB4IWltcG9ydGFudDtcclxufVxyXG4uZHJvcGRvd24taXRlbXtcclxuICAgIHBhZGRpbmc6IDAuMjVyZW0gMC41cmVtICFpbXBvcnRhbnQ7XHJcbn1cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogODkwcHgpIHtcclxuICAgIC5oZWFkZXItd3JhcHBlcntcclxuICAgICAgICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgICB9XHJcbiAgICAuYnV0dG9uLXJlc3BvbnNpdmV7XHJcbiAgICAgICAgbWFyZ2luLWxlZnQ6IGF1dG87XHJcbiAgICAgICAgZGlzcGxheTogZmxleCAhaW1wb3J0YW50O1xyXG4gICAgfVxyXG4gICAgLnNlYXJjaC1ib3h7XHJcbiAgICAgICAgZGlzcGxheTogbm9uZTtcclxuICAgICAgICBjbGVhcjogYm90aDtcclxuICAgICAgICBwYWRkaW5nOiAwcHg7XHJcbiAgICAgICAgd2lkdGg6IDEwMCU7XHJcbiAgICAgICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgfVxyXG4gICAgLnNlYXJjaC1ib3ggZm9ybXtcclxuICAgICAgICB3aWR0aDogMTAwJTtcclxuXHJcbiAgICB9XHJcblxyXG4gICAgLnNlYXJjaC1ib3ggLnNlYXJjaC1mb3Jte1xyXG4gICAgICAgIHdpZHRoOiAxMDAlO1xyXG5cclxuXHJcbiAgICB9XHJcbiAgICAuc2VhcmNoLWJveCAucm93LC5jb2x7XHJcbiAgICAgICAgcGFkZGluZzogMHB4O1xyXG4gICAgICAgIG1hcmdpbjogMHB4O1xyXG4gICAgfVxyXG5cclxuICAgIC5zZWFyY2gtYm94IC5zZWFyY2gtZm9ybSAuc2VhcmNoLXNlbGVjdHtcclxuICAgICAgICBtYXgtd2lkdGg6IDExMHB4O1xyXG4gICAgIFxyXG4gICAgfVxyXG4gICAgLnNlYXJjaC1ib3ggLnNlYXJjaC1mb3JtLTF7XHJcbiAgICAgICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgICB9XHJcbiAgICAuc2VhcmNoLWJveCAuc2VhcmNoLWZvcm0tMSBpbnB1dHtcclxuICAgICAgICB3aWR0aDogMTAwJTtcclxuICAgICBcclxuICAgIH1cclxuICAgIC5tZW51LWJhcntcclxuICAgICAgICBkaXNwbGF5OiBub25lIDtcclxuICAgICAgICB3aWR0aDogMTAwJTtcclxuICAgIH1cclxuICAgIC5tZW51LWJhciB1bHtcclxuICAgICAgICB3aWR0aDogMTAwJTtcclxuICAgICAgICBwYWRkaW5nOiAwcHggIWltcG9ydGFudDtcclxuICAgIH1cclxuICAgIC5tZW51LWJhciB1bCBsaXtcclxuICAgICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICAgIGJhY2tncm91bmQtY29sb3I6ICMyNzM3NGM7XHJcbiAgICAgICBib3JkZXItYm90dG9tOiBzb2xpZCAxcHggI2YyZjJmMjtcclxuICAgfVxyXG4gICAubWVudS1iYXIgdWwgbGk6Zmlyc3QtY2hpbGR7XHJcbiAgICBib3JkZXItdG9wOiBzb2xpZCAxcHggI2YyZjJmMjtcclxuICAgIH1cclxuICAgIC5tZW51LWJhciB1bCBsaSBhIGRpdntcclxuICAgICAgIGZsb2F0OiBsZWZ0O1xyXG4gICAgICAgYm9yZGVyOiBub25lO1xyXG4gICB9XHJcbiAgIC5tZW51LWJhciB1bCBsaSBhIHtcclxuICAgIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xyXG4gICAgaGVpZ2h0OiA0MHB4O1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICB9XHJcbiAgICAubWVudS1iYXIgLmljb257XHJcbiAgICAgICAgd2lkdGg6IDQwcHg7XHJcbiAgICAgICAgaGVpZ2h0OiBhdXRvO1xyXG4gICAgICAgIHRleHQtYWxpZ246IGxlZnQ7XHJcbiAgICAgICAgcGFkZGluZy10b3A6IDBweDtcclxuICAgIH1cclxuICAgIC5tZW51LWJhciAubmFtZXtcclxuICAgICAgICBwYWRkaW5nOiAwcHg7XHJcbiAgICAgICAgcGFkZGluZy1sZWZ0OiAxMHB4O1xyXG4gICAgfVxyXG4gICAgLm1lbnUtYmFyIC5uYW1lIHNwYW57XHJcblxyXG4gICAgICAgIGZvbnQtc2l6ZTogMWVtO1xyXG4gICAgfVxyXG4gICAgLmRyb3Bkb3duLW1lbnV7XHJcbiAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUzZCgxMHB4LCAzMHB4LCAwcHgpIWltcG9ydGFudDtcclxuICAgIH1cclxufVxyXG4vKi0tLUhlYWRlci0tLSovXHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -1354,7 +1354,7 @@ module.exports = ".header-wrapper{\r\n    max-width: 1280px;\r\n    margin: auto
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"header-wrapper\" (clickOutside)=\"isMenu = false;isSearch = false;\">\r\n    <div class=\"logo\">\r\n        <a href='' routerLinkActive='active' [ngStyle]=\"logo_admin\">\r\n            <i class=\"fas fa-globe-asia\"></i>\r\n        </a>\r\n    </div>\r\n\r\n    <div class=\"button-responsive\" style=\"padding-right:10px;\">\r\n        <div class=\"search-responsive\" style=\"padding-right: 6px\">\r\n            <button (click)=\"isSearch = !isSearch;isMenu = false;\">\r\n                <i [ngStyle]=\"isSearch && !isMenu && {'color':'#ED6504'}\" class=\"fas fa-search \"></i></button>\r\n        </div>\r\n        <div class=\"menu-responsive\">\r\n            <button (click)=\"isMenu = !isMenu;isSearch = false;\">\r\n                <i [ngStyle]=\"isMenu && !isSearch && {'color':'#ED6504'}\" class=\"fas fa-bars\"></i></button>\r\n        </div>\r\n    </div>\r\n    <div [ngStyle]=\"isSearch && !isMenu && {'display':'flex'}\" class=\"search-box\">\r\n        <form #formSearch=\"ngForm\" autocomplete=\"off\" (submit)=\"onSubmit(formSearch);\">\r\n            <div class=\"search-form row\">\r\n                <select [(ngModel)]=\"textSelect\" (change)=\"onChange()\" class=\" search-select form-control shadow-sm col\"\r\n                    name=\"select\">\r\n                    <option value=\"host\" selected>Find Host</option>\r\n                    <option value=\"traveler\">Find Traveler</option>\r\n                    <option value=\"people\">Find People</option>\r\n                </select>\r\n                <div class=\"search-form-1 col\" (clickOutside)=\"textInput = '';\">\r\n                    <button class=\"\" type=\"submit\"><i class=\"fas fa-search\"></i></button>\r\n                    <input [(ngModel)]=\"textInput\" (keyup)=\"onKeyup(formSearch);\" class=\"form-control shadow-sm\"\r\n                        type=\"text\" name=\"input\" [placeholder]=\"placeholder\">\r\n                    <app-dropdown [formSearch]=\"formSearch\" (myClick)=\"resetvalue();\"\r\n                        [searchedSubject]=\"searchedSubject\"></app-dropdown>\r\n                </div>\r\n            </div>\r\n        </form>\r\n    </div>\r\n    <nav [ngStyle]=\"isMenu && !isSearch && {'display':'block'}\" class=\"menu-bar\">\r\n        <ul>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Dashboard']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <i class=\"fas fa-home\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Dashboard\r\n                        </span>\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Profile']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <i class=\"fas fa-user-circle\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Profile\r\n                        </span>\r\n\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Message']\" [queryParams]=\"{id:idMessage}\"\r\n                    [ngClass]=\"{'active':isActive()}\">\r\n                    <div class=\"icon\">\r\n                        <i class=\"fas fa-comments\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Message\r\n                        </span>\r\n\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Activity']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <!-- <i class=\"fas fa-envelope\"></i> -->\r\n                        <!-- <i class=\"fas fa-bell\"></i> -->\r\n                        <!-- <i class=\"fas fa-users\"></i> -->\r\n                        <i class=\"far fa-calendar-alt\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Activity\r\n                        </span>\r\n\r\n                    </div>\r\n                </a>\r\n            </li>\r\n\r\n            <li>\r\n                <div class=\"dropdown\" (clickOutside)=\"isdrop=false;\">\r\n                    <a class=\"\" id=\"dropdownMenu2\" data-toggle=\"dropdown\" (click)=\"isdrop=!isdrop\" aria-haspopup=\"true\"\r\n                        aria-expanded=\"false\">\r\n\r\n                        <div class=\"icon\" style=\"display: flex\">\r\n                            <div class=\"dropdown-toggle\">\r\n                                <i class=\"fas fa-cog\"></i>\r\n                            </div>\r\n\r\n                        </div>\r\n                        <div class=\"name\">\r\n                            <span>\r\n                                Setting\r\n                            </span>\r\n\r\n                        </div>\r\n                    </a>\r\n                    <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenu2\"\r\n                        [style.display]=\"isdrop?'block':'none'\">\r\n\r\n\r\n\r\n                        <button class=\"dropdown-item\" type=\"button\" (click)=\"onChangePassword()\"><i\r\n                                class=\"fas fa-user-cog\"></i> Change\r\n                            Password</button>\r\n                        <button (click)=\"onLogout();\" class=\"dropdown-item\" type=\"button\"><i\r\n                                class=\"fas fa-sign-out-alt\"></i> Log Out</button>\r\n\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </nav>\r\n\r\n\r\n\r\n\r\n</nav>"
+module.exports = "<nav class=\"header-wrapper\" (clickOutside)=\"isMenu = false;isSearch = false;\">\r\n    <div class=\"logo\">\r\n        <a href='' routerLinkActive='active' [ngStyle]=\"logo_admin\">\r\n            <i class=\"fas fa-globe-asia\"></i>\r\n        </a>\r\n    </div>\r\n\r\n    <div class=\"button-responsive\" style=\"padding-right:10px;\">\r\n        <div class=\"search-responsive\" style=\"padding-right: 6px\">\r\n            <button (click)=\"isSearch = !isSearch;isMenu = false;\">\r\n                <i [ngStyle]=\"isSearch && !isMenu && {'color':'#ED6504'}\" class=\"fas fa-search \"></i></button>\r\n        </div>\r\n        <div class=\"menu-responsive\">\r\n            <button (click)=\"isMenu = !isMenu;isSearch = false;\">\r\n                <i [ngStyle]=\"isMenu && !isSearch && {'color':'#ED6504'}\" class=\"fas fa-bars\"></i></button>\r\n        </div>\r\n    </div>\r\n    <div [ngStyle]=\"isSearch && !isMenu && {'display':'flex'}\" class=\"search-box\">\r\n        <form #formSearch=\"ngForm\" autocomplete=\"off\" (submit)=\"onSubmit(formSearch);\">\r\n            <div class=\"search-form row\">\r\n                <select [(ngModel)]=\"textSelect\" (change)=\"onChange()\" class=\" search-select form-control shadow-sm col\"\r\n                    name=\"select\">\r\n                    <option value=\"host\" selected>Find Host</option>\r\n                    <option value=\"traveler\">Find Traveler</option>\r\n                    <option value=\"people\">Find People</option>\r\n                </select>\r\n                <div class=\"search-form-1 col\" (clickOutside)=\"textInput = '';\">\r\n                    <button class=\"\" type=\"submit\"><i class=\"fas fa-search\"></i></button>\r\n                    <input [(ngModel)]=\"textInput\" (keyup)=\"onKeyup(formSearch);\" class=\"form-control shadow-sm\"\r\n                        type=\"text\" name=\"input\" [placeholder]=\"placeholder\">\r\n                    <app-dropdown [formSearch]=\"formSearch\" (myClick)=\"resetvalue();\"\r\n                        [searchedSubject]=\"searchedSubject\"></app-dropdown>\r\n                </div>\r\n            </div>\r\n        </form>\r\n    </div>\r\n    <nav [ngStyle]=\"isMenu && !isSearch && {'display':'block'}\" class=\"menu-bar\">\r\n        <ul>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Dashboard']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <i class=\"fas fa-home\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Dashboard\r\n                        </span>\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Profile']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <i class=\"fas fa-user-circle\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Profile\r\n                        </span>\r\n\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;this.isNoty=false;\" [routerLink]=\"['Message']\"\r\n                    [queryParams]=\"{id:idMessage}\" [ngClass]=\"{'active':isActive()}\">\r\n                    <div class=\"icon\">\r\n                        <div *ngIf=\"isNoty\" class=\"noti\"><i class=\"fas fa-exclamation\"></i></div>\r\n                        <i class=\"fas fa-comments\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Message\r\n                        </span>\r\n\r\n                    </div>\r\n                </a>\r\n            </li>\r\n            <li>\r\n                <a (click)=\"this.isMenu = false;\" [routerLink]=\"['Activity']\" routerLinkActive='active'>\r\n                    <div class=\"icon\">\r\n                        <!-- <i class=\"fas fa-envelope\"></i> -->\r\n                        <!-- <i class=\"fas fa-bell\"></i> -->\r\n                        <!-- <i class=\"fas fa-users\"></i> -->\r\n                        <i class=\"far fa-calendar-alt\"></i>\r\n                    </div>\r\n                    <div class=\"name\">\r\n                        <span>\r\n                            Activity\r\n                        </span>\r\n\r\n                    </div>\r\n                </a>\r\n            </li>\r\n\r\n            <li>\r\n                <div class=\"dropdown\" (clickOutside)=\"isdrop=false;\">\r\n                    <a class=\"\" id=\"dropdownMenu2\" data-toggle=\"dropdown\" (click)=\"isdrop=!isdrop\" aria-haspopup=\"true\"\r\n                        aria-expanded=\"false\">\r\n\r\n                        <div class=\"icon\" style=\"display: flex\">\r\n                            <div class=\"dropdown-toggle\">\r\n                                <i class=\"fas fa-cog\"></i>\r\n                            </div>\r\n\r\n                        </div>\r\n                        <div class=\"name\">\r\n                            <span>\r\n                                Setting\r\n                            </span>\r\n\r\n                        </div>\r\n                    </a>\r\n                    <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenu2\"\r\n                        [style.display]=\"isdrop?'block':'none'\">\r\n\r\n\r\n\r\n                        <button class=\"dropdown-item\" type=\"button\" (click)=\"onChangePassword()\"><i\r\n                                class=\"fas fa-user-cog\"></i> Change\r\n                            Password</button>\r\n                        <button (click)=\"onLogout();\" class=\"dropdown-item\" type=\"button\"><i\r\n                                class=\"fas fa-sign-out-alt\"></i> Log Out</button>\r\n\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </nav>\r\n\r\n\r\n\r\n\r\n</nav>"
 
 /***/ }),
 
@@ -1373,16 +1373,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../services/user.service */ "./src/app/services/user.service.ts");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+
 
 
 
 
 
 var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent(router, activatedRoute, service) {
+    function HeaderComponent(router, activatedRoute, service, cdr, toast) {
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.service = service;
+        this.cdr = cdr;
+        this.toast = toast;
         this.subscription = rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"];
         this.textInput = "";
         this.textSelect = "host";
@@ -1396,9 +1400,18 @@ var HeaderComponent = /** @class */ (function () {
         return (this.router.url.includes("/Users/Message"));
     };
     HeaderComponent.prototype.ngOnInit = function () {
+        // hubConnection.on('sendChatMessage', (from: string, fullName, avatar, message: string) => {
+        //   console.log(from + ":" + message)
+        //   if (!this.isActive())
+        //     if (from != this.user.id) {
+        //       this.isNoty = true;
+        //       this.cdr.detectChanges();
+        //       this.toast.show(message, fullName, { toastClass: "message-toast" });
         var _this = this;
+        //     }
+        // })
         this.activatedRoute.queryParams.subscribe(function (params) {
-            console.log(_this.isActive());
+            // console.log(this.isActive())
             var id = params['id'];
             if (id) {
                 _this.idMessage = id;
@@ -1443,13 +1456,22 @@ var HeaderComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
     ], HeaderComponent.prototype, "admin", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], HeaderComponent.prototype, "user", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], HeaderComponent.prototype, "isNoty", void 0);
     HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-header',
             template: __webpack_require__(/*! ./header.component.html */ "./src/app/components/user/header/header.component.html"),
             styles: [__webpack_require__(/*! ./header.component.css */ "./src/app/components/user/header/header.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]])
     ], HeaderComponent);
     return HeaderComponent;
 }());
@@ -1476,7 +1498,7 @@ module.exports = ".box-chat{\r\n    display: flex;\r\n    flex-direction: column
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"header-section\">\r\n  <a routerLink=\"/Users/People/{{peopleId}}\"><span class=\"header-title\">{{people}}</span></a>\r\n</div>\r\n\r\n<ng-template #loading>\r\n  <app-loading></app-loading>\r\n</ng-template>\r\n123\r\n<ng-container *ngIf=\"!isLoading;else loading\">\r\n\r\n  <div #boxchat id=\"box-chat\" class=\"box-chat\" [infiniteScrollContainer]=\"boxchat\" infiniteScroll [scrollWindow]=\"false\"\r\n    [infiniteScrollDistance]=\"0\" [infiniteScrollUpDistance]=\"0\" [infiniteScrollThrottle]=\"100\"\r\n    (scrolledUp)=\"onScrollUp()\">\r\n    <!-- <ng-template #loadingmess> Loading...</ng-template> -->\r\n    <!-- <button *ngIf=\"!isLoadingMess;else loadingmess\" (click)=\"seeMore()\">more</button> -->\r\n\r\n    <div class=\"loading\" *ngIf=\"isLoadingMess\"><img src=\"./../../../../../assets/imgs/spinner.gif\"></div>\r\n    <ng-container *ngFor=\"let message of messages; index as index \">\r\n      <div class=\"message-item\" [ngClass]=\"{'user':message.isYou}\" >\r\n        <span [placement]=\"message.isYou?'left':'right'\" [ngbTooltip]=\"message.createDate\">{{message.content}}</span>\r\n        <ng-template #tick><i class=\"fas fa-check tick\"></i></ng-template>\r\n        <div class=\"sent\" *ngIf=\"index==(messages.length-1) && message.isYou\"><img *ngIf=\"isSent;else tick\"\r\n            src=\"./../../../../../assets/imgs/spinner.gif\"></div>\r\n      </div>\r\n\r\n    </ng-container>\r\n\r\n  </div>\r\n  <div class=\"chatControl\">\r\n    <form (submit)=\"sendMessage()\" #formchat=\"ngForm\" autocomplete=\"off\">\r\n      <!-- <input ngModel [(ngModel)]=\"textchat\" name=\"textchat\" type=\"text\" required placeholder=\"Input Message ...\"> -->\r\n      <textarea #area autofocus ngModel [(ngModel)]=\"textarea\" name=\"textarea\" (keydown.enter)=\"$event.preventDefault()\"\r\n        (keyup)=onkeyup($event) placeholder=\"Input Message ...\" required></textarea>\r\n      <button [disabled]=\"formchat.invalid\" type=\"submit\"><i class=\"fas fa-paper-plane\"></i></button>\r\n    </form>\r\n  </div>\r\n\r\n</ng-container>"
+module.exports = "<div class=\"header-section\">\r\n  <a routerLink=\"/Users/People/{{peopleId}}\"><span class=\"header-title\">{{people?.fullName}}</span></a>\r\n</div>\r\n\r\n<ng-template #loading>\r\n  <app-loading></app-loading>\r\n</ng-template>\r\n\r\n<ng-container *ngIf=\"!isLoading;else loading\">\r\n\r\n  <div #boxchat id=\"box-chat\" class=\"box-chat\" [infiniteScrollContainer]=\"boxchat\" infiniteScroll [scrollWindow]=\"false\"\r\n    [infiniteScrollDistance]=\"0\" [infiniteScrollUpDistance]=\"0\" [infiniteScrollThrottle]=\"100\"\r\n    (scrolledUp)=\"onScrollUp()\">\r\n    <!-- <ng-template #loadingmess> Loading...</ng-template> -->\r\n    <!-- <button *ngIf=\"!isLoadingMess;else loadingmess\" (click)=\"seeMore()\">more</button> -->\r\n\r\n    <div class=\"loading\" *ngIf=\"isLoadingMess\"><img src=\"./../../../../../assets/imgs/spinner.gif\"></div>\r\n    <ng-container *ngFor=\"let message of messages; index as index \">\r\n      <div class=\"message-item\" [ngClass]=\"{'user':message.isYou}\" >\r\n        <span>{{message.content}}</span>\r\n        <ng-template #tick><i class=\"fas fa-check tick\"></i></ng-template>\r\n        <div class=\"sent\" *ngIf=\"index==(messages.length-1) && message.isYou\"><img *ngIf=\"isSent;else tick\"\r\n            src=\"./../../../../../assets/imgs/spinner.gif\"></div>\r\n      </div>\r\n\r\n    </ng-container>\r\n\r\n  </div>\r\n  <div class=\"chatControl\">\r\n    <form (submit)=\"sendMessage()\" #formchat=\"ngForm\" autocomplete=\"off\">\r\n      <!-- <input ngModel [(ngModel)]=\"textchat\" name=\"textchat\" type=\"text\" required placeholder=\"Input Message ...\"> -->\r\n      <textarea #area autofocus ngModel [(ngModel)]=\"textarea\" name=\"textarea\" (keydown.enter)=\"$event.preventDefault()\"\r\n        (keyup)=onkeyup($event) placeholder=\"Input Message ...\" required></textarea>\r\n      <button [disabled]=\"formchat.invalid\" type=\"submit\"><i class=\"fas fa-paper-plane\"></i></button>\r\n    </form>\r\n  </div>\r\n\r\n</ng-container>"
 
 /***/ }),
 
@@ -1508,17 +1530,9 @@ var BoxChatComponent = /** @class */ (function () {
         this.indexSeeMore = 0;
     }
     BoxChatComponent.prototype.ngOnDestroy = function () {
-        this.cdr.detach();
+        // this.cdr.detach();
     };
     BoxChatComponent.prototype.ngOnInit = function () {
-        //this.mang.next(this.service.getListUserChat(0))
-        //console.log(this.peopleId)
-        //this.load(this.peopleId);
-        // console.log(this.boxchat.nativeElement.scrollHeight)
-        // setTimeout(() => {
-        //   console.log(this.boxchat.nativeElement.scrollHeight)
-        //   this.boxchat.nativeElement.scrollTop = this.boxchat.nativeElement.scrollHeight;
-        // }, 0);
     };
     BoxChatComponent.prototype.load = function (peopleId) {
         var _this = this;
@@ -1527,13 +1541,9 @@ var BoxChatComponent = /** @class */ (function () {
         this.indexSeeMore = 0;
         this.service.getMessage(this.peopleId, this.indexSeeMore).subscribe(function (res) {
             _this.messages = res;
-            //console.log(formatDate(this.messages[res.length - 1].createDate, 'dd MM yyyy HH:mm z', 'en-US', 'UTC+14'))
-            //   formatDate(this.message.createDate,'dd MM yyyy HH:mm z','en-US','UTC+14')
             _this.isLoading = false;
-            setTimeout(function () {
-                _this.boxchat.nativeElement.scrollTop = _this.boxchat.nativeElement.scrollHeight;
-                // console.log(this.boxchat.nativeElement.scrollHeight)
-            }, 0);
+            _this.cdr.detectChanges();
+            _this.boxchat.nativeElement.scrollTop = 696969;
         });
     };
     BoxChatComponent.prototype.loadMessage = function (receiveMessage) {
@@ -1541,6 +1551,7 @@ var BoxChatComponent = /** @class */ (function () {
             var item = {
                 isYou: false,
                 content: receiveMessage.message,
+                createDate: new Date().toLocaleString("en-US", { timeZone: "Iceland" })
             };
             this.messages.push(item);
         }
@@ -1548,8 +1559,10 @@ var BoxChatComponent = /** @class */ (function () {
             var item = {
                 isYou: true,
                 content: receiveMessage.message,
+                createDate: new Date().toLocaleString("en-US", { timeZone: "Iceland" })
             };
             this.messages.push(item);
+            // console.log(this.messages)
             this.isSent = false;
         }
         this.cdr.detectChanges();
@@ -1557,19 +1570,10 @@ var BoxChatComponent = /** @class */ (function () {
     };
     BoxChatComponent.prototype.sendMessage = function () {
         this.isSent = true;
-        var item = {
-            isYou: true,
-            content: this.textarea
-        };
-        // this.messages.push(item);
-        this.cdr.detectChanges();
-        this.boxchat.nativeElement.scrollTop = this.boxchat.nativeElement.scrollHeight;
         var data = {
             peopleId: this.peopleId,
             textchat: this.textarea
         };
-        // console.log(data)
-        // this.textchat = "";
         this.textarea = "";
         this.send.emit(data);
     };
@@ -1581,11 +1585,8 @@ var BoxChatComponent = /** @class */ (function () {
         this.service.getMessage(this.peopleId, this.indexSeeMore).subscribe(function (res) {
             _this.isLoadingMess = false;
             _this.messages = res.concat(_this.messages);
-            setTimeout(function () {
-                console.log(_this.boxchat.nativeElement.scrollHeight);
-                _this.boxchat.nativeElement.scrollTop = _this.boxchat.nativeElement.scrollHeight - x;
-            }, 0);
-            _this.boxchat.nativeElement.scrollTop = 1;
+            _this.cdr.detectChanges();
+            _this.boxchat.nativeElement.scrollTop = _this.boxchat.nativeElement.scrollHeight - x;
         });
     };
     BoxChatComponent.prototype.onkeyup = function (event) {
@@ -1605,15 +1606,9 @@ var BoxChatComponent = /** @class */ (function () {
             textArea.style.height = textArea.scrollHeight + 'px';
         }
     };
-    BoxChatComponent.prototype.onScrollDown = function () {
-        console.log('scrolldown');
-    };
     BoxChatComponent.prototype.onScrollUp = function () {
         console.log('scrollup');
         this.seeMore();
-    };
-    BoxChatComponent.prototype.trackmessageId = function (index, message) {
-        return message.id;
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -1623,6 +1618,10 @@ var BoxChatComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
     ], BoxChatComponent.prototype, "peopleId", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], BoxChatComponent.prototype, "people", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -1657,7 +1656,7 @@ var BoxChatComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".cover{\r\n  height: 100%;\r\n  margin-right: -10px;\r\n  margin-left: -10px;\r\n  flex-wrap: nowrap!important;\r\n}\r\n.left-section{\r\n    border-right: solid 1px rgba(0, 0, 0, .10);\r\n    padding: 0px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    overflow: hidden;\r\n    max-width:400px ;\r\n    height: 100%;\r\n}\r\n.right-section{\r\n    padding: 0px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    overflow: hidden;\r\n    height: 100%;\r\n}\r\n.header-section{\r\n    border-bottom: solid 1px rgba(0, 0, 0, .10);\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    min-height: 50px;\r\n}\r\n.header-title{\r\n    font-weight: 600;\r\n    font-size: 1.5em;\r\n}\r\n.list-chat-box{\r\n    overflow: auto;\r\n    height: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.sender-item{\r\n    border-bottom: 1px solid rgba(0, 0, 0, .10);\r\n}\r\na{\r\n    display: block;\r\n}\r\na:hover{\r\n    background-color: #f2f2f2;\r\n    cursor: pointer;\r\n}\r\n.item{\r\ndisplay: flex;\r\npadding: 10px;\r\n}\r\n.sender-item img{\r\n    height: 50px;\r\n    width: 50px;\r\n}\r\n.avatar{\r\n   flex:0 0 50px;\r\n}\r\n.about{\r\n    flex: 1 1 auto;\r\n    display: flex;\r\n    flex-direction: column;\r\n    overflow: hidden;\r\n    justify-content: center;\r\n    margin-left: 10px;\r\n}\r\n.about .name{\r\n    font-size: 15px;\r\n}\r\n.about .time{\r\n    margin-left: auto;\r\n    font-size: 13px;\r\n    color: rgba(153, 153, 153, 1);\r\n}\r\n.about .message{\r\n    font-size: 13px;\r\n    color: rgba(153, 153, 153, 1);\r\n}\r\n.about span{\r\n  white-space: nowrap; \r\n  overflow: hidden;\r\n  text-overflow: ellipsis; \r\n}\r\n.active{\r\n    background-color: #f2f2f2;\r\n}\r\n.list-chat-box::-webkit-scrollbar\r\n{\r\n    width: 8px;\r\n    border-radius: 8px;\r\n\tbackground-color: #F5F5F5;\r\n}\r\n.list-chat-box::-webkit-scrollbar-thumb\r\n{\r\n\tborder-radius: 8px;\r\n\tbackground-color: #777;\r\n}\r\n.icon{\r\n    display: none;\r\n    font-size: 1.5em;\r\n}\r\n.loading{\r\n    height: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n.loading img{\r\n    height: 50px;\r\n    width: 50px;\r\n}\r\n@media screen and (max-width:480px){\r\n    .hidden{\r\n         display: none;\r\n    }\r\n    .left-section{\r\n        max-width: 70px;\r\n    }\r\n    .right-section{\r\n        flex: 1 1 100%;\r\n        max-width: 100%;\r\n    }\r\n    .icon{\r\n        display: block;\r\n    }\r\n    .header-title{\r\n        display: none;\r\n    }\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL21lc3NhZ2UvbWVzc2FnZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtFQUNaLG1CQUFtQjtFQUNuQixrQkFBa0I7RUFDbEIsMkJBQTJCO0FBQzdCO0FBQ0E7SUFDSSwwQ0FBMEM7SUFDMUMsWUFBWTtJQUNaLGFBQWE7SUFDYixzQkFBc0I7SUFDdEIsZ0JBQWdCO0lBQ2hCLGdCQUFnQjtJQUNoQixZQUFZO0FBQ2hCO0FBQ0E7SUFDSSxZQUFZO0lBQ1osYUFBYTtJQUNiLHNCQUFzQjtJQUN0QixnQkFBZ0I7SUFDaEIsWUFBWTtBQUNoQjtBQUNBO0lBQ0ksMkNBQTJDO0lBQzNDLGFBQWE7SUFDYixtQkFBbUI7SUFDbkIsdUJBQXVCO0lBQ3ZCLGdCQUFnQjtBQUNwQjtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGdCQUFnQjtBQUNwQjtBQUNBO0lBQ0ksY0FBYztJQUNkLFlBQVk7SUFDWixhQUFhO0lBQ2Isc0JBQXNCO0FBQzFCO0FBQ0E7SUFDSSwyQ0FBMkM7QUFDL0M7QUFDQTtJQUNJLGNBQWM7QUFDbEI7QUFDQTtJQUNJLHlCQUF5QjtJQUN6QixlQUFlO0FBQ25CO0FBQ0E7QUFDQSxhQUFhO0FBQ2IsYUFBYTtBQUNiO0FBQ0E7SUFDSSxZQUFZO0lBQ1osV0FBVztBQUNmO0FBQ0E7R0FDRyxhQUFhO0FBQ2hCO0FBQ0E7SUFDSSxjQUFjO0lBQ2QsYUFBYTtJQUNiLHNCQUFzQjtJQUN0QixnQkFBZ0I7SUFDaEIsdUJBQXVCO0lBQ3ZCLGlCQUFpQjtBQUNyQjtBQUNBO0lBQ0ksZUFBZTtBQUNuQjtBQUNBO0lBQ0ksaUJBQWlCO0lBQ2pCLGVBQWU7SUFDZiw2QkFBNkI7QUFDakM7QUFDQTtJQUNJLGVBQWU7SUFDZiw2QkFBNkI7QUFDakM7QUFDQTtFQUNFLG1CQUFtQjtFQUNuQixnQkFBZ0I7RUFDaEIsdUJBQXVCO0FBQ3pCO0FBQ0E7SUFDSSx5QkFBeUI7QUFDN0I7QUFDQTs7SUFFSSxVQUFVO0lBQ1Ysa0JBQWtCO0NBQ3JCLHlCQUF5QjtBQUMxQjtBQUVBOztDQUVDLGtCQUFrQjtDQUNsQixzQkFBc0I7QUFDdkI7QUFDQTtJQUNJLGFBQWE7SUFDYixnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLFlBQVk7SUFDWixhQUFhO0lBQ2IsdUJBQXVCO0lBQ3ZCLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksWUFBWTtJQUNaLFdBQVc7QUFDZjtBQUNBO0lBQ0k7U0FDSyxhQUFhO0lBQ2xCO0lBQ0E7UUFDSSxlQUFlO0lBQ25CO0lBQ0E7UUFDSSxjQUFjO1FBQ2QsZUFBZTtJQUNuQjtJQUNBO1FBQ0ksY0FBYztJQUNsQjtJQUNBO1FBQ0ksYUFBYTtJQUNqQjtBQUNKIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy91c2VyL21lc3NhZ2UvbWVzc2FnZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvdmVye1xyXG4gIGhlaWdodDogMTAwJTtcclxuICBtYXJnaW4tcmlnaHQ6IC0xMHB4O1xyXG4gIG1hcmdpbi1sZWZ0OiAtMTBweDtcclxuICBmbGV4LXdyYXA6IG5vd3JhcCFpbXBvcnRhbnQ7XHJcbn1cclxuLmxlZnQtc2VjdGlvbntcclxuICAgIGJvcmRlci1yaWdodDogc29saWQgMXB4IHJnYmEoMCwgMCwgMCwgLjEwKTtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAgIG1heC13aWR0aDo0MDBweCA7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuLnJpZ2h0LXNlY3Rpb257XHJcbiAgICBwYWRkaW5nOiAwcHg7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuLmhlYWRlci1zZWN0aW9ue1xyXG4gICAgYm9yZGVyLWJvdHRvbTogc29saWQgMXB4IHJnYmEoMCwgMCwgMCwgLjEwKTtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgICBtaW4taGVpZ2h0OiA1MHB4O1xyXG59XHJcbi5oZWFkZXItdGl0bGV7XHJcbiAgICBmb250LXdlaWdodDogNjAwO1xyXG4gICAgZm9udC1zaXplOiAxLjVlbTtcclxufVxyXG4ubGlzdC1jaGF0LWJveHtcclxuICAgIG92ZXJmbG93OiBhdXRvO1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbn1cclxuLnNlbmRlci1pdGVte1xyXG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMCwgMCwgMCwgLjEwKTtcclxufVxyXG5he1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuYTpob3ZlcntcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmMmYyZjI7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuLml0ZW17XHJcbmRpc3BsYXk6IGZsZXg7XHJcbnBhZGRpbmc6IDEwcHg7XHJcbn1cclxuLnNlbmRlci1pdGVtIGltZ3tcclxuICAgIGhlaWdodDogNTBweDtcclxuICAgIHdpZHRoOiA1MHB4O1xyXG59XHJcbi5hdmF0YXJ7XHJcbiAgIGZsZXg6MCAwIDUwcHg7XHJcbn1cclxuLmFib3V0e1xyXG4gICAgZmxleDogMSAxIGF1dG87XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIG1hcmdpbi1sZWZ0OiAxMHB4O1xyXG59XHJcbi5hYm91dCAubmFtZXtcclxuICAgIGZvbnQtc2l6ZTogMTVweDtcclxufVxyXG4uYWJvdXQgLnRpbWV7XHJcbiAgICBtYXJnaW4tbGVmdDogYXV0bztcclxuICAgIGZvbnQtc2l6ZTogMTNweDtcclxuICAgIGNvbG9yOiByZ2JhKDE1MywgMTUzLCAxNTMsIDEpO1xyXG59XHJcbi5hYm91dCAubWVzc2FnZXtcclxuICAgIGZvbnQtc2l6ZTogMTNweDtcclxuICAgIGNvbG9yOiByZ2JhKDE1MywgMTUzLCAxNTMsIDEpO1xyXG59XHJcbi5hYm91dCBzcGFue1xyXG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7IFxyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgdGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7IFxyXG59XHJcbi5hY3RpdmV7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjJmMmYyO1xyXG59XHJcbi5saXN0LWNoYXQtYm94Ojotd2Via2l0LXNjcm9sbGJhclxyXG57XHJcbiAgICB3aWR0aDogOHB4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogOHB4O1xyXG5cdGJhY2tncm91bmQtY29sb3I6ICNGNUY1RjU7XHJcbn1cclxuXHJcbi5saXN0LWNoYXQtYm94Ojotd2Via2l0LXNjcm9sbGJhci10aHVtYlxyXG57XHJcblx0Ym9yZGVyLXJhZGl1czogOHB4O1xyXG5cdGJhY2tncm91bmQtY29sb3I6ICM3Nzc7XHJcbn1cclxuLmljb257XHJcbiAgICBkaXNwbGF5OiBub25lO1xyXG4gICAgZm9udC1zaXplOiAxLjVlbTtcclxufVxyXG4ubG9hZGluZ3tcclxuICAgIGhlaWdodDogNjBweDtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbn1cclxuLmxvYWRpbmcgaW1ne1xyXG4gICAgaGVpZ2h0OiA1MHB4O1xyXG4gICAgd2lkdGg6IDUwcHg7XHJcbn1cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDo0ODBweCl7XHJcbiAgICAuaGlkZGVue1xyXG4gICAgICAgICBkaXNwbGF5OiBub25lO1xyXG4gICAgfVxyXG4gICAgLmxlZnQtc2VjdGlvbntcclxuICAgICAgICBtYXgtd2lkdGg6IDcwcHg7XHJcbiAgICB9XHJcbiAgICAucmlnaHQtc2VjdGlvbntcclxuICAgICAgICBmbGV4OiAxIDEgMTAwJTtcclxuICAgICAgICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgICB9XHJcbiAgICAuaWNvbntcclxuICAgICAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIH1cclxuICAgIC5oZWFkZXItdGl0bGV7XHJcbiAgICAgICAgZGlzcGxheTogbm9uZTtcclxuICAgIH1cclxufSJdfQ== */"
+module.exports = ".cover{\r\n  height: 100%;\r\n  margin-right: -10px;\r\n  margin-left: -10px;\r\n  flex-wrap: nowrap!important;\r\n  margin-bottom: 0px !important;\r\n}\r\n.left-section{\r\n    border-right: solid 1px rgba(0, 0, 0, .10);\r\n    padding: 0px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    overflow: hidden;\r\n    max-width:400px ;\r\n    height: 100%;\r\n}\r\n.right-section{\r\n    padding: 0px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    overflow: hidden;\r\n    height: 100%;\r\n}\r\n.header-section{\r\n    border-bottom: solid 1px rgba(0, 0, 0, .10);\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    min-height: 50px;\r\n}\r\n.header-title{\r\n    font-weight: 600;\r\n    font-size: 1.5em;\r\n}\r\n.list-chat-box{\r\n    overflow: auto;\r\n    height: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.sender-item{\r\n    border-bottom: 1px solid rgba(0, 0, 0, .10);\r\n}\r\na{\r\n    display: block;\r\n}\r\na:hover{\r\n    background-color: #f2f2f2;\r\n    cursor: pointer;\r\n}\r\n.item{\r\ndisplay: flex;\r\npadding: 10px;\r\n}\r\n.sender-item img{\r\n    height: 50px;\r\n    width: 50px;\r\n}\r\n.avatar{\r\n   flex:0 0 50px;\r\n}\r\n.about{\r\n    flex: 1 1 auto;\r\n    display: flex;\r\n    flex-direction: column;\r\n    overflow: hidden;\r\n    justify-content: center;\r\n    margin-left: 10px;\r\n}\r\n.about .name{\r\n    font-size: 15px;\r\n}\r\n.about .time{\r\n    margin-left: auto;\r\n    font-size: 13px;\r\n    color: rgba(153, 153, 153, 1);\r\n}\r\n.about .message{\r\n    font-size: 13px;\r\n    color: rgba(153, 153, 153, 1);\r\n}\r\n.about span{\r\n  white-space: nowrap; \r\n  overflow: hidden;\r\n  text-overflow: ellipsis; \r\n}\r\n.active{\r\n    background-color: #f2f2f2;\r\n}\r\n.list-chat-box::-webkit-scrollbar\r\n{\r\n    width: 8px;\r\n    border-radius: 8px;\r\n\tbackground-color: #F5F5F5;\r\n}\r\n.list-chat-box::-webkit-scrollbar-thumb\r\n{\r\n\tborder-radius: 8px;\r\n\tbackground-color: #777;\r\n}\r\n.icon{\r\n    display: none;\r\n    font-size: 1.5em;\r\n}\r\n.loading{\r\n    height: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    position: absolute;\r\n    bottom: 0px;\r\n    right: 0px;\r\n    left: 0px;\r\n}\r\n.loading img{\r\n    height: 30px;\r\n    width: 30px;\r\n}\r\n.none{\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    font-size: 17px;\r\n    padding-top: 30px;\r\n}\r\n@media screen and (max-width:480px){\r\n    .hidden{\r\n         display: none;\r\n    }\r\n    .left-section{\r\n        max-width: 70px;\r\n    }\r\n    .right-section{\r\n        flex: 1 1 100%;\r\n        max-width: 100%;\r\n    }\r\n    .icon{\r\n        display: block;\r\n    }\r\n    .header-title{\r\n        display: none;\r\n    }\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy91c2VyL21lc3NhZ2UvbWVzc2FnZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtFQUNaLG1CQUFtQjtFQUNuQixrQkFBa0I7RUFDbEIsMkJBQTJCO0VBQzNCLDZCQUE2QjtBQUMvQjtBQUNBO0lBQ0ksMENBQTBDO0lBQzFDLFlBQVk7SUFDWixhQUFhO0lBQ2Isc0JBQXNCO0lBQ3RCLGdCQUFnQjtJQUNoQixnQkFBZ0I7SUFDaEIsWUFBWTtBQUNoQjtBQUNBO0lBQ0ksWUFBWTtJQUNaLGFBQWE7SUFDYixzQkFBc0I7SUFDdEIsZ0JBQWdCO0lBQ2hCLFlBQVk7QUFDaEI7QUFDQTtJQUNJLDJDQUEyQztJQUMzQyxhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLHVCQUF1QjtJQUN2QixnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLGNBQWM7SUFDZCxZQUFZO0lBQ1osYUFBYTtJQUNiLHNCQUFzQjtBQUMxQjtBQUNBO0lBQ0ksMkNBQTJDO0FBQy9DO0FBQ0E7SUFDSSxjQUFjO0FBQ2xCO0FBQ0E7SUFDSSx5QkFBeUI7SUFDekIsZUFBZTtBQUNuQjtBQUNBO0FBQ0EsYUFBYTtBQUNiLGFBQWE7QUFDYjtBQUNBO0lBQ0ksWUFBWTtJQUNaLFdBQVc7QUFDZjtBQUNBO0dBQ0csYUFBYTtBQUNoQjtBQUNBO0lBQ0ksY0FBYztJQUNkLGFBQWE7SUFDYixzQkFBc0I7SUFDdEIsZ0JBQWdCO0lBQ2hCLHVCQUF1QjtJQUN2QixpQkFBaUI7QUFDckI7QUFDQTtJQUNJLGVBQWU7QUFDbkI7QUFDQTtJQUNJLGlCQUFpQjtJQUNqQixlQUFlO0lBQ2YsNkJBQTZCO0FBQ2pDO0FBQ0E7SUFDSSxlQUFlO0lBQ2YsNkJBQTZCO0FBQ2pDO0FBQ0E7RUFDRSxtQkFBbUI7RUFDbkIsZ0JBQWdCO0VBQ2hCLHVCQUF1QjtBQUN6QjtBQUNBO0lBQ0kseUJBQXlCO0FBQzdCO0FBQ0E7O0lBRUksVUFBVTtJQUNWLGtCQUFrQjtDQUNyQix5QkFBeUI7QUFDMUI7QUFFQTs7Q0FFQyxrQkFBa0I7Q0FDbEIsc0JBQXNCO0FBQ3ZCO0FBQ0E7SUFDSSxhQUFhO0lBQ2IsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxZQUFZO0lBQ1osYUFBYTtJQUNiLHVCQUF1QjtJQUN2QixtQkFBbUI7SUFDbkIsa0JBQWtCO0lBQ2xCLFdBQVc7SUFDWCxVQUFVO0lBQ1YsU0FBUztBQUNiO0FBQ0E7SUFDSSxZQUFZO0lBQ1osV0FBVztBQUNmO0FBQ0E7SUFDSSxhQUFhO0lBQ2Isc0JBQXNCO0lBQ3RCLG1CQUFtQjtJQUNuQixlQUFlO0lBQ2YsaUJBQWlCO0FBQ3JCO0FBQ0E7SUFDSTtTQUNLLGFBQWE7SUFDbEI7SUFDQTtRQUNJLGVBQWU7SUFDbkI7SUFDQTtRQUNJLGNBQWM7UUFDZCxlQUFlO0lBQ25CO0lBQ0E7UUFDSSxjQUFjO0lBQ2xCO0lBQ0E7UUFDSSxhQUFhO0lBQ2pCO0FBQ0oiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3VzZXIvbWVzc2FnZS9tZXNzYWdlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY292ZXJ7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIG1hcmdpbi1yaWdodDogLTEwcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IC0xMHB4O1xyXG4gIGZsZXgtd3JhcDogbm93cmFwIWltcG9ydGFudDtcclxuICBtYXJnaW4tYm90dG9tOiAwcHggIWltcG9ydGFudDtcclxufVxyXG4ubGVmdC1zZWN0aW9ue1xyXG4gICAgYm9yZGVyLXJpZ2h0OiBzb2xpZCAxcHggcmdiYSgwLCAwLCAwLCAuMTApO1xyXG4gICAgcGFkZGluZzogMHB4O1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gICAgbWF4LXdpZHRoOjQwMHB4IDtcclxuICAgIGhlaWdodDogMTAwJTtcclxufVxyXG4ucmlnaHQtc2VjdGlvbntcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAgIGhlaWdodDogMTAwJTtcclxufVxyXG4uaGVhZGVyLXNlY3Rpb257XHJcbiAgICBib3JkZXItYm90dG9tOiBzb2xpZCAxcHggcmdiYSgwLCAwLCAwLCAuMTApO1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIG1pbi1oZWlnaHQ6IDUwcHg7XHJcbn1cclxuLmhlYWRlci10aXRsZXtcclxuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XHJcbiAgICBmb250LXNpemU6IDEuNWVtO1xyXG59XHJcbi5saXN0LWNoYXQtYm94e1xyXG4gICAgb3ZlcmZsb3c6IGF1dG87XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxufVxyXG4uc2VuZGVyLWl0ZW17XHJcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgcmdiYSgwLCAwLCAwLCAuMTApO1xyXG59XHJcbmF7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxufVxyXG5hOmhvdmVye1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2YyZjJmMjtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4uaXRlbXtcclxuZGlzcGxheTogZmxleDtcclxucGFkZGluZzogMTBweDtcclxufVxyXG4uc2VuZGVyLWl0ZW0gaW1ne1xyXG4gICAgaGVpZ2h0OiA1MHB4O1xyXG4gICAgd2lkdGg6IDUwcHg7XHJcbn1cclxuLmF2YXRhcntcclxuICAgZmxleDowIDAgNTBweDtcclxufVxyXG4uYWJvdXR7XHJcbiAgICBmbGV4OiAxIDEgYXV0bztcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gICAgbWFyZ2luLWxlZnQ6IDEwcHg7XHJcbn1cclxuLmFib3V0IC5uYW1le1xyXG4gICAgZm9udC1zaXplOiAxNXB4O1xyXG59XHJcbi5hYm91dCAudGltZXtcclxuICAgIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG4gICAgZm9udC1zaXplOiAxM3B4O1xyXG4gICAgY29sb3I6IHJnYmEoMTUzLCAxNTMsIDE1MywgMSk7XHJcbn1cclxuLmFib3V0IC5tZXNzYWdle1xyXG4gICAgZm9udC1zaXplOiAxM3B4O1xyXG4gICAgY29sb3I6IHJnYmEoMTUzLCAxNTMsIDE1MywgMSk7XHJcbn1cclxuLmFib3V0IHNwYW57XHJcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDsgXHJcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpczsgXHJcbn1cclxuLmFjdGl2ZXtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmMmYyZjI7XHJcbn1cclxuLmxpc3QtY2hhdC1ib3g6Oi13ZWJraXQtc2Nyb2xsYmFyXHJcbntcclxuICAgIHdpZHRoOiA4cHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiA4cHg7XHJcblx0YmFja2dyb3VuZC1jb2xvcjogI0Y1RjVGNTtcclxufVxyXG5cclxuLmxpc3QtY2hhdC1ib3g6Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iXHJcbntcclxuXHRib3JkZXItcmFkaXVzOiA4cHg7XHJcblx0YmFja2dyb3VuZC1jb2xvcjogIzc3NztcclxufVxyXG4uaWNvbntcclxuICAgIGRpc3BsYXk6IG5vbmU7XHJcbiAgICBmb250LXNpemU6IDEuNWVtO1xyXG59XHJcbi5sb2FkaW5ne1xyXG4gICAgaGVpZ2h0OiA2MHB4O1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIGJvdHRvbTogMHB4O1xyXG4gICAgcmlnaHQ6IDBweDtcclxuICAgIGxlZnQ6IDBweDtcclxufVxyXG4ubG9hZGluZyBpbWd7XHJcbiAgICBoZWlnaHQ6IDMwcHg7XHJcbiAgICB3aWR0aDogMzBweDtcclxufVxyXG4ubm9uZXtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIGZvbnQtc2l6ZTogMTdweDtcclxuICAgIHBhZGRpbmctdG9wOiAzMHB4O1xyXG59XHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6NDgwcHgpe1xyXG4gICAgLmhpZGRlbntcclxuICAgICAgICAgZGlzcGxheTogbm9uZTtcclxuICAgIH1cclxuICAgIC5sZWZ0LXNlY3Rpb257XHJcbiAgICAgICAgbWF4LXdpZHRoOiA3MHB4O1xyXG4gICAgfVxyXG4gICAgLnJpZ2h0LXNlY3Rpb257XHJcbiAgICAgICAgZmxleDogMSAxIDEwMCU7XHJcbiAgICAgICAgbWF4LXdpZHRoOiAxMDAlO1xyXG4gICAgfVxyXG4gICAgLmljb257XHJcbiAgICAgICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICB9XHJcbiAgICAuaGVhZGVyLXRpdGxle1xyXG4gICAgICAgIGRpc3BsYXk6IG5vbmU7XHJcbiAgICB9XHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -1668,7 +1667,7 @@ module.exports = ".cover{\r\n  height: 100%;\r\n  margin-right: -10px;\r\n  marg
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"cover row box\">\r\n        <div class=\"left-section col-4\">\r\n                <div class=\"header-section\">\r\n                        <span class=\"header-title\">Message</span><i class=\"fas fa-users icon\"></i>\r\n                </div>\r\n                <div class=\"list-chat-box\" infiniteScroll [scrollWindow]=\"false\" [infiniteScrollDistance]=\"0.1\"\r\n                        [infiniteScrollUpDistance]=\"0\" [infiniteScrollThrottle]=\"100\" (scrolled)=\"onScrollDown()\"\r\n                        >\r\n\r\n                        <ng-container *ngFor=\"let sender of listUserChats\">\r\n                                <a [ngClass]=\"{'active':peopleId==sender.id}\" (click)=\"onClickItem(sender)\"\r\n                                        class=\"sender-item\">\r\n                                        <div class=\"item\">\r\n                                                <div class=\"avatar\">\r\n                                                        <img class=\"photo\" [src]=\"sender.avatar\">\r\n                                                </div>\r\n                                                <div class=\"about hidden\">\r\n                                                        <div style=\"display: flex\">\r\n                                                                <span class=\"name\">{{sender.fullName}}</span>\r\n                                                                <span\r\n                                                                        class=\"time\">{{(sender.createDate | formatDate:\"MM/dd/yyyy HH:mm:ss\")|timeAgo}}</span>\r\n                                                        </div>\r\n\r\n                                                        <span *ngIf=\"sender.isYou\">You:</span><span\r\n                                                                class=\"message\">{{sender.lastedMessage}}</span>\r\n\r\n                                                </div>\r\n                                        </div>\r\n                                </a>\r\n                        </ng-container>\r\n                        <div class=\"loading\" *ngIf=\"isLoadingMess\"><img src=\"./../../../../../assets/imgs/spinner.gif\"></div>\r\n                        <!-- <ng-template #loadingmess> Loading...</ng-template>\r\n                        <button *ngIf=\"!isLoadingMess;else loadingmess\" (click)=\"loadMoreList()\">more</button> -->\r\n                </div>\r\n        </div>\r\n        <div app-box-chat (send)=\"sendMessage($event)\" [userId]=\"user.id\" [peopleId]=\"peopleId\"\r\n                class=\"right-section col\">\r\n                <!-- <app-box-chat (send)=\"sendMessage($event)\" [userId]=\"user.id\" [peopleId]=\"peopleId\">\r\n                </app-box-chat> -->\r\n        </div>\r\n</div>"
+module.exports = "<div class=\"cover row box\">\r\n        <div class=\"left-section col-4\">\r\n                <div class=\"header-section\">\r\n                        <span class=\"header-title\">Message</span><i class=\"fas fa-users icon\"></i>\r\n                </div>\r\n                <div #listchatbox class=\"list-chat-box\" infiniteScroll [scrollWindow]=\"false\"\r\n                        [infiniteScrollDistance]=\"0.1\" [infiniteScrollUpDistance]=\"0\" [infiniteScrollThrottle]=\"100\"\r\n                        (scrolled)=\"onScrollDown()\">\r\n                        <div class=\"none\" *ngIf=\"!listUserChats?.length\"> You has no message.</div>\r\n                        <ng-container *ngFor=\"let sender of listUserChats\">\r\n                                <a [ngClass]=\"{'active':peopleId==sender.id}\" (click)=\"onClickItem(sender)\"\r\n                                        class=\"sender-item\">\r\n                                        <div class=\"item\">\r\n                                                <div class=\"avatar\">\r\n                                                        <img class=\"photo\" [src]=\"sender.avatar\">\r\n                                                </div>\r\n                                                <div class=\"about hidden\">\r\n                                                        <div style=\"display: flex\">\r\n                                                                <span class=\"name\">{{sender.fullName}}</span>\r\n                                                                <span\r\n                                                                        class=\"time\">{{(sender.createDate | formatDate:\"MM/dd/yyyy HH:mm:ss\")|timeAgo}}</span>\r\n                                                        </div>\r\n\r\n                                                        <span *ngIf=\"sender.isYou\">You:</span><span\r\n                                                                class=\"message\">{{sender.lastedMessage}}</span>\r\n\r\n                                                </div>\r\n                                        </div>\r\n                                </a>\r\n                        </ng-container>\r\n                        <div #loadinguserchat class=\"loading\" *ngIf=\"isLoadingMess\"><img\r\n                                        src=\"./../../../../../assets/imgs/spinner.gif\"></div>\r\n                        <!-- <ng-template #loadingmess> Loading...</ng-template>\r\n                        <button *ngIf=\"!isLoadingMess;else loadingmess\" (click)=\"loadMoreList()\">more</button> -->\r\n                </div>\r\n        </div>\r\n\r\n        <ng-container *ngIf=\"!notFound;else notfound\">\r\n                <ng-container *ngIf=\"listUserChats?.length || !notFound \">\r\n                        <div *ngIf=\"!notFound;else notfound\" app-box-chat (send)=\"sendMessage($event)\"\r\n                                [userId]=\"user.id\" [peopleId]=\"peopleId\" [people]=\"people\" class=\"right-section col\">\r\n                                <!-- <app-box-chat (send)=\"sendMessage($event)\" [userId]=\"user.id\" [peopleId]=\"peopleId\">\r\n                </app-box-chat> -->\r\n                        </div>\r\n                </ng-container>\r\n        </ng-container>\r\n\r\n        <ng-template #notfound>\r\n                <div class=\"right-section col none\">Not Found</div>\r\n        </ng-template>\r\n</div>"
 
 /***/ }),
 
@@ -1685,11 +1684,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _aspnet_signalr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @aspnet/signalr */ "./node_modules/@aspnet/signalr/dist/esm/index.js");
-/* harmony import */ var src_app_services_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/user.service */ "./src/app/services/user.service.ts");
-/* harmony import */ var _box_chat_box_chat_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./box-chat/box-chat.component */ "./src/app/components/user/message/box-chat/box-chat.component.ts");
-
+/* harmony import */ var src_app_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _box_chat_box_chat_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./box-chat/box-chat.component */ "./src/app/components/user/message/box-chat/box-chat.component.ts");
+/* harmony import */ var _models_global__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../models/global */ "./src/app/models/global.ts");
 
 
 
@@ -1697,93 +1694,196 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var MessageComponent = /** @class */ (function () {
-    function MessageComponent(service, router, activatedRoute, http) {
+    function MessageComponent(service, router, activatedRoute, cdr) {
         this.service = service;
         this.router = router;
         this.activatedRoute = activatedRoute;
-        this.http = http;
+        this.cdr = cdr;
+        this.listUserChatsAll = [];
+        this.listUserChats = [];
         this.token = localStorage.getItem("token");
         this.index = 0;
+        this.count = 0;
     }
     MessageComponent.prototype.ngOnDestroy = function () {
+        // console.log(123)
+        //this.cdr.detach();
         window.document.getElementById("main-container").style.cssText = "height:unset;padding-bottom:unset;";
         window.document.getElementById("main-footer").style.cssText = "display:unset";
-        if (this.hubConnection)
-            this.hubConnection.stop();
+        //this.boxChatComponent.destroy()
+        //hubConnection.off('sendChatMessage');
+        this.destroyComponent = true;
+        // console.log(this.hubConnection)
+        //   this.hubConnection.stop();
+        //hubConnection.off('sendChatMessage')
     };
     MessageComponent.prototype.ngOnInit = function () {
-        window.document.getElementById("main-container").style.cssText = "height:100vh;padding-bottom:10px;";
+        //console.log(hubConnection)
+        this.index = 0;
+        this.receive();
+        window.document.getElementById("main-container").style.cssText = "height:100vh;padding-bottom:5px;";
         window.document.getElementById("main-footer").style.cssText = "display:none";
-        this.setup();
+        //this.setup();
         this.user = this.activatedRoute.snapshot.data.user;
-        this.listUserChats = this.activatedRoute.snapshot.data.listUserChats;
+        this.listUserChatsAll = this.activatedRoute.snapshot.data.listUserChats;
+        this.listUserChats = this.listUserChatsAll.slice(0, 10);
         console.log(this.listUserChats);
         this.getIdcurrentPeople();
     };
-    MessageComponent.prototype.setup = function () {
-        var _this = this;
-        this.hubConnection = new _aspnet_signalr__WEBPACK_IMPORTED_MODULE_4__["HubConnectionBuilder"]()
-            .withUrl('https://travelhelperwebsite.azurewebsites.net/chat', {
-            accessTokenFactory: function () {
-                return _this.token;
-            },
-        })
-            .build();
-        this.connect();
-        this.hubConnection.state;
-        this.hubConnection.on('sendChatMessage', function (from, message) {
-            console.log(from + ":" + message);
-            _this.receiveMessage = { from: from, message: message };
-            _this.boxChatComponent.loadMessage(_this.receiveMessage);
-        });
-        this.hubConnection.onclose(function () {
-            _this.connect();
-        });
-    };
-    MessageComponent.prototype.connect = function () {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var _this = this;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                this.hubConnection
-                    .start()
-                    .then(function () {
-                    console.log('Connection Started!');
-                })
-                    .catch(function (err) {
-                    console.log(err);
-                    _this.sleep(5000);
-                    _this.connect();
-                });
-                return [2 /*return*/];
-            });
-        });
-    };
-    MessageComponent.prototype.sleep = function (msec) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                return [2 /*return*/, new Promise(function (resolve) { return setTimeout(resolve, msec); })];
-            });
-        });
-    };
+    // setup() {
+    //   this.hubConnection = new signalR.HubConnectionBuilder()
+    //     .withUrl('https://travelhelperwebsite.azurewebsites.net/chat', {
+    //       accessTokenFactory: () => {
+    //         return this.token;
+    //       },
+    //     } as signalR.IHttpConnectionOptions)
+    //     .build();
+    //   this.connect();
+    //   // this.hubConnection.onclose(() => {
+    //   //   this.connect();
+    //   // })
+    // }
+    // async connect() {
+    //   this.hubConnection
+    //     .start()
+    //     .then(() => {
+    //       console.log('Connection Started!')
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //       this.sleep(5000);
+    //       this.connect();
+    //     })
+    // }
+    // async sleep(msec) {
+    //   return new Promise(resolve => setTimeout(resolve, msec));
+    // }
     MessageComponent.prototype.sendMessage = function (event) {
-        this.hubConnection
+        _models_global__WEBPACK_IMPORTED_MODULE_5__["hubConnection"]
             .invoke('sendChatMessage', event.peopleId, event.textchat)
             .catch(function (err) { return console.error(err); });
+    };
+    MessageComponent.prototype.receive = function () {
+        var _this = this;
+        // on((from, message) => {
+        //   console.log(from + ":" + message)
+        //   this.receiveMessage = { from: from, message: message };
+        //   if (!this.destroyComponent)
+        //     this.boxChatComponent.loadMessage(this.receiveMessage)
+        // })
+        _models_global__WEBPACK_IMPORTED_MODULE_5__["hubConnection"].on('sendChatMessage', function (from, fullName, avatar, message) {
+            console.log(from + ":" + message);
+            if (!_this.destroyComponent) {
+                // this.listUserChats.forEach(item => {
+                //   if (item.id == from) {
+                //     this.listUserChats = this.listUserChats.filter(item => { item.id != from })
+                //     this.listUserChats.unshift(item);
+                //     console.log(this.listUserChats)
+                //   }
+                // })
+                if (from == _this.user.id) {
+                    var item = _this.listUserChatsAll.filter(function (item) { return item.id == _this.people.id; });
+                    //console.log(item)
+                    if (item.length) {
+                        var i = _this.listUserChatsAll.indexOf(item[0]);
+                        _this.listUserChatsAll.splice(0, 0, _this.listUserChatsAll.splice(i, 1)[0]);
+                        var item1 = _this.listUserChats.filter(function (item) { return item.id == _this.people.id; });
+                        if (item1.length) {
+                            var i_1 = _this.listUserChats.indexOf(item1[0]);
+                            _this.listUserChats.splice(0, 0, _this.listUserChats.splice(i_1, 1)[0]);
+                        }
+                        else {
+                            _this.listUserChats.unshift(item[0]);
+                            _this.count++;
+                        }
+                        _this.listUserChats[0].createDate = new Date().toLocaleString("en-US", { timeZone: "Iceland" });
+                        _this.listUserChats[0].lastedMessage = message;
+                    }
+                    else {
+                        var data = {
+                            avatar: _this.people.avatarLocation,
+                            fullName: _this.people.fullName,
+                            createDate: new Date,
+                            lastedMessage: message,
+                            id: _this.people.id
+                        };
+                        _this.listUserChats.unshift(data);
+                        _this.listUserChatsAll.unshift(data);
+                        _this.count++;
+                    }
+                    _this.cdr.detectChanges();
+                    _this.listchatbox.nativeElement.scrollTop = 0;
+                }
+                else {
+                    var item = _this.listUserChatsAll.filter(function (item) { return item.id == from; });
+                    if (item.length) {
+                        var i = _this.listUserChatsAll.indexOf(item[0]);
+                        _this.listUserChatsAll.splice(0, 0, _this.listUserChatsAll.splice(i, 1)[0]);
+                        var item1 = _this.listUserChats.filter(function (item) { return item.id == from; });
+                        if (item1.length) {
+                            var i_2 = _this.listUserChats.indexOf(item1[0]);
+                            _this.listUserChats.splice(0, 0, _this.listUserChats.splice(i_2, 1)[0]);
+                        }
+                        else {
+                            _this.listUserChats.unshift(item[0]);
+                            _this.count++;
+                        }
+                        _this.listUserChats[0].createDate = new Date().toLocaleString("en-US", { timeZone: "Iceland" });
+                        _this.listUserChats[0].lastedMessage = message;
+                    }
+                    else {
+                        // let xxx;
+                        // this.service.getPeopleProfile(from).subscribe(
+                        //   res => {
+                        //     xxx = res;
+                        //   }
+                        // )
+                        var data = {
+                            avatar: avatar,
+                            fullName: fullName,
+                            createDate: new Date,
+                            lastedMessage: message,
+                            id: from
+                        };
+                        _this.listUserChats.unshift(data);
+                        _this.listUserChatsAll.unshift(data);
+                        _this.count++;
+                    }
+                    // for (let i = 0; i < this.listUserChatsAll.length; i++) {
+                    //   if (this.listUserChatsAll[i].id == from) {
+                    //     this.listUserChatsAll.splice(0, 0, this.listUserChats.splice(i, 1)[0]);
+                    //     break;
+                    //   }
+                    // }
+                    _this.listUserChats[0].createDate = new Date().toLocaleString("en-US", { timeZone: "Iceland" });
+                    _this.listUserChats[0].lastedMessage = message;
+                }
+                _this.cdr.detectChanges();
+                _this.receiveMessage = { from: from, message: message };
+                _this.boxChatComponent.loadMessage(_this.receiveMessage);
+            }
+        });
     };
     MessageComponent.prototype.getIdcurrentPeople = function () {
         var _this = this;
         this.activatedRoute.queryParams.subscribe(function (params) {
             _this.peopleId = params['id'];
-            //  console.log(this.peopleId)
             if (_this.peopleId) {
+                //  console.log(this.peopleId)
                 _this.service.getPeopleProfile(_this.peopleId).subscribe(function (res) {
-                    _this.people = res;
-                    _this.boxChatComponent.people = res.fullName;
+                    //  console.log(res)
+                    if (res.err == 404) {
+                        _this.notFound = true;
+                    }
+                    else {
+                        _this.notFound = false;
+                        _this.people = res;
+                        _this.cdr.detectChanges();
+                        _this.boxChatComponent.load(_this.peopleId);
+                    }
                 });
-                _this.boxChatComponent.load(_this.peopleId);
             }
             else {
-                //     console.log('un')
                 if (_this.listUserChats[0])
                     _this.router.navigate(["/Users/Message/"], { queryParams: { id: _this.listUserChats[0].id } });
             }
@@ -1792,36 +1892,51 @@ var MessageComponent = /** @class */ (function () {
     MessageComponent.prototype.loadMoreList = function () {
         var _this = this;
         this.isLoadingMess = true;
-        this.index++;
-        this.service.getListUserChat(this.index).subscribe(function (res) {
-            console.log(res);
-            _this.listUserChats = _this.listUserChats.concat(res);
+        this.index = this.listUserChats.length;
+        // this.index++;
+        // this.cdr.detectChanges();
+        // this.listchatbox.nativeElement.scrollTop = 696969;
+        setTimeout(function () {
+            var re = _this.listUserChatsAll.slice(_this.index + _this.count, 10 + _this.index + _this.count);
+            console.log(re);
+            _this.listUserChats = _this.listUserChats.concat(re);
             _this.isLoadingMess = false;
-        });
+        }, 1000);
+        // this.service.getListUserChat(this.index, 3).subscribe(
+        //   res => {
+        //     console.log(res)
+        //     this.listUserChats = this.listUserChats.concat(res);
+        //     this.isLoadingMess = false;
+        //   }
+        // )
     };
     MessageComponent.prototype.onClickItem = function (sender) {
-        // console.log(sender)
         this.router.navigate([], { queryParams: { id: sender.id } });
-        this.boxChatComponent.people = sender.fullName;
     };
     MessageComponent.prototype.onScrollDown = function () {
         console.log('scrolldown');
         this.loadMoreList();
     };
-    MessageComponent.prototype.onScrollUp = function () {
-        console.log('scrollup');
-    };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_box_chat_box_chat_component__WEBPACK_IMPORTED_MODULE_6__["BoxChatComponent"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _box_chat_box_chat_component__WEBPACK_IMPORTED_MODULE_6__["BoxChatComponent"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_box_chat_box_chat_component__WEBPACK_IMPORTED_MODULE_4__["BoxChatComponent"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _box_chat_box_chat_component__WEBPACK_IMPORTED_MODULE_4__["BoxChatComponent"])
     ], MessageComponent.prototype, "boxChatComponent", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('listchatbox'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+    ], MessageComponent.prototype, "listchatbox", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('loadinguserchat'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+    ], MessageComponent.prototype, "loadinguserchat", void 0);
     MessageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-message',
             template: __webpack_require__(/*! ./message.component.html */ "./src/app/components/user/message/message.component.html"),
             styles: [__webpack_require__(/*! ./message.component.css */ "./src/app/components/user/message/message.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
     ], MessageComponent);
     return MessageComponent;
 }());
@@ -4639,7 +4754,7 @@ module.exports = "/* :host(app-user){\r\n    min-height: 100vh;\r\n    display: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-progress></ng-progress>\r\n<div id=\"main-header\" class=\"header shadow-sm\">\r\n    <app-header></app-header>\r\n</div>\r\n<div id=\"main-container\" class=\"container\">\r\n    <router-outlet (activate)=\"onActivate($event)\"></router-outlet>\r\n</div>\r\n<div id=\"main-footer\" class=\"footer shadow-sm \">\r\n    <app-footer></app-footer>\r\n</div>\r\n"
+module.exports = "<ng-progress></ng-progress>\r\n<div id=\"main-header\" class=\"header shadow-sm\">\r\n    <app-header [user]=\"user\" [isNoty]=\"isNoty\"></app-header>\r\n</div>\r\n<div id=\"main-container\" class=\"container\">\r\n    <router-outlet (activate)=\"onActivate($event)\"></router-outlet>\r\n</div>\r\n<div id=\"main-footer\" class=\"footer shadow-sm \">\r\n    <app-footer></app-footer>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -4657,26 +4772,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _ngx_progressbar_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-progressbar/core */ "./node_modules/@ngx-progressbar/core/fesm5/ngx-progressbar-core.js");
+/* harmony import */ var _models_global__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../models/global */ "./src/app/models/global.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+
+
 
 
 
 
 var UserComponent = /** @class */ (function () {
-    function UserComponent(router) {
+    function UserComponent(router, activatedRoute, toast, cdr) {
         this.router = router;
+        this.activatedRoute = activatedRoute;
+        this.toast = toast;
+        this.cdr = cdr;
+        this.token = localStorage.getItem("token");
+        this.isNoty = false;
     }
     UserComponent.prototype.ngOnDestroy = function () {
-        //this.navigationSubscription.unsubcribe();
+        // hubConnection.off('sendChatMessage');
+        Object(_models_global__WEBPACK_IMPORTED_MODULE_4__["dis"])();
     };
     UserComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.user = this.activatedRoute.snapshot.data.users;
+        Object(_models_global__WEBPACK_IMPORTED_MODULE_4__["con"])();
+        _models_global__WEBPACK_IMPORTED_MODULE_4__["hubConnection"].on('sendChatMessage', function (from, fullName, avatar, message) {
+            console.log(from + ":" + message);
+            if (!_this.router.url.includes("/Users/Message"))
+                if (from != _this.user.id) {
+                    _this.isNoty = true;
+                    // this.toast.show(message, fullName, { toastClass: "message-toast" });
+                    _this.cdr.detectChanges();
+                }
+        });
         this.navigationSubscription = this.router.events.subscribe(function (routerEvent) {
             if (routerEvent instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationStart"]) {
                 _this.progressBar.start();
             }
             if (routerEvent instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
                 _this.progressBar.complete();
-                // console.log(routerEvent)
             }
         });
     };
@@ -4693,7 +4828,7 @@ var UserComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./user.component.html */ "./src/app/components/user/user.component.html"),
             styles: [__webpack_require__(/*! ./user.component.css */ "./src/app/components/user/user.component.css"), __webpack_require__(/*! ./../../app.component.css */ "./src/app/app.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
     ], UserComponent);
     return UserComponent;
 }());
@@ -4965,6 +5100,76 @@ var UserauthComponent = /** @class */ (function () {
     return UserauthComponent;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/models/global.ts":
+/*!**********************************!*\
+  !*** ./src/app/models/global.ts ***!
+  \**********************************/
+/*! exports provided: hubConnection, con, dis, on */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hubConnection", function() { return hubConnection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "con", function() { return con; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dis", function() { return dis; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "on", function() { return on; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _aspnet_signalr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @aspnet/signalr */ "./node_modules/@aspnet/signalr/dist/esm/index.js");
+
+
+var hubConnection;
+function con() {
+    var token = localStorage.getItem('token');
+    hubConnection = new _aspnet_signalr__WEBPACK_IMPORTED_MODULE_1__["HubConnectionBuilder"]()
+        .withUrl('https://travelhelperwebsite.azurewebsites.net/chat', {
+        accessTokenFactory: function () {
+            return token;
+        },
+    })
+        .build();
+    connect();
+    hubConnection.onclose(function () {
+        token = localStorage.getItem('token');
+        if (token)
+            connect();
+    });
+}
+function dis() {
+    if (hubConnection)
+        hubConnection.stop();
+}
+function on(func) {
+    hubConnection.on('sendChatMessage', function (from, fullName, avatar, message) {
+        func(from, fullName, avatar, message);
+    });
+}
+function connect() {
+    return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+            hubConnection.start()
+                .then(function () {
+                console.log('Connection Started!');
+            })
+                .catch(function (err) {
+                console.log(err);
+                sleep(5000);
+                connect();
+            });
+            return [2 /*return*/];
+        });
+    });
+}
+function sleep(msec) {
+    return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+            return [2 /*return*/, new Promise(function (resolve) { return setTimeout(resolve, msec); })];
+        });
+    });
+}
 
 
 /***/ }),
@@ -5242,13 +5447,12 @@ var DefaultUserChatResolve = /** @class */ (function () {
         var id = activatedRouteSnapshot.queryParamMap.get('id');
         console.log(id);
         if (id == null) {
-            this.service.getListUserChat(0).subscribe(function (res) {
+            this.service.getListUserChat(0, 1).subscribe(function (res) {
                 if (res[0]) {
                     _this.router.navigate(['/Users/Message'], { queryParams: { id: res[0].id } });
                 }
             });
         }
-        console.log(id);
     };
     DefaultUserChatResolve = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
@@ -5263,7 +5467,7 @@ var ListUserChatResolve = /** @class */ (function () {
         this.router = router;
     }
     ListUserChatResolve.prototype.resolve = function (activatedRouteSnapshot) {
-        return this.service.getListUserChat(0);
+        return this.service.getListUserChat(0, 10000);
     };
     ListUserChatResolve = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
@@ -5533,8 +5737,8 @@ var UserService = /** @class */ (function () {
     UserService.prototype.getMessage = function (id, index) {
         return this.http.get(this.BaseURI + '/Users/Messages/' + id + '?index=' + index + '&size=' + 15);
     };
-    UserService.prototype.getListUserChat = function (index) {
-        return this.http.get(this.BaseURI + '/users/messagesenders?index=' + index + '&size=' + 10);
+    UserService.prototype.getListUserChat = function (index, size) {
+        return this.http.get(this.BaseURI + '/users/messagesenders?index=' + index + '&size=' + size);
     };
     UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
