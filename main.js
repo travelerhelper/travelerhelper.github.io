@@ -1612,6 +1612,27 @@ var ActivityComponent = /** @class */ (function () {
                 _this.items = _this.items.filter(function (item) { return item.friendRequestId !== event.id; });
             });
         }
+        else if (event.type == 'cancel') {
+            console.log(event);
+            if (this.data.type == 'travelrequest') {
+                this.service.cancelRequest(event.id).subscribe(function (res) {
+                    _this.toast.success('Canceled');
+                    _this.items = _this.items.filter(function (item) { return item.travelRequestId !== event.id; });
+                });
+            }
+            else if (this.data.type == 'hostoffer') {
+                this.service.cancelHostOffer(event.id).subscribe(function (res) {
+                    _this.toast.success('Canceled');
+                    _this.items = _this.items.filter(function (item) { return item.hostOfferId !== event.id; });
+                });
+            }
+            else if (this.data.type == 'friendrequest') {
+                this.service.cancelFriendRequest(event.id).subscribe(function (res) {
+                    _this.toast.success('Canceled');
+                    _this.items = _this.items.filter(function (item) { return item.friendRequestId !== event.id; });
+                });
+            }
+        }
     };
     ActivityComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -3208,7 +3229,7 @@ module.exports = "\r\n.content-left{\r\n    /* min-width: 220px; */\r\n    max-w
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-write-reference-modal [people]=\"user\"></app-write-reference-modal>\r\n<app-send-message-modal [people]=\"user\"></app-send-message-modal>\r\n<app-send-request-modal [people]=\"user\"></app-send-request-modal>\r\n<app-send-report-modal [people]=\"user\"></app-send-report-modal>\r\n<div class=\"row\">\r\n  <div class=\"content-left col-3 \">\r\n    <div class=\"box user-info\">\r\n      <img class=\"photo img-responsive\"\r\n        [src]=\"user.avatarLocation?user.avatarLocation:'./../../../../assets/imgs/profile-picture-placeholder.png'\">\r\n      <div class=\"info\">\r\n        <p style=\"font-size:30px;font-weight: 600\">{{user.fullName}}</p>\r\n        <p style=\"font-size: 20px;\"> {{user.address}}</p>\r\n      </div>\r\n\r\n    </div>\r\n    <div class=\"box\" style=\"min-height:500px\">\r\n\r\n    </div>\r\n  </div>\r\n  <div class=\"content-right col \">\r\n    <div class=\"box status-bar\">\r\n      <i *ngIf=\"user.status;else not\" class=\"color-icon\"\r\n        style=\" margin-left: 20px; width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/ok.png)\"></i>\r\n      <ng-template #not>\r\n        <i class=\"color-icon\"\r\n          style=\" margin-left: 20px; width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/cancel.png)\"></i>\r\n      </ng-template>\r\n      <span class=\"status-value\" [style.color]=\"user.status?'green':'red'\">\r\n        {{user.status?'Acepting Guest':'Not Acepting Guest'}}\r\n      </span>\r\n      <div class=\"button-bar\">\r\n        <button (click)=\"sendRequestModal.open();\" *ngIf=\"!isUser&&user.status\" class=\"btn btn-primary\">Send\r\n          Request</button>\r\n          <!-- (click)=\"sendMessageModal.open();\"  -->\r\n        <button routerLink=\"/Users/Message\" [queryParams]=\"{id:user.id}\"\r\n          *ngIf=\"!isUser\" class=\"btn btn-primary\"><i class=\"far fa-envelope\"></i></button>\r\n        <button *ngIf=\"isUser\" class=\"btn btn-primary\" routerLink=\"/Users/Profile/Edit\">Edit My Profile</button>\r\n        <div *ngIf=\"!isUser\" class=\"dropdown\" (clickOutside)=\"isdrop=false;\">\r\n          <button class=\"btn btn-primary dropdown-toggle\" type=\"button\" id=\"dropdownMenu2\" data-toggle=\"dropdown\"\r\n            (click)=\"isdrop=!isdrop\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n            More\r\n          </button>\r\n          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenu2\"\r\n            [style.display]=\"isdrop?'block':'none'\">\r\n            <button *ngIf=\"!isFriend\" (click)=\"sendFriendRequest()\" class=\"dropdown-item\" type=\"button\">Add\r\n              Friend</button>\r\n            <!-- <button *ngIf=\"isFriend\" class=\"dropdown-item\" type=\"button\">Remove Friend</button> -->\r\n            <button (click)=\"writeReferenceModal.open();\" class=\"dropdown-item\" type=\"button\">Write Reference</button>\r\n            <button (click)=\"sendReportModal.open();\" class=\"dropdown-item\" type=\"button\">Report</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n    <div class=\"box menu-bar\">\r\n      <ul>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['About']\"><span>About</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Myhome']\"><span>My Home</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Photos']\"><span>Photos</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['References']\"><span>References</span></a></li>\r\n        <li *ngIf=\"isUser\"><a routerLinkActive='is-selected' [routerLink]=\"['Friends']\"><span>Friends</span></a></li>\r\n      </ul>\r\n    </div>\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>"
+module.exports = "<app-write-reference-modal [people]=\"user\"></app-write-reference-modal>\r\n<app-send-message-modal [people]=\"user\"></app-send-message-modal>\r\n<app-send-request-modal [people]=\"user\"></app-send-request-modal>\r\n<app-send-report-modal [people]=\"user\"></app-send-report-modal>\r\n<div class=\"row\">\r\n  <div class=\"content-left col-3 \">\r\n    <div class=\"box user-info\">\r\n      <img class=\"photo img-responsive\"\r\n        [src]=\"user.avatarLocation?user.avatarLocation:'./../../../../assets/imgs/profile-picture-placeholder.png'\">\r\n      <div class=\"info\">\r\n        <p style=\"font-size:30px;font-weight: 600\">{{user.fullName}}</p>\r\n        <p style=\"font-size: 20px;\"> {{user.address}}</p>\r\n      </div>\r\n\r\n    </div>\r\n    <div class=\"box\" style=\"min-height:500px\">\r\n\r\n    </div>\r\n  </div>\r\n  <div class=\"content-right col \">\r\n    <div class=\"box status-bar\">\r\n      <i *ngIf=\"user.status;else not\" class=\"color-icon\"\r\n        style=\" margin-left: 20px; width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/ok.png)\"></i>\r\n      <ng-template #not>\r\n        <i class=\"color-icon\"\r\n          style=\" margin-left: 20px; width: 40px;height: 40px; background-image: url(https://img.icons8.com/color/96/000000/cancel.png)\"></i>\r\n      </ng-template>\r\n      <span class=\"status-value\" [style.color]=\"user.status?'green':'red'\">\r\n        {{user.status?'Acepting Guest':'Not Acepting Guest'}}\r\n      </span>\r\n      <div class=\"button-bar\">\r\n        <button (click)=\"sendRequestModal.open();\" *ngIf=\"!isUser&&user.status\" class=\"btn btn-primary\">Send\r\n          Request</button>\r\n          <!-- (click)=\"sendMessageModal.open();\"  -->\r\n        <button routerLink=\"/Users/Message\" [queryParams]=\"{id:user.id}\"\r\n          *ngIf=\"!isUser\" class=\"btn btn-primary\"><i class=\"far fa-envelope\"></i></button>\r\n        <button *ngIf=\"isUser\" class=\"btn btn-primary\" routerLink=\"/Users/Profile/Edit\">Edit My Profile</button>\r\n        <div *ngIf=\"!isUser\" class=\"dropdown\" (clickOutside)=\"isdrop=false;\">\r\n          <button class=\"btn btn-primary dropdown-toggle\" type=\"button\" id=\"dropdownMenu2\" data-toggle=\"dropdown\"\r\n            (click)=\"isdrop=!isdrop\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n            More\r\n          </button>\r\n          <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenu2\"\r\n            [style.display]=\"isdrop?'block':'none'\">\r\n            <button *ngIf=\"!isFriend\" (click)=\"sendFriendRequest()\" class=\"dropdown-item\" type=\"button\">Add\r\n              Friend</button>\r\n            <button *ngIf=\"isFriend\" class=\"dropdown-item\" disabled>Friend</button>\r\n            <button (click)=\"writeReferenceModal.open();\" class=\"dropdown-item\" type=\"button\">Write Reference</button>\r\n            <button (click)=\"sendReportModal.open();\" class=\"dropdown-item\" type=\"button\">Report</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n    <div class=\"box menu-bar\">\r\n      <ul>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['About']\"><span>About</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Myhome']\"><span>My Home</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['Photos']\"><span>Photos</span></a></li>\r\n        <li><a routerLinkActive='is-selected' [routerLink]=\"['References']\"><span>References</span></a></li>\r\n        <li *ngIf=\"isUser\"><a routerLinkActive='is-selected' [routerLink]=\"['Friends']\"><span>Friends</span></a></li>\r\n      </ul>\r\n    </div>\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -4182,7 +4203,7 @@ module.exports = ".item{\r\n    border: solid 1px rgba(0,0,0,0.15);\r\n    borde
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"item\">\r\n    <div class=\"activity row\">\r\n        <div class=\"activity-info col-sm-12 col-md-3\">\r\n            <div class=\"card-info\">\r\n                <div class=\"avatar\">\r\n                    <a routerLink=\"/Users/People/{{data.select==='received'?item.sender.id:item.receiver.id}}\">\r\n                        <img [src]=\"data.select==='received'?item.sender.avatarLocation:item.receiver.avatarLocation\"></a>\r\n                </div>\r\n                <div class=\"info\">\r\n                    <a routerLink=\"/Users/People/{{data.select==='received'?item.sender.id:item.receiver.id}}\">\r\n                        <p class=\"name\">\r\n                            {{data.select==='received'?item.sender.fullName:item.receiver.fullName}}</p>\r\n                    </a>\r\n                    <p>{{data.select==='received'?item.sender.address:item.receiver.address}}</p>\r\n                </div>\r\n\r\n            </div>\r\n\r\n        </div>\r\n        <div *ngIf=\"data.type!='friendrequest'\" class=\"message col-md col-sm-12\">\r\n            <div class=\"trip-info\">\r\n                <span><i class=\"far fa-calendar-alt\"></i></span>\r\n                <span>{{item.arrivalDate|date:\"dd/MM/yyyy\" }} <i class=\"fas fa-arrow-right\"></i>\r\n                    {{item.departureDate|date:\"dd/MM/yyyy\"}}</span>\r\n                <span><i class=\"fas fa-user-friends\"></i></span><span>{{item.travelerNumber}} Traveler</span>\r\n            </div>\r\n            <div class=\"content-message\"\r\n                [ngClass]=\"{'content-message':data.select=='received','content-message-sent':data.select=='sent'}\">\r\n                <div class=\"trip-decription\" (window:resize)=\"onResize($event)\"\r\n                    [ngStyle]=\"x && {'max-height.em':height}\">\r\n                    <p #des>{{item.message}}</p>\r\n                </div>\r\n                <div class=\"button-decription\" *ngIf=\"show\">\r\n                    <a style=\"margin-left:auto\" (click)=\"x=!x\">{{x?'[-]Read Less':'[+]Read More'}}</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"action col-lg-2 col-md-12\">\r\n            <div class=\"button-bar\">\r\n                <button *ngIf=\"data.select=='received'\" [disabled]=\"item.isAccepted || isdiabled\" (click)=\"onAccept()\"\r\n                    [ngClass]=\"item.isAccepted?'btn-success':'btn-primary'\"\r\n                    class=\"btn \">{{item.isAccepted?'Accepted':'Accept'}}</button>\r\n                <button *ngIf=\"data.select=='received'\" [disabled]=\"isdiabled\" (click)=\"onIgnore()\"\r\n                    class=\"btn btn-danger\">Ignore</button>\r\n                <button *ngIf=\"data.select=='sent'\" [disabled]=\"isdiabled\" (click)=\"onCancel()\"\r\n                    class=\"btn btn-danger\">Cancel</button>\r\n            </div>\r\n            <div class=\"time\">\r\n                <p>{{item.createDate|formatDate:'dd/MM/yyyy HH:mm'}}</p>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"item\">\r\n    <div class=\"activity row\">\r\n        <div class=\"activity-info col-sm-12 \" [ngClass]=\"(data.type=='friendrequest')?'col-md-5':'col-md-3'\">\r\n            <div class=\"card-info\">\r\n                <div class=\"avatar\">\r\n                    <a routerLink=\"/Users/People/{{data.select==='received'?item.sender.id:item.receiver.id}}\">\r\n                        <img [src]=\"data.select==='received'?item.sender.avatarLocation:item.receiver.avatarLocation\"></a>\r\n                </div>\r\n                <div class=\"info\">\r\n                    <a routerLink=\"/Users/People/{{data.select==='received'?item.sender.id:item.receiver.id}}\">\r\n                        <p class=\"name\">\r\n                            {{data.select==='received'?item.sender.fullName:item.receiver.fullName}}</p>\r\n                    </a>\r\n                    <p>{{data.select==='received'?item.sender.address:item.receiver.address}}</p>\r\n                </div>\r\n\r\n            </div>\r\n\r\n        </div>\r\n        <div *ngIf=\"data.type!='friendrequest'\" class=\"message col-md col-sm-12\">\r\n            <div class=\"trip-info\">\r\n                <span><i class=\"far fa-calendar-alt\"></i></span>\r\n                <span>{{item.arrivalDate|date:\"dd/MM/yyyy\" }} <i class=\"fas fa-arrow-right\"></i>\r\n                    {{item.departureDate|date:\"dd/MM/yyyy\"}}</span>\r\n                <span><i class=\"fas fa-user-friends\"></i></span><span>{{item.travelerNumber}} Traveler</span>\r\n            </div>\r\n            <div class=\"content-message\"\r\n                [ngClass]=\"{'content-message':data.select=='received','content-message-sent':data.select=='sent'}\">\r\n                <div class=\"trip-decription\" (window:resize)=\"onResize($event)\"\r\n                    [ngStyle]=\"x && {'max-height.em':height}\">\r\n                    <p #des>{{item.message}}</p>\r\n                </div>\r\n                <div class=\"button-decription\" *ngIf=\"show\">\r\n                    <a style=\"margin-left:auto\" (click)=\"x=!x\">{{x?'[-]Read Less':'[+]Read More'}}</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"action col-lg-2 \" [ngClass]=\"(data.type=='friendrequest')?'col-md-2':'col-md-12'\">\r\n            <div class=\"button-bar\">\r\n                <button *ngIf=\"data.select=='received'\" [disabled]=\"item.isAccepted || isdiabled\" (click)=\"onAccept()\"\r\n                    [ngClass]=\"item.isAccepted?'btn-success':'btn-primary'\"\r\n                    class=\"btn \">{{item.isAccepted?'Accepted':'Accept'}}</button>\r\n                <button *ngIf=\"data.select=='received'\" [disabled]=\"isdiabled\" (click)=\"onAction('ignore')\"\r\n                    class=\"btn btn-danger\">Ignore</button>\r\n                <button *ngIf=\"data.select=='sent'\" [disabled]=\"isdiabled\" (click)=\"onAction('cancel')\"\r\n                    class=\"btn btn-danger\">Cancel</button>\r\n            </div>\r\n            <div class=\"time\">\r\n                <p>{{item.createDate|formatDate:'dd/MM/yyyy HH:mm'}}</p>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -4259,7 +4280,7 @@ var ItemActivityComponent = /** @class */ (function () {
             // );
         }
     };
-    ItemActivityComponent.prototype.onIgnore = function () {
+    ItemActivityComponent.prototype.onAction = function (event) {
         this.isdiabled = true;
         var id;
         if (this.data.type == 'travelrequest') {
@@ -4272,7 +4293,7 @@ var ItemActivityComponent = /** @class */ (function () {
             id = this.item.friendRequestId;
         }
         var body = {
-            type: 'ignore', id: id
+            type: event, id: id
         };
         this.myClick.emit(body);
     };
@@ -6438,6 +6459,9 @@ var UserService = /** @class */ (function () {
     UserService.prototype.ignoreRequest = function (id) {
         return this.http.delete(this.BaseURI + '/TravelRequests/' + id, { reportProgress: true, observe: "response" });
     };
+    UserService.prototype.cancelRequest = function (id) {
+        return this.http.put(this.BaseURI + '/TravelRequests/CancelRequest/' + id, { reportProgress: true, observe: "response" });
+    };
     //=============================
     UserService.prototype.getHostOffer = function () {
         return this.http.get(this.BaseURI + '/Users/HostOffers');
@@ -6451,6 +6475,9 @@ var UserService = /** @class */ (function () {
     UserService.prototype.ignoreHostOffer = function (id) {
         return this.http.delete(this.BaseURI + '/HostOffers/' + id, { reportProgress: true, observe: "response" });
     };
+    UserService.prototype.cancelHostOffer = function (id) {
+        return this.http.put(this.BaseURI + '/HostOffers/CancelOffer/' + id, { reportProgress: true, observe: "response" });
+    };
     //==============================
     UserService.prototype.getFriendRequest = function () {
         return this.http.get(this.BaseURI + '/Users/FriendRequests/');
@@ -6463,6 +6490,9 @@ var UserService = /** @class */ (function () {
     };
     UserService.prototype.ignoreFriendRequest = function (id) {
         return this.http.delete(this.BaseURI + '/FriendRequests/' + id, { reportProgress: true, observe: "response" });
+    };
+    UserService.prototype.cancelFriendRequest = function (id) {
+        return this.http.put(this.BaseURI + '/FriendRequests/CancelRequest/' + id, { reportProgress: true, observe: "response" });
     };
     //  =============================
     UserService.prototype.getUserProfile = function () {
