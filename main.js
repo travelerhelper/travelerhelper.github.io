@@ -157,11 +157,17 @@ var routes = [
         ]
     },
     {
-        path: 'Admin', component: _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_23__["AdminComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]], data: { permittedRoles: ['Admin'] }, resolve: { users: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["UserResolve"] },
+        path: 'Admin', component: _components_admin_admin_component__WEBPACK_IMPORTED_MODULE_23__["AdminComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"]], data: { permittedRoles: ['Admin'] },
+        resolve: { users: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["UserResolve"] },
         children: [
             { path: '', redirectTo: 'Dashboard', pathMatch: 'full' },
             {
-                path: 'Dashboard', component: _components_admin_dashboard_admin_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_24__["DashboardAdminComponent"]
+                path: 'Dashboard', component: _components_admin_dashboard_admin_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_24__["DashboardAdminComponent"],
+                resolve: {
+                    quantityUser: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["quantityUserResolve"],
+                    quantityReport: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["quantityReportResolve"],
+                    quantityBan: _services_user_resolve__WEBPACK_IMPORTED_MODULE_20__["quantityBanResolve"]
+                }
             },
             {
                 path: 'Report', component: _components_admin_report_user_report_user_component__WEBPACK_IMPORTED_MODULE_25__["ReportUserComponent"]
@@ -495,6 +501,9 @@ var AppModule = /** @class */ (function () {
                 _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["ListUserChatResolve"],
                 _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["CurrentUserChatResolve"],
                 _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["DefaultUserChatResolve"],
+                _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["quantityUserResolve"],
+                _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["quantityReportResolve"],
+                _services_user_resolve__WEBPACK_IMPORTED_MODULE_37__["quantityBanResolve"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
         })
@@ -801,7 +810,7 @@ module.exports = ".container {\r\n  padding-top: 20px !important;\r\n}\r\n\r\n/*
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <div class=\"row justify-content-center\">\r\n    <div class=\"col-sm-3 box\" style=\"font-size: 25px;  background: #007bff; color: white\">\r\n      <app-statistic [type]=\"'users'\"></app-statistic>\r\n    </div>\r\n\r\n\r\n    <div class=\"col-sm-1\"></div>\r\n\r\n    <div class=\"col-sm-3 box\" style=\"font-size: 25px; background: #ffc107; color: white\">\r\n        <app-statistic [type]=\"'reports'\"></app-statistic>\r\n    </div>\r\n\r\n    <div class=\"col-sm-1\"></div>\r\n\r\n    <div class=\"col-sm-3 box\" style=\"font-size: 25px; background: #dc3545; color: white\">\r\n        <app-statistic [type]=\"'banned'\"></app-statistic>\r\n    </div>\r\n\r\n  </div>\r\n\r\n\r\n  <!-- part 2 -->\r\n\r\n  <app-table-report ></app-table-report>\r\n\r\n\r\n<!-- part 3 -->\r\n\r\n  <app-table-banned ></app-table-banned>\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row justify-content-center\">\r\n    <div class=\"col-sm-3 box\" style=\"font-size: 25px;  background: #007bff; color: white\">\r\n      <app-statistic [type]=\"'Users'\" [value]=\"userQuantity\" ></app-statistic>\r\n    </div>\r\n\r\n\r\n    <div class=\"col-sm-1\"></div>\r\n\r\n    <div class=\"col-sm-3 box\" style=\"font-size: 25px; background: #ffc107; color: white\">\r\n        <app-statistic [type]=\"'Reports'\" [value]=\"reportQuantity\" ></app-statistic>\r\n    </div>\r\n\r\n    <div class=\"col-sm-1\"></div>\r\n\r\n    <div class=\"col-sm-3 box\" style=\"font-size: 25px; background: #dc3545; color: white\">\r\n        <app-statistic [type]=\"'Banned'\" [value]=\"banQuantity\" ></app-statistic>\r\n    </div>\r\n\r\n  </div>\r\n\r\n\r\n  <!-- part 2 -->\r\n\r\n  <app-table-report ></app-table-report>\r\n\r\n\r\n<!-- part 3 -->\r\n\r\n  <app-table-banned ></app-table-banned>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -817,12 +826,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardAdminComponent", function() { return DashboardAdminComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_admin_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/admin.service */ "./src/app/services/admin.service.ts");
+/* harmony import */ var src_app_services_data_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/data.service */ "./src/app/services/data.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
 
 
 var DashboardAdminComponent = /** @class */ (function () {
-    function DashboardAdminComponent() {
+    function DashboardAdminComponent(adminService, _dataService, activeRoute, router) {
+        this.adminService = adminService;
+        this._dataService = _dataService;
+        this.activeRoute = activeRoute;
+        this.router = router;
     }
     DashboardAdminComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.load();
+        this.urlCur = this.router.url;
+        this._dataService.ClickDel$.subscribe(function (value) {
+            if (value && _this.urlCur == '/Admin/Dashboard') {
+                _this.adminService.getBanQuantity().toPromise().then(function (v) {
+                    _this.banQuantity = v.quantity;
+                }).catch(function (err) { console.log(err); });
+                _this.adminService.getReportQuantity().toPromise().then(function (v) {
+                    _this.reportQuantity = v.quantity;
+                }).catch(function (err) { console.log(err); });
+            }
+        });
+    };
+    DashboardAdminComponent.prototype.load = function () {
+        this.userQuantity = this.activeRoute.snapshot.data.quantityUser.quantity;
+        this.reportQuantity = this.activeRoute.snapshot.data.quantityReport.quantity;
+        this.banQuantity = this.activeRoute.snapshot.data.quantityBan.quantity;
     };
     DashboardAdminComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -830,7 +867,10 @@ var DashboardAdminComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./dashboard-admin.component.html */ "./src/app/components/admin/dashboard-admin/dashboard-admin.component.html"),
             styles: [__webpack_require__(/*! ./dashboard-admin.component.css */ "./src/app/components/admin/dashboard-admin/dashboard-admin.component.css"), __webpack_require__(/*! ./../../../app.component.css */ "./src/app/app.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_admin_service__WEBPACK_IMPORTED_MODULE_2__["AdminService"],
+            src_app_services_data_service__WEBPACK_IMPORTED_MODULE_3__["DataService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], DashboardAdminComponent);
     return DashboardAdminComponent;
 }());
@@ -857,7 +897,7 @@ module.exports = ".wrapicon {\r\n  margin: auto;\r\n  font-size: 40px;\r\n}\r\n\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n  <div class=\"d-flex align-items-center\">\r\n    <div class=\"wrapicon\">\r\n      <ng-container *ngIf=\"type === 'users';else notUsers\">\r\n        <i class=\"fas fa-users\"></i>\r\n      </ng-container>\r\n      <ng-template #notUsers>\r\n        <ng-container *ngIf=\"type === 'reports'else notReports\">\r\n          <i class=\"fas fa-sticky-note\"></i>\r\n        </ng-container>\r\n\r\n        <ng-template #notReports>\r\n          <i class=\"fas fa-user-slash\"></i>\r\n        </ng-template>\r\n      </ng-template>\r\n    </div>\r\n    <div class=\"m-auto\" style=\"padding: 20px;\">\r\n      <div >123456</div>\r\n      <div >Users</div>\r\n    </div>\r\n  </div>\r\n\r\n"
+module.exports = "\r\n  <div class=\"d-flex align-items-center\">\r\n    <div class=\"wrapicon\">\r\n      <ng-container *ngIf=\"type === 'Users';else notUsers\">\r\n        <i class=\"fas fa-users\"></i>\r\n      </ng-container>\r\n      <ng-template #notUsers>\r\n        <ng-container *ngIf=\"type === 'Reports'else notReports\">\r\n          <i class=\"fas fa-sticky-note\"></i>\r\n        </ng-container>\r\n\r\n        <ng-template #notReports>\r\n          <i class=\"fas fa-user-slash\"></i>\r\n        </ng-template>\r\n      </ng-template>\r\n    </div>\r\n    <div class=\"m-auto\" style=\"padding: 20px;\">\r\n      <div >{{value}}</div>\r\n      <div >{{type}}</div>\r\n    </div>\r\n  </div>\r\n\r\n"
 
 /***/ }),
 
@@ -884,6 +924,10 @@ var StatisticComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
     ], StatisticComponent.prototype, "type", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
+    ], StatisticComponent.prototype, "value", void 0);
     StatisticComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-statistic',
@@ -992,16 +1036,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_admin_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/admin.service */ "./src/app/services/admin.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var src_app_services_data_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/data.service */ "./src/app/services/data.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+
 
 
 
 
 
 var TableBannedComponent = /** @class */ (function () {
-    function TableBannedComponent(adminService, router, _dataService) {
+    function TableBannedComponent(adminService, router, _dataService, toastr) {
         this.adminService = adminService;
         this.router = router;
         this._dataService = _dataService;
+        this.toastr = toastr;
         this.img = '/assets/imgs/avatar.png';
     }
     TableBannedComponent.prototype.ngOnInit = function () {
@@ -1034,14 +1081,22 @@ var TableBannedComponent = /** @class */ (function () {
     };
     TableBannedComponent.prototype.onClickActive = function (id) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var a;
+            var active;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.adminService.openUser(id).toPromise().catch(function (err) { return err; })];
+                    case 0: return [4 /*yield*/, this.adminService.openUser(id).toPromise().catch(function (err) { console.log(err); })];
                     case 1:
-                        a = _a.sent();
-                        console.log(a);
+                        active = _a.sent();
                         this.load();
+                        if (active) {
+                            this.toastr.success('Success', 'Active User');
+                        }
+                        else {
+                            this.toastr.error('Active failed', 'Error');
+                        }
+                        if (this.urlCur == '/Admin/Dashboard') {
+                            this._dataService.onClickDel(true);
+                        }
                         return [2 /*return*/];
                 }
             });
@@ -1068,7 +1123,7 @@ var TableBannedComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./table-banned.component.html */ "./src/app/components/admin/table-banned/table-banned.component.html"),
             styles: [__webpack_require__(/*! ./table-banned.component.css */ "./src/app/components/admin/table-banned/table-banned.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_admin_service__WEBPACK_IMPORTED_MODULE_2__["AdminService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], src_app_services_data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_admin_service__WEBPACK_IMPORTED_MODULE_2__["AdminService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], src_app_services_data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"], ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]])
     ], TableBannedComponent);
     return TableBannedComponent;
 }());
@@ -1084,7 +1139,7 @@ var TableBannedComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\r\n  padding-top: 20px !important;\r\n}\r\n\r\n.solve{\r\n  opacity: 0.5;\r\n}\r\n\r\ntd{\r\n  padding-left: 8px;\r\n  padding-right: 8px\r\n}\r\n\r\nspan:hover{\r\n  cursor: pointer;\r\n\r\n}\r\n\r\nspan:hover i{\r\n  -webkit-transform: scale(1.2);\r\n          transform: scale(1.2);\r\n}\r\n\r\ni{\r\n  transition: 500ms all;\r\n}\r\n\r\nspan {\r\n  font-size: 30px;\r\n  \r\n}\r\n\r\n.ban{\r\n  margin: 0 5px;\r\n}\r\n\r\n.fullName{\r\n  border-bottom: 1px solid #CCC\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hZG1pbi90YWJsZS1yZXBvcnQvdGFibGUtcmVwb3J0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSw0QkFBNEI7QUFDOUI7O0FBRUE7RUFDRSxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakI7QUFDRjs7QUFFQTtFQUNFLGVBQWU7O0FBRWpCOztBQUVBO0VBQ0UsNkJBQXFCO1VBQXJCLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLGVBQWU7O0FBRWpCOztBQUVBO0VBQ0UsYUFBYTtBQUNmOztBQUVBO0VBQ0U7QUFDRiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvYWRtaW4vdGFibGUtcmVwb3J0L3RhYmxlLXJlcG9ydC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbnRhaW5lciB7XHJcbiAgcGFkZGluZy10b3A6IDIwcHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLnNvbHZle1xyXG4gIG9wYWNpdHk6IDAuNTtcclxufVxyXG5cclxudGR7XHJcbiAgcGFkZGluZy1sZWZ0OiA4cHg7XHJcbiAgcGFkZGluZy1yaWdodDogOHB4XHJcbn1cclxuXHJcbnNwYW46aG92ZXJ7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG5cclxufVxyXG5cclxuc3Bhbjpob3ZlciBpe1xyXG4gIHRyYW5zZm9ybTogc2NhbGUoMS4yKTtcclxufVxyXG5cclxuaXtcclxuICB0cmFuc2l0aW9uOiA1MDBtcyBhbGw7XHJcbn1cclxuXHJcbnNwYW4ge1xyXG4gIGZvbnQtc2l6ZTogMzBweDtcclxuICBcclxufVxyXG5cclxuLmJhbntcclxuICBtYXJnaW46IDAgNXB4O1xyXG59XHJcblxyXG4uZnVsbE5hbWV7XHJcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNDQ0NcclxufVxyXG4iXX0= */"
+module.exports = ".container {\r\n  padding-top: 20px !important;\r\n}\r\n\r\n.solve{\r\n  opacity: 0.5;\r\n}\r\n\r\ntd{\r\n  padding-left: 8px;\r\n  padding-right: 8px\r\n}\r\n\r\nspan:hover{\r\n  cursor: pointer;\r\n\r\n}\r\n\r\nspan:hover i{\r\n  -webkit-transform: scale(1.2);\r\n          transform: scale(1.2);\r\n}\r\n\r\ni{\r\n  transition: 500ms all;\r\n}\r\n\r\nspan {\r\n  font-size: 30px;\r\n\r\n}\r\n\r\n.ban{\r\n  margin: 0 5px;\r\n}\r\n\r\n.fullName{\r\n  border-bottom: 1px solid #CCC\r\n}\r\n\r\n.sender, .receiver{\r\n  cursor: pointer;\r\n}\r\n\r\n.sender:hover, .receiver:hover{\r\n  background: #DDD;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hZG1pbi90YWJsZS1yZXBvcnQvdGFibGUtcmVwb3J0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSw0QkFBNEI7QUFDOUI7O0FBRUE7RUFDRSxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakI7QUFDRjs7QUFFQTtFQUNFLGVBQWU7O0FBRWpCOztBQUVBO0VBQ0UsNkJBQXFCO1VBQXJCLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLGVBQWU7O0FBRWpCOztBQUVBO0VBQ0UsYUFBYTtBQUNmOztBQUVBO0VBQ0U7QUFDRjs7QUFFQTtFQUNFLGVBQWU7QUFDakI7O0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2FkbWluL3RhYmxlLXJlcG9ydC90YWJsZS1yZXBvcnQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb250YWluZXIge1xyXG4gIHBhZGRpbmctdG9wOiAyMHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5zb2x2ZXtcclxuICBvcGFjaXR5OiAwLjU7XHJcbn1cclxuXHJcbnRke1xyXG4gIHBhZGRpbmctbGVmdDogOHB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDhweFxyXG59XHJcblxyXG5zcGFuOmhvdmVye1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuXHJcbn1cclxuXHJcbnNwYW46aG92ZXIgaXtcclxuICB0cmFuc2Zvcm06IHNjYWxlKDEuMik7XHJcbn1cclxuXHJcbml7XHJcbiAgdHJhbnNpdGlvbjogNTAwbXMgYWxsO1xyXG59XHJcblxyXG5zcGFuIHtcclxuICBmb250LXNpemU6IDMwcHg7XHJcblxyXG59XHJcblxyXG4uYmFue1xyXG4gIG1hcmdpbjogMCA1cHg7XHJcbn1cclxuXHJcbi5mdWxsTmFtZXtcclxuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI0NDQ1xyXG59XHJcblxyXG4uc2VuZGVyLCAucmVjZWl2ZXJ7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4uc2VuZGVyOmhvdmVyLCAucmVjZWl2ZXI6aG92ZXJ7XHJcbiAgYmFja2dyb3VuZDogI0RERDtcclxufVxyXG5cclxuIl19 */"
 
 /***/ }),
 
@@ -1095,7 +1150,7 @@ module.exports = ".container {\r\n  padding-top: 20px !important;\r\n}\r\n\r\n.s
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n\r\n  <div class=\"card box\" style=\"margin-top: 20px;\">\r\n    <div class=\"card-header bg-warning\" style=\"color: white\">\r\n        <i class=\"fas fa-list\"></i> List reports\r\n    </div>\r\n    <div class=\"card-body\">\r\n      <table class=\"table table-bordered\">\r\n        <thead>\r\n          <tr>\r\n            <th scope=\"col\">#</th>\r\n            <th scope=\"col\">User report</th>\r\n            <th scope=\"col\">User is reported</th>\r\n            \r\n            <th scope=\"col\">Content</th>\r\n            <th scope=\"col\">Action</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n            <tr id=\"{{item.reportId}}\" *ngFor=\"let item of list; let index = index\" [ngClass]=\"{ solve: item.isSolved}\">\r\n                <td>{{index + 1}}</td>\r\n                <td  >\r\n                  <div class=\"d-flex align-items-center\">\r\n                    <div class=\"wrapicon\">\r\n                      <img src=\"{{item.sender.avatarLocation ? item.sender.avatarLocation : img }}\" width=\"32px\" height=\"32px\" alt=\"\">\r\n                    </div>\r\n                    <div class=\"ml-3\" style=\"\">\r\n                      <div class=\"fullName\" >{{item.sender.fullName}}</div>\r\n                      <div >{{item.sender.userName}}</div>\r\n                    </div>\r\n                  </div>\r\n                </td>\r\n                <td  >\r\n                  <div class=\"d-flex align-items-center\">\r\n                    <div class=\"wrapicon\">\r\n                      <img src=\"{{item.receiver.avatarLocation ? item.receiver.avatarLocation : img }}\" width=\"32px\" height=\"32px\" alt=\"\">\r\n                    </div>\r\n                    <div class=\"ml-3\" style=\"\">\r\n                        <div class=\"fullName\" >{{item.receiver.fullName}}</div>\r\n                        <div >{{item.receiver.userName}}</div>\r\n                    </div>\r\n                  </div>\r\n                </td>\r\n               \r\n                <td style=\"width: 30%\" >\r\n                  <div>\r\n                      <b>{{item.type}}:</b>\r\n                  </div>\r\n                  {{item.message}}\r\n                </td>\r\n                <td style=\"width: 13%\">\r\n                    <ng-container *ngIf=\"item.isSolved; else pending\">\r\n                      <span >\r\n                        <i style=\"color: rgb(187, 212, 187); font-size: 30px\" class=\"far fa-check-circle\"  ></i>\r\n                      </span>\r\n                    </ng-container>\r\n\r\n                    <ng-template #pending>\r\n                      <span (click)=\"onClickPending(item.reportId)\">\r\n                        <i style=\"font-size: 30px\" class=\"far fa-circle\"></i>\r\n                      </span>\r\n                    </ng-template>\r\n                    <span class=\"ban\" (click)=\"onClickLock(item.receiver.id)\">\r\n                        <i class=\"fas fa-ban\"></i>\r\n\r\n                    </span>\r\n                    <span (click)=\"onClickDelete(item.reportId)\">\r\n\r\n                      <i class=\"far fa-times-circle\"></i>\r\n                    </span>\r\n                    <!-- <button id=\"btn{{item.reportId}}\" [ngClass]=\"{btn: true, 'btn-warning': !item.isSolved, 'btn-success': item.isSolved}\"  style=\"color: white\" (click)=\"onClickPending(item.reportId)\">{{item.isSolved ? 'Solved' : 'Pending'}}</button> -\r\n                    <button class=\"btn btn-primary\" (click)=\"onClickLock(item.receiver.id)\">Lock</button> -\r\n                    <button class=\"btn btn-danger\" (click)=\"onClickDelete(item.reportId)\">Delete</button> -->\r\n                </td>\r\n            </tr>\r\n\r\n\r\n\r\n\r\n\r\n        \r\n        </tbody>\r\n      </table>\r\n      <ng-container *ngIf=\"urlCur === '/Admin/Report'; else notReport\">\r\n\r\n        <a (click)=\"onClickSeeMore()\" class=\"btn btn-warning\" style=\"color: white\">See more</a>\r\n      </ng-container>\r\n\r\n      <ng-template #notReport>\r\n\r\n        <a [routerLink]=\"['/Admin/Report']\" routerLinkActive=\"router-link-active\"  class=\"btn btn-warning\" style=\"color: white\">See more</a>\r\n      </ng-template>\r\n    </div>\r\n  </div>\r\n\r\n"
+module.exports = "\r\n\r\n\r\n  <div class=\"card box\" style=\"margin-top: 20px;\">\r\n    <div class=\"card-header bg-warning\" style=\"color: white\">\r\n        <i class=\"fas fa-list\"></i> List reports\r\n    </div>\r\n    <div class=\"card-body\">\r\n      <table class=\"table table-bordered\">\r\n        <thead>\r\n          <tr>\r\n            <th scope=\"col\">#</th>\r\n            <th scope=\"col\">User report</th>\r\n            <th scope=\"col\">User is reported</th>\r\n\r\n            <th scope=\"col\">Content</th>\r\n            <th scope=\"col\">Action</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n            <tr id=\"{{item.reportId}}\" *ngFor=\"let item of list; let index = index\" [ngClass]=\"{ solve: item.isSolved}\">\r\n                <td>{{index + 1}}</td>\r\n                <td class=\"sender\" (click)=\"onClickUser(item.sender.id)\" >\r\n                  <div class=\"d-flex align-items-center\">\r\n                    <div class=\"wrapicon\">\r\n                      <img src=\"{{item.sender.avatarLocation ? item.sender.avatarLocation : img }}\" width=\"32px\" height=\"32px\" alt=\"\">\r\n                    </div>\r\n                    <div class=\"ml-3\" style=\"\">\r\n                      <div class=\"fullName\" >{{item.sender.fullName}}</div>\r\n                      <div >{{item.sender.userName}}</div>\r\n                    </div>\r\n                  </div>\r\n                </td>\r\n                <td class=\"receiver\" (click)=\"onClickUser(item.receiver.id)\" >\r\n                  <div class=\"d-flex align-items-center\">\r\n                    <div class=\"wrapicon\">\r\n                      <img src=\"{{item.receiver.avatarLocation ? item.receiver.avatarLocation : img }}\" width=\"32px\" height=\"32px\" alt=\"\">\r\n                    </div>\r\n                    <div class=\"ml-3\" style=\"\">\r\n                        <div class=\"fullName\" >{{item.receiver.fullName}}</div>\r\n                        <div >{{item.receiver.userName}}</div>\r\n                    </div>\r\n                  </div>\r\n                </td>\r\n\r\n                <td style=\"width: 30%\" >\r\n                  <div>\r\n                      <b>{{item.type}}:</b>\r\n                  </div>\r\n                  {{item.message}}\r\n                </td>\r\n                <td style=\"width: 13%\">\r\n                    <ng-container *ngIf=\"item.isSolved; else pending\">\r\n                      <span >\r\n                        <i style=\"color: rgb(187, 212, 187); font-size: 30px\" class=\"far fa-check-circle\"  ></i>\r\n                      </span>\r\n                    </ng-container>\r\n\r\n                    <ng-template #pending>\r\n                      <span (click)=\"onClickPending(item.reportId)\">\r\n                        <i style=\"font-size: 30px\" class=\"far fa-circle\"></i>\r\n                      </span>\r\n                    </ng-template>\r\n                    <span class=\"ban\" (click)=\"onClickLock(item.receiver.id)\">\r\n                        <i class=\"fas fa-ban\"></i>\r\n\r\n                    </span>\r\n                    <span (click)=\"onClickDelete(item.reportId)\">\r\n\r\n                      <i class=\"far fa-times-circle\"></i>\r\n                    </span>\r\n                    <!-- <button id=\"btn{{item.reportId}}\" [ngClass]=\"{btn: true, 'btn-warning': !item.isSolved, 'btn-success': item.isSolved}\"  style=\"color: white\" (click)=\"onClickPending(item.reportId)\">{{item.isSolved ? 'Solved' : 'Pending'}}</button> -\r\n                    <button class=\"btn btn-primary\" (click)=\"onClickLock(item.receiver.id)\">Lock</button> -\r\n                    <button class=\"btn btn-danger\" (click)=\"onClickDelete(item.reportId)\">Delete</button> -->\r\n                </td>\r\n            </tr>\r\n\r\n\r\n\r\n\r\n\r\n\r\n        </tbody>\r\n      </table>\r\n      <ng-container *ngIf=\"urlCur === '/Admin/Report'; else notReport\">\r\n\r\n        <a (click)=\"onClickSeeMore()\" class=\"btn btn-warning\" style=\"color: white\">See more</a>\r\n      </ng-container>\r\n\r\n      <ng-template #notReport>\r\n\r\n        <a [routerLink]=\"['/Admin/Report']\" routerLinkActive=\"router-link-active\"  class=\"btn btn-warning\" style=\"color: white\">See more</a>\r\n      </ng-template>\r\n    </div>\r\n  </div>\r\n\r\n"
 
 /***/ }),
 
@@ -1114,16 +1169,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_admin_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/admin.service */ "./src/app/services/admin.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var src_app_services_data_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/data.service */ "./src/app/services/data.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
+
 
 
 
 
 
 var TableReportComponent = /** @class */ (function () {
-    function TableReportComponent(adminService, router, _dataService) {
+    function TableReportComponent(adminService, router, _dataService, toastr) {
         this.adminService = adminService;
         this.router = router;
         this._dataService = _dataService;
+        this.toastr = toastr;
         this.id = 0;
         this.img = '/assets/imgs/avatar.png';
     }
@@ -1173,12 +1231,19 @@ var TableReportComponent = /** @class */ (function () {
     };
     TableReportComponent.prototype.onClickLock = function (id) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var lock;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.adminService.banUser(id).toPromise().catch(function (err) { return err; })];
+                    case 0: return [4 /*yield*/, this.adminService.banUser(id).toPromise().catch(function (err) { console.log(err); })];
                     case 1:
-                        _a.sent();
+                        lock = _a.sent();
                         this.load();
+                        if (lock) {
+                            this.toastr.success('Success', 'Ban User');
+                        }
+                        else {
+                            this.toastr.error('Ban user failed', 'Error');
+                        }
                         if (this.urlCur !== '/Admin/Report') {
                             this._dataService.onClickDel(true);
                         }
@@ -1189,12 +1254,22 @@ var TableReportComponent = /** @class */ (function () {
     };
     TableReportComponent.prototype.onClickDelete = function (id) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var del;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.adminService.deleteReport(id).toPromise().catch(function (err) { return err; })];
                     case 1:
-                        _a.sent();
+                        del = _a.sent();
                         this.load();
+                        if (!del) {
+                            this.toastr.success('Success', 'Delete report');
+                        }
+                        else {
+                            this.toastr.error('Delte report failed', 'Error');
+                        }
+                        if (this.urlCur !== '/Admin/Report') {
+                            this._dataService.onClickDel(true);
+                        }
                         return [2 /*return*/];
                 }
             });
@@ -1218,13 +1293,19 @@ var TableReportComponent = /** @class */ (function () {
             });
         });
     };
+    TableReportComponent.prototype.onClickUser = function (id) {
+        this.router.navigate(["/Users/People/" + id]);
+    };
     TableReportComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-table-report',
             template: __webpack_require__(/*! ./table-report.component.html */ "./src/app/components/admin/table-report/table-report.component.html"),
             styles: [__webpack_require__(/*! ./table-report.component.css */ "./src/app/components/admin/table-report/table-report.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_admin_service__WEBPACK_IMPORTED_MODULE_2__["AdminService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], src_app_services_data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_admin_service__WEBPACK_IMPORTED_MODULE_2__["AdminService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            src_app_services_data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"],
+            ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]])
     ], TableReportComponent);
     return TableReportComponent;
 }());
@@ -1946,7 +2027,7 @@ module.exports = ".container-footer{\r\n  width: 100%;\r\n  padding-right: 15px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--\r\n<div class=\"footer1 row\">\r\n  <div class=\"info col\">\r\n    <div class=\"about\">\r\n      About\r\n    </div>\r\n    <h6>\r\n      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut, recusandae unde? Ut obcaecati dolore est.\r\n    </h6>\r\n  </div>\r\n  <div class=\"website col\">\r\n    Copyright @2019-2020 travelhelper.com\r\n  </div>\r\n  <div class=\"member col\">\r\n    <div [style.width.px]=\"200\">\r\n        <p>\r\n            FOLLOW US\r\n        </p>\r\n          <ul class=\"list\">\r\n                <li class=\"\"><i class=\"eva eva-github-outline\"></i></li>\r\n                <li class=\"\"><i class=\"eva eva-facebook\"></i></li>\r\n          </ul>\r\n    </div>\r\n\r\n\r\n  </div>\r\n</div> -->\r\n\r\n<div class=\"container-footer\" style=\"padding-top: 20px !important\">\r\n  <div class=\"row\">\r\n    <div class=\"col-sm\">\r\n\r\n      <div class=\"about\">\r\n        ABOUT\r\n      </div>\r\n      <span>\r\n        This website is about to help people around the world when they travel.\r\n      </span>\r\n\r\n    </div>\r\n    <div class=\"col-sm\">\r\n        <div class=\"about\">\r\n            JOIN TRAVEL\r\n          </div>\r\n          <span>\r\n            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut, recusandae unde? Ut obcaecati dolore est.\r\n          </span>\r\n          <div>\r\n            <img src=\"../../../../assets/imgs/world-map-wheat.png\" alt=\"\" height=\"80%\" width=\"100%\">\r\n\r\n          </div>\r\n    </div>\r\n    <div class=\"col-sm\">\r\n      <ul class=\"list\">\r\n          <div class=\"about\">\r\n              CONTACT US\r\n            </div>\r\n        <li class=\"\">\r\n            <div class=\"row\">\r\n                <div class=\"col-1\"><i class=\"fas fa-home \"></i></div>\r\n                <div class=\"col\">\r\n                  <p>ADDRESS</p>\r\n                  <span>54 Nguyễn Lương Bằng, Hoà Khánh Bắc, Liên Chiểu, Đà Nẵng 550000</span></div>\r\n            </div>\r\n        </li>\r\n\r\n        <li class=\"\">\r\n          <div class=\"row\">\r\n              <div class=\"col-1\"><i class=\"fas fa-phone \"></i></div>\r\n              <div class=\"col\">\r\n                <p>PHONE</p>\r\n                <span>0902449450</span></div>\r\n          </div>\r\n        </li>\r\n\r\n        <li class=\"\">\r\n          <div class=\"row\">\r\n              <div class=\"col-1\"><i class=\"far fa-envelope \"></i></div>\r\n              <div class=\"col\">\r\n                <p>EMAIL</p>\r\n                <span>email@email.com</span></div>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n\r\n  <hr style=\"color: #888\">\r\n\r\n  <div class=\"container-footer\" style=\"padding-bottom: 10px; padding-top: 10px !important\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm\">\r\n            <h6>Copyright @2019-2020 travelhelper.com</h6>\r\n        </div>\r\n        <div class=\"col-sm\">\r\n\r\n        </div>\r\n        <div class=\"col-sm\">\r\n          <div class=\"row\">\r\n            <div class=\"col\">\r\n              <h6>FOLLOW US </h6>\r\n\r\n              <i class=\"eva eva-github\"></i>\r\n              <i class=\"eva eva-facebook\"></i>\r\n              <i class=\"eva eva-twitter\"></i>\r\n              <i class=\"fab fa-instagram\"></i>\r\n\r\n            </div>\r\n\r\n            <div class=\"col\">\r\n                <h6>MOBILE APP </h6>\r\n\r\n                <i class=\"fab fa-android\"></i>\r\n                <i class=\"fab fa-apple\"></i>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<!--\r\n<div class=\"footer1 row\">\r\n  <div class=\"info col\">\r\n    <div class=\"about\">\r\n      About\r\n    </div>\r\n    <h6>\r\n      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut, recusandae unde? Ut obcaecati dolore est.\r\n    </h6>\r\n  </div>\r\n  <div class=\"website col\">\r\n    Copyright @2019-2020 travelhelper.com\r\n  </div>\r\n  <div class=\"member col\">\r\n    <div [style.width.px]=\"200\">\r\n        <p>\r\n            FOLLOW US\r\n        </p>\r\n          <ul class=\"list\">\r\n                <li class=\"\"><i class=\"eva eva-github-outline\"></i></li>\r\n                <li class=\"\"><i class=\"eva eva-facebook\"></i></li>\r\n          </ul>\r\n    </div>\r\n\r\n\r\n  </div>\r\n</div> -->\r\n\r\n<div class=\"container-footer\" style=\"padding-top: 20px !important\">\r\n  <div class=\"row\">\r\n    <div class=\"col-sm\">\r\n\r\n      <div class=\"about\">\r\n        ABOUT\r\n      </div>\r\n      <span>\r\n        This website is about to help people around the world when they travel.\r\n      </span>\r\n\r\n    </div>\r\n    <div class=\"col-sm\">\r\n      <div class=\"about\">\r\n        JOIN TRAVEL\r\n      </div>\r\n      <span>\r\n        You can stay with locals in every country on earth. Travel like a local, stay in someone's\r\n        home and experience the world in a way money can't buy.\r\n      </span>\r\n      <div>\r\n        <img src=\"../../../../assets/imgs/world-map-wheat.png\" alt=\"\" height=\"80%\" width=\"100%\">\r\n\r\n      </div>\r\n    </div>\r\n    <div class=\"col-sm\">\r\n      <ul class=\"list\">\r\n        <div class=\"about\">\r\n          CONTACT US\r\n        </div>\r\n        <li class=\"\">\r\n          <div class=\"row\">\r\n            <div class=\"col-1\"><i class=\"fas fa-home \"></i></div>\r\n            <div class=\"col\">\r\n              <p>ADDRESS</p>\r\n              <span>54 Nguyễn Lương Bằng, Hoà Khánh Bắc, Liên Chiểu, Đà Nẵng 550000</span>\r\n            </div>\r\n          </div>\r\n        </li>\r\n\r\n        <li class=\"\">\r\n          <div class=\"row\">\r\n            <div class=\"col-1\"><i class=\"fas fa-phone \"></i></div>\r\n            <div class=\"col\">\r\n              <p>PHONE</p>\r\n              <span>0902449450</span>\r\n            </div>\r\n          </div>\r\n        </li>\r\n\r\n        <li class=\"\">\r\n          <div class=\"row\">\r\n            <div class=\"col-1\"><i class=\"far fa-envelope \"></i></div>\r\n            <div class=\"col\">\r\n              <p>EMAIL</p>\r\n              <span>email@email.com</span>\r\n            </div>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n\r\n  <hr style=\"color: #888\">\r\n\r\n  <div class=\"container-footer\" style=\"padding-bottom: 10px; padding-top: 10px !important\">\r\n    <div class=\"row\">\r\n      <div class=\"col-sm\">\r\n        <h6>Copyright @2019-2020 travelhelper.com</h6>\r\n      </div>\r\n      <div class=\"col-sm\">\r\n\r\n      </div>\r\n      <div class=\"col-sm\">\r\n        <div class=\"row\">\r\n          <div class=\"col\">\r\n            <h6>FOLLOW US </h6>\r\n\r\n            <i class=\"eva eva-github\"></i>\r\n            <i class=\"eva eva-facebook\"></i>\r\n            <i class=\"eva eva-twitter\"></i>\r\n            <i class=\"fab fa-instagram\"></i>\r\n\r\n          </div>\r\n\r\n          <div class=\"col\">\r\n            <h6>MOBILE APP </h6>\r\n\r\n            <i class=\"fab fa-android\"></i>\r\n            <i class=\"fab fa-apple\"></i>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -6110,6 +6191,9 @@ var AdminService = /** @class */ (function () {
         this.lockUser = '/Users/Lock/';
         this.unLockUser = '/Users/Unlock/';
         this.listBan = '/Users/BannedUsers';
+        this.userQuantity = '/Users/UserQuantity';
+        this.banQuantity = '/Users/BannedQuantity';
+        this.reportQuantity = '/Reports/ReportQuantity';
     }
     AdminService.prototype.getAllReport = function (id) {
         return this.http.get(this.BaseURI + this.getReport + id);
@@ -6128,6 +6212,15 @@ var AdminService = /** @class */ (function () {
     };
     AdminService.prototype.changeStateReport = function (id) {
         return this.http.put(this.BaseURI + this.Report + id, {});
+    };
+    AdminService.prototype.getUserQuantity = function () {
+        return this.http.get(this.BaseURI + this.userQuantity);
+    };
+    AdminService.prototype.getBanQuantity = function () {
+        return this.http.get(this.BaseURI + this.banQuantity);
+    };
+    AdminService.prototype.getReportQuantity = function () {
+        return this.http.get(this.BaseURI + this.reportQuantity);
     };
     AdminService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -6183,7 +6276,7 @@ var DataService = /** @class */ (function () {
 /*!******************************************!*\
   !*** ./src/app/services/user.resolve.ts ***!
   \******************************************/
-/*! exports provided: TokenResolve, UserResolve, HomeResolve, PlacesDashboardResolve, ProfileResolve, IsFriendResolve, DefaultUserChatResolve, ListUserChatResolve, CurrentUserChatResolve */
+/*! exports provided: TokenResolve, UserResolve, HomeResolve, PlacesDashboardResolve, ProfileResolve, IsFriendResolve, DefaultUserChatResolve, ListUserChatResolve, quantityUserResolve, quantityReportResolve, quantityBanResolve, CurrentUserChatResolve */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6196,11 +6289,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IsFriendResolve", function() { return IsFriendResolve; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DefaultUserChatResolve", function() { return DefaultUserChatResolve; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListUserChatResolve", function() { return ListUserChatResolve; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "quantityUserResolve", function() { return quantityUserResolve; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "quantityReportResolve", function() { return quantityReportResolve; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "quantityBanResolve", function() { return quantityBanResolve; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CurrentUserChatResolve", function() { return CurrentUserChatResolve; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../services/user.service */ "./src/app/services/user.service.ts");
+/* harmony import */ var _admin_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./admin.service */ "./src/app/services/admin.service.ts");
+
 
 
 
@@ -6342,6 +6440,51 @@ var ListUserChatResolve = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], ListUserChatResolve);
     return ListUserChatResolve;
+}());
+
+var quantityUserResolve = /** @class */ (function () {
+    function quantityUserResolve(service, router) {
+        this.service = service;
+        this.router = router;
+    }
+    quantityUserResolve.prototype.resolve = function (activatedRouteSnapshot) {
+        return this.service.getUserQuantity();
+    };
+    quantityUserResolve = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_admin_service__WEBPACK_IMPORTED_MODULE_4__["AdminService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], quantityUserResolve);
+    return quantityUserResolve;
+}());
+
+var quantityReportResolve = /** @class */ (function () {
+    function quantityReportResolve(service, router) {
+        this.service = service;
+        this.router = router;
+    }
+    quantityReportResolve.prototype.resolve = function (activatedRouteSnapshot) {
+        return this.service.getReportQuantity();
+    };
+    quantityReportResolve = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_admin_service__WEBPACK_IMPORTED_MODULE_4__["AdminService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], quantityReportResolve);
+    return quantityReportResolve;
+}());
+
+var quantityBanResolve = /** @class */ (function () {
+    function quantityBanResolve(service, router) {
+        this.service = service;
+        this.router = router;
+    }
+    quantityBanResolve.prototype.resolve = function (activatedRouteSnapshot) {
+        return this.service.getBanQuantity();
+    };
+    quantityBanResolve = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_admin_service__WEBPACK_IMPORTED_MODULE_4__["AdminService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], quantityBanResolve);
+    return quantityBanResolve;
 }());
 
 var CurrentUserChatResolve = /** @class */ (function () {
