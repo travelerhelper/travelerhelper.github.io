@@ -5754,9 +5754,15 @@ var SigninComponent = /** @class */ (function () {
         var _this = this;
         this.progressBar.start();
         this.service.login(form.value).subscribe(function (res) {
-            localStorage.setItem('token', res.token);
-            _this.progressBar.complete();
-            _this.router.navigateByUrl('/Users');
+            if (res.token) {
+                localStorage.setItem('token', res.token);
+                _this.progressBar.complete();
+                _this.router.navigateByUrl('/Users');
+            }
+            else {
+                _this.progressBar.complete();
+                _this.toastr.error('User had been blocked.', 'Authentication failed.');
+            }
         }, function (err) {
             _this.progressBar.complete();
             _this.toastr.error('Incorrect username or password.', 'Authentication failed.');
