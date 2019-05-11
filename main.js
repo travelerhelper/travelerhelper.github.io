@@ -5557,7 +5557,8 @@ var SearchHostComponent = /** @class */ (function () {
     };
     SearchHostComponent.prototype.onScrollDown = function () {
         console.log("crolldown");
-        this.loadMoreData();
+        if (this.items.length)
+            this.loadMoreData();
     };
     SearchHostComponent.prototype.ngOnDestroy = function () {
         if (this.subscription) {
